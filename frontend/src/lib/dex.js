@@ -2,13 +2,14 @@ import { API_BASE, fetchJson, flattenChain, normalizeCreature } from "@/lib/poke
 import { idbGetAll, idbPut, idbClear, STORE_CREATURES } from "@/lib/idb";
 
 export const CACHE_TTL_MS = 30 * 24 * 60 * 60 * 1000;
+export const SCHEMA_VERSION = 2;
 const CONCURRENCY = 10;
 
 export async function loadCachedCreatures() {
   try {
     const rows = await idbGetAll(STORE_CREATURES);
     const now = Date.now();
-    return rows.filter((r) => r.cachedAt && now - r.cachedAt < CACHE_TTL_MS);
+    return rows.filter((r) => r.schema === SCHEMA_VERSION && r.cachedAt && now - r.cachedAt < CACHE_TTL_MS);
   } catch {
     return [];
   }
@@ -48,7 +49,7 @@ export function fetchCreatures(ids, { onCreature, onError }) {
         ]);
         const nodes = await getChain(species.evolution_chain.url);
         const creature = normalizeCreature(pokemon, species, nodes);
-        idbPut(STORE_CREATURES, { ...creature, cachedAt: Date.now() }).catch(() => {});
+        idbPut(STORE_CREATURES, { ...creature, schema: SCHEMA_VERSION, cachedAt: Date.now() }).catch(() => {});
         onCreature(creature);
       } catch (err) {
         onError(id, err);

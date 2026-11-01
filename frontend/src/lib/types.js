@@ -19,6 +19,6 @@ export const TYPE_COLORS = {
   fairy: { bg: "#F472B6", text: "#1E293B" },
 };
 
-export const TYPES = Object.keys(TYPE_COLORS);
+export const TYPES = Object.keys(TYPE_COLORS).filter((t) => t !== "fairy");
 
 export const typeColor = (type) => TYPE_COLORS[type]?.bg || "#64748B";

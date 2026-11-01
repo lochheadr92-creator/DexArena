@@ -71,6 +71,18 @@ export function flattenChain(chainData) {
 
 const english = (arr, key) => arr?.find((n) => n.language.name === "en")?.[key] || "";
 
+const GEN_ROMAN = { i: 1, ii: 2, iii: 3, iv: 4, v: 5, vi: 6, vii: 7, viii: 8, ix: 9 };
+const genNumber = (name) => GEN_ROMAN[name.replace("generation-", "")] || 99;
+
+export function gen4Types(pokemon) {
+  const past = (pokemon.past_types || [])
+    .map((p) => ({ gen: genNumber(p.generation.name), types: p.types }))
+    .filter((p) => p.gen >= 4)
+    .sort((a, b) => a.gen - b.gen)[0];
+  const source = past ? past.types : pokemon.types;
+  return [...source].sort((a, b) => a.slot - b.slot).map((t) => t.type.name);
+}
+
 export function normalizeCreature(pokemon, species, chainNodes) {
   const stats = {};
   pokemon.stats.forEach((s) => {
@@ -82,7 +94,7 @@ export function normalizeCreature(pokemon, species, chainNodes) {
     name: pokemon.name,
     displayName: english(species.names, "name") || pokemon.name,
     genus: english(species.genera, "genus"),
-    types: [...pokemon.types].sort((a, b) => a.slot - b.slot).map((t) => t.type.name),
+    types: gen4Types(pokemon),
     stats,
     bst: Object.values(stats).reduce((a, b) => a + b, 0),
     height: pokemon.height,

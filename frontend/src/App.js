@@ -20,7 +20,7 @@ function App() {
           </Route>
         </Routes>
       </BrowserRouter>
-      <Toaster theme="dark" position="top-center" richColors closeButton />
+      <Toaster theme="dark" position="top-center" richColors closeButton duration={2500} />
     </GameProvider>
   );
 }

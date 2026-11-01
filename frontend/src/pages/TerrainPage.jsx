@@ -20,7 +20,7 @@ export default function TerrainPage() {
   };
 
   return (
-    <div className="pb-28">
+    <div className="pb-36">
       <div className="mb-4">
         <p className="font-mono text-[10px] uppercase tracking-widest text-cyan-400">Step 2 of 2</p>
         <h2 className="font-display text-2xl font-bold tracking-tight text-slate-50 sm:text-3xl">Choose the arena</h2>

@@ -11,6 +11,8 @@ export function GameProvider({ children }) {
   const [creatures, setCreatures] = useState({});
   const [progress, setProgress] = useState({ status: "idle", failed: [] });
   const [save, setSave] = useState(loadSave);
+  const saveRef = useRef(save);
+  saveRef.current = save;
   const pendingRef = useRef({});
   const flushTimer = useRef(null);
   const startedRef = useRef(false);
@@ -83,19 +85,14 @@ export function GameProvider({ children }) {
   const toggleTeam = useCallback(
     (id) => {
       if (!unlockedRef.current.has(id)) return "locked";
-      let result = "added";
-      updateSave((prev) => {
-        if (prev.team.includes(id)) {
-          result = "removed";
-          return { ...prev, team: prev.team.filter((x) => x !== id) };
-        }
-        if (prev.team.length >= TEAM_SIZE) {
-          result = "full";
-          return prev;
-        }
-        return { ...prev, team: [...prev.team, id] };
-      });
-      return result;
+      const team = saveRef.current.team;
+      if (team.includes(id)) {
+        updateSave((prev) => ({ ...prev, team: prev.team.filter((x) => x !== id) }));
+        return "removed";
+      }
+      if (team.length >= TEAM_SIZE) return "full";
+      updateSave((prev) => (prev.team.length >= TEAM_SIZE || prev.team.includes(id) ? prev : { ...prev, team: [...prev.team, id] }));
+      return "added";
     },
     [updateSave],
   );
