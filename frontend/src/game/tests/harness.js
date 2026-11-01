@@ -79,7 +79,7 @@ async function pacingTest(n = 50) {
     durations.push(s.durationSec);
     lines.push(`#${String(i + 1).padStart(2, "0")} ${a.displayName} vs ${b.displayName}: ${s.durationSec}s winner=${s.winner}`);
   }
-  const res = { n: durations.length, median: median(durations), min: Math.min(...durations), max: Math.max(...durations), damageScale: engine.DAMAGE_SCALE, cooldown: engine.cooldown, durations };
+  const res = { n: durations.length, median: +median(durations).toFixed(2), min: Math.min(...durations), max: Math.max(...durations), damageScale: engine.DAMAGE_SCALE, cooldown: engine.cooldown, durations };
   out([`__pacingTest: ${res.n} seeded 1v1 battles, basic-stage Normal types within 10% BST, Pitch, Tactician params both sides`, ...lines, `durations: ${durations.join(", ")}`, `median=${res.median}s min=${res.min}s max=${res.max}s DAMAGE_SCALE=${res.damageScale} cooldown=${JSON.stringify(res.cooldown)}`]);
   return res;
 }
@@ -183,10 +183,10 @@ async function dodgeTest() {
     results[lead] = entry.outcome;
     lines.push(`dodge started ${lead}s before impact (${target.name}, top speed ${unitTopSpeed(target).toFixed(2)} t/s, burst ${(unitTopSpeed(target) * engine.dodge.speedMult).toFixed(2)} t/s for ${engine.dodge.sec}s): projectile ${entry.outcome} after ${settleTick} ticks (target HP ${hpBefore}→${target.hp}, lateral offset at resolution ${offsetAtSettle?.toFixed(2)} tiles vs collision radius sum ${(target.radius + proj.radius).toFixed(2)})`);
   }
-  const natural = await fixedBattle({ seed: 31337 });
+  const natural = await fixedBattle({ seed: 31337, playerIds: [25, 1, 4, 7, 133, 143], npcIds: [116, 179, 152, 155, 158, 163] });
   runHeadless(natural);
   const nat = natural.dodgeLog.map((d) => `  t${d.tick} ${d.side}/${d.unit}: lead ${d.leadSec.toFixed(2)}s → ${d.outcome}`);
-  out(["__dodgeTest (controlled, Pitch, projectile fired straight down column 8, burst perpendicular +x): ", ...lines, `natural dodges in seeded 6v6 battle 31337: ${natural.dodgeLog.length}`, ...nat.slice(0, 12)]);
+  out(["__dodgeTest (controlled, Pitch, projectile fired straight down column 8, burst perpendicular +x): ", ...lines, `natural dodges in seeded 6v6 battle 31337 (Pikachu-led team vs Horsea/Mareep-led Tactician): ${natural.dodgeLog.length}`, ...nat.slice(0, 14)]);
   return { controlled: results, natural: natural.dodgeLog };
 }
 
@@ -341,8 +341,76 @@ function fpsSample(seconds = 10) {
   });
 }
 
+async function spriteCheck(ids = [...FIXED_PLAYER, ...FIXED_NPC]) {
+  const { ensureSprite, clearSpriteMemory, spriteReport } = await import("@/game/render/sprites");
+  const { idbDelete, STORE_SPRITES } = await import("@/lib/idb");
+  const cs = ids.map((id) => dex.creatures[id]);
+  const pairs = cs.flatMap((c) => [[c, "front"], [c, "back"]]);
+  clearSpriteMemory();
+  for (const [c, f] of pairs) await idbDelete(STORE_SPRITES, `${c.id}:${f}`).catch(() => {});
+  const cold = [];
+  for (const [c, f] of pairs) cold.push(await ensureSprite(c, f));
+  const coldLines = spriteReport.decoded.map((d) => `  ${d.name} ${d.facing}: ${d.frames} frames ${d.size} via ${d.source} in ${d.ms} ms`);
+  const coldFallbacks = spriteReport.fallbacks.map((f) => `  ${f.name} ${f.facing}: ${f.reason}`);
+  const coldTotal = cold.reduce((a, e) => a + e.ms, 0);
+  clearSpriteMemory();
+  const warm = [];
+  for (const [c, f] of pairs) warm.push(await ensureSprite(c, f));
+  const warmTotal = warm.reduce((a, e) => a + e.ms, 0);
+  const warmSources = warm.map((e) => e.source);
+  const lines = [
+    `__spriteCheck: ${pairs.length} sprites (${cs.length} creatures × front/back), animated path = PokeAPI generation-v black-white animated GIF (front_default / back_default) decoded with gifuct-js into per-frame canvases, stored in IDB '${STORE_SPRITES}'`,
+    `cold (IDB entries deleted → network fetch + decode): total ${coldTotal.toFixed(0)} ms, per sprite avg ${(coldTotal / pairs.length).toFixed(0)} ms`,
+    ...coldLines,
+    `fallbacks to static sprite: ${coldFallbacks.length}`,
+    ...coldFallbacks,
+    `warm (memory cleared, loaded from IDB): total ${warmTotal.toFixed(0)} ms, per sprite avg ${(warmTotal / pairs.length).toFixed(0)} ms, sources: ${[...new Set(warmSources)].join(",")}`,
+    `example urls: front ${cs[0].animFront} | back ${cs[0].animBack} | static ${cs[0].sprite}`,
+  ];
+  out(lines);
+  return { cold: spriteReport.decoded, warmTotal, coldTotal };
+}
+
+async function wallCheck(seeds = [4242, 777, 31337]) {
+  const { tileAt, movementMult } = await import("@/game/terrain");
+  const lines = [];
+  for (const terrainId of ["pitch", "cavern"]) {
+    for (const seed of seeds) {
+      const state = await fixedBattle({ seed, terrainId, autoPick: true });
+      let inside = 0;
+      const firsts = [];
+      while (state.phase === "running" && state.tick < 20000) {
+        step(state);
+        for (const side of ["player", "npc"]) {
+          const t = state.teams[side];
+          const u = t.units[t.activeIndex];
+          if (!u || (u.state !== "active" && u.state !== "entering")) continue;
+          if (movementMult(state, tileAt(state, u.pos.x, u.pos.y), u.types) === 0) {
+            inside++;
+            if (firsts.length < 4) firsts.push(`t${state.tick} ${side}/${u.name} ${u.state} at (${u.pos.x.toFixed(2)},${u.pos.y.toFixed(2)}) tile=${tileAt(state, u.pos.x, u.pos.y)} kb=${!!u.knockback} burst=${u.burst?.kind || "-"} types=${u.types}`);
+          }
+        }
+      }
+      lines.push(`${terrainId} seed ${seed}: ${state.tick} ticks, unit-centre-inside-blocked-tile ticks: ${inside}${firsts.length ? "\n  " + firsts.join("\n  ") : ""}`);
+    }
+  }
+  out(["__wallCheck:", ...lines]);
+  return lines;
+}
+
+async function logDump({ seed = 5, playerIds, npcIds, terrainId = "pitch", toTick = 600, filter = "" } = {}) {
+  const state = await fixedBattle({ seed, playerIds: playerIds || FIXED_PLAYER, npcIds: npcIds || FIXED_NPC, terrainId, autoPick: true });
+  while (state.phase === "running" && state.tick < toTick) step(state);
+  const re = new RegExp(filter, "i");
+  const lines = state.log.filter((l) => re.test(l));
+  out([`__logDump seed=${seed} to t${toTick} filter=/${filter}/: ${lines.length} lines`, ...lines.slice(0, 80)]);
+  return lines;
+}
+
 export function installHarness() {
   Object.assign(window, {
+    __logDump: logDump,
+    __wallCheck: wallCheck,
     __smokeTest: smokeTest,
     __pacingTest: pacingTest,
     __archetypeTest: archetypeTest,
@@ -353,6 +421,7 @@ export function installHarness() {
     __switchCheck: switchCheck,
     __moveMappingDump: moveMappingDump,
     __fpsSample: fpsSample,
+    __spriteCheck: spriteCheck,
     __config: { engine, animations, difficultyParams },
   });
 }

@@ -214,7 +214,8 @@ function updateMovement(state, unit, enemy) {
     unit.vel = { x: 0, y: 0 };
   } else if (unit.burst && state.tick < unit.burst.until) {
     const b = unit.burst;
-    unit.vel = scale(b.dir, vmax * b.speedMult);
+    const burstSpeed = vmax * b.speedMult;
+    unit.vel = moveToward(unit.vel, scale(b.dir, burstSpeed), (burstSpeed / engine.movement.accelSec) * DT);
     const blocked = integrate(state, unit, unit.vel);
     if (b.kind === "dash") {
       b.path.push({ x: unit.pos.x, y: unit.pos.y });
@@ -272,10 +273,23 @@ function resolveUnitCollision(state) {
   if (!a || !b || a.state === "fainted" || b.state === "fainted" || a.state === "bench" || b.state === "bench") return;
   if (!overlaps(a, b)) return;
   const d = dist(a.pos, b.pos);
-  const push = (a.radius + b.radius - d) / 2 + 0.001;
+  const total = a.radius + b.radius - d + 0.002;
   const dir = d < 1e-6 ? { x: 0, y: 1 } : norm(sub(a.pos, b.pos));
-  a.pos = add(a.pos, scale(dir, push));
-  b.pos = sub(b.pos, scale(dir, push));
+  const free = (u, p) => !unitBlockedAt(state, p.x, p.y, u.types, u.radius);
+  const pa = add(a.pos, scale(dir, total / 2));
+  const pb = sub(b.pos, scale(dir, total / 2));
+  const aFree = free(a, pa);
+  const bFree = free(b, pb);
+  if (aFree && bFree) {
+    a.pos = pa;
+    b.pos = pb;
+  } else if (aFree) {
+    const full = add(a.pos, scale(dir, total));
+    a.pos = free(a, full) ? full : pa;
+  } else if (bFree) {
+    const full = sub(b.pos, scale(dir, total));
+    b.pos = free(b, full) ? full : pb;
+  }
 }
 
 function checkFaints(state) {

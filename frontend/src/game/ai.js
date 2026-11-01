@@ -1,6 +1,6 @@
 import { engine, secToTicks } from "@/game/config";
 import { expectedDamage, effectiveness } from "@/game/damage";
-import { tileAt, moveDamageMult, damageTakenMult, findFavourableTile } from "@/game/terrain";
+import { tileAt, moveDamageMult, damageTakenMult, findFavourableTile, projectileBlocked } from "@/game/terrain";
 import { startCast, unitTopSpeed } from "@/game/combat";
 import { aliveBench } from "@/game/state";
 import { dist } from "@/game/physics";
@@ -10,12 +10,22 @@ const terrainMultFor = (state, target, move) => {
   return moveDamageMult(state, tile, move.type) * damageTakenMult(state, tile, target.types);
 };
 
-export const dashDistance = (unit) => unitTopSpeed(unit) * engine.shapes.dash.speedMult * engine.shapes.dash.sec;
+export const dashDistance = (unit) => unitTopSpeed(unit) * engine.shapes.dash.speedMult * (engine.shapes.dash.sec - engine.movement.accelSec / 2);
 
-export function inRange(unit, enemy, move, d) {
+export function hasLineOfSight(state, from, to) {
+  const d = dist(from, to);
+  const steps = Math.max(1, Math.ceil(d / 0.25));
+  for (let i = 1; i < steps; i++) {
+    const t = i / steps;
+    if (projectileBlocked(tileAt(state, from.x + (to.x - from.x) * t, from.y + (to.y - from.y) * t))) return false;
+  }
+  return true;
+}
+
+export function inRange(state, unit, enemy, move, d) {
   switch (move.shape) {
     case "projectile":
-      return d <= engine.shapes.projectile.range;
+      return d <= engine.shapes.projectile.range && hasLineOfSight(state, unit.pos, enemy.pos);
     case "area":
       return d <= engine.shapes.area.range;
     case "melee":
@@ -52,7 +62,7 @@ export function aiThink(state, unit, enemy, team) {
   const d = dist(unit.pos, enemy.pos);
   const ready = ranked.filter((r) => state.tick >= r.m.cdUntil);
   const damaging = ready.filter((r) => r.v > 0);
-  const usable = damaging.filter((r) => inRange(unit, enemy, r.m, d));
+  const usable = damaging.filter((r) => inRange(state, unit, enemy, r.m, d));
   let action = null;
   const shieldMove = ready.find((r) => r.m.shape === "shield");
   if (shieldMove && !unit.shield && incomingThreat(state, unit, enemy)) action = shieldMove;

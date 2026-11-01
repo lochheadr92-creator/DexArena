@@ -79,14 +79,16 @@ export default function BattlePage() {
     [creatures, unlockedIds, movesetOverrides],
   );
 
+  const startedRef = useRef(false);
   useEffect(() => {
-    if (phase !== "loading" || stateRef.current || (progress.status !== "done" && progress.status !== "error")) return;
+    if (startedRef.current || phase !== "loading" || stateRef.current || (progress.status !== "done" && progress.status !== "error")) return;
     const override = window.__battleOverride || {};
     const playerIds = override.playerIds || save.team;
     if (playerIds.length !== 6 || playerIds.some((id) => !creatures[id])) {
       navigate("/", { replace: true });
       return;
     }
+    startedRef.current = true;
     start({ playerIds, terrainId: override.terrainId || save.terrain, seed: override.seed ?? pickSeed(), archetypeId: override.archetypeId || null, npcIds: override.npcIds || null, autoPick: override.autoPick ?? false });
   }, [phase, progress.status, save.team, save.terrain, creatures, start, navigate]);
 

@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import { step, processInputs } from "@/game/step";
 import { BattleRenderer } from "@/game/render/renderer";
-import { TICK_SEC } from "@/game/config";
+import { TICK_SEC, terrains } from "@/game/config";
 
 export function makeSnapshot(state, fps) {
   const side = (s) => {
@@ -37,12 +37,14 @@ export const BattleCanvas = ({ stateRef, speedRef, pausedRef, onSnapshot, render
     rendererRef.current = renderer;
     window.__renderer = renderer;
     const fit = () => {
+      if (!wrapRef.current) return;
       const box = wrapRef.current.getBoundingClientRect();
+      const aspect = terrains.cols / terrains.rows;
       let h = box.height;
-      let w = (h * 9) / 16;
+      let w = h * aspect;
       if (w > box.width) {
         w = box.width;
-        h = (w * 16) / 9;
+        h = w / aspect;
       }
       renderer.resize(Math.floor(w), Math.floor(h), Math.min(2, window.devicePixelRatio || 1));
     };
@@ -108,8 +110,10 @@ export const BattleCanvas = ({ stateRef, speedRef, pausedRef, onSnapshot, render
   }, [stateRef, speedRef, pausedRef, onSnapshot, rendererRef, onForcePause]);
 
   return (
-    <div ref={wrapRef} className="absolute inset-0 flex items-center justify-center">
-      <canvas ref={canvasRef} data-testid="battle-canvas" className="block rounded-lg" style={{ touchAction: "none" }} />
+    <div className="absolute inset-0" style={{ paddingTop: "calc(92px + env(safe-area-inset-top))", paddingBottom: "calc(124px + env(safe-area-inset-bottom))" }}>
+      <div ref={wrapRef} className="flex h-full w-full items-center justify-center">
+        <canvas ref={canvasRef} data-testid="battle-canvas" className="block rounded-lg" style={{ touchAction: "none" }} />
+      </div>
     </div>
   );
 };

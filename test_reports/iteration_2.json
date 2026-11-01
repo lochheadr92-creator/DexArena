@@ -1,0 +1,30 @@
+{
+  "summary": "Frontend-only Phase 2 battle testing at mobile 360x780 via Playwright. P0 BUG FIX VERIFIED: after a player faint the forced team strip appears (no close button, fainted slots disabled), sim is frozen (tick constant e.g. 1550->1550), tapping a pickable slot closes the strip, the replacement enters and the battle resumes (e.g. 1906->2150 ticks/s at 4x); verified 3 consecutive faints/picks at 4x (Charmander, Squirtle, Pikachu; activeIndex and HUD name updated) and a forced pick at 1x (resume +60 ticks/s), plus a full 6-faint battle (5 manual picks) to the result screen. Manual switch: strip has a close button, sim pauses (delta 0), close resumes (+62/s), choosing a slot swaps the active unit (activeIndex 0->1) and resumes. Speed: 1x/2x/4x = 120/240/480 ticks per 2s; pause gives delta 0 and resumes. Result screen: result-title, result-meta (time, counts, seed), 12 result-row-* (6 per side); rematch restarts (tick reset, result hidden); back-to-roster goes to '/'. Found 1 page error (fixed) and 1 rematch bug (reported).",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [
+      {"component": "BattlePage rematch", "issue": "Rematch starts the battle TWICE. rematch() sets stateRef.current=null and start() sets phase='loading', which re-triggers the initial auto-start useEffect (phase==='loading' && !stateRef.current && progress done). That effect calls start() again with autoPick: override.autoPick ?? false and a new pickSeed(). The second start overwrites the rematch, so auto-pick is turned OFF after a rematch (verified: state.autoPick true before rematch, false after; the forced strip then appeared even though AUTO had been on). It also doubles prepareBattle work, and the rematch seed/setup is discarded.", "selector": "[data-testid=rematch-button], [data-testid=auto-pick-toggle]", "priority": "MEDIUM"}
+    ],
+    "integration_issues": [],
+    "design_issues": [
+      {"screen": "Result screen", "issues": ["result-title shows 'Win'/'Loss'; the spec/review request mentions 'Victory'/'Defeat'. Confirm the intended wording."]}
+    ]
+  },
+  "test_report_links": [],
+  "action_items": [
+    "Fix the double start on rematch in BattlePage.jsx: add a startedRef guard to the auto-start useEffect so it runs only once on mount, or have rematch not leave stateRef null while phase==='loading'. After the fix, confirm auto-pick and lastSetup are kept across a rematch.",
+    "Optional: change result-title wording to Victory/Defeat if that is what the spec wants."
+  ],
+  "critical_code_review_comments": [
+    "BattleCanvas fit(): a ResizeObserver callback could fire after unmount with wrapRef.current null, causing an uncaught 'Cannot read properties of null (reading getBoundingClientRect)' on rematch/back. Fixed by the tester with a null guard.",
+    "BattlePage pendingPick comes from the 100ms-throttled snapshot, so the strip can appear up to ~100ms after the faint. This is acceptable because step() early-returns while pendingPick.",
+    "Canvas2D warning: getImageData readback without willReadFrequently. Set {willReadFrequently:true} on the canvas used for sprite decoding (perf only)."
+  ],
+  "updated_files": ["/app/frontend/src/components/battle/BattleCanvas.jsx (null guard in fit())"],
+  "success_rate": {"backend": "N/A (frontend only)", "frontend": "95% - all requested flows pass; rematch auto-pick reset bug"},
+  "seed_data_creation": "localStorage arenadex.save.v1 with team [1,4,7,25,133,143]",
+  "retest_needed": false,
+  "should_main_agent_self_test": true,
+  "context_for_next_testing_agent": "Set localStorage save then goto /battle; data is IndexedDB-cached so load is ~4s. window.__battle.tick/pendingPick/activeIndex and window.__setAutoPick(true) are useful. A full 6v6 battle at 4x with manual picks takes ~32s of real time. Regression to check: after rematch, window.__battle.autoPick should match the AUTO toggle.",
+  "rca of the issue": "P0 faint-pick freeze: confirmed fixed by processInputs running while paused in BattleCanvas. New rematch bug: the BattlePage auto-start useEffect (deps include phase) re-runs when rematch sets phase back to 'loading' with stateRef null, which causes a second start() with default autoPick=false."
+}

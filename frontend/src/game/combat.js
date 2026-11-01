@@ -150,7 +150,7 @@ export function updateProjectiles(state) {
     if (projectileBlocked(tile)) {
       pushEvent(state, { kind: "projectile-blocked", id: p.id, type: p.type, x: p.pos.x, y: p.pos.y });
       logLine(state, `${owner.name}'s ${move.name} projectile hit ${tile} at (${Math.floor(p.pos.x)},${Math.floor(p.pos.y)}) — despawned, ${enemy ? `target ${dist(p.pos, enemy.pos).toFixed(1)} tiles away` : ""}`);
-      settleDodge(state, p, "blocked");
+      settleDodge(state, p, "miss (flew past into terrain)");
       continue;
     }
     if (p.traveled >= p.range) {
