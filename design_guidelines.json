@@ -1,0 +1,154 @@
+{
+  "project_name": "Arena Dex",
+  "app_type": "mobile_web_app",
+  "theme": "Tactical Dark Cyber-Arcade (Dark Obsidian background, vivid type accents, neon battle indicators, high-contrast HUD)",
+  "typography": {
+    "google_fonts_url": "https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Inter:wght@400;500;600;700&family=Press+Start+2P&display=swap",
+    "headline_font": "'Chakra Petch', sans-serif",
+    "body_font": "'Inter', sans-serif",
+    "accent_font": "'Press Start 2P', monospace",
+    "hierarchy": {
+      "h1": "text-2xl sm:text-3xl font-bold tracking-tight text-slate-100 font-display",
+      "h2": "text-lg sm:text-xl font-semibold tracking-tight text-slate-200",
+      "h3": "text-sm sm:text-base font-semibold text-slate-300",
+      "body": "text-xs sm:text-sm text-slate-300 leading-relaxed font-body",
+      "caption": "text-[10px] sm:text-xs text-slate-400 font-mono tracking-wider uppercase",
+      "hud_number": "font-mono font-bold tracking-wider text-emerald-400"
+    }
+  },
+  "colors": {
+    "theme_mode": "dark",
+    "base": {
+      "background": "#090D16",
+      "surface": "#111827",
+      "surface_elevated": "#1F293D",
+      "border": "#2D3B55",
+      "border_subtle": "#1E293B",
+      "text_primary": "#F8FAFC",
+      "text_secondary": "#94A3B8",
+      "text_muted": "#64748B"
+    },
+    "accents": {
+      "primary": "#3B82F6",
+      "primary_glow": "rgba(59, 130, 246, 0.4)",
+      "victory": "#10B981",
+      "defeat": "#EF4444",
+      "warning": "#F59E0B",
+      "legendary": "#A855F7",
+      "cyber_cyan": "#06B6D4"
+    },
+    "pokemon_types_harmonized": {
+      "normal": { "bg": "#919191", "text": "#FFFFFF", "border": "#A8A878" },
+      "fire": { "bg": "#E65525", "text": "#FFFFFF", "border": "#F08030" },
+      "water": { "bg": "#3B82F6", "text": "#FFFFFF", "border": "#6890F0" },
+      "grass": { "bg": "#22C55E", "text": "#FFFFFF", "border": "#78C850" },
+      "electric": { "bg": "#EAB308", "text": "#1E293B", "border": "#F8D030" },
+      "ice": { "bg": "#06B6D4", "text": "#1E293B", "border": "#98D8D8" },
+      "fighting": { "bg": "#B91C1C", "text": "#FFFFFF", "border": "#C03028" },
+      "poison": { "bg": "#9333EA", "text": "#FFFFFF", "border": "#A040A0" },
+      "ground": { "bg": "#D97706", "text": "#FFFFFF", "border": "#E0C068" },
+      "flying": { "bg": "#8B5CF6", "text": "#FFFFFF", "border": "#A890F0" },
+      "psychic": { "bg": "#EC4899", "text": "#FFFFFF", "border": "#F85888" },
+      "bug": { "bg": "#65A30D", "text": "#FFFFFF", "border": "#A8B820" },
+      "rock": { "bg": "#78350F", "text": "#FFFFFF", "border": "#B8A038" },
+      "ghost": { "bg": "#4C1D95", "text": "#FFFFFF", "border": "#705898" },
+      "dragon": { "bg": "#6D28D9", "text": "#FFFFFF", "border": "#7038F8" },
+      "dark": { "bg": "#334155", "text": "#FFFFFF", "border": "#705848" },
+      "steel": { "bg": "#64748B", "text": "#FFFFFF", "border": "#B8B8D0" },
+      "fairy": { "bg": "#F472B6", "text": "#1E293B", "border": "#EE99AC" }
+    },
+    "terrains": {
+      "pitch": { "name": "Pitch", "accent": "#22C55E", "gradient": "from-emerald-950/80 to-green-900/40", "icon": "🌱", "desc": "Grassy field (+15% Grass move damage, mild speed bonus)" },
+      "shoreline": { "name": "Shoreline", "accent": "#06B6D4", "gradient": "from-cyan-950/80 to-blue-900/40", "icon": "🌊", "desc": "Tidal beach (+15% Water move damage, Electric resistance)" },
+      "cavern": { "name": "Cavern", "accent": "#D97706", "gradient": "from-amber-950/80 to-stone-900/40", "icon": "🪨", "desc": "Dark rocky cave (+15% Rock/Ground damage, reduced accuracy)" },
+      "snowfield": { "name": "Snowfield", "accent": "#38BDF8", "gradient": "from-sky-950/80 to-slate-900/40", "icon": "❄️", "desc": "Icy tundra (+15% Ice move damage, turn-end hail tick)" }
+    }
+  },
+  "spacing_and_layout": {
+    "container_padding": "p-3 sm:p-4 max-w-md md:max-w-2xl lg:max-w-4xl mx-auto pb-32",
+    "grid_roster": "grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-2 sm:gap-3",
+    "grid_terrains": "grid grid-cols-2 gap-2.5 sm:gap-3.5",
+    "bottom_tray_height": "h-24 sm:h-28",
+    "safe_bottom_margin": "mb-28 sm:mb-32",
+    "border_radius": {
+      "card": "rounded-xl",
+      "badge": "rounded-full",
+      "button": "rounded-lg",
+      "popover": "rounded-2xl"
+    }
+  },
+  "components": {
+    "progressive_loading_bar": {
+      "container_style": "w-full bg-slate-900/90 border border-slate-800 rounded-xl p-3 shadow-lg backdrop-blur-md mb-3",
+      "bar_style": "h-2.5 w-full bg-slate-800 rounded-full overflow-hidden relative",
+      "fill_style": "h-full bg-gradient-to-r from-blue-500 via-cyan-400 to-emerald-400 transition-all duration-300 ease-out",
+      "label": "text-xs font-mono text-cyan-400 flex justify-between items-center mb-1.5"
+    },
+    "roster_card": {
+      "unlocked_style": "relative flex flex-col items-center justify-between p-2 rounded-xl bg-slate-900/80 border border-slate-800 hover:border-blue-500/50 hover:bg-slate-800/90 transition-all cursor-pointer active:scale-95 shadow-sm group min-h-[110px]",
+      "selected_style": "ring-2 ring-blue-500 bg-blue-950/40 border-blue-400/80 shadow-[0_0_12px_rgba(59,130,246,0.3)]",
+      "locked_silhouette_style": "relative flex flex-col items-center justify-between p-2 rounded-xl bg-slate-950/90 border border-slate-900 opacity-70 cursor-not-allowed min-h-[110px]",
+      "sprite_filter_locked": "brightness(0) invert(0.2) drop-shadow(0 0 2px rgba(0,0,0,0.8))"
+    },
+    "bottom_selected_tray": {
+      "fixed_shell": "fixed bottom-0 left-0 right-0 z-40 bg-slate-950/95 border-t border-slate-800 backdrop-blur-xl px-3 py-2 shadow-2xl",
+      "slots_grid": "flex items-center justify-between gap-1.5 max-w-md md:max-w-2xl mx-auto",
+      "slot_box": "w-12 h-12 sm:w-14 sm:h-14 rounded-lg bg-slate-900 border border-slate-800 flex items-center justify-center relative transition-all overflow-hidden"
+    },
+    "detail_popover": {
+      "modal_overlay": "fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-end sm:items-center justify-center p-0 sm:p-4",
+      "content_sheet": "w-full sm:max-w-lg bg-slate-900 border border-slate-800 rounded-t-2xl sm:rounded-2xl p-4 sm:p-6 shadow-2xl max-h-[85vh] overflow-y-auto"
+    },
+    "battle_hud": {
+      "top_bar": "w-full bg-slate-950/90 border-b border-slate-800 p-2 sm:p-3 flex items-center justify-between backdrop-blur-md",
+      "hp_bar": "h-3 bg-slate-800 rounded-full overflow-hidden border border-slate-700/60",
+      "canvas_container": "relative w-full aspect-[4/3] sm:aspect-[16/9] bg-slate-950 rounded-xl overflow-hidden border border-slate-800 shadow-inner"
+    },
+    "gauntlet_strip": {
+      "wrapper": "flex items-center justify-between gap-1.5 p-3 rounded-xl bg-slate-900/90 border border-slate-800 overflow-x-auto",
+      "node": "flex flex-col items-center justify-center min-w-[48px] p-2 rounded-lg border text-xs font-mono font-bold"
+    }
+  },
+  "motion_and_animations": {
+    "tick_rate": "60Hz Canvas game loop for real-time 1v1 auto-combat",
+    "transitions": "transition-all duration-200 ease-out",
+    "framer_preset": {
+      "initial": { "opacity": 0, "scale": 0.95 },
+      "animate": { "opacity": 1, "scale": 1 },
+      "exit": { "opacity": 0, "scale": 0.95 },
+      "transition": { "duration": 0.2 }
+    }
+  },
+  "testing_attributes": {
+    "convention": "data-testid='<component-role>-<unique-id-or-name>'",
+    "mandatory_elements": [
+      "data-testid='app-header'",
+      "data-testid='tab-roster'",
+      "data-testid='tab-gauntlet'",
+      "data-testid='tab-save'",
+      "data-testid='loading-progress-bar'",
+      "data-testid='roster-search-input'",
+      "data-testid='type-filter-<type>'",
+      "data-testid='gen-filter-<gen>'",
+      "data-testid='creature-card-<id>'",
+      "data-testid='bottom-tray-slot-<index>'",
+      "data-testid='clear-team-button'",
+      "data-testid='start-battle-button'",
+      "data-testid='terrain-card-<terrain-id>'",
+      "data-testid='battle-canvas'",
+      "data-testid='speed-control-<1x|2x|pause>'",
+      "data-testid='creature-detail-popover'",
+      "data-testid='export-save-button'",
+      "data-testid='import-save-button'",
+      "data-testid='reset-save-button'"
+    ]
+  },
+  "instructions_to_main_agent": [
+    "Use raw HTML/Tailwind CSS with Lucide icons for UI components, optimized for mobile responsiveness.",
+    "Harmonize all 18 Pokémon type badges using the specific background, text, and border colors defined in colors.pokemon_types_harmonized.",
+    "Render locked creatures with silhouette styling using filter: brightness(0) invert(0.2) and show lock icons.",
+    "Implement progressive loading state: as species data/sprites load from IndexedDB/PokeAPI, update the loading bar percentage dynamically.",
+    "Persist PokeAPI creature list and sprite cache in IndexedDB and game progression (unlocked count, wins, gauntlet rank, custom teams) in localStorage.",
+    "Ensure all interactive elements have data-testid attributes matching testing_attributes specs."
+  ]
+}
