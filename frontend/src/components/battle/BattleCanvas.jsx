@@ -110,7 +110,7 @@ export const BattleCanvas = ({ stateRef, speedRef, pausedRef, onSnapshot, render
   }, [stateRef, speedRef, pausedRef, onSnapshot, rendererRef, onForcePause]);
 
   return (
-    <div className="absolute inset-0" style={{ paddingTop: "calc(92px + env(safe-area-inset-top))", paddingBottom: "calc(124px + env(safe-area-inset-bottom))" }}>
+    <div className="absolute inset-0" style={{ paddingTop: "calc(92px + env(safe-area-inset-top))", paddingBottom: "calc(130px + env(safe-area-inset-bottom))" }}>
       <div ref={wrapRef} className="flex h-full w-full items-center justify-center">
         <canvas ref={canvasRef} data-testid="battle-canvas" className="block rounded-lg" style={{ touchAction: "none" }} />
       </div>

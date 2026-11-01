@@ -130,7 +130,7 @@ export const BattleHud = ({ snap, speed, setSpeed, paused, setPaused, autoPick, 
             onClick={() => setSpeed(s)}
             className={cn(
               "flex h-12 w-12 items-center justify-center rounded-lg border font-mono text-xs font-bold backdrop-blur-[2px] transition-colors",
-              speed === s ? "border-cyan-400 bg-cyan-500/20 text-cyan-200" : "border-slate-700/70 bg-slate-950/35 text-slate-300",
+              speed === s ? "border-cyan-400 bg-cyan-500/20 text-cyan-200" : "border-slate-700/80 bg-slate-950/55 text-slate-300",
             )}
           >
             {s}x
@@ -144,7 +144,7 @@ export const BattleHud = ({ snap, speed, setSpeed, paused, setPaused, autoPick, 
           aria-label={paused ? "Resume" : "Pause"}
           className={cn(
             "flex h-12 w-12 items-center justify-center rounded-lg border backdrop-blur-[2px] transition-colors",
-            paused ? "border-amber-400 bg-amber-500/20 text-amber-200" : "border-slate-700/70 bg-slate-950/35 text-slate-300",
+            paused ? "border-amber-400 bg-amber-500/20 text-amber-200" : "border-slate-700/80 bg-slate-950/55 text-slate-300",
           )}
         >
           {paused ? <Play className="h-5 w-5" /> : <Pause className="h-5 w-5" />}
@@ -157,7 +157,7 @@ export const BattleHud = ({ snap, speed, setSpeed, paused, setPaused, autoPick, 
           aria-label="Toggle auto pick"
           className={cn(
             "flex h-12 w-12 flex-col items-center justify-center rounded-lg border font-mono text-[8px] uppercase backdrop-blur-[2px] transition-colors",
-            autoPick ? "border-emerald-400 bg-emerald-500/20 text-emerald-200" : "border-slate-700/70 bg-slate-950/35 text-slate-400",
+            autoPick ? "border-emerald-400 bg-emerald-500/20 text-emerald-200" : "border-slate-700/80 bg-slate-950/55 text-slate-400",
           )}
         >
           <Wand2 className="h-4 w-4" />

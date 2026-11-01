@@ -37,14 +37,19 @@ Constraints
 - Save page: stats, loadout, Dex cache info, reset w/ confirm
 - Unlock rule: base-stage non-sealed = starter; baby base → next form also starter (232 unlocked, 35 sealed)
 
+### Phase 2 — BUILT, verification outputs delivered (2026-06) — awaiting user acceptance
+- Deterministic 60 Hz engine (`/src/game/*`), config-driven (`/src/game/config/*.json`), seeded RNG, canvas renderer, gifuct-js animated sprites cached in IDB
+- HUD, Switch strip (manual + forced pick), pause/1x/2x/4x, AUTO pick, result screen, rematch
+- Harness on `window.__*` (`/src/game/tests/harness.js`): smokeTest, pacingTest, archetypeTest, traceTest, dodgeTest, multiplierChecks, terrainChecks, switchCheck, moveMappingDump, spriteCheck, wallCheck, logDump, fpsSample
+- Fixes this session: forced-pick deadlock (inputs now processed while paused), rematch double-start (startedRef), unit pushed into walls by unit-unit collision (now wall-aware), AI projectile line-of-sight, dodge/dash bursts accelerate (0.15 s) so a 0.1 s dodge is too late, canvas laid out between HUD cards (nothing hidden), translucent controls
+- Tuning: DAMAGE_SCALE 0.12, cooldown min 1.5 s / max 6 s / status 8 s → pacing median 27.5 s (50 seeded 1v1s)
+- Tested: testing_agent iteration_2 (faint-pick fix verified) + iteration_3 (rematch fix, switch, pause/speed, layout, result screen — all pass)
+
 ## Backlog
-### Phase 2 (P0 next)
-- Battle engine: canvas, fixed 60Hz tick w/ rAF accumulator, movement/collision, damage calc (types, STAB, terrain), auto-switch on faint
-- Move data fetch (power/type/class) for team's chosen 4 moves — lazy per battle
-- Creature AI (shared routine + archetype modifiers), hidden NPC team generation
-- Terrain effects (as described in `terrains.js`)
-- Battle HUD (HP bars, team dots, speed 1x/2x/pause), result screen; pacing tuning; smoke tests
-### Phase 3 (P1)
+### Phase 2 follow-ups (only if user asks)
+- Status moves rarely appear (most creatures have ≥4 damaging level-up moves) → shield/buff shapes mostly seen on Metapod/Abra-like creatures
+- Right-side control column still overlays arena cols 13–15 (translucent); could move into HUD on request
+### Phase 3 (P1) — DO NOT START until user says go
 - Progression: evolution unlocks via species wins, legendary unlocks via total wins
 - 6-trainer gauntlet w/ persistent HP, trainer archetypes
 - Export / import save JSON

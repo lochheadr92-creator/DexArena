@@ -1,0 +1,24 @@
+{
+  "summary": "Frontend-only regression of the Phase 2 battle at 360x780 using Playwright (seed 7 override). REMATCH FIX VERIFIED: a setter trap on window.__battle counted exactly 1 new battle per rematch (2 assignments total over 2 battles). After the rematch autoPick stayed true (state and toggle data-active), the seed changed (7 -> 1115961164), the tick restarted (6 when first seen) and the result screen was hidden. The rematch battle ran with player faints and the forced strip never appeared, then finished on its own. Forced pick with AUTO off: strip shows with no close button, tick frozen (delta 0), picking a slot closes the strip and the sim resumes (+240 ticks/s at 4x). Manual switch: strip opens with team-strip-close, sim pauses (delta 0), close resumes, picking slot-1 swaps Bulbasaur->Charmander (activeIndex 0->1, HUD updated) and resumes. Speed: 60/122/244 ticks/s at 1x/2x/4x; pause gives delta 0 and resume gives 60/s. Result: 'Win', meta line, 6 result rows per side; back-to-roster goes to '/'. No page or console errors across 2 full battles at 4x. One minor layout issue: the player HUD overlaps the canvas by 2px.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": [
+      {"screen": "Battle layout 360x780", "issues": ["hud-player top is y=654 but battle-canvas bottom is y=656, so they overlap by 2px. The player HUD card is 118px tall plus 8px bottom padding (126px), but BattleCanvas reserves only paddingBottom 124px. Raise it to about 128px or shrink the card. hud-npc (8-88) and canvas top (92) do not overlap."]}
+    ]
+  },
+  "test_report_links": [],
+  "action_items": ["Minor: increase BattleCanvas paddingBottom from 124px to >=128px (or reduce player HUD height) to remove the 2px overlap with hud-player."],
+  "critical_code_review_comments": [
+    "Fixed padding values in BattleCanvas (92/124) are tied to the HUD card heights. If the HUD wraps (long names, 2 type badges plus status icons) the overlap grows. Consider measuring the HUD heights (ResizeObserver) or using a flex column layout.",
+    "speedRef/speed state carries over to the rematch (4x stays active). This seems intentional; just noting it."
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "N/A (frontend only)", "frontend": "98% - all requested flows pass; 2px HUD/canvas overlap"},
+  "seed_data_creation": "localStorage arenadex.save.v1 with team [1,4,7,25,133,143]; __battleOverride seed 7 tactician npcIds [152,155,158,179,163,241]",
+  "retest_needed": false,
+  "should_main_agent_self_test": true,
+  "context_for_next_testing_agent": "Count battle starts with an init-script Object.defineProperty setter on window.__battle. With seed 7, AUTO on and 4x, battle 1 is a Win (209.9s sim, about 50s real time). Layout boxes at 360x780: npc 8-88, canvas 92-656, player 654-772, controls 258-522.",
+  "rca of the issue": "Rematch double start is resolved by the startedRef guard: the auto-start effect no longer re-runs when phase returns to 'loading'."
+}
