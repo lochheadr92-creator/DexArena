@@ -1,6 +1,5 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Swords, AlertTriangle } from "lucide-react";
-import { toast } from "sonner";
 import { useGame } from "@/context/GameContext";
 import { TERRAINS, terrainById } from "@/lib/terrains";
 import { TEAM_SIZE } from "@/lib/save";
@@ -10,14 +9,11 @@ import { SpriteImg } from "@/components/SpriteImg";
 
 export default function TerrainPage() {
   const { creatures, save, setTerrain } = useGame();
+  const navigate = useNavigate();
   const terrain = terrainById(save.terrain);
   const ready = save.team.length === TEAM_SIZE;
 
-  const startBattle = () => {
-    toast.info("Battle engine arrives in Phase 2", {
-      description: `Team and ${terrain.name} arena are saved locally.`,
-    });
-  };
+  const startBattle = () => navigate("/battle");
 
   return (
     <div className="pb-36">

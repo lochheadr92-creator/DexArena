@@ -6,12 +6,14 @@ import { Toaster } from "@/components/ui/sonner";
 import RosterPage from "@/pages/RosterPage";
 import TerrainPage from "@/pages/TerrainPage";
 import SavePage from "@/pages/SavePage";
+import BattlePage from "@/pages/BattlePage";
 
 function App() {
   return (
     <GameProvider>
       <BrowserRouter>
         <Routes>
+          <Route path="/battle" element={<BattlePage />} />
           <Route element={<AppShell />}>
             <Route path="/" element={<RosterPage />} />
             <Route path="/arena" element={<TerrainPage />} />

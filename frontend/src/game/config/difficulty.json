@@ -1,0 +1,11 @@
+{
+  "slots": [
+    { "slot": 1, "dodgeMult": 0.8, "reactionDelayMult": 1.25 },
+    { "slot": 2, "dodgeMult": 0.84, "reactionDelayMult": 1.14 },
+    { "slot": 3, "dodgeMult": 0.88, "reactionDelayMult": 1.03 },
+    { "slot": 4, "dodgeMult": 0.92, "reactionDelayMult": 0.92 },
+    { "slot": 5, "dodgeMult": 0.96, "reactionDelayMult": 0.81 },
+    { "slot": 6, "dodgeMult": 1.0, "reactionDelayMult": 0.7 }
+  ],
+  "quickBattleSlot": 1
+}

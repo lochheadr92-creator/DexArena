@@ -1,6 +1,8 @@
 const DB_NAME = "arenadex-cache";
-const DB_VERSION = 1;
+const DB_VERSION = 2;
 export const STORE_CREATURES = "creatures";
+export const STORE_MOVES = "moves";
+export const STORE_SPRITES = "sprites";
 
 let dbPromise = null;
 
@@ -14,9 +16,9 @@ function openDb() {
       const req = indexedDB.open(DB_NAME, DB_VERSION);
       req.onupgradeneeded = () => {
         const db = req.result;
-        if (!db.objectStoreNames.contains(STORE_CREATURES)) {
-          db.createObjectStore(STORE_CREATURES, { keyPath: "id" });
-        }
+        if (!db.objectStoreNames.contains(STORE_CREATURES)) db.createObjectStore(STORE_CREATURES, { keyPath: "id" });
+        if (!db.objectStoreNames.contains(STORE_MOVES)) db.createObjectStore(STORE_MOVES, { keyPath: "id" });
+        if (!db.objectStoreNames.contains(STORE_SPRITES)) db.createObjectStore(STORE_SPRITES, { keyPath: "key" });
       };
       req.onsuccess = () => resolve(req.result);
       req.onerror = () => reject(req.error);
@@ -39,5 +41,7 @@ function run(store, mode, action) {
 }
 
 export const idbGetAll = (store) => run(store, "readonly", (s) => s.getAll());
+export const idbGet = (store, key) => run(store, "readonly", (s) => s.get(key));
 export const idbPut = (store, value) => run(store, "readwrite", (s) => s.put(value));
 export const idbClear = (store) => run(store, "readwrite", (s) => s.clear());
+export const idbCount = (store) => run(store, "readonly", (s) => s.count());

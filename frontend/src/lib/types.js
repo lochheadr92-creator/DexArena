@@ -1,23 +1,6 @@
-export const TYPE_COLORS = {
-  normal: { bg: "#919191", text: "#FFFFFF" },
-  fire: { bg: "#E65525", text: "#FFFFFF" },
-  water: { bg: "#3B82F6", text: "#FFFFFF" },
-  grass: { bg: "#22C55E", text: "#FFFFFF" },
-  electric: { bg: "#EAB308", text: "#1E293B" },
-  ice: { bg: "#06B6D4", text: "#1E293B" },
-  fighting: { bg: "#B91C1C", text: "#FFFFFF" },
-  poison: { bg: "#9333EA", text: "#FFFFFF" },
-  ground: { bg: "#D97706", text: "#FFFFFF" },
-  flying: { bg: "#8B5CF6", text: "#FFFFFF" },
-  psychic: { bg: "#EC4899", text: "#FFFFFF" },
-  bug: { bg: "#65A30D", text: "#FFFFFF" },
-  rock: { bg: "#78350F", text: "#FFFFFF" },
-  ghost: { bg: "#4C1D95", text: "#FFFFFF" },
-  dragon: { bg: "#6D28D9", text: "#FFFFFF" },
-  dark: { bg: "#334155", text: "#FFFFFF" },
-  steel: { bg: "#64748B", text: "#FFFFFF" },
-  fairy: { bg: "#F472B6", text: "#1E293B" },
-};
+import typeColors from "@/game/config/typeColors.json";
+
+export const TYPE_COLORS = typeColors;
 
 export const TYPES = Object.keys(TYPE_COLORS).filter((t) => t !== "fairy");
 

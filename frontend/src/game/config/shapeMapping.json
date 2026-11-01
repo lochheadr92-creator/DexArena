@@ -1,0 +1,8 @@
+{
+  "specialProjectilePower": 60,
+  "projectileKeywords": ["beam", "blast", "bolt", "pulse", "cannon", "ray", "shot", "wave"],
+  "dashKeywords": ["tackle", "charge", "rush", "slam", "dash", "take-down", "body"],
+  "shieldKeywords": ["protect", "defense", "harden", "barrier"],
+  "statusKeywords": { "burn": ["burn"], "paralysis": ["paralyz"] },
+  "moveVersionGroups": ["platinum", "heartgold-soulsilver", "diamond-pearl"]
+}

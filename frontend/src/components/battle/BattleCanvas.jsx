@@ -1,0 +1,115 @@
+import { useEffect, useRef } from "react";
+import { step, processInputs } from "@/game/step";
+import { BattleRenderer } from "@/game/render/renderer";
+import { TICK_SEC } from "@/game/config";
+
+export function makeSnapshot(state, fps) {
+  const side = (s) => {
+    const team = state.teams[s];
+    const u = team.units[team.activeIndex];
+    return {
+      name: u.name,
+      hp: u.hp,
+      maxHp: u.maxHp,
+      types: u.types,
+      state: u.state,
+      burn: !!u.burn,
+      paralysis: !!u.paralysis,
+      buff: u.buff ? u.buff.stat : null,
+      shield: !!u.shield,
+      moves: u.moves.map((m) => ({ name: m.name, type: m.type, shape: m.shape, cd: Math.max(0, m.cdUntil - state.tick) / (m.cooldownSec / TICK_SEC) })),
+      dots: team.units.map((x, i) => (x.state === "fainted" || x.state === "fainting" || x.hp <= 0 ? "fainted" : i === team.activeIndex && x.state !== "bench" ? "active" : !x.revealed && s === "npc" ? "unknown" : "alive")),
+      bench: team.units.map((x) => ({ index: x.index, name: x.name, hp: x.hp, maxHp: x.maxHp, state: x.state, creatureId: x.creatureId, types: x.types, burn: !!x.burn, paralysis: !!x.paralysis })),
+      pendingPick: team.pendingPick,
+      label: team.name,
+    };
+  };
+  return { tick: state.tick, phase: state.phase, winner: state.winner, player: side("player"), npc: side("npc"), fps };
+}
+
+export const BattleCanvas = ({ stateRef, speedRef, pausedRef, onSnapshot, rendererRef, onForcePause }) => {
+  const canvasRef = useRef(null);
+  const wrapRef = useRef(null);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    const renderer = new BattleRenderer(canvas);
+    rendererRef.current = renderer;
+    window.__renderer = renderer;
+    const fit = () => {
+      const box = wrapRef.current.getBoundingClientRect();
+      let h = box.height;
+      let w = (h * 9) / 16;
+      if (w > box.width) {
+        w = box.width;
+        h = (w * 16) / 9;
+      }
+      renderer.resize(Math.floor(w), Math.floor(h), Math.min(2, window.devicePixelRatio || 1));
+    };
+    fit();
+    const ro = new ResizeObserver(fit);
+    ro.observe(wrapRef.current);
+
+    let raf = 0;
+    let last = performance.now();
+    let acc = 0;
+    let lastSnap = 0;
+    let frozenNow = null;
+    const frame = (now) => {
+      const state = stateRef.current;
+      if (state) {
+        const dt = Math.min(0.25, (now - last) / 1000);
+        if (!pausedRef.current && state.phase === "running") {
+          acc += dt * speedRef.current;
+          let n = 0;
+          while (acc >= TICK_SEC && n < 240) {
+            step(state);
+            acc -= TICK_SEC;
+            n++;
+          }
+        } else {
+          acc = 0;
+          if (state.inputs.length && state.phase === "running") {
+            processInputs(state);
+            lastSnap = 0;
+          }
+        }
+        const hook = window.__pauseOnEvent;
+        if (hook && !hook.done) {
+          if (hook.armedAt == null) {
+            const ev = state.events.find((e) => e.id > (hook.afterId || 0) && e.kind === hook.kind && (!hook.status || e.status === hook.status) && (!hook.side || e.side === hook.side));
+            if (ev) {
+              hook.armedAt = now + (hook.delayMs || 0);
+              hook.eventTick = ev.tick;
+            }
+          }
+          if (hook.armedAt != null && now >= hook.armedAt) {
+            hook.done = true;
+            onForcePause?.(true);
+          }
+        }
+        if (pausedRef.current) {
+          if (frozenNow == null) frozenNow = now;
+        } else frozenNow = null;
+        renderer.render(state, frozenNow ?? now);
+        if (now - lastSnap > 100) {
+          lastSnap = now;
+          onSnapshot(makeSnapshot(state, renderer.fps.value));
+        }
+      }
+      last = now;
+      raf = requestAnimationFrame(frame);
+    };
+    raf = requestAnimationFrame(frame);
+    return () => {
+      cancelAnimationFrame(raf);
+      ro.disconnect();
+    };
+  }, [stateRef, speedRef, pausedRef, onSnapshot, rendererRef, onForcePause]);
+
+  return (
+    <div ref={wrapRef} className="absolute inset-0 flex items-center justify-center">
+      <canvas ref={canvasRef} data-testid="battle-canvas" className="block rounded-lg" style={{ touchAction: "none" }} />
+    </div>
+  );
+};

@@ -57,6 +57,21 @@ export function normalizeMoves(moves) {
   return levelUpMoves(moves, null);
 }
 
+export function machineMoves(moves) {
+  for (const group of MOVE_GROUPS) {
+    const out = [];
+    for (const m of moves) {
+      if (m.version_group_details.some((v) => v.move_learn_method.name === "machine" && v.version_group.name === group)) {
+        out.push({ id: idFromUrl(m.move.url), name: m.move.name });
+      }
+    }
+    if (out.length) return out.sort((a, b) => a.id - b.id);
+  }
+  return [];
+}
+
+export const ANIM_BASE = `${SPRITE_BASE}/versions/generation-v/black-white/animated`;
+
 export function flattenChain(chainData) {
   const nodes = {};
   const walk = (node, fromId) => {
@@ -100,10 +115,14 @@ export function normalizeCreature(pokemon, species, chainNodes) {
     height: pokemon.height,
     weight: pokemon.weight,
     sprite: pokemon.sprites.front_default || `${SPRITE_BASE}/${pokemon.id}.png`,
+    spriteBack: pokemon.sprites.back_default || `${SPRITE_BASE}/back/${pokemon.id}.png`,
+    animFront: pokemon.sprites.versions?.["generation-v"]?.["black-white"]?.animated?.front_default || null,
+    animBack: pokemon.sprites.versions?.["generation-v"]?.["black-white"]?.animated?.back_default || null,
     artwork:
       pokemon.sprites.other?.["official-artwork"]?.front_default ||
       `${SPRITE_BASE}/other/official-artwork/${pokemon.id}.png`,
     moves: normalizeMoves(pokemon.moves),
+    tmMoves: machineMoves(pokemon.moves),
     generation: generationOf(pokemon.id),
     isBaby: !!species.is_baby,
     isLegendary: !!species.is_legendary,

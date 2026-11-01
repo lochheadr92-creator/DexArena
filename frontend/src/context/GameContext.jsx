@@ -3,14 +3,17 @@ import { MAX_ID } from "@/lib/pokeapi";
 import { clearCreatureCache, fetchCreatures, loadCachedCreatures } from "@/lib/dex";
 import { clearSave, defaultSave, loadSave, persistSave, TEAM_SIZE } from "@/lib/save";
 import { computeStarterIds } from "@/lib/unlocks";
+import { registerDex, installHarness } from "@/game/tests/harness";
 
 const GameContext = createContext(null);
 const ALL_IDS = Array.from({ length: MAX_ID }, (_, i) => i + 1);
+installHarness();
 
 export function GameProvider({ children }) {
   const [creatures, setCreatures] = useState({});
   const [progress, setProgress] = useState({ status: "idle", failed: [] });
   const [save, setSave] = useState(loadSave);
+  const [movesetOverrides, setMovesetOverrides] = useState({});
   const saveRef = useRef(save);
   saveRef.current = save;
   const pendingRef = useRef({});
@@ -81,6 +84,18 @@ export function GameProvider({ children }) {
     return s;
   }, [starterIds, save.unlocked]);
   unlockedRef.current = unlockedIds;
+  useEffect(() => {
+    registerDex({ creatures, unlockedIds });
+  }, [creatures, unlockedIds]);
+
+  const setMovesetOverride = useCallback((creatureId, ids) => {
+    setMovesetOverrides((prev) => {
+      const next = { ...prev };
+      if (ids) next[creatureId] = ids;
+      else delete next[creatureId];
+      return next;
+    });
+  }, []);
 
   const toggleTeam = useCallback(
     (id) => {
@@ -120,8 +135,10 @@ export function GameProvider({ children }) {
       resetSave,
       retryFailed,
       resyncDex,
+      movesetOverrides,
+      setMovesetOverride,
     }),
-    [creatures, list, progress, save, starterIds, unlockedIds, toggleTeam, clearTeam, setTerrain, resetSave, retryFailed, resyncDex],
+    [creatures, list, progress, save, starterIds, unlockedIds, toggleTeam, clearTeam, setTerrain, resetSave, retryFailed, resyncDex, movesetOverrides, setMovesetOverride],
   );
 
   return <GameContext.Provider value={value}>{children}</GameContext.Provider>;

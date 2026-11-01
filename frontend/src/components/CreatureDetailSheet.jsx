@@ -11,6 +11,7 @@ import { TypeBadge } from "@/components/TypeBadge";
 import { SpriteImg } from "@/components/SpriteImg";
 import { StatBar } from "@/components/StatBar";
 import { EvolutionLine } from "@/components/EvolutionLine";
+import { MovesetEditor } from "@/components/MovesetEditor";
 
 const STAT_ORDER = ["hp", "atk", "def", "spa", "spd", "spe"];
 
@@ -117,6 +118,11 @@ export const CreatureDetailSheet = ({ creatureId, onClose, onPick, onToggleTeam 
               <section className="mt-5">
                 <h3 className="mb-2 font-mono text-[10px] uppercase tracking-widest text-slate-500">Evolution line</h3>
                 <EvolutionLine creature={creature} onPick={onPick} />
+              </section>
+
+              <section className="mt-5">
+                <h3 className="mb-2 font-mono text-[10px] uppercase tracking-widest text-slate-500">Battle moveset · tap a slot to swap</h3>
+                <MovesetEditor creature={creature} />
               </section>
 
               <section className="mt-5">
