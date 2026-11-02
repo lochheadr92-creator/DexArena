@@ -107,8 +107,8 @@ export const ResultScreen = ({ state, mode = "quick", outcome, creatures = {}, o
   const seconds = (state.endTick / TICK_RATE).toFixed(1);
   const g = outcome?.gauntlet;
   return (
-    <div className="absolute inset-0 z-30 flex items-center justify-center overflow-y-auto bg-black/80 p-4 backdrop-blur-md" data-testid="result-screen">
-      <div className="w-full max-w-md space-y-3 rounded-2xl border border-slate-800 bg-slate-900 p-5">
+    <div className="absolute inset-0 z-30 flex flex-col items-center overflow-y-auto bg-black/80 p-4 backdrop-blur-md" data-testid="result-screen">
+      <div className="my-auto w-full max-w-md shrink-0 space-y-3 rounded-2xl border border-slate-800 bg-slate-900 p-5">
         <div className="flex items-center gap-3">
           <span className={cn("flex h-12 w-12 items-center justify-center rounded-xl", win ? "bg-emerald-500/20 text-emerald-300" : "bg-rose-500/20 text-rose-300")}>
             {win ? <Trophy className="h-6 w-6" /> : <Skull className="h-6 w-6" />}
