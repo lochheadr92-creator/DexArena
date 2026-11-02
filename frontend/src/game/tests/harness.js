@@ -409,15 +409,20 @@ async function logDump({ seed = 5, playerIds, npcIds, terrainId = "pitch", toTic
 
 async function replayTest(seed = 2024) {
   const { encodeReplay, decodeReplay } = await import("@/lib/replay");
-  const original = await fixedBattle({ seed, autoPick: false });
+  const original = await fixedBattle({ seed, autoPick: true });
   original.meta.initialHp = [null, 80, null, null, null, null];
   original.teams.player.units[1].hp = 80;
-  const scripted = [{ tick: 300, type: "switch", side: "player", index: 2 }, { tick: 900, type: "switch", side: "player", index: 0 }];
+  const scripted = [
+    { tick: 300, type: "switch", side: "player", index: 2 },
+    { tick: 900, type: "switch", side: "player", index: 0 },
+    { tick: 2000, type: "auto", side: "player", value: false },
+    { tick: 7000, type: "auto", side: "player", value: true },
+  ];
   let picks = 0;
   while (original.phase === "running" && original.tick < 60 * 600) {
     const due = scripted.find((s) => s.tick === original.tick);
     if (due) original.inputs.push({ ...due });
-    if (original.teams.player.pendingPick) {
+    if (original.teams.player.pendingPick && !original.autoPick) {
       const alive = original.teams.player.units.filter((u) => u.state === "bench" && u.hp > 0);
       original.inputs.push({ type: "pick", side: "player", index: alive[alive.length - 1].index });
       picks++;
@@ -430,9 +435,9 @@ async function replayTest(seed = 2024) {
   while (replay.phase === "running" && replay.tick < 60 * 600) step(replay);
   const a = summary(original);
   const b = summary(replay);
-  const same = JSON.stringify(a) === JSON.stringify(b) && replay.inputLog.length === original.inputLog.length;
+  const same = JSON.stringify(a) === JSON.stringify(b) && JSON.stringify(replay.inputLog) === JSON.stringify(original.inputLog);
   out([
-    `__replayTest seed=${seed}: original inputLog=${JSON.stringify(original.inputLog)} (${picks} forced picks, 2 scripted switches, Ivysaur... unit[1] starts at 80 HP)`,
+    `__replayTest seed=${seed}: original inputLog=${JSON.stringify(original.inputLog)} (auto-pick on at start, off at t2000, on at t7000; ${picks} manual picks, 2 scripted switches, unit[1] starts at 80 HP)`,
     `  replay code length ${code.length} chars → ${window.location.origin}/replay#${code.slice(0, 40)}…`,
     `  original: winner=${a.winner} endTick=${a.endTick} hp=[${a.hp.player.join(",")}|${a.hp.npc.join(",")}]`,
     `  replay:   winner=${b.winner} endTick=${b.endTick} hp=[${b.hp.player.join(",")}|${b.hp.npc.join(",")}] inputLog=${JSON.stringify(replay.inputLog)}`,

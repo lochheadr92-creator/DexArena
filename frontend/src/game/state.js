@@ -117,6 +117,7 @@ export function createBattle({ seed, terrainId, player, npc, autoPick = false, t
     inputLog: [],
     replayInputs: null,
     autoPick,
+    initialAutoPick: autoPick,
     trace: trace ? [] : null,
     dodgeLog: [],
     meltLog: [],

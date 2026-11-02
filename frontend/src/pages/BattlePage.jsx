@@ -53,7 +53,7 @@ export default function BattlePage() {
   const setPaused = useCallback((p) => setPausedState(p), []);
   const setAutoPick = (v) => {
     setAutoPickState(v);
-    if (stateRef.current) stateRef.current.autoPick = v;
+    if (stateRef.current) stateRef.current.inputs.push({ type: "auto", side: "player", value: v });
   };
   useEffect(() => {
     window.__setPaused = setPaused;
@@ -70,7 +70,6 @@ export default function BattlePage() {
       setError(null);
       try {
         const state = await prepareBattle({ movesetOverrides, ...setup, creatures, unlockedIds, playerHasLegendary: playerHasLegendary(unlockedIds, creatures), onProgress: setStatus });
-        state.autoPick = setup.autoPick ?? false;
         state.mode = mode;
         stateRef.current = state;
         window.__battle = state;
@@ -182,7 +181,7 @@ export default function BattlePage() {
     <div className="relative h-[100dvh] w-full overflow-hidden bg-[#05070c]" data-testid="battle-screen" data-mode={mode}>
       {phase === "battle" && <BattleCanvas stateRef={stateRef} speedRef={speedRef} pausedRef={pausedRef} onSnapshot={onSnapshot} rendererRef={rendererRef} onForcePause={setPaused} />}
       {phase === "battle" && (
-        <BattleHud snap={snap} speed={speed} setSpeed={setSpeed} paused={paused} setPaused={setPaused} autoPick={autoPick} setAutoPick={setAutoPick} onSwitch={() => setStripOpen(true)} readOnly={mode === "replay"} stage={mode === "gauntlet" ? save.gauntlet.active?.stage ?? outcome?.gauntlet?.stageReached : null} />
+        <BattleHud snap={snap} speed={speed} setSpeed={setSpeed} paused={paused} setPaused={setPaused} autoPick={autoPick} setAutoPick={setAutoPick} onSwitch={() => setStripOpen(true)} readOnly={mode === "replay"} stage={mode === "gauntlet" ? stateRef.current?.meta.slot : null} />
       )}
       {phase === "battle" && mode !== "replay" && snap && (stripOpen || pendingPick) && !ended && (
         <TeamStrip bench={snap.player.bench} forced={pendingPick} onPick={pick} onClose={() => setStripOpen(false)} />

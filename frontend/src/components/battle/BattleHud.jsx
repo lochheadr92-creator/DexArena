@@ -106,7 +106,7 @@ export const BattleHud = ({ snap, speed, setSpeed, paused, setPaused, autoPick, 
           <div className="mt-1.5 flex justify-center">
             <span
               data-testid={readOnly ? "replay-badge" : "gauntlet-stage-badge"}
-              className={cn("rounded-full border px-2.5 py-0.5 font-mono text-[9px] uppercase tracking-[0.2em] backdrop-blur-[2px]", readOnly ? "border-cyan-500/50 bg-cyan-950/60 text-cyan-200" : "border-amber-500/50 bg-amber-950/60 text-amber-200")}
+              className={cn("rounded-full border px-2.5 py-0.5 font-mono text-[9px] uppercase tracking-[0.2em]", readOnly ? "border-cyan-500/50 bg-cyan-950/90 text-cyan-200" : "border-amber-500/50 bg-amber-950/90 text-amber-200")}
             >
               {readOnly ? "Replay · watch only" : `Gauntlet · Trainer ${stage} of 6`}
             </span>

@@ -13,12 +13,14 @@ export function encodeReplay(state) {
     n: state.teams.npc.units.map((u) => u.creatureId),
     pm: sets("player"),
     nm: sets("npc"),
-    ap: state.autoPick ? 1 : 0,
-    i: state.inputLog.map((x) => [x.tick, x.type === "pick" ? 1 : 0, x.index]),
+    ap: state.initialAutoPick ? 1 : 0,
+    i: state.inputLog.map((x) => (x.type === "auto" ? [x.tick, 2, x.value ? 1 : 0] : [x.tick, x.type === "pick" ? 1 : 0, x.index])),
   };
   if (state.meta.initialHp) payload.hp = state.meta.initialHp;
   return b64(JSON.stringify(payload));
 }
+
+const isMovesetList = (sets) => Array.isArray(sets) && sets.length === 6 && sets.every((s) => Array.isArray(s) && s.every((id) => Number.isInteger(id)));
 
 export function decodeReplay(code) {
   let d;
@@ -27,7 +29,8 @@ export function decodeReplay(code) {
   } catch {
     throw new Error("This replay link is not valid");
   }
-  if (d.v !== 1 || !Array.isArray(d.p) || d.p.length !== 6 || !Array.isArray(d.n) || d.n.length !== 6 || !Array.isArray(d.i)) throw new Error("This replay link is not valid");
+  const okIds = (arr) => Array.isArray(arr) && arr.length === 6 && arr.every((id) => Number.isInteger(id));
+  if (d.v !== 1 || !okIds(d.p) || !okIds(d.n) || !isMovesetList(d.pm) || !isMovesetList(d.nm) || !Array.isArray(d.i)) throw new Error("This replay link is not valid");
   const overrides = (ids, sets) => Object.fromEntries(ids.map((id, k) => [id, sets[k]]));
   return {
     seed: d.seed >>> 0,
@@ -40,7 +43,7 @@ export function decodeReplay(code) {
     npcMovesetOverrides: overrides(d.n, d.nm),
     autoPick: !!d.ap,
     initialHp: d.hp || null,
-    replayInputs: d.i.map(([tick, pick, index]) => ({ tick, type: pick ? "pick" : "switch", side: "player", index })),
+    replayInputs: d.i.map(([tick, kind, v]) => (kind === 2 ? { tick, type: "auto", side: "player", value: !!v } : { tick, type: kind === 1 ? "pick" : "switch", side: "player", index: v })),
   };
 }
 

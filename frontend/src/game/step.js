@@ -69,6 +69,11 @@ export function processInputs(state) {
   for (const inp of inputs) {
     const team = state.teams[inp.side];
     if (!team) continue;
+    if (inp.type === "auto") {
+      state.autoPick = !!inp.value;
+      state.inputLog.push({ tick: state.tick, type: "auto", value: state.autoPick });
+      continue;
+    }
     const target = team.units[inp.index];
     if (!target || target.hp <= 0 || target.state !== "bench") continue;
     const applied = (inp.type === "pick" && team.pendingPick) || (inp.type === "switch" && !team.pendingPick && activeUnit(team).state === "active");
@@ -76,6 +81,8 @@ export function processInputs(state) {
     beginSwitch(state, team, inp.index, inp.type === "pick" ? "pick" : "manual");
     if (inp.side === "player") state.inputLog.push({ tick: state.tick, type: inp.type, index: inp.index });
   }
+  const player = state.teams.player;
+  if (player.pendingPick && state.autoPick) beginSwitch(state, player, bestMatchupIndex(state, player, activeUnit(state.teams.npc)), "auto-pick");
 }
 
 export function beginSwitch(state, team, inIndex, reason) {
