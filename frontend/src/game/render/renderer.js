@@ -1,10 +1,14 @@
-import { animations as A, engine, terrains as terrainConfig, typeColors, TICK_RATE, secToTicks } from "@/game/config";
+import { animations as A, engine, terrains as terrainConfig, typeColors, moveVisuals, TICK_RATE, secToTicks } from "@/game/config";
 import { tileAt } from "@/game/terrain";
 import { getSprite, spriteKey, frameFor } from "@/game/render/sprites";
 import { ParticleSystem } from "@/game/render/particles";
+import { resolveVisual } from "@/game/render/moveVisuals";
+import { drawArchetypeEffect, drawCone, drawBeam, drawOrb, makeFallChunks } from "@/game/render/archetypeFx";
 
 const tcolor = (t) => typeColors[t]?.bg || "#94a3b8";
 const ease = (t) => Math.min(1, Math.max(0, t));
+const V = moveVisuals.archetypes;
+const prefersReducedMotion = () => typeof window !== "undefined" && !!window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
 
 export class BattleRenderer {
   constructor(canvas) {
@@ -23,6 +27,17 @@ export class BattleRenderer {
     this.oy = 0;
     this.scratch = document.createElement("canvas");
     this.fps = { frames: 0, last: performance.now(), value: 0 };
+    this.lastCast = {};
+    this.pendingCasts = [];
+    this.projVis = {};
+    this.shakeUntil = 0;
+    this.shakePx = 0;
+    this.reducedMotion = prefersReducedMotion();
+    this.particles.muted = this.reducedMotion;
+  }
+
+  effectCount() {
+    return this.effects.length + this.particles.items.length + this.texts.length + Object.keys(this.projVis).length + this.pendingCasts.length;
   }
 
   resize(cssW, cssH, dpr) {
@@ -51,6 +66,10 @@ export class BattleRenderer {
     this.tickFps(now);
     ctx.setTransform(this.dpr, 0, 0, this.dpr, 0, 0);
     ctx.clearRect(0, 0, this.cssW, this.cssH);
+    if (A.animationsEnabled && !this.reducedMotion && now < this.shakeUntil) {
+      const k = (this.shakeUntil - now) / (V.shockwave.screenShakeSec * 1000);
+      ctx.translate((Math.random() - 0.5) * 2 * this.shakePx * k, (Math.random() - 0.5) * 2 * this.shakePx * k);
+    }
     this.consumeEvents(state, now);
     this.drawTerrain(state);
     this.drawAreaWindups(state);
@@ -165,6 +184,7 @@ export class BattleRenderer {
         dy += fx.lunge.dy * k;
       }
       if (fx.hitUntil && now < fx.hitUntil) tint = { color: "#ffffff", alpha: 0.85 };
+      if (fx.shake && now < fx.shake.until && !this.reducedMotion) dx += (Math.random() - 0.5) * 2 * fx.shake.px;
       if (fx.recoil && now < fx.recoil.until) {
         const p = (fx.recoil.until - now) / (A.recoil.sec * 1000);
         dx += fx.recoil.dx * this.px(A.recoil.tiles) * p;
@@ -347,6 +367,24 @@ export class BattleRenderer {
   drawProjectiles(state, now) {
     const ctx = this.ctx;
     for (const p of state.projectiles) {
+      const v = A.animationsEnabled && !this.reducedMotion ? this.projVis[p.id] : null;
+      if (v && v.archetype === "beam") {
+        const owner = this.findUnit(state, p.ownerId);
+        const from = owner && owner.state !== "bench" && owner.state !== "fainted" ? { x: owner.pos.x, y: owner.pos.y - 0.4 } : v.origin;
+        drawBeam(this, ctx, from, { x: p.pos.x, y: p.pos.y }, v.color, V.beam.widthPx * this.scalePx() * (0.85 + 0.15 * Math.sin(now / 30)), p.hit ? 1 : 0.6);
+        continue;
+      }
+      if (v && v.archetype === "lob") {
+        const t = Math.min(1, p.traveled / p.range);
+        drawOrb(this, ctx, p.pos, 0.3 + V.lob.arcTiles * Math.sin(t * Math.PI), v.color, (V.lob.orbPx / 2) * this.scalePx(), p.hit ? 1 : 0.6);
+        if (Math.random() < 0.5) this.particles.spawn({ x: p.pos.x, y: p.pos.y - 0.3 - V.lob.arcTiles * Math.sin(t * Math.PI), vx: -p.dir.x, vy: -p.dir.y + 0.5, maxLife: 0.25, color: v.color, size: 2.5 });
+        continue;
+      }
+      if (v && v.archetype === "spread") {
+        const head = drawCone(this, ctx, v.origin, { x: p.pos.x, y: p.pos.y }, v.color, 1, p.hit ? 0.95 : 0.55);
+        this.particles.spawn({ x: head.headTiles.x + (Math.random() - 0.5) * 0.9, y: head.headTiles.y + (Math.random() - 0.5) * 0.9, vx: p.dir.x * 2, vy: p.dir.y * 2 - 1, maxLife: 0.3, color: v.color, size: 3 });
+        continue;
+      }
       const { x, y } = this.toPx(p.pos.x, p.pos.y);
       const color = tcolor(p.type);
       const r = (A.projectile.px / 2) * this.scalePx();
@@ -376,19 +414,26 @@ export class BattleRenderer {
   }
 
   consumeEvents(state, now) {
+    if (this.pendingCasts.length) this.pendingCasts = this.pendingCasts.filter((c) => c.expiresAt > now);
     for (const ev of state.events) {
       if (ev.id <= this.lastEventId) continue;
       this.lastEventId = ev.id;
       if (ev.kind === "switch-in") this.texts.push({ kind: "splash", text: `GO ${ev.name.toUpperCase()}!`, x: ev.x, y: ev.y - 2.2, until: now + A.switch.goSplashSec * 1000, start: now, side: ev.side });
       if (!A.animationsEnabled) continue;
       const color = tcolor(ev.type);
+      if (this.reducedMotion) {
+        this.reducedMotionEvent(state, ev, now, color);
+        continue;
+      }
       switch (ev.kind) {
         case "cast":
           (this.unitFx[ev.unitId] ||= {}).lastMoveIdx = null;
+          this.onCast(state, ev, now);
           break;
         case "hit": {
           const fx = (this.unitFx[ev.targetId] ||= {});
           fx.hitUntil = now + A.hitFlash.sec * 1000;
+          if (ev.source === "melee" || ev.source === "dash") fx.shake = { px: V.contact.shakePx, until: now + V.contact.shakeSec * 1000 };
           if (ev.source === "projectile" && ev.attackerId) {
             const att = this.findUnit(state, ev.attackerId);
             if (att) {
@@ -403,29 +448,33 @@ export class BattleRenderer {
           else if (ev.eff === 0) this.texts.push({ kind: "popup", text: "No effect", x: ev.x, y: ev.y - 2.4, until: now + A.popup.sec * 1000, start: now, color: "#94a3b8" });
           break;
         }
-        case "projectile-hit":
-          this.particles.burst(ev.x, ev.y, A.projectile.burstParticles, { color, speed: 4, maxLife: A.projectile.burstSec, size: 3 });
-          break;
-        case "projectile-blocked":
-          this.particles.burst(ev.x, ev.y, 6, { color, speed: 2.5, maxLife: 0.3, size: 2.5 });
-          break;
-        case "area-detonate":
-          this.effects.push({ kind: "areaFlash", x: ev.x, y: ev.y, r: ev.radius, color, until: now + A.area.flashSec * 1000, start: now });
-          this.particles.burst(ev.x, ev.y, A.area.detonateParticles, { color, speed: 5, maxLife: A.area.detonateSec, size: 3 });
-          break;
-        case "melee-swing": {
-          this.effects.push({ kind: "arc", x: ev.x, y: ev.y, dx: ev.dx, dy: ev.dy, color, until: now + A.melee.sweepSec * 1000, start: now, unitId: ev.unitId });
-          (this.unitFx[ev.unitId] ||= {}).lunge = { dx: ev.dx, dy: ev.dy, until: now + A.melee.sweepSec * 1000 };
+        case "projectile-spawn": {
+          const p = state.projectiles.find((q) => q.id === ev.projectileId);
+          const owner = p ? this.findUnit(state, p.ownerId) : null;
+          const v = resolveVisual(owner ? owner.moves[p.moveIdx] : null);
+          this.projVis[ev.projectileId] = { archetype: v.archetype, color: v.color, ownerId: p?.ownerId, origin: { x: ev.x, y: ev.y - 0.4 } };
           break;
         }
+        case "projectile-hit":
+        case "projectile-blocked":
+        case "projectile-expire":
+          this.onProjectileEnd(ev, now, color);
+          break;
+        case "area-detonate":
+          this.onDetonate(ev, now, color);
+          break;
+        case "melee-swing":
+          this.onSwing(state, ev, now, color);
+          break;
         case "dash-end":
           this.effects.push({ kind: "dash", path: ev.path, color, unitId: ev.unitId, until: now + A.dash.streakSec * 1000, start: now });
           break;
         case "shield-break":
           this.particles.burst(ev.x, ev.y - 0.5, A.shield.fragments, { color, speed: 3.5, maxLife: A.shield.shatterSec, size: 4, gravity: 6 });
           break;
+        case "shield-up":
         case "buff":
-          this.effects.push({ kind: "buffStream", unitId: ev.unitId, color, until: now + A.buff.streamSec * 1000, start: now, spawned: 0 });
+          this.onSelfMove(ev, now, color);
           break;
         case "status":
           this.particles.burst(ev.x, ev.y - 0.6, 6, { color: ev.status === "burn" ? "#f97316" : "#facc15", speed: 2.5, maxLife: 0.4, size: 3 });
@@ -448,6 +497,128 @@ export class BattleRenderer {
     }
   }
 
+  onCast(state, ev, now) {
+    const u = this.findUnit(state, ev.unitId);
+    const move = u?.moves.find((m) => m.name === ev.move);
+    const v = resolveVisual(move);
+    const cast = { unitId: ev.unitId, move: ev.move, archetype: v.archetype, color: v.color, tx: ev.tx, ty: ev.ty, shape: ev.shape };
+    this.lastCast[ev.unitId] = cast;
+    if (ev.shape !== "area") return;
+    const windupMs = (ev.windupTicks / TICK_RATE) * 1000;
+    this.pendingCasts.push({ ...cast, expiresAt: now + windupMs + 1500 });
+    const base = { fromId: ev.unitId, fx: ev.x, fy: ev.y, tx: ev.tx, ty: ev.ty, color: v.color, start: now };
+    if (v.archetype === "beam") this.effects.push({ ...base, kind: "charge", until: now + Math.min(V.beam.chargeSec * 1000, windupMs) });
+    else if (v.archetype === "lob") this.effects.push({ ...base, kind: "lobArc", fy: ev.y - 0.4, arcTiles: V.lob.arcTiles, until: now + windupMs });
+    else if (v.archetype === "spread") this.effects.push({ ...base, kind: "plume", until: now + windupMs + 250 });
+    else if (v.archetype === "strike") this.effects.push({ kind: "flash", x: ev.tx, y: ev.ty, color: v.color, radiusTiles: 1.4, start: now, until: now + windupMs });
+  }
+
+  takeCast(x, y) {
+    const i = this.pendingCasts.findIndex((c) => Math.abs(c.tx - x) < 1e-6 && Math.abs(c.ty - y) < 1e-6);
+    return i >= 0 ? this.pendingCasts.splice(i, 1)[0] : null;
+  }
+
+  onDetonate(ev, now, color) {
+    const cast = this.takeCast(ev.x, ev.y);
+    const arch = cast?.archetype || "burst";
+    const c = cast?.color || color;
+    this.effects.push({ kind: "areaFlash", x: ev.x, y: ev.y, r: ev.radius, color: c, until: now + A.area.flashSec * 1000, start: now });
+    this.playImpact(arch, { fromId: cast?.unitId, x: ev.x, y: ev.y, color: c, radius: ev.radius }, now);
+  }
+
+  onSwing(state, ev, now, color) {
+    const cast = this.lastCast[ev.unitId];
+    const arch = cast?.archetype || "contact";
+    const c = cast?.color || color;
+    if (arch === "contact") {
+      this.effects.push({ kind: "arc", x: ev.x, y: ev.y, dx: ev.dx, dy: ev.dy, color: c, until: now + A.melee.sweepSec * 1000, start: now, unitId: ev.unitId });
+      (this.unitFx[ev.unitId] ||= {}).lunge = { dx: ev.dx, dy: ev.dy, until: now + A.melee.sweepSec * 1000 };
+      return;
+    }
+    const enemy = state.teams[ev.unitId.startsWith("player") ? "npc" : "player"];
+    const e = enemy.units[enemy.activeIndex];
+    const reach = engine.shapes.melee.reach;
+    const near = e && Math.hypot(e.pos.x - ev.x, e.pos.y - ev.y) <= reach * 1.5;
+    const target = near ? { x: e.pos.x, y: e.pos.y } : { x: ev.x + ev.dx * reach, y: ev.y + ev.dy * reach };
+    if (arch === "lob") {
+      this.effects.push({ kind: "lobArc", fx: ev.x, fy: ev.y - 0.4, tx: target.x, ty: target.y, color: c, arcTiles: 0.8, start: now, until: now + 220 });
+      this.effects.push({ kind: "impact", x: target.x, y: target.y, color: c, start: now + 220, until: now + 220 + V.lob.sec * 1000 });
+      return;
+    }
+    this.playImpact(arch, { fromId: ev.unitId, x: target.x, y: target.y, color: c, radius: reach }, now);
+  }
+
+  playImpact(arch, { fromId, x, y, color, radius }, now) {
+    switch (arch) {
+      case "spread":
+        this.effects.push({ kind: "plume", fromId, fx: x, fy: y, tx: x, ty: y, color, fixedLen: 1, start: now, until: now + 320 });
+        this.particles.burst(x, y - 0.4, 14, { color, speed: 4, maxLife: 0.45, size: 3, gravity: -2 });
+        break;
+      case "beam":
+        this.effects.push({ kind: "beamLine", fromId, fx: x, fy: y, tx: x, ty: y - 0.4, color, start: now, until: now + V.beam.fadeSec * 1000 });
+        this.particles.burst(x, y - 0.4, 8, { color, speed: 3, maxLife: 0.3, size: 2.5 });
+        break;
+      case "lob":
+        this.effects.push({ kind: "impact", x, y, color, radiusTiles: radius, start: now, until: now + V.lob.sec * 1000 });
+        this.particles.burst(x, y - 0.4, V.lob.burstParticles, { color, speed: 4.5, maxLife: 0.4, size: 3 });
+        break;
+      case "strike":
+        if (color === tcolor("electric")) this.effects.push({ kind: "bolt", x, y, color, start: now, until: now + V.strike.sec * 1000 });
+        else this.effects.push({ kind: "fall", x, y, color, chunks: makeFallChunks(), start: now, until: now + V.strike.sec * 1000 });
+        break;
+      case "shockwave":
+        this.effects.push({ kind: "ring", x, y, color, radiusTiles: V.shockwave.ringTiles, start: now, until: now + V.shockwave.sec * 1000 });
+        this.effects.push({ kind: "ring", x, y, color, radiusTiles: V.shockwave.ringTiles * 0.7, delay: 0.15, start: now, until: now + V.shockwave.sec * 1000 });
+        this.shakeUntil = now + V.shockwave.screenShakeSec * 1000;
+        this.shakePx = V.shockwave.screenShakePx;
+        break;
+      default:
+        this.effects.push({ kind: "impact", x, y, color, radiusTiles: 0.9, start: now, until: now + V.burst.sec * 1000 });
+        this.particles.burst(x, y - 0.4, A.area.detonateParticles, { color, speed: 5, maxLife: A.area.detonateSec, size: 3 });
+        break;
+    }
+  }
+
+  onProjectileEnd(ev, now, color) {
+    const v = this.projVis[ev.projectileId];
+    delete this.projVis[ev.projectileId];
+    const hit = ev.kind === "projectile-hit";
+    const c = v?.color || color;
+    const end = { x: ev.x, y: ev.y - 0.4 };
+    if (v?.archetype === "beam") this.effects.push({ kind: "beamLine", fromId: v.ownerId, fx: v.origin.x, fy: v.origin.y + 0.4, tx: end.x, ty: end.y, color: c, start: now, until: now + V.beam.fadeSec * 1000 });
+    else if (v?.archetype === "spread") this.effects.push({ kind: "plume", fx: v.origin.x, fy: v.origin.y + 0.4, tx: ev.x, ty: ev.y, color: c, fixedLen: 1, fadeOnly: true, start: now, until: now + 250 });
+    if (hit) {
+      if (v?.archetype === "lob") this.effects.push({ kind: "impact", x: ev.x, y: ev.y, color: c, radiusTiles: 1.2, start: now, until: now + V.lob.sec * 1000 });
+      this.particles.burst(ev.x, ev.y, v?.archetype === "lob" ? V.lob.burstParticles : A.projectile.burstParticles, { color: c, speed: 4, maxLife: A.projectile.burstSec, size: 3 });
+    } else if (ev.kind === "projectile-blocked") this.particles.burst(ev.x, ev.y, 6, { color: c, speed: 2.5, maxLife: 0.3, size: 2.5 });
+  }
+
+  onSelfMove(ev, now, color) {
+    const cast = this.lastCast[ev.unitId];
+    const arch = cast?.archetype || "aura";
+    const c = cast?.color || color;
+    if (arch === "cloud" && cast) {
+      this.effects.push({ kind: "cloud", fromId: ev.unitId, tx: cast.tx, ty: cast.ty, color: c, total: V.cloud.particles, travelSec: V.cloud.travelSec, spawned: 0, start: now, until: now + V.cloud.sec * 1000 });
+      this.effects.push({ kind: "fog", x: cast.tx, y: cast.ty, color: c, start: now + V.cloud.travelSec * 1000 * 0.8, until: now + V.cloud.sec * 1000 });
+      return;
+    }
+    this.effects.push({ kind: "aura", fromId: ev.unitId, color: c, start: now, until: now + V.aura.sec * 1000 });
+    if (ev.kind === "buff") this.effects.push({ kind: "buffStream", unitId: ev.unitId, color: c, until: now + A.buff.streamSec * 1000, start: now, spawned: 0 });
+  }
+
+  reducedMotionEvent(state, ev, now, color) {
+    const flash = (x, y, c = color) => this.effects.push({ kind: "flash", x, y, color: c, radiusTiles: 1, start: now, until: now + moveVisuals.reducedMotionFlashSec * 1000 });
+    if (ev.kind === "hit") {
+      (this.unitFx[ev.targetId] ||= {}).hitUntil = now + A.hitFlash.sec * 1000;
+      this.texts.push({ kind: "dmg", text: ev.blocked === "entry" ? "0" : String(ev.damage), x: ev.x, y: ev.y - 1.4, until: now + A.damageNumber.sec * 1000, start: now, big: ev.eff >= 2, color: ev.eff >= 2 ? "#fde047" : ev.eff === 0 ? "#94a3b8" : "#ffffff" });
+      flash(ev.x, ev.y);
+    } else if (ev.kind === "area-detonate" || ev.kind === "projectile-hit" || ev.kind === "melee-swing" || ev.kind === "status" || ev.kind === "faint") flash(ev.x, ev.y);
+    else if (ev.kind === "shield-up" || ev.kind === "buff") {
+      const u = this.findUnit(state, ev.unitId);
+      if (u) flash(u.pos.x, u.pos.y);
+    }
+  }
+
   findUnit(state, id) {
     for (const side of ["player", "npc"]) for (const u of state.teams[side].units) if (u.id === id) return u;
     return null;
@@ -458,6 +629,10 @@ export class BattleRenderer {
     const keep = [];
     for (const e of this.effects) {
       if (now >= e.until) continue;
+      if (now < e.start) {
+        keep.push(e);
+        continue;
+      }
       const p = ease((now - e.start) / (e.until - e.start));
       switch (e.kind) {
         case "areaFlash": {
@@ -551,6 +726,7 @@ export class BattleRenderer {
           break;
         }
         default:
+          drawArchetypeEffect(this, ctx, e, p, state);
           break;
       }
       keep.push(e);

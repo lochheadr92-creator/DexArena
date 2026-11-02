@@ -49,9 +49,13 @@ async function smokeTest(opts = {}) {
   animations.animationsEnabled = prevAnim;
   animations.animatedSprites = prevSprites;
   const s = summary(state);
-  const line = `__smokeTest seed=${seed} speed=${speed}x animations=${opts.animations ?? prevAnim} animatedSprites=${opts.animatedSprites ?? prevSprites} → winner=${s.winner} remaining player=${s.remaining.player} npc=${s.remaining.npc} endTick=${s.endTick} (${s.durationSec}s, ${frames} frames) hp=[${s.hp.player.join(",")}|${s.hp.npc.join(",")}]`;
+  const logText = state.log.join("\n");
+  let h = 5381;
+  for (let i = 0; i < logText.length; i++) h = ((h * 33) ^ logText.charCodeAt(i)) >>> 0;
+  const line = `__smokeTest seed=${seed} speed=${speed}x animations=${opts.animations ?? prevAnim} animatedSprites=${opts.animatedSprites ?? prevSprites} → winner=${s.winner} remaining player=${s.remaining.player} npc=${s.remaining.npc} endTick=${s.endTick} (${s.durationSec}s, ${frames} frames) hp=[${s.hp.player.join(",")}|${s.hp.npc.join(",")}] log=${state.log.length} lines hash=${h.toString(16)}`;
   out(line);
-  return { ...s, speed, frames, line };
+  window.__lastSmokeLog = state.log;
+  return { ...s, speed, frames, line, logHash: h.toString(16), logLines: state.log.length };
 }
 
 async function pacingTest(n = 50) {
@@ -487,8 +491,38 @@ async function progressionTest() {
   return lines;
 }
 
+async function visualCoverage(maxId = 467) {
+  const { resolveVisual, coverageReport } = await import("@/game/render/moveVisuals");
+  const ids = Array.from({ length: maxId }, (_, i) => i + 1);
+  const t0 = performance.now();
+  const map = await ensureMoves(ids);
+  const moves = ids.map((id) => map[id]).filter(Boolean).map(toBattleMove);
+  const rep = coverageReport(moves);
+  const lines = [
+    `__visualCoverage: ${rep.total} moves (PokeAPI ids 1–${maxId}, Gen I–IV), ${rep.damaging} damaging — fetched/cached in ${(performance.now() - t0).toFixed(0)}ms`,
+    `  counts per archetype: ${Object.entries(rep.counts).map(([k, v]) => `${k}=${v}`).join("  ")}`,
+    `  fallback (burst) on damaging moves: ${rep.fallbackDamaging.length}/${rep.damaging} = ${rep.fallbackPct}%`,
+    `  fallback damaging list: ${rep.fallbackDamaging.join(", ") || "none"}`,
+    `  fallback non-damaging (status/0-power) list: ${rep.fallbackOther.join(", ") || "none"}`,
+    `  rules skipped as incompatible with the move's gameplay shape (${rep.skipped.length}): ${rep.skipped.join("; ") || "none"}`,
+    ...Object.keys(rep.byArchetype).map((k) => `  [${k}] ${rep.byArchetype[k].join(", ")}`),
+  ];
+  out(lines);
+  window.__visualCoverageReport = rep;
+  return { rep, resolveVisual };
+}
+
+function fxCount() {
+  const r = window.__renderer;
+  const n = r ? r.effectCount() : null;
+  out(`__fxCount: ${n} (effects=${r?.effects.length} particles=${r?.particles.items.length} texts=${r?.texts.length} projVis=${Object.keys(r?.projVis || {}).length} pendingCasts=${r?.pendingCasts.length}) reducedMotion=${r?.reducedMotion}`);
+  return n;
+}
+
 export function installHarness() {
   Object.assign(window, {
+    __visualCoverage: visualCoverage,
+    __fxCount: fxCount,
     __replayTest: replayTest,
     __progressionTest: progressionTest,
     __logDump: logDump,

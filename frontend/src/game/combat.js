@@ -119,7 +119,10 @@ export function applyHit(state, attacker, target, move, source) {
   const { damage, eff } = computeDamage(attacker, target, move, terrainMult, state.rng.next());
   target.hp = Math.max(0, target.hp - damage);
   attacker.damageDealt += damage;
-  if (damage > 0) target.lastHitBy = attacker.id;
+  if (damage > 0) {
+    target.lastHitBy = attacker.id;
+    target.lastHitIndirect = false;
+  }
   logLine(state, `${attacker.name} ${move.name} [${move.type}/${source}] → ${target.name} [${target.types.join("/")}]: ${eff}x, ${damage} dmg${terrainMult !== 1 ? ` (terrain x${terrainMult} on ${tile})` : ""}`);
   pushEvent(state, { kind: "hit", targetId: target.id, attackerId: attacker.id, damage, eff, type: move.type, source, x: target.pos.x, y: target.pos.y });
   if (eff === 0) return true;
@@ -227,7 +230,10 @@ export function updateStatuses(state, unit) {
         unit.hp -= dealt;
         const by = findUnit(state, unit.burn.by);
         if (by) by.damageDealt += dealt;
-        if (unit.hp === 0) unit.lastHitBy = unit.burn.by;
+        if (unit.hp === 0) {
+          unit.lastHitBy = unit.burn.by;
+          unit.lastHitIndirect = true;
+        }
       }
     }
   }

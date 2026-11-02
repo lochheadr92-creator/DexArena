@@ -6,7 +6,7 @@ export class ParticleSystem {
   }
 
   spawn(p) {
-    if (!animations.animationsEnabled || this.items.length >= animations.particleCap) return;
+    if (this.muted || !animations.animationsEnabled || this.items.length >= animations.particleCap) return;
     this.items.push({ life: 0, gravity: 0, size: 3, alpha: 1, ...p });
   }
 

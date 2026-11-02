@@ -106,6 +106,8 @@ export default function BattlePage() {
     } else {
       const override = window.__battleOverride || {};
       setup = { playerIds: override.playerIds || save.team, terrainId: override.terrainId || save.terrain, seed: override.seed ?? pickSeed(), archetypeId: override.archetypeId || null, npcIds: override.npcIds || null, autoPick: override.autoPick ?? false };
+      if (override.movesetOverrides) setup.movesetOverrides = override.movesetOverrides;
+      if (override.npcMovesetOverrides) setup.npcMovesetOverrides = override.npcMovesetOverrides;
     }
     if (setup.playerIds.length !== 6 || [...setup.playerIds, ...(setup.npcIds || [])].some((id) => !creatures[id])) {
       if (mode === "replay") {

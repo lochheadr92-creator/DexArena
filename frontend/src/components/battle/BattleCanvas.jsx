@@ -80,7 +80,7 @@ export const BattleCanvas = ({ stateRef, speedRef, pausedRef, onSnapshot, render
         const hook = window.__pauseOnEvent;
         if (hook && !hook.done) {
           if (hook.armedAt == null) {
-            const ev = state.events.find((e) => e.id > (hook.afterId || 0) && e.kind === hook.kind && (!hook.status || e.status === hook.status) && (!hook.side || e.side === hook.side));
+            const ev = state.events.find((e) => e.id > (hook.afterId || 0) && e.kind === hook.kind && (!hook.status || e.status === hook.status) && (!hook.side || e.side === hook.side) && (!hook.move || e.move === hook.move));
             if (ev) {
               hook.armedAt = now + (hook.delayMs || 0);
               hook.eventTick = ev.tick;

@@ -14,6 +14,9 @@ export function defaultSave() {
     team: [],
     terrain: "pitch",
     speciesWins: {},
+    speciesKoCredit: {},
+    speciesStandingCredit: {},
+    lastCreditedBattle: null,
     gauntlet: { runs: 0, clears: 0, bestStage: 0, active: null },
   };
 }

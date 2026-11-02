@@ -13,6 +13,28 @@ import { StatBar } from "@/components/StatBar";
 import { EvolutionLine } from "@/components/EvolutionLine";
 import { MovesetEditor } from "@/components/MovesetEditor";
 import { UnlockPanel } from "@/components/UnlockPanel";
+import { speciesCredit } from "@/lib/progression";
+
+const SpeciesRecord = ({ save, id }) => {
+  const c = speciesCredit(save, id);
+  const cell = (label, value, testId, cls) => (
+    <div className="rounded-lg border border-slate-800 bg-slate-950/60 px-2 py-1.5 text-center">
+      <p className={cn("font-mono text-base font-semibold", cls)} data-testid={testId}>{value}</p>
+      <p className="font-mono text-[9px] uppercase tracking-wider text-slate-500">{label}</p>
+    </div>
+  );
+  return (
+    <section className="mt-5" data-testid="species-record">
+      <h3 className="mb-2 font-mono text-[10px] uppercase tracking-widest text-slate-500">Arena record · total credit = wins + KO + standing</h3>
+      <div className="grid grid-cols-4 gap-1.5">
+        {cell("Wins", c.wins, "species-record-wins", "text-slate-100")}
+        {cell("KO credit", c.koCredit, "species-record-ko", "text-amber-300")}
+        {cell("Standing", c.standingCredit, "species-record-standing", "text-emerald-300")}
+        {cell("Total", c.totalCredit, "species-record-total", "text-cyan-300")}
+      </div>
+    </section>
+  );
+};
 
 const STAT_ORDER = ["hp", "atk", "def", "spa", "spd", "spe"];
 
@@ -106,6 +128,8 @@ export const CreatureDetailSheet = ({ creatureId, onClose, onPick, onToggleTeam 
               </div>
 
               {locked && <UnlockPanel creature={creature} />}
+
+              <SpeciesRecord save={save} id={creature.id} />
 
               <section className="mt-5">
                 <h3 className="mb-2 font-mono text-[10px] uppercase tracking-widest text-slate-500">Base stats</h3>

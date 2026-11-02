@@ -7,9 +7,10 @@ import modifiers from "./modifiers.json";
 import archetypes from "./archetypes.json";
 import difficulty from "./difficulty.json";
 import animations from "./animations.json";
+import moveVisuals from "./moveVisuals.json";
 
-export const CONFIG = { typeChart, typeColors, engine, shapeMapping, terrains, modifiers, archetypes, difficulty, animations };
-export { typeChart, typeColors, engine, shapeMapping, terrains, modifiers, archetypes, difficulty, animations };
+export const CONFIG = { typeChart, typeColors, engine, shapeMapping, terrains, modifiers, archetypes, difficulty, animations, moveVisuals };
+export { typeChart, typeColors, engine, shapeMapping, terrains, modifiers, archetypes, difficulty, animations, moveVisuals };
 
 export const TICK_RATE = engine.TICK_RATE;
 export const TICK_SEC = 1 / TICK_RATE;

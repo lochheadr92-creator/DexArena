@@ -60,6 +60,7 @@ export async function prepareBattle({ creatures, unlockedIds, playerIds, terrain
     npc: { creatures: npcCreatures, movesets: npcMovesets, params: difficultyParams(archetype, difficultySlot), archetypeId: archetype.id, name: archetype.name },
   });
   if (replayInputs) state.replayInputs = replayInputs.map((x) => ({ ...x })).sort((a, b) => a.tick - b.tick);
+  state.battleId = `${seed}-${Date.now().toString(36)}`;
   state.meta = { archetype: archetype.id, slot: difficultySlot, initialHp, mapping, log, spriteStats, damageScale: engine.DAMAGE_SCALE };
   return state;
 }

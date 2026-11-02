@@ -60,9 +60,11 @@ function makeUnit(creature, moves, side, index, params, spawn) {
     lowHpEvaluated: false,
     revealed: false,
     lastHitBy: null,
+    lastHitIndirect: false,
     lastCastTick: -999,
     kills: 0,
     damageDealt: 0,
+    entries: 0,
     dodges: 0,
     distanceMoved: 0,
     distSum: 0,
@@ -128,13 +130,15 @@ export function createBattle({ seed, terrainId, player, npc, autoPick = false, t
     u.state = "entering";
     u.entryUntil = secToTicks(engine.switching.sec);
     u.revealed = true;
+    u.entries++;
     pushEvent(state, { kind: "switch-in", unitId: u.id, side, name: u.name, x: u.pos.x, y: u.pos.y });
   }
   return state;
 }
 
 export function pushEvent(state, ev) {
-  state.events.push({ id: state.nextEventId++, tick: state.tick, ...ev });
+  const { id: refId, ...rest } = ev;
+  state.events.push({ id: state.nextEventId++, tick: state.tick, ...rest, ...(refId != null ? { projectileId: refId } : {}) });
 }
 
 export function logLine(state, line) {

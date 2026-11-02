@@ -2,6 +2,7 @@ import { Trophy, Skull, RotateCcw, Grid3x3, Share2, ChevronRight, Sparkles, KeyR
 import { cn } from "@/lib/utils";
 import { TICK_RATE } from "@/game/config";
 import { GAUNTLET_STAGES } from "@/lib/gauntlet";
+import { KO_BONUS, STANDING_BONUS } from "@/lib/progression";
 
 const Table = ({ title, units, testId }) => (
   <div className="rounded-xl border border-slate-800 bg-slate-950/70 p-3" data-testid={testId}>
@@ -40,6 +41,38 @@ const Rewards = ({ outcome, creatures }) => {
           <KeyRound className="h-3.5 w-3.5 shrink-0" /> Seal Key earned — spend it on any legendary in the roster
         </p>
       )}
+    </div>
+  );
+};
+
+const CreditBreakdown = ({ outcome, win }) => {
+  if (!outcome || outcome.credited === false) return null;
+  if (!win) {
+    return (
+      <p className="rounded-xl border border-slate-800 bg-slate-950/70 px-3 py-2 text-[11px] text-slate-400" data-testid="result-credit-none">
+        No species credit — wins, KO and standing bonuses go to the winning side only.
+      </p>
+    );
+  }
+  return (
+    <div className="rounded-xl border border-emerald-900/50 bg-slate-950/70 p-3" data-testid="result-credit">
+      <p className="mb-2 font-mono text-[10px] uppercase tracking-widest text-slate-500">Species credit · win +1 · KO +{KO_BONUS} each · standing +{STANDING_BONUS}</p>
+      <div className="grid grid-cols-[1fr_auto_auto_auto_auto] gap-x-3 gap-y-1 text-[11px]">
+        <span className="text-slate-500">Creature</span>
+        <span className="text-right text-slate-500">Win</span>
+        <span className="text-right text-slate-500">KO</span>
+        <span className="text-right text-slate-500">Stand</span>
+        <span className="text-right text-slate-500">Total</span>
+        {outcome.rows.map((r) => (
+          <div key={r.speciesId} className="contents" data-testid={`result-credit-${r.speciesId}`} data-ko={r.ko} data-standing={r.standing} data-total={r.total}>
+            <span className="truncate text-slate-100">{r.name}</span>
+            <span className="text-right font-mono text-slate-300">+{r.win}</span>
+            <span className={cn("text-right font-mono", r.ko ? "text-amber-300" : "text-slate-500")}>+{r.ko}</span>
+            <span className={cn("text-right font-mono", r.standing ? "text-emerald-300" : "text-slate-500")}>+{r.standing}</span>
+            <span className="text-right font-mono font-semibold text-slate-100">+{r.total}</span>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
@@ -92,6 +125,7 @@ export const ResultScreen = ({ state, mode = "quick", outcome, creatures = {}, o
         </div>
         <GauntletNote g={g} />
         <Rewards outcome={outcome} creatures={creatures} />
+        {mode !== "replay" && <CreditBreakdown outcome={outcome} win={win} />}
         <Table title="Your team" units={state.teams.player.units} testId="result-table-player" />
         <Table title={`Rival — ${state.teams.npc.name}`} units={state.teams.npc.units} testId="result-table-npc" />
         <div className="grid grid-cols-2 gap-2 pt-1">

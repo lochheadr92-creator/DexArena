@@ -3,7 +3,7 @@ import { MAX_ID } from "@/lib/pokeapi";
 import { clearCreatureCache, fetchCreatures, loadCachedCreatures } from "@/lib/dex";
 import { clearSave, defaultSave, loadSave, normalizeSave, persistSave, validateSave, TEAM_SIZE } from "@/lib/save";
 import { computeStarterIds, isSealed } from "@/lib/unlocks";
-import { creditBattle, sealKeys } from "@/lib/progression";
+import { creditBattle, battleBonuses, sealKeys } from "@/lib/progression";
 import { applyRunToSave, newRun, runAfterBattle } from "@/lib/gauntlet";
 import { registerDex, installHarness } from "@/game/tests/harness";
 
@@ -133,10 +133,16 @@ export function GameProvider({ children }) {
 
   const creditResult = useCallback(
     (state) => {
-      const res = creditBattle(saveRef.current, { win: state.winner === "player", playerIds: state.teams.player.units.map((u) => u.creatureId) }, creaturesRef.current, unlockedRef.current);
+      const res = creditBattle(
+        saveRef.current,
+        { win: state.winner === "player", playerIds: state.teams.player.units.map((u) => u.creatureId), battleId: state.battleId, bonuses: battleBonuses(state) },
+        creaturesRef.current,
+        unlockedRef.current,
+      );
+      if (!res.credited) return { newUnlocks: [], keysEarned: 0, credited: false, rows: [] };
       setSave(persistSave(res.save));
       saveRef.current = res.save;
-      return { newUnlocks: res.newUnlocks, keysEarned: res.keysEarned };
+      return { newUnlocks: res.newUnlocks, keysEarned: res.keysEarned, credited: true, rows: res.rows };
     },
     [],
   );
