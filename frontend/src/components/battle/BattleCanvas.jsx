@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import { step, processInputs } from "@/game/step";
+import { step, processInputs, replayInputsDue } from "@/game/step";
 import { BattleRenderer } from "@/game/render/renderer";
 import { TICK_SEC, terrains } from "@/game/config";
 
@@ -71,10 +71,11 @@ export const BattleCanvas = ({ stateRef, speedRef, pausedRef, onSnapshot, render
           }
         } else {
           acc = 0;
-          if (state.inputs.length && state.phase === "running") {
+          if ((state.inputs.length || replayInputsDue(state)) && state.phase === "running") {
             processInputs(state);
             lastSnap = 0;
           }
+          if (state.replayInputs && !state.replayInputs.length && state.teams.player.pendingPick) state.autoPick = true;
         }
         const hook = window.__pauseOnEvent;
         if (hook && !hook.done) {

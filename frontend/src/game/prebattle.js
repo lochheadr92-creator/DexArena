@@ -27,17 +27,17 @@ export async function buildMovesets(creatures, overrides = {}, log = []) {
   });
 }
 
-export async function prepareBattle({ creatures, unlockedIds, playerIds, terrainId, seed, movesetOverrides = {}, autoPick = false, archetypeId = null, npcIds = null, trace = false, onProgress = () => {}, decodeSprites = true }) {
+export async function prepareBattle({ creatures, unlockedIds, playerIds, terrainId, seed, movesetOverrides = {}, npcMovesetOverrides = {}, autoPick = false, archetypeId = null, npcIds = null, slot = null, initialHp = null, replayInputs = null, playerHasLegendary = false, trace = false, onProgress = () => {}, decodeSprites = true }) {
   const log = [];
   const rng = makeRng((seed ^ 0x9e3779b9) >>> 0);
   const archetype = archetypeConfig.archetypes[archetypeId || rng.pick(archetypeConfig.quickBattlePool)];
   onProgress("Scouting rival trainer");
   const playerCreatures = playerIds.map((id) => creatures[id]);
-  const npcCreatures = npcIds ? npcIds.map((id) => creatures[id]) : await generateNpcTeam({ rng, creatures, unlockedIds, archetype, log });
+  const npcCreatures = npcIds ? npcIds.map((id) => creatures[id]) : await generateNpcTeam({ rng, creatures, unlockedIds, archetype, playerHasLegendary, log });
 
   onProgress("Fetching move data");
   const playerMovesets = await buildMovesets(playerCreatures, movesetOverrides, log);
-  const npcMovesets = await buildMovesets(npcCreatures, {}, log);
+  const npcMovesets = await buildMovesets(npcCreatures, npcMovesetOverrides, log);
   const mapping = [...playerCreatures.flatMap((c, i) => mappingLines(c, playerMovesets[i])), ...npcCreatures.flatMap((c, i) => mappingLines(c, npcMovesets[i]))];
 
   let spriteStats = null;
@@ -50,15 +50,16 @@ export async function prepareBattle({ creatures, unlockedIds, playerIds, terrain
     spriteStats = { ms: +(performance.now() - t0).toFixed(0), decoded, fallbacks: [...spriteReport.fallbacks] };
   }
 
-  const slot = difficultyConfig.quickBattleSlot;
+  const difficultySlot = slot || difficultyConfig.quickBattleSlot;
   const state = createBattle({
     seed,
     terrainId,
     autoPick,
     trace,
-    player: { creatures: playerCreatures, movesets: playerMovesets, params: playerParams(), name: "You" },
-    npc: { creatures: npcCreatures, movesets: npcMovesets, params: difficultyParams(archetype, slot), archetypeId: archetype.id, name: archetype.name },
+    player: { creatures: playerCreatures, movesets: playerMovesets, params: playerParams(), name: "You", initialHp },
+    npc: { creatures: npcCreatures, movesets: npcMovesets, params: difficultyParams(archetype, difficultySlot), archetypeId: archetype.id, name: archetype.name },
   });
-  state.meta = { archetype: archetype.id, slot, mapping, log, spriteStats, damageScale: engine.DAMAGE_SCALE };
+  if (replayInputs) state.replayInputs = replayInputs.map((x) => ({ ...x })).sort((a, b) => a.tick - b.tick);
+  state.meta = { archetype: archetype.id, slot: difficultySlot, initialHp, mapping, log, spriteStats, damageScale: engine.DAMAGE_SCALE };
   return state;
 }

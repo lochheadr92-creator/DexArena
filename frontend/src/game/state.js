@@ -78,14 +78,22 @@ export function createBattle({ seed, terrainId, player, npc, autoPick = false, t
   const spawns = { player: { x: 8, y: 24 }, npc: { x: 8, y: 3 } };
   const mkTeam = (side, cfg) => {
     const params = cfg.params;
+    const units = cfg.creatures.map((c, i) => makeUnit(c, cfg.movesets[i], side, i, params, spawns[side]));
+    if (cfg.initialHp) {
+      units.forEach((u, i) => {
+        if (cfg.initialHp[i] == null) return;
+        u.hp = Math.max(0, Math.min(u.maxHp, Math.floor(cfg.initialHp[i])));
+        if (u.hp <= 0) u.state = "fainted";
+      });
+    }
     return {
       side,
       name: cfg.name || (side === "player" ? "You" : "Rival"),
       archetypeId: cfg.archetypeId || null,
       params,
       reactionTicks: Math.max(1, secToTicks(params.reactionDelaySec)),
-      units: cfg.creatures.map((c, i) => makeUnit(c, cfg.movesets[i], side, i, params, spawns[side])),
-      activeIndex: 0,
+      units,
+      activeIndex: Math.max(0, units.findIndex((u) => u.hp > 0)),
       pendingPick: false,
       defeated: false,
     };
@@ -106,6 +114,8 @@ export function createBattle({ seed, terrainId, player, npc, autoPick = false, t
     nextEventId: 1,
     log: [],
     inputs: [],
+    inputLog: [],
+    replayInputs: null,
     autoPick,
     trace: trace ? [] : null,
     dodgeLog: [],
@@ -113,7 +123,7 @@ export function createBattle({ seed, terrainId, player, npc, autoPick = false, t
   };
   for (const side of ["player", "npc"]) {
     const team = state.teams[side];
-    const u = team.units[0];
+    const u = team.units[team.activeIndex];
     u.state = "entering";
     u.entryUntil = secToTicks(engine.switching.sec);
     u.revealed = true;

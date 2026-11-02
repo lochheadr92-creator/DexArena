@@ -407,8 +407,85 @@ async function logDump({ seed = 5, playerIds, npcIds, terrainId = "pitch", toTic
   return lines;
 }
 
+async function replayTest(seed = 2024) {
+  const { encodeReplay, decodeReplay } = await import("@/lib/replay");
+  const original = await fixedBattle({ seed, autoPick: false });
+  original.meta.initialHp = [null, 80, null, null, null, null];
+  original.teams.player.units[1].hp = 80;
+  const scripted = [{ tick: 300, type: "switch", side: "player", index: 2 }, { tick: 900, type: "switch", side: "player", index: 0 }];
+  let picks = 0;
+  while (original.phase === "running" && original.tick < 60 * 600) {
+    const due = scripted.find((s) => s.tick === original.tick);
+    if (due) original.inputs.push({ ...due });
+    if (original.teams.player.pendingPick) {
+      const alive = original.teams.player.units.filter((u) => u.state === "bench" && u.hp > 0);
+      original.inputs.push({ type: "pick", side: "player", index: alive[alive.length - 1].index });
+      picks++;
+    }
+    step(original);
+  }
+  const code = encodeReplay(original);
+  const setup = decodeReplay(code);
+  const replay = await prepareBattle({ ...setup, creatures: dex.creatures, unlockedIds: dex.unlockedIds, decodeSprites: false });
+  while (replay.phase === "running" && replay.tick < 60 * 600) step(replay);
+  const a = summary(original);
+  const b = summary(replay);
+  const same = JSON.stringify(a) === JSON.stringify(b) && replay.inputLog.length === original.inputLog.length;
+  out([
+    `__replayTest seed=${seed}: original inputLog=${JSON.stringify(original.inputLog)} (${picks} forced picks, 2 scripted switches, Ivysaur... unit[1] starts at 80 HP)`,
+    `  replay code length ${code.length} chars → ${window.location.origin}/replay#${code.slice(0, 40)}…`,
+    `  original: winner=${a.winner} endTick=${a.endTick} hp=[${a.hp.player.join(",")}|${a.hp.npc.join(",")}]`,
+    `  replay:   winner=${b.winner} endTick=${b.endTick} hp=[${b.hp.player.join(",")}|${b.hp.npc.join(",")}] inputLog=${JSON.stringify(replay.inputLog)}`,
+    `  identical end state: ${same}`,
+  ]);
+  return { same, code, original: a, replay: b };
+}
+
+async function progressionTest() {
+  const { creditBattle, pendingUnlocks, sealKeys, evolutionThreshold } = await import("@/lib/progression");
+  const { newRun, runAfterBattle, applyRunToSave, GAUNTLET_STAGES } = await import("@/lib/gauntlet");
+  const { defaultSave } = await import("@/lib/save");
+  const { computeStarterIds } = await import("@/lib/unlocks");
+  const creatures = dex.creatures;
+  const starters = computeStarterIds(creatures);
+  const unlockedOf = (save) => new Set([...starters, ...save.unlocked]);
+  const lines = [];
+  let save = defaultSave();
+  save.team = [...FIXED_PLAYER];
+  const fake = (win) => ({ winner: win ? "player" : "npc", teams: { player: { units: FIXED_PLAYER.map((id) => ({ creatureId: id })) } } });
+  for (let i = 1; i <= 12; i++) {
+    const res = creditBattle(save, { win: true, playerIds: FIXED_PLAYER }, creatures, unlockedOf(save));
+    save = res.save;
+    if (res.newUnlocks.length || res.keysEarned) lines.push(`  win ${i}: unlocked [${res.newUnlocks.map((id) => creatures[id].displayName).join(", ")}] keysEarned=${res.keysEarned}`);
+  }
+  lines.push(`  after 12 wins: totalWins=${save.totalWins} speciesWins(Bulbasaur)=${save.speciesWins[1]} unlocked=${save.unlocked.map((id) => creatures[id].displayName).join(", ")}`);
+  lines.push(`  thresholds: Ivysaur(stage2)=${evolutionThreshold(creatures[2], creatures)} Venusaur(stage3)=${evolutionThreshold(creatures[3], creatures)} Raichu(stage3 via Pichu)=${evolutionThreshold(creatures[26], creatures)}; Venusaur pending now (needs Ivysaur wins)? ${pendingUnlocks(creatures, unlockedOf(save), save.speciesWins).includes(3)}`);
+  const loss = creditBattle(save, { win: false, playerIds: FIXED_PLAYER }, creatures, unlockedOf(save));
+  lines.push(`  loss: totalBattles ${save.totalBattles}→${loss.save.totalBattles}, totalWins ${save.totalWins}→${loss.save.totalWins}, unlocks ${loss.newUnlocks.length}`);
+  const keys = sealKeys(save, creatures);
+  lines.push(`  seal keys at 12 wins: earned=${keys.earned} spent=${keys.spent} available=${keys.available} nextIn=${keys.nextIn}`);
+  let run = newRun(FIXED_PLAYER, 99);
+  lines.push(`  gauntlet run: archetypes=${run.archetypes.join(">")} terrains=${run.terrains.join(">")} stage=${run.stage}`);
+  const fakeEnd = (win, hps) => ({ ...fake(win), teams: { player: { units: FIXED_PLAYER.map((id, i) => ({ creatureId: id, hp: hps[i] })) } } });
+  let g = { ...defaultSave(), gauntlet: { runs: 1, clears: 0, bestStage: 0, active: run } };
+  for (let s = 1; s <= GAUNTLET_STAGES; s++) {
+    const r = runAfterBattle(g.gauntlet.active, fakeEnd(true, [100 - s * 10, 0, 50, 60, 70, 80]));
+    g = applyRunToSave(g, r);
+    lines.push(`  stage ${s} win → outcome=${r.outcome} nextStage=${r.run?.stage ?? "-"} carriedHp=${JSON.stringify(r.hp)} bestStage=${g.gauntlet.bestStage} clears=${g.gauntlet.clears} active=${!!g.gauntlet.active}`);
+  }
+  let g2 = { ...defaultSave(), gauntlet: { runs: 1, clears: 0, bestStage: 0, active: newRun(FIXED_PLAYER, 5) } };
+  g2 = applyRunToSave(g2, runAfterBattle(g2.gauntlet.active, fakeEnd(true, [1, 1, 1, 1, 1, 1])));
+  const lost = runAfterBattle(g2.gauntlet.active, fakeEnd(false, [0, 0, 0, 0, 0, 0]));
+  g2 = applyRunToSave(g2, lost);
+  lines.push(`  second run: win stage 1 then lose stage 2 → outcome=${lost.outcome} bestStage=${g2.gauntlet.bestStage} active=${g2.gauntlet.active}`);
+  out(["__progressionTest:", ...lines]);
+  return lines;
+}
+
 export function installHarness() {
   Object.assign(window, {
+    __replayTest: replayTest,
+    __progressionTest: progressionTest,
     __logDump: logDump,
     __wallCheck: wallCheck,
     __smokeTest: smokeTest,

@@ -60,7 +60,10 @@ export function step(state) {
   if (state.events.length > 400) state.events.splice(0, state.events.length - 400);
 }
 
+export const replayInputsDue = (state) => !!state.replayInputs && state.replayInputs.length > 0 && state.replayInputs[0].tick <= state.tick;
+
 export function processInputs(state) {
+  while (replayInputsDue(state)) state.inputs.push(state.replayInputs.shift());
   const inputs = state.inputs;
   state.inputs = [];
   for (const inp of inputs) {
@@ -68,8 +71,10 @@ export function processInputs(state) {
     if (!team) continue;
     const target = team.units[inp.index];
     if (!target || target.hp <= 0 || target.state !== "bench") continue;
-    if (inp.type === "pick" && team.pendingPick) beginSwitch(state, team, inp.index, "pick");
-    if (inp.type === "switch" && !team.pendingPick && activeUnit(team).state === "active") beginSwitch(state, team, inp.index, "manual");
+    const applied = (inp.type === "pick" && team.pendingPick) || (inp.type === "switch" && !team.pendingPick && activeUnit(team).state === "active");
+    if (!applied) continue;
+    beginSwitch(state, team, inp.index, inp.type === "pick" ? "pick" : "manual");
+    if (inp.side === "player") state.inputLog.push({ tick: state.tick, type: inp.type, index: inp.index });
   }
 }
 

@@ -5,13 +5,14 @@ import { cn } from "@/lib/utils";
 import { useGame } from "@/context/GameContext";
 import { typeColor } from "@/lib/types";
 import { dexNo, GEN_LABELS, titleCase } from "@/lib/format";
-import { isSealed, lockReason } from "@/lib/unlocks";
+import { isSealed } from "@/lib/unlocks";
 import { DEX } from "@/constants/testIds/dex";
 import { TypeBadge } from "@/components/TypeBadge";
 import { SpriteImg } from "@/components/SpriteImg";
 import { StatBar } from "@/components/StatBar";
 import { EvolutionLine } from "@/components/EvolutionLine";
 import { MovesetEditor } from "@/components/MovesetEditor";
+import { UnlockPanel } from "@/components/UnlockPanel";
 
 const STAT_ORDER = ["hp", "atk", "def", "spa", "spd", "spe"];
 
@@ -104,7 +105,7 @@ export const CreatureDetailSheet = ({ creatureId, onClose, onPick, onToggleTeam 
                 </div>
               </div>
 
-              {locked && <p className="mt-4 rounded-lg border border-amber-900/50 bg-amber-950/30 px-3 py-2 text-xs text-amber-200">{lockReason(creature)}</p>}
+              {locked && <UnlockPanel creature={creature} />}
 
               <section className="mt-5">
                 <h3 className="mb-2 font-mono text-[10px] uppercase tracking-widest text-slate-500">Base stats</h3>

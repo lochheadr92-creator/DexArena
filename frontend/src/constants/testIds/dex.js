@@ -3,6 +3,7 @@ export const DEX = {
   syncStatus: "dex-sync-status",
   tabRoster: "tab-roster",
   tabArena: "tab-arena",
+  tabGauntlet: "tab-gauntlet",
   tabSave: "tab-save",
   loadingBar: "loading-progress-bar",
   loadingRetry: "loading-retry-button",

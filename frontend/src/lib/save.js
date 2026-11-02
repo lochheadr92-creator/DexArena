@@ -14,8 +14,20 @@ export function defaultSave() {
     team: [],
     terrain: "pitch",
     speciesWins: {},
-    gauntlet: { runs: 0, clears: 0, bestStage: 0 },
+    gauntlet: { runs: 0, clears: 0, bestStage: 0, active: null },
   };
+}
+
+export function validateSave(obj) {
+  if (!obj || typeof obj !== "object") return "Not a save file";
+  if (obj.version !== SAVE_VERSION) return `Unsupported save version (${obj.version ?? "none"})`;
+  if (!Array.isArray(obj.team) || !Array.isArray(obj.unlocked) || typeof obj.totalWins !== "number" || typeof obj.totalBattles !== "number" || typeof obj.speciesWins !== "object") return "Malformed save file";
+  return null;
+}
+
+export function normalizeSave(parsed) {
+  const d = defaultSave();
+  return { ...d, ...parsed, gauntlet: { ...d.gauntlet, ...(parsed.gauntlet || {}) } };
 }
 
 export function loadSave() {
@@ -24,7 +36,7 @@ export function loadSave() {
     if (!raw) return defaultSave();
     const parsed = JSON.parse(raw);
     if (parsed?.version !== SAVE_VERSION) return defaultSave();
-    return { ...defaultSave(), ...parsed, gauntlet: { ...defaultSave().gauntlet, ...parsed.gauntlet } };
+    return normalizeSave(parsed);
   } catch {
     return defaultSave();
   }

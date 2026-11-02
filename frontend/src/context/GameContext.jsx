@@ -1,8 +1,10 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState } from "react";
 import { MAX_ID } from "@/lib/pokeapi";
 import { clearCreatureCache, fetchCreatures, loadCachedCreatures } from "@/lib/dex";
-import { clearSave, defaultSave, loadSave, persistSave, TEAM_SIZE } from "@/lib/save";
-import { computeStarterIds } from "@/lib/unlocks";
+import { clearSave, defaultSave, loadSave, normalizeSave, persistSave, validateSave, TEAM_SIZE } from "@/lib/save";
+import { computeStarterIds, isSealed } from "@/lib/unlocks";
+import { creditBattle, sealKeys } from "@/lib/progression";
+import { applyRunToSave, newRun, runAfterBattle } from "@/lib/gauntlet";
 import { registerDex, installHarness } from "@/game/tests/harness";
 
 const GameContext = createContext(null);
@@ -119,6 +121,51 @@ export function GameProvider({ children }) {
     setSave(persistSave(defaultSave()));
   }, []);
 
+  const creaturesRef = useRef(creatures);
+  creaturesRef.current = creatures;
+
+  const importSave = useCallback((obj) => {
+    const error = validateSave(obj);
+    if (error) return error;
+    setSave(persistSave(normalizeSave(obj)));
+    return null;
+  }, []);
+
+  const creditResult = useCallback(
+    (state) => {
+      const res = creditBattle(saveRef.current, { win: state.winner === "player", playerIds: state.teams.player.units.map((u) => u.creatureId) }, creaturesRef.current, unlockedRef.current);
+      setSave(persistSave(res.save));
+      saveRef.current = res.save;
+      return { newUnlocks: res.newUnlocks, keysEarned: res.keysEarned };
+    },
+    [],
+  );
+
+  const spendSealKey = useCallback((id) => {
+    const c = creaturesRef.current[id];
+    if (!c || !isSealed(c) || unlockedRef.current.has(id) || sealKeys(saveRef.current, creaturesRef.current).available <= 0) return false;
+    updateSave((prev) => ({ ...prev, unlocked: [...prev.unlocked, id] }));
+    return true;
+  }, [updateSave]);
+
+  const startGauntlet = useCallback(() => {
+    const run = newRun(saveRef.current.team);
+    updateSave((prev) => ({ ...prev, gauntlet: { ...prev.gauntlet, runs: prev.gauntlet.runs + 1, active: run } }));
+    return run;
+  }, [updateSave]);
+
+  const finishGauntletStage = useCallback((state) => {
+    const run = saveRef.current.gauntlet.active;
+    if (!run) return null;
+    const result = runAfterBattle(run, state);
+    const next = applyRunToSave(saveRef.current, result);
+    setSave(persistSave(next));
+    saveRef.current = next;
+    return result;
+  }, []);
+
+  const abandonGauntlet = useCallback(() => updateSave((prev) => ({ ...prev, gauntlet: { ...prev.gauntlet, active: null } })), [updateSave]);
+
   const value = useMemo(
     () => ({
       creatures,
@@ -137,8 +184,14 @@ export function GameProvider({ children }) {
       resyncDex,
       movesetOverrides,
       setMovesetOverride,
+      importSave,
+      creditResult,
+      spendSealKey,
+      startGauntlet,
+      finishGauntletStage,
+      abandonGauntlet,
     }),
-    [creatures, list, progress, save, starterIds, unlockedIds, toggleTeam, clearTeam, setTerrain, resetSave, retryFailed, resyncDex, movesetOverrides, setMovesetOverride],
+    [creatures, list, progress, save, starterIds, unlockedIds, toggleTeam, clearTeam, setTerrain, resetSave, retryFailed, resyncDex, movesetOverrides, setMovesetOverride, importSave, creditResult, spendSealKey, startGauntlet, finishGauntletStage, abandonGauntlet],
   );
 
   return <GameContext.Provider value={value}>{children}</GameContext.Provider>;

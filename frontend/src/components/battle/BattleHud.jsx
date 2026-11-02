@@ -93,29 +93,41 @@ const SideBar = ({ u, side, label, numeric, children }) => (
   </div>
 );
 
-export const BattleHud = ({ snap, speed, setSpeed, paused, setPaused, autoPick, setAutoPick, onSwitch }) => {
+export const BattleHud = ({ snap, speed, setSpeed, paused, setPaused, autoPick, setAutoPick, onSwitch, readOnly = false, stage = null }) => {
   if (!snap) return null;
-  const canSwitch = snap.phase === "running" && snap.player.state === "active" && snap.player.bench.some((b) => b.state === "bench" && b.hp > 0);
+  const canSwitch = !readOnly && snap.phase === "running" && snap.player.state === "active" && snap.player.bench.some((b) => b.state === "bench" && b.hp > 0);
   return (
     <>
       <div className="pointer-events-none absolute inset-x-0 top-0 p-2" style={{ paddingTop: "max(0.5rem, env(safe-area-inset-top))" }}>
         <div className="pointer-events-auto">
           <SideBar u={snap.npc} side="npc" label={snap.npc.label} numeric={false} />
         </div>
+        {(readOnly || stage) && (
+          <div className="mt-1.5 flex justify-center">
+            <span
+              data-testid={readOnly ? "replay-badge" : "gauntlet-stage-badge"}
+              className={cn("rounded-full border px-2.5 py-0.5 font-mono text-[9px] uppercase tracking-[0.2em] backdrop-blur-[2px]", readOnly ? "border-cyan-500/50 bg-cyan-950/60 text-cyan-200" : "border-amber-500/50 bg-amber-950/60 text-amber-200")}
+            >
+              {readOnly ? "Replay · watch only" : `Gauntlet · Trainer ${stage} of 6`}
+            </span>
+          </div>
+        )}
       </div>
 
       <div className="pointer-events-none absolute inset-x-0 bottom-0 p-2" style={{ paddingBottom: "max(0.5rem, env(safe-area-inset-bottom))" }}>
         <div className="pointer-events-auto">
           <SideBar u={snap.player} side="player" label="You" numeric>
-            <button
-              type="button"
-              data-testid="switch-button"
-              disabled={!canSwitch}
-              onClick={onSwitch}
-              className="flex min-h-[48px] min-w-[48px] items-center gap-1.5 rounded-lg bg-cyan-500 px-3 font-display text-xs font-bold uppercase tracking-wider text-slate-950 transition-colors hover:bg-cyan-400 disabled:bg-slate-800 disabled:text-slate-500"
-            >
-              <Repeat className="h-4 w-4" /> Switch
-            </button>
+            {!readOnly && (
+              <button
+                type="button"
+                data-testid="switch-button"
+                disabled={!canSwitch}
+                onClick={onSwitch}
+                className="flex min-h-[48px] min-w-[48px] items-center gap-1.5 rounded-lg bg-cyan-500 px-3 font-display text-xs font-bold uppercase tracking-wider text-slate-950 transition-colors hover:bg-cyan-400 disabled:bg-slate-800 disabled:text-slate-500"
+              >
+                <Repeat className="h-4 w-4" /> Switch
+              </button>
+            )}
           </SideBar>
         </div>
       </div>
@@ -149,20 +161,22 @@ export const BattleHud = ({ snap, speed, setSpeed, paused, setPaused, autoPick, 
         >
           {paused ? <Play className="h-5 w-5" /> : <Pause className="h-5 w-5" />}
         </button>
-        <button
-          type="button"
-          data-testid="auto-pick-toggle"
-          data-active={autoPick}
-          onClick={() => setAutoPick(!autoPick)}
-          aria-label="Toggle auto pick"
-          className={cn(
-            "flex h-12 w-12 flex-col items-center justify-center rounded-lg border font-mono text-[8px] uppercase backdrop-blur-[2px] transition-colors",
-            autoPick ? "border-emerald-400 bg-emerald-500/20 text-emerald-200" : "border-slate-700/80 bg-slate-950/55 text-slate-400",
-          )}
-        >
-          <Wand2 className="h-4 w-4" />
-          Auto
-        </button>
+        {!readOnly && (
+          <button
+            type="button"
+            data-testid="auto-pick-toggle"
+            data-active={autoPick}
+            onClick={() => setAutoPick(!autoPick)}
+            aria-label="Toggle auto pick"
+            className={cn(
+              "flex h-12 w-12 flex-col items-center justify-center rounded-lg border font-mono text-[8px] uppercase backdrop-blur-[2px] transition-colors",
+              autoPick ? "border-emerald-400 bg-emerald-500/20 text-emerald-200" : "border-slate-700/80 bg-slate-950/55 text-slate-400",
+            )}
+          >
+            <Wand2 className="h-4 w-4" />
+            Auto
+          </button>
+        )}
       </div>
     </>
   );

@@ -1,12 +1,14 @@
-import { Trophy, Swords, Unlock, Sparkles, Database, RotateCcw, Trash2 } from "lucide-react";
+import { Trophy, Swords, Unlock, Sparkles, Database, RotateCcw, Trash2, KeyRound, Flag } from "lucide-react";
 import { toast } from "sonner";
 import { useGame } from "@/context/GameContext";
 import { formatDate } from "@/lib/format";
 import { terrainById } from "@/lib/terrains";
 import { isSealed } from "@/lib/unlocks";
+import { sealKeys } from "@/lib/progression";
 import { MAX_ID } from "@/lib/pokeapi";
 import { DEX } from "@/constants/testIds/dex";
 import { SpriteImg } from "@/components/SpriteImg";
+import { SaveTransfer } from "@/components/SaveTransfer";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -33,6 +35,7 @@ const Stat = ({ icon: Icon, label, value, accent, testId }) => (
 export default function SavePage() {
   const { creatures, list, loaded, save, unlockedIds, resetSave, resyncDex, progress } = useGame();
   const sealed = list.filter(isSealed).length;
+  const keys = sealKeys(save, creatures);
   const terrain = terrainById(save.terrain);
 
   const onReset = () => {
@@ -60,7 +63,11 @@ export default function SavePage() {
         <Stat icon={Swords} label="Battles" value={save.totalBattles} accent="#3B82F6" testId={DEX.saveBattles} />
         <Stat icon={Unlock} label="Unlocked" value={`${unlockedIds.size} / ${MAX_ID}`} accent="#06B6D4" testId={DEX.saveUnlocked} />
         <Stat icon={Sparkles} label="Sealed legends" value={sealed} accent="#A855F7" testId={DEX.saveSealed} />
+        <Stat icon={KeyRound} label="Seal keys" value={`${keys.available} · next in ${keys.nextIn}`} accent="#C084FC" testId="save-seal-keys" />
+        <Stat icon={Flag} label={`Gauntlet · ${save.gauntlet.clears} clear${save.gauntlet.clears === 1 ? "" : "s"}`} value={`best ${save.gauntlet.bestStage}/6`} accent="#F59E0B" testId="save-gauntlet" />
       </div>
+
+      <SaveTransfer />
 
       <section className="rounded-xl border border-slate-800 bg-slate-900/70 p-4">
         <div className="flex items-center justify-between">

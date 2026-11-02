@@ -1,6 +1,7 @@
-import { Trophy, Skull, RotateCcw, Grid3x3 } from "lucide-react";
+import { Trophy, Skull, RotateCcw, Grid3x3, Share2, ChevronRight, Sparkles, KeyRound, Flag } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { TICK_RATE } from "@/game/config";
+import { GAUNTLET_STAGES } from "@/lib/gauntlet";
 
 const Table = ({ title, units, testId }) => (
   <div className="rounded-xl border border-slate-800 bg-slate-950/70 p-3" data-testid={testId}>
@@ -22,10 +23,56 @@ const Table = ({ title, units, testId }) => (
   </div>
 );
 
-export const ResultScreen = ({ state, onRematch, onBack }) => {
+const Rewards = ({ outcome, creatures }) => {
+  if (!outcome || (!outcome.newUnlocks.length && !outcome.keysEarned)) return null;
+  return (
+    <div className="space-y-1.5 rounded-xl border border-emerald-900/60 bg-emerald-950/30 p-3" data-testid="result-rewards">
+      {outcome.newUnlocks.length > 0 && (
+        <p className="flex items-start gap-2 text-xs text-emerald-200" data-testid="result-unlocks">
+          <Sparkles className="mt-0.5 h-3.5 w-3.5 shrink-0" />
+          <span>
+            Unlocked: <span className="font-semibold">{outcome.newUnlocks.map((id) => creatures[id]?.displayName || `#${id}`).join(", ")}</span>
+          </span>
+        </p>
+      )}
+      {outcome.keysEarned > 0 && (
+        <p className="flex items-center gap-2 text-xs text-purple-200" data-testid="result-seal-key">
+          <KeyRound className="h-3.5 w-3.5 shrink-0" /> Seal Key earned — spend it on any legendary in the roster
+        </p>
+      )}
+    </div>
+  );
+};
+
+const GauntletNote = ({ g }) => {
+  if (!g) return null;
+  const text = g.outcome === "cleared" ? `Gauntlet cleared — all ${GAUNTLET_STAGES} trainers beaten` : g.outcome === "lost" ? `Run over — fell at trainer ${g.stageReached} of ${GAUNTLET_STAGES}` : `Trainer ${g.stageReached} of ${GAUNTLET_STAGES} beaten — HP carries over`;
+  return (
+    <p className={cn("flex items-center gap-2 rounded-xl border px-3 py-2 text-xs", g.outcome === "lost" ? "border-rose-900/60 bg-rose-950/30 text-rose-200" : "border-amber-900/60 bg-amber-950/30 text-amber-100")} data-testid="result-gauntlet" data-outcome={g.outcome}>
+      <Flag className="h-3.5 w-3.5 shrink-0" /> {text}
+    </p>
+  );
+};
+
+const Btn = ({ primary, testId, onClick, icon: Icon, children }) => (
+  <button
+    type="button"
+    data-testid={testId}
+    onClick={onClick}
+    className={cn(
+      "flex min-h-[48px] items-center justify-center gap-2 rounded-xl font-display text-sm font-bold uppercase tracking-wider",
+      primary ? "bg-cyan-500 text-slate-950 hover:bg-cyan-400" : "border border-slate-700 text-slate-200 hover:border-slate-500",
+    )}
+  >
+    <Icon className="h-4 w-4" /> {children}
+  </button>
+);
+
+export const ResultScreen = ({ state, mode = "quick", outcome, creatures = {}, onRematch, onNext, onShare, onBack }) => {
   const win = state.winner === "player";
   const remaining = (side) => state.teams[side].units.filter((u) => u.hp > 0).length;
   const seconds = (state.endTick / TICK_RATE).toFixed(1);
+  const g = outcome?.gauntlet;
   return (
     <div className="absolute inset-0 z-30 flex items-center justify-center overflow-y-auto bg-black/80 p-4 backdrop-blur-md" data-testid="result-screen">
       <div className="w-full max-w-md space-y-3 rounded-2xl border border-slate-800 bg-slate-900 p-5">
@@ -36,21 +83,46 @@ export const ResultScreen = ({ state, onRematch, onBack }) => {
           <div>
             <h2 className="font-display text-3xl font-bold tracking-tight text-slate-50" data-testid="result-title">
               {win ? "Win" : "Loss"}
+              {mode === "replay" && <span className="ml-2 align-middle font-mono text-[10px] uppercase tracking-widest text-cyan-400">Replay</span>}
             </h2>
             <p className="font-mono text-[10px] uppercase tracking-widest text-slate-400" data-testid="result-meta">
               {seconds}s · you {remaining("player")}/6 · rival {remaining("npc")}/6 · seed {state.seed}
             </p>
           </div>
         </div>
+        <GauntletNote g={g} />
+        <Rewards outcome={outcome} creatures={creatures} />
         <Table title="Your team" units={state.teams.player.units} testId="result-table-player" />
         <Table title={`Rival — ${state.teams.npc.name}`} units={state.teams.npc.units} testId="result-table-npc" />
         <div className="grid grid-cols-2 gap-2 pt-1">
-          <button type="button" data-testid="rematch-button" onClick={onRematch} className="flex min-h-[48px] items-center justify-center gap-2 rounded-xl bg-cyan-500 font-display text-sm font-bold uppercase tracking-wider text-slate-950 hover:bg-cyan-400">
-            <RotateCcw className="h-4 w-4" /> Rematch
-          </button>
-          <button type="button" data-testid="back-to-roster-button" onClick={onBack} className="flex min-h-[48px] items-center justify-center gap-2 rounded-xl border border-slate-700 font-display text-sm font-bold uppercase tracking-wider text-slate-200 hover:border-slate-500">
-            <Grid3x3 className="h-4 w-4" /> Roster
-          </button>
+          {mode === "quick" && (
+            <Btn primary testId="rematch-button" onClick={onRematch} icon={RotateCcw}>
+              Rematch
+            </Btn>
+          )}
+          {mode === "gauntlet" && g?.outcome === "advance" && (
+            <Btn primary testId="next-trainer-button" onClick={onNext} icon={ChevronRight}>
+              Next trainer
+            </Btn>
+          )}
+          {mode === "gauntlet" && g?.outcome !== "advance" && (
+            <Btn primary testId="gauntlet-finish-button" onClick={onBack} icon={Flag}>
+              Gauntlet
+            </Btn>
+          )}
+          {mode === "replay" && (
+            <Btn primary testId="replay-roster-button" onClick={onBack} icon={Grid3x3}>
+              Roster
+            </Btn>
+          )}
+          <Btn testId="share-replay-button" onClick={onShare} icon={Share2}>
+            Share replay
+          </Btn>
+          {mode !== "replay" && (
+            <Btn testId="back-to-roster-button" onClick={onBack} icon={Grid3x3}>
+              {mode === "gauntlet" ? "Leave" : "Roster"}
+            </Btn>
+          )}
         </div>
       </div>
     </div>

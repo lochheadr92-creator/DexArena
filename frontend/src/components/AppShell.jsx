@@ -1,5 +1,5 @@
 import { NavLink, Outlet } from "react-router-dom";
-import { Grid3x3, Swords, Save, Check, Loader2 } from "lucide-react";
+import { Grid3x3, Swords, Save, Check, Loader2, Flag } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useGame } from "@/context/GameContext";
 import { DEX } from "@/constants/testIds/dex";
@@ -8,6 +8,7 @@ import { LoadingBar } from "@/components/LoadingBar";
 const TABS = [
   { to: "/", label: "Roster", icon: Grid3x3, testId: DEX.tabRoster },
   { to: "/arena", label: "Arena", icon: Swords, testId: DEX.tabArena },
+  { to: "/gauntlet", label: "Gauntlet", icon: Flag, testId: DEX.tabGauntlet },
   { to: "/save", label: "Save", icon: Save, testId: DEX.tabSave },
 ];
 
@@ -55,7 +56,7 @@ export const AppShell = () => (
       className="fixed bottom-0 left-0 right-0 z-40 border-t border-slate-800 bg-slate-950/95 backdrop-blur-xl"
       style={{ paddingBottom: "env(safe-area-inset-bottom)" }}
     >
-      <div className="mx-auto grid h-16 max-w-md grid-cols-3 md:max-w-2xl lg:max-w-4xl">
+      <div className="mx-auto grid h-16 max-w-md grid-cols-4 md:max-w-2xl lg:max-w-4xl">
         {TABS.map(({ to, label, icon: Icon, testId }) => (
           <NavLink
             key={to}
