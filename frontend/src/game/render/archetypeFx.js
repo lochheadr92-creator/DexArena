@@ -14,7 +14,15 @@ const additive = (r, ctx) => {
 
 function anchor(r, state, e) {
   const u = e.fromId ? r.findUnit(state, e.fromId) : null;
-  return u && u.state !== "bench" && u.state !== "fainted" ? { x: u.pos.x, y: u.pos.y - 0.4 } : { x: e.fx, y: e.fy - 0.4 };
+  if (u && u.state !== "bench" && u.state !== "fainted") {
+    e.lastAnchor = { x: u.pos.x, y: u.pos.y - 0.4 };
+    return e.lastAnchor;
+  }
+  if (e.lastAnchor) return e.lastAnchor;
+  const x = Number.isFinite(e.fx) ? e.fx : u?.pos.x ?? 0;
+  const y = Number.isFinite(e.fy) ? e.fy : u?.pos.y ?? 0;
+  e.lastAnchor = { x, y: y - 0.4 };
+  return e.lastAnchor;
 }
 
 function conePath(ctx, a, b, len, baseW, headW) {

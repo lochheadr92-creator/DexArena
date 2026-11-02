@@ -78,10 +78,10 @@ export class Ambient {
       const { x, y } = r.toPx(p.x, p.y);
       const s = p.size * scale;
       if (this.kind === "snow") {
-        ctx.globalAlpha = 0.9;
+        ctx.globalAlpha = 0.95;
         ctx.fillStyle = this.color;
-        ctx.strokeStyle = "rgba(14,116,144,0.45)";
-        ctx.lineWidth = Math.max(0.8, scale * 0.8);
+        ctx.strokeStyle = "rgba(3,105,161,0.7)";
+        ctx.lineWidth = Math.max(1, scale * 1.2);
         ctx.beginPath();
         ctx.arc(x, y, s, 0, TAU);
         ctx.fill();

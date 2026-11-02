@@ -102,7 +102,15 @@ export const BattleCanvas = ({ stateRef, speedRef, pausedRef, onSnapshot, render
         if (pausedRef.current) {
           if (frozenNow == null) frozenNow = now;
         } else frozenNow = null;
-        renderer.render(state, frozenNow ?? now);
+        try {
+          renderer.render(state, frozenNow ?? now);
+        } catch (err) {
+          if (!renderer.renderErrors) renderer.renderErrors = 0;
+          renderer.renderErrors++;
+          if (renderer.renderErrors <= 3) console.error("render error (simulation continues)", err);
+          renderer.effects = [];
+          renderer.particles.items = [];
+        }
         if (now - lastFpsCheck > 1000) {
           lastFpsCheck = now;
           if (state.phase === "running" && !pausedRef.current && document.visibilityState === "visible") {

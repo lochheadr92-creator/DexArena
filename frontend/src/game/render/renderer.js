@@ -532,7 +532,7 @@ export class BattleRenderer {
       if (ev.kind === "evolve") {
         this.texts.push({ kind: "splash", text: `${ev.from.toUpperCase()} → ${ev.name.toUpperCase()}!`, x: ev.x, y: ev.y - 2.2, until: now + A.switch.goSplashSec * 1000 * 1.5, start: now, side: ev.side });
         if (A.animationsEnabled && !this.reducedMotion) {
-          this.effects.push({ kind: "aura", fromId: ev.unitId, color: "#f8fafc", start: now, until: now + 1100 });
+          this.effects.push({ kind: "aura", fromId: ev.unitId, fx: ev.x, fy: ev.y, color: "#f8fafc", start: now, until: now + 1100 });
           this.effects.push({ kind: "flash", x: ev.x, y: ev.y, color: "#ffffff", radiusTiles: 1.6, start: now, until: now + 450 });
           this.effects.push({ kind: "lightColumn", x: ev.x, y: ev.y, color: "#fde68a", start: now, until: now + 900 });
           if (this.gfx.screenFx) this.effects.push({ kind: "vignette", color: "#ffffff", alpha: 0.35, inner: true, start: now, until: now + 350 });
@@ -618,11 +618,11 @@ export class BattleRenderer {
           break;
         case "shield-up":
         case "buff":
-          this.onSelfMove(ev, now, color);
+          this.onSelfMove(ev, now, color, state);
           break;
         case "status":
           typeBurst(this.particles, ev.status === "burn" ? "fire" : "electric", ev.x, ev.y - 0.6, 8, { speed: 2.5, maxLife: 0.45, size: 3 });
-          this.effects.push({ kind: "aura", fromId: ev.unitId, color: ev.status === "burn" ? "#f97316" : "#facc15", start: now, until: now + 500 });
+          this.effects.push({ kind: "aura", fromId: ev.unitId, fx: ev.x, fy: ev.y, color: ev.status === "burn" ? "#f97316" : "#facc15", start: now, until: now + 500 });
           break;
         case "faint":
           this.particles.burst(ev.x, ev.y - 0.5, A.faint.particles, { color: "#9ca3af", shape: "smoke", speed: 2.2, maxLife: A.faint.sec + 0.3, size: 4, gravity: -2 });
@@ -779,17 +779,20 @@ export class BattleRenderer {
     }
   }
 
-  onSelfMove(ev, now, color) {
+  onSelfMove(ev, now, color, state) {
     const cast = this.lastCast[ev.unitId];
+    const self = state ? this.findUnit(state, ev.unitId) : null;
+    const fx = self?.pos.x ?? cast?.tx ?? 0;
+    const fy = self?.pos.y ?? cast?.ty ?? 0;
     const arch = cast?.archetype || "aura";
     const c = cast?.color || color;
     const type = cast?.type || ev.type;
     if (arch === "cloud" && cast) {
-      this.effects.push({ kind: "cloud", fromId: ev.unitId, tx: cast.tx, ty: cast.ty, color: c, type, total: V.cloud.particles, travelSec: V.cloud.travelSec, spawned: 0, start: now, until: now + V.cloud.sec * 1000 });
+      this.effects.push({ kind: "cloud", fromId: ev.unitId, fx, fy, tx: cast.tx, ty: cast.ty, color: c, type, total: V.cloud.particles, travelSec: V.cloud.travelSec, spawned: 0, start: now, until: now + V.cloud.sec * 1000 });
       this.effects.push({ kind: "fog", x: cast.tx, y: cast.ty, color: c, start: now + V.cloud.travelSec * 1000 * 0.8, until: now + V.cloud.sec * 1000 });
       return;
     }
-    this.effects.push({ kind: "aura", fromId: ev.unitId, color: c, type, start: now, until: now + V.aura.sec * 1000 });
+    this.effects.push({ kind: "aura", fromId: ev.unitId, fx, fy, color: c, type, start: now, until: now + V.aura.sec * 1000 });
     if (ev.kind === "buff") this.effects.push({ kind: "buffStream", unitId: ev.unitId, color: c, type, until: now + A.buff.streamSec * 1000, start: now, spawned: 0 });
   }
 
