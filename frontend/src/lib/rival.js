@@ -22,5 +22,5 @@ export function rivalBudget(power, level) {
 export function rivalPlan(teamCreatures, totalWins, level) {
   const cfg = levelConfig(level);
   const power = selfPower(teamCreatures, totalWins);
-  return { level: cfg.level, name: cfg.name, slot: cfg.slot, power, budget: rivalBudget(power, cfg.level), nextTier: cfg.nextTier, legendary: cfg.legendary };
+  return { level: cfg.level, name: cfg.name, slot: cfg.slot, power, budget: rivalBudget(power, cfg.level), pool: cfg.pool, tierPicks: cfg.tierPicks, legendary: cfg.legendary };
 }

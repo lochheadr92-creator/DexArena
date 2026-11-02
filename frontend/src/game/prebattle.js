@@ -36,7 +36,7 @@ export async function prepareBattle({ creatures, unlockedIds, playerIds, terrain
   onProgress("Scouting rival trainer");
   const playerCreatures = playerIds.map((id) => creatures[id]);
   const plan = rivalPlan(playerCreatures, totalWins, rivalLevel ?? slot ?? difficultyConfig.defaultRivalLevel);
-  const npcCreatures = npcIds ? npcIds.map((id) => creatures[id]) : await generateNpcTeam({ rng, creatures, unlockedIds, archetype, playerHasLegendary, budget: plan.budget, allowNextTier: plan.nextTier, allowLegendary: plan.legendary, log });
+  const npcCreatures = npcIds ? npcIds.map((id) => creatures[id]) : await generateNpcTeam({ rng, creatures, unlockedIds, archetype, playerHasLegendary, budget: plan.budget, pool: plan.pool, tierPicks: plan.tierPicks, allowLegendary: plan.legendary, log });
 
   onProgress("Fetching move data");
   const playerMovesets = await buildMovesets(playerCreatures, movesetOverrides, log);

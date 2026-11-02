@@ -10,6 +10,7 @@ import { DEX } from "@/constants/testIds/dex";
 import { SpriteImg } from "@/components/SpriteImg";
 import { SaveTransfer } from "@/components/SaveTransfer";
 import { BagPanel } from "@/components/BagPanel";
+import { GraphicsSettings } from "@/components/GraphicsSettings";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -69,6 +70,7 @@ export default function SavePage() {
       </div>
 
       <BagPanel />
+      <GraphicsSettings />
       <SaveTransfer />
 
       <section className="rounded-xl border border-slate-800 bg-slate-900/70 p-4">

@@ -1,6 +1,13 @@
 import { Slider } from "@/components/ui/slider";
 import { RIVAL_LEVELS, rivalPlan } from "@/lib/rival";
 
+const POOL_TEXT = {
+  unlocked: ", from your unlocked pool only",
+  nextTier: ", including one evolution you haven't unlocked yet",
+  line: ", with up to 3 fully evolved forms from lines you've started",
+  all: ", from every species in Gen I–IV — fully evolved forms included",
+};
+
 export const RivalLevelPicker = ({ level, onChange, teamCreatures, totalWins }) => {
   const plan = rivalPlan(teamCreatures, totalWins, level);
   return (
@@ -42,9 +49,9 @@ export const RivalLevelPicker = ({ level, onChange, teamCreatures, totalWins }) 
           <dd className="font-display text-base font-bold text-slate-100" data-testid="rival-ai-slot">{plan.slot}/6</dd>
         </div>
       </dl>
-      <p className="mt-2 text-[11px] leading-snug text-slate-500">
+      <p className="mt-2 text-[11px] leading-snug text-slate-500" data-testid="rival-pool-text" data-pool={plan.pool}>
         Power = your team's average base-stat total + 2 per win (max +150). The rival drafts creatures around {Math.round(plan.budget ? (plan.budget / Math.max(1, plan.power)) * 100 : 100)}% of your power
-        {plan.nextTier ? ", including evolutions you haven't unlocked" : ", from your unlocked pool only"}
+        {POOL_TEXT[plan.pool]}
         {plan.legendary ? ", and may bring a legendary if you own one" : ""}.
       </p>
     </section>

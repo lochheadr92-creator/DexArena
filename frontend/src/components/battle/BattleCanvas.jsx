@@ -1,6 +1,8 @@
 import { useEffect, useRef } from "react";
+import { toast } from "sonner";
 import { step, processInputs, replayInputsDue } from "@/game/step";
 import { BattleRenderer } from "@/game/render/renderer";
+import { FpsGovernor, subscribeGfx, getGfx, gfxConfig } from "@/game/render/quality";
 import { TICK_SEC, terrains } from "@/game/config";
 
 export function makeSnapshot(state, fps) {
@@ -38,6 +40,10 @@ export const BattleCanvas = ({ stateRef, speedRef, pausedRef, onSnapshot, render
     const renderer = new BattleRenderer(canvas);
     rendererRef.current = renderer;
     window.__renderer = renderer;
+    renderer.setQuality(getGfx().level);
+    const unsubGfx = subscribeGfx((g) => renderer.setQuality(g.level));
+    const governor = new FpsGovernor();
+    let lastFpsCheck = performance.now() + 2500;
     const fit = () => {
       if (!wrapRef.current) return;
       const box = wrapRef.current.getBoundingClientRect();
@@ -97,6 +103,13 @@ export const BattleCanvas = ({ stateRef, speedRef, pausedRef, onSnapshot, render
           if (frozenNow == null) frozenNow = now;
         } else frozenNow = null;
         renderer.render(state, frozenNow ?? now);
+        if (now - lastFpsCheck > 1000) {
+          lastFpsCheck = now;
+          if (state.phase === "running" && !pausedRef.current && document.visibilityState === "visible") {
+            const dropped = governor.sample(renderer.fps.value);
+            if (dropped) toast.info(`Graphics lowered to ${gfxConfig(dropped).label}`, { description: "Frame rate dipped — change it any time on the Save page.", duration: 2500 });
+          }
+        }
         if (now - lastSnap > 100) {
           lastSnap = now;
           onSnapshot(makeSnapshot(state, renderer.fps.value));
@@ -109,6 +122,7 @@ export const BattleCanvas = ({ stateRef, speedRef, pausedRef, onSnapshot, render
     return () => {
       cancelAnimationFrame(raf);
       ro.disconnect();
+      unsubGfx();
     };
   }, [stateRef, speedRef, pausedRef, onSnapshot, rendererRef, onForcePause]);
 

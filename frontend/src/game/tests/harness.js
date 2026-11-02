@@ -515,7 +515,7 @@ async function visualCoverage(maxId = 467) {
 function fxCount() {
   const r = window.__renderer;
   const n = r ? r.effectCount() : null;
-  out(`__fxCount: ${n} (effects=${r?.effects.length} particles=${r?.particles.items.length} texts=${r?.texts.length} projVis=${Object.keys(r?.projVis || {}).length} pendingCasts=${r?.pendingCasts.length}) reducedMotion=${r?.reducedMotion}`);
+  out(`__fxCount: ${n} (effects=${r?.effects.length} particles=${r?.particles.items.length} texts=${r?.texts.length} projVis=${Object.keys(r?.projVis || {}).length} pendingCasts=${r?.pendingCasts.length}) ambient=${r?.ambientCount()} quality=${r?.quality} cap=${r?.particles.cap} additive=${r?.particles.additive} reducedMotion=${r?.reducedMotion}`);
   return n;
 }
 
@@ -527,10 +527,11 @@ async function rivalTest(playerIds = FIXED_PLAYER, totalWins = 0, seed = 2024) {
     const plan = rivalPlan(team, totalWins, level);
     const log = [];
     const rng = makeRng(seed + level);
-    const npc = await generateNpcTeam({ rng, creatures: dex.creatures, unlockedIds: dex.unlockedIds, archetype: archetypeConfig.archetypes.tactician, budget: plan.budget, allowNextTier: plan.nextTier, allowLegendary: plan.legendary, log });
+    const npc = await generateNpcTeam({ rng, creatures: dex.creatures, unlockedIds: dex.unlockedIds, archetype: archetypeConfig.archetypes.tactician, budget: plan.budget, pool: plan.pool, tierPicks: plan.tierPicks, allowLegendary: plan.legendary, log });
     const avg = Math.round(npc.reduce((s, c) => s + c.bst, 0) / npc.length);
     const locked = npc.filter((c) => !dex.unlockedIds.has(c.id)).map((c) => c.displayName);
-    lines.push(`  L${level} ${plan.name}: power ${plan.power} → budget ${plan.budget} (slot ${plan.slot}) | rival avg BST ${avg} (${((avg / plan.power) * 100).toFixed(0)}% of you) | team ${npc.map((c) => `${c.displayName} ${c.bst}`).join(", ")} | locked picks: ${locked.join(", ") || "none"} | ${log[0]}`);
+    const fullyEvolved = npc.filter((c) => !c.evolvesTo || c.evolvesTo.length === 0).length;
+    lines.push(`  L${level} ${plan.name} [${plan.pool}]: power ${plan.power} → budget ${plan.budget} (slot ${plan.slot}) | rival avg BST ${avg} (${((avg / plan.power) * 100).toFixed(0)}% of you, ${((avg / plan.budget) * 100).toFixed(0)}% of budget) | fully evolved ${fullyEvolved}/6 | team ${npc.map((c) => `${c.displayName} ${c.bst}`).join(", ")} | locked picks: ${locked.join(", ") || "none"} | ${log[0]}`);
   }
   out(lines);
 }

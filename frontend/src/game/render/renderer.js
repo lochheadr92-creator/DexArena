@@ -2,12 +2,16 @@ import { animations as A, engine, terrains as terrainConfig, typeColors, moveVis
 import { tileAt } from "@/game/terrain";
 import { getSprite, spriteKey, frameFor } from "@/game/render/sprites";
 import { ParticleSystem } from "@/game/render/particles";
+import { Ambient } from "@/game/render/ambient";
+import { gfxConfig } from "@/game/render/quality";
 import { resolveVisual } from "@/game/render/moveVisuals";
-import { drawArchetypeEffect, drawCone, drawBeam, drawOrb, makeFallChunks } from "@/game/render/archetypeFx";
+import { typeBurst, typeTrail } from "@/game/render/typeFx";
+import { drawArchetypeEffect, drawCone, drawBeam, drawOrb, makeFallChunks, GROUND_EFFECTS, DECAL_SEC } from "@/game/render/archetypeFx";
 
 const tcolor = (t) => typeColors[t]?.bg || "#94a3b8";
 const ease = (t) => Math.min(1, Math.max(0, t));
 const V = moveVisuals.archetypes;
+const TAU = Math.PI * 2;
 const prefersReducedMotion = () => typeof window !== "undefined" && !!window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
 
 export class BattleRenderer {
@@ -16,6 +20,7 @@ export class BattleRenderer {
     this.ctx = canvas.getContext("2d");
     this.lastEventId = 0;
     this.particles = new ParticleSystem();
+    this.ambient = new Ambient();
     this.effects = [];
     this.texts = [];
     this.unitFx = {};
@@ -32,12 +37,35 @@ export class BattleRenderer {
     this.projVis = {};
     this.shakeUntil = 0;
     this.shakePx = 0;
+    this.shakeDur = 1;
     this.reducedMotion = prefersReducedMotion();
     this.particles.muted = this.reducedMotion;
+    this.setQuality();
+  }
+
+  setQuality(level) {
+    this.gfx = gfxConfig(level);
+    this.quality = level || this.gfx.label.toLowerCase();
+    this.particles.cap = this.gfx.particleCap;
+    this.particles.mult = this.gfx.particleMult;
+    this.particles.additive = this.gfx.additive;
+    this.particles.typed = this.gfx.typeParticles;
+    this.ambient.configure(this.reducedMotion ? 0 : this.gfx.ambient);
+  }
+
+  shake(px, sec, now) {
+    if (!this.gfx.screenFx || this.reducedMotion) return;
+    this.shakeUntil = now + sec * 1000;
+    this.shakePx = px;
+    this.shakeDur = sec * 1000;
   }
 
   effectCount() {
     return this.effects.length + this.particles.items.length + this.texts.length + Object.keys(this.projVis).length + this.pendingCasts.length;
+  }
+
+  ambientCount() {
+    return this.ambient.items.length;
   }
 
   resize(cssW, cssH, dpr) {
@@ -67,20 +95,23 @@ export class BattleRenderer {
     ctx.setTransform(this.dpr, 0, 0, this.dpr, 0, 0);
     ctx.clearRect(0, 0, this.cssW, this.cssH);
     if (A.animationsEnabled && !this.reducedMotion && now < this.shakeUntil) {
-      const k = (this.shakeUntil - now) / (V.shockwave.screenShakeSec * 1000);
+      const k = Math.min(1, (this.shakeUntil - now) / this.shakeDur);
       ctx.translate((Math.random() - 0.5) * 2 * this.shakePx * k, (Math.random() - 0.5) * 2 * this.shakePx * k);
     }
     this.consumeEvents(state, now);
     this.drawTerrain(state);
+    if (A.animationsEnabled) this.drawEffects(state, now, true);
     this.drawAreaWindups(state);
     const units = ["player", "npc"].map((s) => state.teams[s].units[state.teams[s].activeIndex]).filter((u) => u.state !== "bench" && u.state !== "fainted");
     units.sort((a, b) => a.pos.y - b.pos.y);
     for (const u of units) this.drawUnit(state, u, now);
-    this.drawEffects(state, now, dt);
+    this.drawEffects(state, now, false);
     this.drawProjectiles(state, now);
     if (A.animationsEnabled) {
       this.particles.update(dt);
       this.particles.draw(ctx, this.toPx, this.ts);
+      if (state.phase === "running") this.ambient.update(dt, state);
+      this.ambient.draw(ctx, this);
       this.drawTexts(now);
     }
   }
@@ -211,7 +242,8 @@ export class BattleRenderer {
       if (p < 1) this.drawLightPoint(x, y, 1 - p, u.side === "player" ? "#67e8f9" : "#fca5a5");
     }
 
-    if (u.shield) this.drawShield(x, y, u);
+    if (u.shield) this.drawShield(x, y, u, now);
+    if (u.buff && anim && this.gfx.typeParticles && !this.reducedMotion) this.drawBuffRing(x, y, u.buff, now);
     if (frame) {
       const scale = this.spriteScale(entry);
       const w = entry.width * scale;
@@ -290,19 +322,83 @@ export class BattleRenderer {
     ctx.restore();
   }
 
-  drawShield(x, y, u) {
+  drawShield(x, y, u, now = 0) {
     const ctx = this.ctx;
     const r = this.px(u.radius) * 1.9;
+    const cy = y - this.px(0.5);
+    const color = tcolor(u.shield.type);
     ctx.save();
-    ctx.globalAlpha = A.shield.alpha;
-    ctx.fillStyle = tcolor(u.shield.type);
     ctx.beginPath();
-    ctx.arc(x, y - this.px(0.5), r, 0, Math.PI * 2);
-    ctx.fill();
-    ctx.globalAlpha = 0.8;
-    ctx.strokeStyle = tcolor(u.shield.type);
+    ctx.arc(x, cy, r, 0, TAU);
+    ctx.clip();
+    ctx.globalAlpha = A.shield.alpha;
+    ctx.fillStyle = color;
+    ctx.fillRect(x - r, cy - r, r * 2, r * 2);
+    if (this.gfx.typeParticles && !this.reducedMotion) {
+      const s = r * 0.3;
+      const h = s * Math.sqrt(3);
+      const off = (now / 500) % h;
+      ctx.globalAlpha = 0.3;
+      ctx.strokeStyle = "#ffffff";
+      ctx.lineWidth = 1;
+      for (let row = -3; row <= 3; row++) {
+        for (let col = -3; col <= 3; col++) {
+          const hx = x + col * s * 1.5;
+          const hy = cy + row * h + (col % 2 ? h / 2 : 0) + off - h / 2;
+          ctx.beginPath();
+          for (let i = 0; i < 6; i++) {
+            const a = (i * TAU) / 6;
+            const px = hx + Math.cos(a) * s * 0.5;
+            const py = hy + Math.sin(a) * s * 0.5;
+            if (i === 0) ctx.moveTo(px, py);
+            else ctx.lineTo(px, py);
+          }
+          ctx.closePath();
+          ctx.stroke();
+        }
+      }
+    }
+    ctx.restore();
+    ctx.save();
+    ctx.globalAlpha = 0.85;
+    ctx.strokeStyle = color;
     ctx.lineWidth = 1.5;
+    ctx.beginPath();
+    ctx.arc(x, cy, r, 0, TAU);
     ctx.stroke();
+    ctx.globalAlpha = 0.65;
+    ctx.strokeStyle = "#ffffff";
+    ctx.lineWidth = 2;
+    ctx.lineCap = "round";
+    ctx.beginPath();
+    ctx.arc(x, cy, r * 0.82, -Math.PI * 0.85, -Math.PI * 0.55);
+    ctx.stroke();
+    ctx.restore();
+  }
+
+  drawBuffRing(x, y, buff, now) {
+    const ctx = this.ctx;
+    const color = tcolor(buff.type);
+    ctx.save();
+    ctx.globalAlpha = 0.75;
+    ctx.strokeStyle = color;
+    ctx.lineWidth = 2 * this.scalePx();
+    ctx.setLineDash([this.px(0.16), this.px(0.12)]);
+    ctx.lineDashOffset = -(now / 25) % this.px(0.28);
+    ctx.beginPath();
+    ctx.ellipse(x, y + this.px(0.15), this.px(0.85), this.px(0.36), 0, 0, TAU);
+    ctx.stroke();
+    ctx.setLineDash([]);
+    ctx.lineWidth = 1.5 * this.scalePx();
+    for (let i = 0; i < 4; i++) {
+      const a = (now / 600) + (i * TAU) / 4;
+      const px = x + Math.cos(a) * this.px(0.85);
+      const py = y + this.px(0.15) + Math.sin(a) * this.px(0.36);
+      ctx.beginPath();
+      ctx.moveTo(px, py);
+      ctx.lineTo(px, py - this.px(0.22));
+      ctx.stroke();
+    }
     ctx.restore();
   }
 
@@ -328,14 +424,14 @@ export class BattleRenderer {
       const every = A.burn.intervalSec * 1000;
       if (!fx.burnAt || now - fx.burnAt >= every) {
         fx.burnAt = now;
-        this.particles.burst(u.pos.x, u.pos.y - 0.6, A.burn.particles, { color: "#f97316", speed: 1.5, maxLife: 0.5, size: 2.5, gravity: -3, spread: Math.PI / 2, angle: -Math.PI / 2 - Math.PI / 4 });
+        typeBurst(this.particles, "fire", u.pos.x, u.pos.y - 0.6, A.burn.particles, { speed: 1.5, maxLife: 0.55, size: 2.5, gravity: -3, spread: Math.PI / 2, angle: -Math.PI / 2 - Math.PI / 4 });
       }
     }
     if (u.paralysis) {
       const every = A.paralysis.intervalSec * 1000;
       if (!fx.paraAt || now - fx.paraAt >= every) {
         fx.paraAt = now;
-        this.particles.burst(u.pos.x, u.pos.y - 0.8, A.paralysis.particles, { color: "#facc15", speed: 2.5, maxLife: 0.3, size: 2 });
+        typeBurst(this.particles, "electric", u.pos.x, u.pos.y - 0.8, A.paralysis.particles, { speed: 3, maxLife: 0.3, size: 2 });
       }
     }
   }
@@ -371,18 +467,27 @@ export class BattleRenderer {
       if (v && v.archetype === "beam") {
         const owner = this.findUnit(state, p.ownerId);
         const from = owner && owner.state !== "bench" && owner.state !== "fainted" ? { x: owner.pos.x, y: owner.pos.y - 0.4 } : v.origin;
-        drawBeam(this, ctx, from, { x: p.pos.x, y: p.pos.y }, v.color, V.beam.widthPx * this.scalePx() * (0.85 + 0.15 * Math.sin(now / 30)), p.hit ? 1 : 0.6);
+        drawBeam(this, ctx, from, { x: p.pos.x, y: p.pos.y }, v.color, V.beam.widthPx * this.scalePx() * (0.85 + 0.15 * Math.sin(now / 30)), p.hit ? 1 : 0.6, now);
+        if (Math.random() < 0.5) typeTrail(this.particles, v.type, p.pos.x, p.pos.y, -p.dir.x * 2 + (Math.random() - 0.5) * 2, -p.dir.y * 2 + (Math.random() - 0.5) * 2, { maxLife: 0.25, size: 2 });
         continue;
       }
       if (v && v.archetype === "lob") {
         const t = Math.min(1, p.traveled / p.range);
-        drawOrb(this, ctx, p.pos, 0.3 + V.lob.arcTiles * Math.sin(t * Math.PI), v.color, (V.lob.orbPx / 2) * this.scalePx(), p.hit ? 1 : 0.6);
-        if (Math.random() < 0.5) this.particles.spawn({ x: p.pos.x, y: p.pos.y - 0.3 - V.lob.arcTiles * Math.sin(t * Math.PI), vx: -p.dir.x, vy: -p.dir.y + 0.5, maxLife: 0.25, color: v.color, size: 2.5 });
+        const lift = 0.3 + V.lob.arcTiles * Math.sin(t * Math.PI);
+        const ghosts = this.gfx.trailGhosts;
+        if (ghosts) {
+          v.trail ||= [];
+          v.trail.push({ x: p.pos.x, y: p.pos.y, lift });
+          if (v.trail.length > ghosts * 2) v.trail.splice(0, v.trail.length - ghosts * 2);
+          v.trail.forEach((g, i) => i % 2 === 0 && drawOrb(this, ctx, g, g.lift, v.color, (V.lob.orbPx / 2) * this.scalePx() * (0.45 + (0.4 * i) / v.trail.length), (0.1 + (0.25 * i) / v.trail.length) * (p.hit ? 1 : 0.6)));
+        }
+        drawOrb(this, ctx, p.pos, lift, v.color, (V.lob.orbPx / 2) * this.scalePx(), p.hit ? 1 : 0.6, now / 60, v.type);
+        if (Math.random() < 0.6) typeTrail(this.particles, v.type, p.pos.x, p.pos.y - lift, -p.dir.x, -p.dir.y + 0.5, { maxLife: 0.3, size: 2.5 });
         continue;
       }
       if (v && v.archetype === "spread") {
-        const head = drawCone(this, ctx, v.origin, { x: p.pos.x, y: p.pos.y }, v.color, 1, p.hit ? 0.95 : 0.55);
-        this.particles.spawn({ x: head.headTiles.x + (Math.random() - 0.5) * 0.9, y: head.headTiles.y + (Math.random() - 0.5) * 0.9, vx: p.dir.x * 2, vy: p.dir.y * 2 - 1, maxLife: 0.3, color: v.color, size: 3 });
+        const head = drawCone(this, ctx, v.origin, { x: p.pos.x, y: p.pos.y }, v.color, 1, p.hit ? 0.95 : 0.55, v.type, now / 1000);
+        typeTrail(this.particles, v.type, head.headTiles.x + (Math.random() - 0.5) * 0.9, head.headTiles.y + (Math.random() - 0.5) * 0.9, p.dir.x * 2, p.dir.y * 2 - 1, { maxLife: 0.35, size: 3 });
         continue;
       }
       const { x, y } = this.toPx(p.pos.x, p.pos.y);
@@ -390,24 +495,26 @@ export class BattleRenderer {
       const r = (A.projectile.px / 2) * this.scalePx();
       ctx.save();
       if (A.animationsEnabled) {
-        const glow = ctx.createRadialGradient(x, y, r * 0.5, x, y, r * 2.2);
+        if (this.gfx.additive && !this.reducedMotion) ctx.globalCompositeOperation = "lighter";
+        const glow = ctx.createRadialGradient(x, y, r * 0.5, x, y, r * 2.6);
         glow.addColorStop(0, color);
         glow.addColorStop(1, "rgba(0,0,0,0)");
-        ctx.globalAlpha = p.hit ? 0.55 : 0.3;
+        ctx.globalAlpha = p.hit ? 0.6 : 0.3;
         ctx.fillStyle = glow;
         ctx.beginPath();
-        ctx.arc(x, y, r * 2.2, 0, Math.PI * 2);
+        ctx.arc(x, y, r * 2.6, 0, TAU);
         ctx.fill();
+        ctx.globalCompositeOperation = "source-over";
         ctx.globalAlpha = p.hit ? 1 : 0.5;
-        this.particles.spawn({ x: p.pos.x, y: p.pos.y, vx: -p.dir.x * 1.5, vy: -p.dir.y * 1.5, maxLife: A.projectile.trailSec, color, size: 2.5 });
+        if (!this.reducedMotion) typeTrail(this.particles, p.type, p.pos.x, p.pos.y, -p.dir.x * 1.5 + (Math.random() - 0.5), -p.dir.y * 1.5 + (Math.random() - 0.5), { maxLife: A.projectile.trailSec, size: 2.5 });
       }
       ctx.fillStyle = color;
       ctx.beginPath();
-      ctx.arc(x, y, r, 0, Math.PI * 2);
+      ctx.arc(x, y, r, 0, TAU);
       ctx.fill();
       ctx.fillStyle = "rgba(255,255,255,0.85)";
       ctx.beginPath();
-      ctx.arc(x, y, r * 0.45, 0, Math.PI * 2);
+      ctx.arc(x, y, r * 0.45, 0, TAU);
       ctx.fill();
       ctx.restore();
     }
@@ -418,13 +525,18 @@ export class BattleRenderer {
     for (const ev of state.events) {
       if (ev.id <= this.lastEventId) continue;
       this.lastEventId = ev.id;
-      if (ev.kind === "switch-in") this.texts.push({ kind: "splash", text: `GO ${ev.name.toUpperCase()}!`, x: ev.x, y: ev.y - 2.2, until: now + A.switch.goSplashSec * 1000, start: now, side: ev.side });
+      if (ev.kind === "switch-in") {
+        this.texts.push({ kind: "splash", text: `GO ${ev.name.toUpperCase()}!`, x: ev.x, y: ev.y - 2.2, until: now + A.switch.goSplashSec * 1000, start: now, side: ev.side });
+        if (A.animationsEnabled && !this.reducedMotion) this.effects.push({ kind: "lightColumn", x: ev.x, y: ev.y, color: ev.side === "player" ? "#67e8f9" : "#fca5a5", start: now, until: now + DECAL_SEC.lightColumnSec * 1000 });
+      }
       if (ev.kind === "evolve") {
         this.texts.push({ kind: "splash", text: `${ev.from.toUpperCase()} → ${ev.name.toUpperCase()}!`, x: ev.x, y: ev.y - 2.2, until: now + A.switch.goSplashSec * 1000 * 1.5, start: now, side: ev.side });
         if (A.animationsEnabled && !this.reducedMotion) {
           this.effects.push({ kind: "aura", fromId: ev.unitId, color: "#f8fafc", start: now, until: now + 1100 });
           this.effects.push({ kind: "flash", x: ev.x, y: ev.y, color: "#ffffff", radiusTiles: 1.6, start: now, until: now + 450 });
-          this.particles.burst(ev.x, ev.y - 0.6, 26, { color: "#fde68a", speed: 4, maxLife: 0.9, size: 3, gravity: -3 });
+          this.effects.push({ kind: "lightColumn", x: ev.x, y: ev.y, color: "#fde68a", start: now, until: now + 900 });
+          if (this.gfx.screenFx) this.effects.push({ kind: "vignette", color: "#ffffff", alpha: 0.35, inner: true, start: now, until: now + 350 });
+          this.particles.burst(ev.x, ev.y - 0.6, 26, { color: "#fde68a", color2: "#ffffff", shape: "sparkle", additive: true, speed: 4, maxLife: 0.9, size: 3, gravity: -3 });
         } else this.effects.push({ kind: "flash", x: ev.x, y: ev.y, color: "#ffffff", radiusTiles: 1.2, start: now, until: now + moveVisuals.reducedMotionFlashSec * 1000 });
         (this.unitFx[ev.unitId] ||= {}).hitUntil = now + 350;
       }
@@ -443,14 +555,31 @@ export class BattleRenderer {
           const fx = (this.unitFx[ev.targetId] ||= {});
           fx.hitUntil = now + A.hitFlash.sec * 1000;
           if (ev.source === "melee" || ev.source === "dash") fx.shake = { px: V.contact.shakePx, until: now + V.contact.shakeSec * 1000 };
-          if (ev.source === "projectile" && ev.attackerId) {
+          let dir = null;
+          if (ev.attackerId) {
             const att = this.findUnit(state, ev.attackerId);
             if (att) {
               const d = Math.hypot(ev.x - att.pos.x, ev.y - att.pos.y) || 1;
-              fx.recoil = { dx: (ev.x - att.pos.x) / d, dy: (ev.y - att.pos.y) / d, until: now + A.recoil.sec * 1000 };
+              dir = { dx: (ev.x - att.pos.x) / d, dy: (ev.y - att.pos.y) / d };
+              if (ev.source === "projectile") fx.recoil = { ...dir, until: now + A.recoil.sec * 1000 };
             }
           }
           const sup = ev.eff >= 2;
+          if (ev.damage > 0) {
+            typeBurst(this.particles, ev.type, ev.x, ev.y - 0.5, sup ? 14 : 7, { speed: sup ? 5 : 3.5, maxLife: 0.42, size: 2.5 });
+            if (ev.source === "melee" || ev.source === "dash") {
+              const angle = dir ? Math.atan2(dir.dy, dir.dx) + (Math.random() - 0.5) * 0.8 : Math.random() * Math.PI;
+              this.effects.push({ kind: "slash", x: ev.x, y: ev.y, color, angle, count: ev.source === "dash" ? 2 : 3, start: now, until: now + DECAL_SEC.slashSec * 1000 });
+            }
+          }
+          if (sup) {
+            this.effects.push({ kind: "starburst", x: ev.x, y: ev.y, color, rot: Math.random() * Math.PI, radiusTiles: 1.8, start: now, until: now + DECAL_SEC.starburstSec * 1000 });
+            if (this.gfx.screenFx) {
+              this.effects.push({ kind: "vignette", color, alpha: 0.22, start: now, until: now + DECAL_SEC.vignetteSec * 1000 });
+              this.effects.push({ kind: "speedlines", x: ev.x, y: ev.y, color: "#ffffff", count: 12, start: now, until: now + 220 });
+              this.shake(3, 0.2, now);
+            }
+          } else if (ev.eff > 0 && ev.eff < 1 && ev.damage > 0) this.particles.burst(ev.x, ev.y - 0.5, 5, { color: "#94a3b8", shape: "smoke", speed: 1.5, maxLife: 0.4, size: 3 });
           this.texts.push({ kind: "dmg", text: ev.blocked === "entry" ? "0" : String(ev.damage), x: ev.x, y: ev.y - 1.4, until: now + A.damageNumber.sec * 1000, start: now, big: sup, color: sup ? "#fde047" : ev.eff === 0 ? "#94a3b8" : "#ffffff" });
           if (ev.eff >= 2) this.texts.push({ kind: "popup", text: "Super effective!", x: ev.x, y: ev.y - 2.4, until: now + A.popup.sec * 1000, start: now, color: "#fde047" });
           else if (ev.eff > 0 && ev.eff < 1) this.texts.push({ kind: "popup", text: "Not very effective", x: ev.x, y: ev.y - 2.4, until: now + A.popup.sec * 1000, start: now, color: "#94a3b8" });
@@ -460,8 +589,9 @@ export class BattleRenderer {
         case "projectile-spawn": {
           const p = state.projectiles.find((q) => q.id === ev.projectileId);
           const owner = p ? this.findUnit(state, p.ownerId) : null;
-          const v = resolveVisual(owner ? owner.moves[p.moveIdx] : null);
-          this.projVis[ev.projectileId] = { archetype: v.archetype, color: v.color, ownerId: p?.ownerId, origin: { x: ev.x, y: ev.y - 0.4 } };
+          const move = owner ? owner.moves[p.moveIdx] : null;
+          const v = resolveVisual(move);
+          this.projVis[ev.projectileId] = { archetype: v.archetype, color: v.color, type: move?.type || p?.type || null, ownerId: p?.ownerId, origin: { x: ev.x, y: ev.y - 0.4 } };
           break;
         }
         case "projectile-hit":
@@ -475,21 +605,28 @@ export class BattleRenderer {
         case "melee-swing":
           this.onSwing(state, ev, now, color);
           break;
+        case "dash-start":
+          if (this.gfx.screenFx) this.effects.push({ kind: "speedlines", x: ev.x, y: ev.y, color, count: 8, start: now, until: now + 260 });
+          this.particles.burst(ev.x, ev.y, 6, { color: "#d6d3d1", shape: "smoke", speed: 1.5, maxLife: 0.4, size: 3, spread: Math.PI, angle: Math.atan2(-ev.dy, -ev.dx) - Math.PI / 2 });
+          break;
         case "dash-end":
           this.effects.push({ kind: "dash", path: ev.path, color, unitId: ev.unitId, until: now + A.dash.streakSec * 1000, start: now });
           break;
         case "shield-break":
-          this.particles.burst(ev.x, ev.y - 0.5, A.shield.fragments, { color, speed: 3.5, maxLife: A.shield.shatterSec, size: 4, gravity: 6 });
+          this.particles.burst(ev.x, ev.y - 0.5, A.shield.fragments + 4, { color, color2: "#ffffff", shape: "shard", spin: 9, speed: 3.8, maxLife: A.shield.shatterSec + 0.15, size: 3.5, gravity: 7 });
+          this.effects.push({ kind: "impact", x: ev.x, y: ev.y, color, radiusTiles: 1.2, start: now, until: now + 300 });
           break;
         case "shield-up":
         case "buff":
           this.onSelfMove(ev, now, color);
           break;
         case "status":
-          this.particles.burst(ev.x, ev.y - 0.6, 6, { color: ev.status === "burn" ? "#f97316" : "#facc15", speed: 2.5, maxLife: 0.4, size: 3 });
+          typeBurst(this.particles, ev.status === "burn" ? "fire" : "electric", ev.x, ev.y - 0.6, 8, { speed: 2.5, maxLife: 0.45, size: 3 });
+          this.effects.push({ kind: "aura", fromId: ev.unitId, color: ev.status === "burn" ? "#f97316" : "#facc15", start: now, until: now + 500 });
           break;
         case "faint":
-          this.particles.burst(ev.x, ev.y - 0.5, A.faint.particles, { color: "#9ca3af", speed: 2.5, maxLife: A.faint.sec, size: 4, gravity: -2 });
+          this.particles.burst(ev.x, ev.y - 0.5, A.faint.particles, { color: "#9ca3af", shape: "smoke", speed: 2.2, maxLife: A.faint.sec + 0.3, size: 4, gravity: -2 });
+          if (this.gfx.screenFx) this.effects.push({ kind: "vignette", color: "#000000", alpha: 0.4, hold: true, start: now, until: now + 520 });
           break;
         case "switch-out": {
           const u = this.findUnit(state, ev.unitId);
@@ -497,8 +634,11 @@ export class BattleRenderer {
           this.effects.push({ kind: "shrink", x: ev.x, y: ev.y, entry, until: now + A.switch.outSec * 1000, start: now, side: ev.side, facingX: u?.facingX ?? 1 });
           break;
         }
+        case "melt":
+          for (const t of (ev.tiles || []).slice(0, 8)) this.particles.burst(t.c + 0.5, t.r + 0.5, 3, { color: "#e2e8f0", shape: "smoke", speed: 0.8, maxLife: 0.9, size: 3.5, gravity: -1.5 });
+          break;
         case "dodge":
-          this.particles.burst(ev.x, ev.y, 5, { color: "#e2e8f0", speed: 2, maxLife: 0.25, size: 2 });
+          this.particles.burst(ev.x, ev.y, 6, { color: "#e2e8f0", shape: "smoke", speed: 2, maxLife: 0.3, size: 2.5 });
           break;
         default:
           break;
@@ -510,17 +650,19 @@ export class BattleRenderer {
     const u = this.findUnit(state, ev.unitId);
     const move = u?.moves.find((m) => m.name === ev.move);
     const v = resolveVisual(move);
-    const cast = { unitId: ev.unitId, move: ev.move, archetype: v.archetype, color: v.color, tx: ev.tx, ty: ev.ty, shape: ev.shape };
+    const type = move?.type || ev.type || null;
+    const cast = { unitId: ev.unitId, move: ev.move, archetype: v.archetype, color: v.color, type, tx: ev.tx, ty: ev.ty, shape: ev.shape };
     this.lastCast[ev.unitId] = cast;
     if (ev.shape !== "area") return;
     const windupMs = (ev.windupTicks / TICK_RATE) * 1000;
     this.pendingCasts.push({ ...cast, expiresAt: now + windupMs + 1500 });
-    const base = { fromId: ev.unitId, fx: ev.x, fy: ev.y, tx: ev.tx, ty: ev.ty, color: v.color, start: now };
+    const base = { fromId: ev.unitId, fx: ev.x, fy: ev.y, tx: ev.tx, ty: ev.ty, color: v.color, type, start: now };
     if (v.archetype === "beam") this.effects.push({ ...base, kind: "charge", until: now + Math.min(V.beam.chargeSec * 1000, windupMs) });
     else if (v.archetype === "lob") this.effects.push({ ...base, kind: "lobArc", fy: ev.y - 0.4, arcTiles: V.lob.arcTiles, until: now + windupMs });
     else if (v.archetype === "spread") this.effects.push({ ...base, kind: "plume", until: now + windupMs + 250 });
     else if (v.archetype === "strike") this.effects.push({ kind: "flash", x: ev.tx, y: ev.ty, color: v.color, radiusTiles: 1.4, start: now, until: now + windupMs });
     else if (v.archetype === "pulse") this.effects.push({ kind: "fog", x: ev.tx, y: ev.ty, color: v.color, start: now, until: now + windupMs });
+    else if (v.archetype === "shockwave" || v.archetype === "contact") this.effects.push({ ...base, kind: "charge", until: now + Math.min(300, windupMs) });
   }
 
   takeCast(x, y) {
@@ -533,16 +675,18 @@ export class BattleRenderer {
     const arch = cast?.archetype || "burst";
     const c = cast?.color || color;
     this.effects.push({ kind: "areaFlash", x: ev.x, y: ev.y, r: ev.radius, color: c, until: now + A.area.flashSec * 1000, start: now });
-    this.playImpact(arch, { fromId: cast?.unitId, x: ev.x, y: ev.y, color: c, radius: ev.radius }, now);
+    this.playImpact(arch, { fromId: cast?.unitId, x: ev.x, y: ev.y, color: c, type: cast?.type || ev.type, radius: ev.radius }, now);
   }
 
   onSwing(state, ev, now, color) {
     const cast = this.lastCast[ev.unitId];
     const arch = cast?.archetype || "contact";
     const c = cast?.color || color;
+    const type = cast?.type || ev.type;
     if (arch === "contact") {
       this.effects.push({ kind: "arc", x: ev.x, y: ev.y, dx: ev.dx, dy: ev.dy, color: c, until: now + A.melee.sweepSec * 1000, start: now, unitId: ev.unitId });
       (this.unitFx[ev.unitId] ||= {}).lunge = { dx: ev.dx, dy: ev.dy, until: now + A.melee.sweepSec * 1000 };
+      typeBurst(this.particles, type, ev.x + ev.dx * 0.8, ev.y + ev.dy * 0.8 - 0.4, 4, { speed: 3, maxLife: 0.3, size: 2, spread: Math.PI / 2, angle: Math.atan2(ev.dy, ev.dx) - Math.PI / 4 });
       return;
     }
     const enemy = state.teams[ev.unitId.startsWith("player") ? "npc" : "player"];
@@ -551,43 +695,63 @@ export class BattleRenderer {
     const near = e && Math.hypot(e.pos.x - ev.x, e.pos.y - ev.y) <= reach * 1.5;
     const target = near ? { x: e.pos.x, y: e.pos.y } : { x: ev.x + ev.dx * reach, y: ev.y + ev.dy * reach };
     if (arch === "lob") {
-      this.effects.push({ kind: "lobArc", fx: ev.x, fy: ev.y - 0.4, tx: target.x, ty: target.y, color: c, arcTiles: 0.8, start: now, until: now + 220 });
-      this.effects.push({ kind: "impact", x: target.x, y: target.y, color: c, start: now + 220, until: now + 220 + V.lob.sec * 1000 });
+      this.effects.push({ kind: "lobArc", fx: ev.x, fy: ev.y - 0.4, tx: target.x, ty: target.y, color: c, type, arcTiles: 0.8, start: now, until: now + 220 });
+      this.effects.push({ kind: "impact", x: target.x, y: target.y, color: c, rot: Math.random() * Math.PI, start: now + 220, until: now + 220 + V.lob.sec * 1000 });
       return;
     }
-    this.playImpact(arch, { fromId: ev.unitId, x: target.x, y: target.y, color: c, radius: reach }, now);
+    this.playImpact(arch, { fromId: ev.unitId, x: target.x, y: target.y, color: c, type, radius: reach }, now);
   }
 
-  playImpact(arch, { fromId, x, y, color, radius }, now) {
+  decal(kind, x, y, color, radiusTiles, now, sec) {
+    if (!this.gfx.decals) return;
+    this.effects.push({ kind, x, y, color, radiusTiles, start: now, until: now + sec * 1000 });
+  }
+
+  playImpact(arch, { fromId, x, y, color, type, radius }, now) {
     switch (arch) {
       case "spread":
-        this.effects.push({ kind: "plume", fromId, fx: x, fy: y, tx: x, ty: y, color, fixedLen: 1, start: now, until: now + 320 });
-        this.particles.burst(x, y - 0.4, 14, { color, speed: 4, maxLife: 0.45, size: 3, gravity: -2 });
+        this.effects.push({ kind: "plume", fromId, fx: x, fy: y, tx: x, ty: y, color, type, fixedLen: 1, start: now, until: now + 320 });
+        typeBurst(this.particles, type, x, y - 0.4, 16, { speed: 4, maxLife: 0.5, size: 3 });
+        this.decal("scorch", x, y, color, radius * 0.8, now, DECAL_SEC.scorchSec * 0.7);
         break;
       case "beam":
-        this.effects.push({ kind: "beamLine", fromId, fx: x, fy: y, tx: x, ty: y - 0.4, color, start: now, until: now + V.beam.fadeSec * 1000 });
-        this.particles.burst(x, y - 0.4, 8, { color, speed: 3, maxLife: 0.3, size: 2.5 });
+        this.effects.push({ kind: "beamLine", fromId, fx: x, fy: y, tx: x, ty: y - 0.4, color, type, start: now, until: now + V.beam.fadeSec * 1000 });
+        typeBurst(this.particles, type, x, y - 0.4, 10, { speed: 3.5, maxLife: 0.35, size: 2.5 });
+        this.decal("scorch", x, y, color, radius * 0.6, now, DECAL_SEC.scorchSec * 0.6);
         break;
       case "lob":
-        this.effects.push({ kind: "impact", x, y, color, radiusTiles: radius, start: now, until: now + V.lob.sec * 1000 });
-        this.particles.burst(x, y - 0.4, V.lob.burstParticles, { color, speed: 4.5, maxLife: 0.4, size: 3 });
+        this.effects.push({ kind: "impact", x, y, color, radiusTiles: radius, rot: Math.random() * Math.PI, start: now, until: now + V.lob.sec * 1000 });
+        typeBurst(this.particles, type, x, y - 0.4, V.lob.burstParticles, { speed: 4.5, maxLife: 0.45, size: 3 });
+        this.decal("crack", x, y, color, Math.max(0.9, radius * 0.7), now, DECAL_SEC.crackSec * 0.6);
         break;
       case "strike":
-        if (color === tcolor("electric")) this.effects.push({ kind: "bolt", x, y, color, start: now, until: now + V.strike.sec * 1000 });
-        else this.effects.push({ kind: "fall", x, y, color, chunks: makeFallChunks(), start: now, until: now + V.strike.sec * 1000 });
+        if (type === "electric" || color === tcolor("electric")) {
+          this.effects.push({ kind: "bolt", x, y, color, start: now, until: now + V.strike.sec * 1000 });
+          if (this.gfx.screenFx) {
+            this.effects.push({ kind: "vignette", color, alpha: 0.3, inner: true, start: now, until: now + 180 });
+            this.shake(2, 0.18, now);
+          }
+          this.decal("scorch", x, y, color, radius, now, DECAL_SEC.scorchSec);
+        } else {
+          this.effects.push({ kind: "fall", x, y, color, type, chunks: makeFallChunks(), start: now, until: now + V.strike.sec * 1000 });
+          this.decal("crack", x, y, color, radius, now, DECAL_SEC.crackSec);
+          this.shake(2, 0.2, now + 200);
+        }
         break;
       case "shockwave":
-        this.effects.push({ kind: "ring", x, y, color, radiusTiles: V.shockwave.ringTiles, start: now, until: now + V.shockwave.sec * 1000 });
-        this.effects.push({ kind: "ring", x, y, color, radiusTiles: V.shockwave.ringTiles * 0.7, delay: 0.15, start: now, until: now + V.shockwave.sec * 1000 });
-        this.shakeUntil = now + V.shockwave.screenShakeSec * 1000;
-        this.shakePx = V.shockwave.screenShakePx;
+        this.effects.push({ kind: "ring", x, y, color, type, radiusTiles: V.shockwave.ringTiles, start: now, until: now + V.shockwave.sec * 1000 });
+        this.effects.push({ kind: "ring", x, y, color, type, radiusTiles: V.shockwave.ringTiles * 0.7, delay: 0.15, start: now, until: now + V.shockwave.sec * 1000 });
+        this.decal("crack", x, y, color, V.shockwave.ringTiles * 0.55, now, DECAL_SEC.crackSec);
+        typeBurst(this.particles, type, x, y, 10, { speed: 3, maxLife: 0.5, size: 2.5, spread: Math.PI, angle: -Math.PI });
+        this.shake(V.shockwave.screenShakePx, V.shockwave.screenShakeSec, now);
         break;
       case "pulse":
         this.effects.push({ kind: "pulse", x, y, color, start: now, until: now + V.pulse.sec * 1000 });
+        typeBurst(this.particles, type || "psychic", x, y - 0.4, 8, { speed: 2.5, maxLife: 0.45, size: 2.5 });
         break;
       default:
-        this.effects.push({ kind: "impact", x, y, color, radiusTiles: 0.9, start: now, until: now + V.burst.sec * 1000 });
-        this.particles.burst(x, y - 0.4, A.area.detonateParticles, { color, speed: 5, maxLife: A.area.detonateSec, size: 3 });
+        this.effects.push({ kind: "impact", x, y, color, radiusTiles: 0.9, rot: Math.random() * Math.PI, start: now, until: now + V.burst.sec * 1000 });
+        typeBurst(this.particles, type, x, y - 0.4, A.area.detonateParticles, { speed: 5, maxLife: A.area.detonateSec, size: 3 });
         break;
     }
   }
@@ -597,27 +761,36 @@ export class BattleRenderer {
     delete this.projVis[ev.projectileId];
     const hit = ev.kind === "projectile-hit";
     const c = v?.color || color;
+    const type = v?.type || ev.type;
     const end = { x: ev.x, y: ev.y - 0.4 };
-    if (v?.archetype === "beam") this.effects.push({ kind: "beamLine", fromId: v.ownerId, fx: v.origin.x, fy: v.origin.y + 0.4, tx: end.x, ty: end.y, color: c, start: now, until: now + V.beam.fadeSec * 1000 });
-    else if (v?.archetype === "spread") this.effects.push({ kind: "plume", fx: v.origin.x, fy: v.origin.y + 0.4, tx: ev.x, ty: ev.y, color: c, fixedLen: 1, fadeOnly: true, start: now, until: now + 250 });
+    if (v?.archetype === "beam") this.effects.push({ kind: "beamLine", fromId: v.ownerId, fx: v.origin.x, fy: v.origin.y + 0.4, tx: end.x, ty: end.y, color: c, type, start: now, until: now + V.beam.fadeSec * 1000 });
+    else if (v?.archetype === "spread") this.effects.push({ kind: "plume", fx: v.origin.x, fy: v.origin.y + 0.4, tx: ev.x, ty: ev.y, color: c, type, fixedLen: 1, fadeOnly: true, start: now, until: now + 250 });
     if (hit) {
-      if (v?.archetype === "lob") this.effects.push({ kind: "impact", x: ev.x, y: ev.y, color: c, radiusTiles: 1.2, start: now, until: now + V.lob.sec * 1000 });
+      if (v?.archetype === "lob") {
+        this.effects.push({ kind: "impact", x: ev.x, y: ev.y, color: c, radiusTiles: 1.2, rot: Math.random() * Math.PI, start: now, until: now + V.lob.sec * 1000 });
+        this.decal("crack", ev.x, ev.y, c, 0.8, now, DECAL_SEC.crackSec * 0.5);
+      }
       if (v?.archetype === "pulse") this.effects.push({ kind: "pulse", x: ev.x, y: ev.y, color: c, start: now, until: now + V.pulse.sec * 1000 });
-      this.particles.burst(ev.x, ev.y, v?.archetype === "lob" ? V.lob.burstParticles : A.projectile.burstParticles, { color: c, speed: 4, maxLife: A.projectile.burstSec, size: 3 });
-    } else if (ev.kind === "projectile-blocked") this.particles.burst(ev.x, ev.y, 6, { color: c, speed: 2.5, maxLife: 0.3, size: 2.5 });
+      if (v?.archetype === "beam" || v?.archetype === "spread") this.decal("scorch", ev.x, ev.y, c, 0.7, now, DECAL_SEC.scorchSec * 0.5);
+      typeBurst(this.particles, type, ev.x, ev.y - 0.3, v?.archetype === "lob" ? V.lob.burstParticles : A.projectile.burstParticles + 4, { speed: 4, maxLife: A.projectile.burstSec, size: 3 });
+    } else if (ev.kind === "projectile-blocked") {
+      this.particles.burst(ev.x, ev.y, 8, { color: c, color2: "#ffffff", shape: "shard", spin: 8, speed: 3, maxLife: 0.35, size: 2.5, gravity: 5 });
+      this.effects.push({ kind: "impact", x: ev.x, y: ev.y, color: "#ffffff", radiusTiles: 0.6, start: now, until: now + 200 });
+    }
   }
 
   onSelfMove(ev, now, color) {
     const cast = this.lastCast[ev.unitId];
     const arch = cast?.archetype || "aura";
     const c = cast?.color || color;
+    const type = cast?.type || ev.type;
     if (arch === "cloud" && cast) {
-      this.effects.push({ kind: "cloud", fromId: ev.unitId, tx: cast.tx, ty: cast.ty, color: c, total: V.cloud.particles, travelSec: V.cloud.travelSec, spawned: 0, start: now, until: now + V.cloud.sec * 1000 });
+      this.effects.push({ kind: "cloud", fromId: ev.unitId, tx: cast.tx, ty: cast.ty, color: c, type, total: V.cloud.particles, travelSec: V.cloud.travelSec, spawned: 0, start: now, until: now + V.cloud.sec * 1000 });
       this.effects.push({ kind: "fog", x: cast.tx, y: cast.ty, color: c, start: now + V.cloud.travelSec * 1000 * 0.8, until: now + V.cloud.sec * 1000 });
       return;
     }
-    this.effects.push({ kind: "aura", fromId: ev.unitId, color: c, start: now, until: now + V.aura.sec * 1000 });
-    if (ev.kind === "buff") this.effects.push({ kind: "buffStream", unitId: ev.unitId, color: c, until: now + A.buff.streamSec * 1000, start: now, spawned: 0 });
+    this.effects.push({ kind: "aura", fromId: ev.unitId, color: c, type, start: now, until: now + V.aura.sec * 1000 });
+    if (ev.kind === "buff") this.effects.push({ kind: "buffStream", unitId: ev.unitId, color: c, type, until: now + A.buff.streamSec * 1000, start: now, spawned: 0 });
   }
 
   reducedMotionEvent(state, ev, now, color) {
@@ -638,13 +811,14 @@ export class BattleRenderer {
     return null;
   }
 
-  drawEffects(state, now) {
+  drawEffects(state, now, groundPass) {
     const ctx = this.ctx;
     const keep = [];
     for (const e of this.effects) {
       if (now >= e.until) continue;
-      if (now < e.start) {
-        keep.push(e);
+      const ground = GROUND_EFFECTS.has(e.kind);
+      if (now < e.start || ground !== groundPass) {
+        if (!groundPass) keep.push(e);
         continue;
       }
       const p = ease((now - e.start) / (e.until - e.start));
@@ -655,7 +829,7 @@ export class BattleRenderer {
           ctx.globalAlpha = (1 - p) * 0.6;
           ctx.fillStyle = e.color;
           ctx.beginPath();
-          ctx.arc(x, y, this.px(e.r), 0, Math.PI * 2);
+          ctx.arc(x, y, this.px(e.r), 0, TAU);
           ctx.fill();
           ctx.restore();
           break;
@@ -667,12 +841,20 @@ export class BattleRenderer {
           const half = (A.melee.arcDeg / 2) * (Math.PI / 180);
           const sweep = -half + 2 * half * p;
           ctx.save();
-          ctx.strokeStyle = e.color;
-          ctx.lineWidth = 4;
-          ctx.globalAlpha = 0.9 - p * 0.5;
+          if (this.gfx.additive) ctx.globalCompositeOperation = "lighter";
           ctx.lineCap = "round";
+          ctx.strokeStyle = e.color;
+          ctx.lineWidth = 9 * this.scalePx();
+          ctx.globalAlpha = (0.9 - p * 0.5) * 0.35;
           ctx.beginPath();
           ctx.arc(x, y - this.px(0.3), this.px(engine.shapes.melee.reach), base - half, base + sweep);
+          ctx.stroke();
+          ctx.lineWidth = 4 * this.scalePx();
+          ctx.globalAlpha = 0.9 - p * 0.5;
+          ctx.stroke();
+          ctx.strokeStyle = "#ffffff";
+          ctx.lineWidth = 1.5 * this.scalePx();
+          ctx.globalAlpha = (0.9 - p * 0.5) * 0.8;
           ctx.stroke();
           ctx.restore();
           break;
@@ -685,6 +867,7 @@ export class BattleRenderer {
             const a = this.toPx(path[0].x, path[0].y);
             const b = this.toPx(path[path.length - 1].x, path[path.length - 1].y);
             ctx.save();
+            if (this.gfx.additive) ctx.globalCompositeOperation = "lighter";
             ctx.strokeStyle = e.color;
             ctx.globalAlpha = (1 - p) * 0.7;
             ctx.lineWidth = 6;
@@ -699,15 +882,17 @@ export class BattleRenderer {
               const scale = this.spriteScale(entry);
               const w = entry.width * scale;
               const h = entry.height * scale;
-              A.dash.afterimageAlphas.forEach((alpha, i) => {
-                const idx = Math.max(0, Math.floor((path.length - 1) * (1 - (i + 1) / (A.dash.afterimages + 1))));
+              const n = this.gfx.afterimages;
+              for (let i = 0; i < n; i++) {
+                const alpha = 0.55 * (1 - i / (n + 1));
+                const idx = Math.max(0, Math.floor((path.length - 1) * (1 - (i + 1) / (n + 1))));
                 const pt = this.toPx(path[idx].x, path[idx].y);
                 ctx.save();
                 ctx.globalAlpha = alpha * (1 - p);
                 ctx.imageSmoothingEnabled = false;
                 ctx.drawImage(frame, pt.x - w / 2, pt.y + this.px(0.45) * 0.5 - h, w, h);
                 ctx.restore();
-              });
+              }
             }
           }
           break;
@@ -715,10 +900,10 @@ export class BattleRenderer {
         case "buffStream": {
           const u = this.findUnit(state, e.unitId);
           if (u) {
-            const want = Math.floor(p * A.buff.streamParticles);
+            const want = Math.floor(p * A.buff.streamParticles * this.particles.mult);
             while (e.spawned < want) {
               e.spawned++;
-              this.particles.spawn({ x: u.pos.x + (Math.random() - 0.5) * 0.8, y: u.pos.y, vx: 0, vy: -3, maxLife: 0.5, color: e.color, size: 2.5 });
+              this.particles.spawn({ x: u.pos.x + (Math.random() - 0.5) * 0.8, y: u.pos.y, vx: 0, vy: -3, maxLife: 0.55, color: e.color, color2: "#ffffff", size: 2.5, shape: "sparkle", additive: true });
             }
           }
           break;
@@ -743,9 +928,9 @@ export class BattleRenderer {
           drawArchetypeEffect(this, ctx, e, p, state);
           break;
       }
-      keep.push(e);
+      if (!groundPass) keep.push(e);
     }
-    this.effects = keep;
+    if (!groundPass) this.effects = keep;
   }
 
   drawTexts(now) {
@@ -772,10 +957,11 @@ export class BattleRenderer {
       } else {
         const rise = A.damageNumber.risePx * p * this.scalePx();
         const shake = t.big && p < 0.25 ? Math.sin(p * 40) * A.damageNumber.shakePx : 0;
+        const pop = t.kind === "dmg" && p < 0.22 ? 1 + (t.big ? 0.9 : 0.5) * (1 - p / 0.22) : 1;
         ctx.globalAlpha = 1 - p * p;
         const size = t.kind === "popup" ? 11 : t.big ? A.damageNumber.superFontPx : A.damageNumber.fontPx;
-        ctx.font = `${t.kind === "popup" ? 600 : 700} ${Math.round(size * this.scalePx())}px 'Chakra Petch', sans-serif`;
-        ctx.lineWidth = 3;
+        ctx.font = `${t.kind === "popup" ? 600 : 700} ${Math.round(size * this.scalePx() * pop)}px 'Chakra Petch', sans-serif`;
+        ctx.lineWidth = 3 * pop;
         ctx.strokeStyle = "rgba(0,0,0,0.85)";
         ctx.strokeText(t.text, x + shake, y - rise);
         ctx.fillStyle = t.color;

@@ -57,12 +57,35 @@ function withinBudget(list, budget, need) {
   return out;
 }
 
-export async function generateNpcTeam({ rng, creatures, unlockedIds, archetype, playerHasLegendary = false, budget = null, allowNextTier = true, allowLegendary = true, log = [] }) {
+function lineStarted(c, creatures, unlockedIds) {
+  let cur = c;
+  const seen = new Set();
+  while (cur && cur.evolvesFrom != null && !seen.has(cur.id)) {
+    seen.add(cur.id);
+    if (unlockedIds.has(cur.evolvesFrom)) return true;
+    cur = creatures[cur.evolvesFrom];
+  }
+  return false;
+}
+
+export function tierCandidates(all, creatures, unlockedIds, pool) {
+  const locked = all.filter((c) => !unlockedIds.has(c.id) && !isSealed(c));
+  if (pool === "nextTier") return locked.filter((c) => c.evolvesFrom != null && unlockedIds.has(c.evolvesFrom));
+  if (pool === "line") return locked.filter((c) => lineStarted(c, creatures, unlockedIds));
+  if (pool === "all") return locked;
+  return [];
+}
+
+export async function generateNpcTeam({ rng, creatures, unlockedIds, archetype, playerHasLegendary = false, budget = null, pool: poolMode = "nextTier", tierPicks = 1, allowLegendary = true, log = [] }) {
   const all = Object.values(creatures);
-  const pool = withinBudget(all.filter((c) => unlockedIds.has(c.id) && !isSealed(c)), budget, 6);
-  const nextTier = allowNextTier ? withinBudget(all.filter((c) => !unlockedIds.has(c.id) && !isSealed(c) && c.evolvesFrom != null && unlockedIds.has(c.evolvesFrom)), budget, 1) : [];
+  const owned = all.filter((c) => unlockedIds.has(c.id) && !isSealed(c));
+  const extra = tierCandidates(all, creatures, unlockedIds, poolMode);
+  const merged = poolMode === "all";
+  const pool = withinBudget(merged ? [...owned, ...extra] : owned, budget, 6);
+  const picks = merged ? 0 : Math.min(tierPicks, 6);
+  const nextTier = picks ? withinBudget(extra, budget, picks) : [];
   const legends = allowLegendary && playerHasLegendary ? all.filter((c) => isSealed(c) && unlockedIds.has(c.id)) : [];
-  if (budget) log.push(`Rival budget ${budget} BST: ${pool.length} pool / ${nextTier.length} next-tier candidates in band`);
+  if (budget) log.push(`Rival budget ${budget} BST (${poolMode} pool): ${pool.length} pool / ${nextTier.length} tier candidates in band, up to ${picks} tier picks`);
   const kind = archetype.team;
   let score = scorers[kind] || scorers.strongest;
   let poolRanked = [...pool].sort(byScore(score));
@@ -75,7 +98,7 @@ export async function generateNpcTeam({ rng, creatures, unlockedIds, archetype, 
     const type = rng.pick(eligible);
     poolRanked = poolRanked.filter((c) => c.types.includes(type));
     tierRanked = tierRanked.filter((c) => c.types.includes(type));
-    log.push(`Specialist mono-type: ${type} (${poolRanked.length} pool / ${tierRanked.length} next-tier candidates)`);
+    log.push(`Specialist mono-type: ${type} (${poolRanked.length} pool / ${tierRanked.length} tier candidates)`);
   }
 
   if (kind === "kiter" || kind === "bulk") {
@@ -85,12 +108,13 @@ export async function generateNpcTeam({ rng, creatures, unlockedIds, archetype, 
     log.push(`${archetype.name} candidate bias (${kind === "kiter" ? "projectile" : "shield/buff"} moves): ${biased.map((x) => `${x.c.name}:${x.bonus}`).join(", ")}`);
   }
 
-  const fromTier = tierRanked.length ? pickWeighted(rng, tierRanked, 1, 5) : [];
+  const tierCount = Math.min(picks, tierRanked.length);
+  const fromTier = tierCount ? pickWeighted(rng, tierRanked, tierCount, Math.max(5, tierCount * 3)) : [];
   const need = 6 - fromTier.length;
   const fromPool = kind === "coverage" ? coveragePick(poolRanked, need) : pickWeighted(rng, poolRanked, need);
   let team = [...fromPool, ...fromTier];
   if (legends.length && kind === "strongest") team[team.length - 1] = rng.pick(legends);
   team = rng.shuffle(team);
-  log.push(`NPC team (${archetype.name}): ${team.map((c) => `${c.displayName}#${c.id}`).join(", ")} | next-tier pick: ${fromTier.map((c) => c.displayName).join(", ") || "none"}`);
+  log.push(`NPC team (${archetype.name}): ${team.map((c) => `${c.displayName}#${c.id}`).join(", ")} | tier picks: ${fromTier.map((c) => c.displayName).join(", ") || "none"}`);
   return team;
 }
