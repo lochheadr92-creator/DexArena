@@ -45,13 +45,19 @@ Constraints
 - Tuning: DAMAGE_SCALE 0.12, cooldown min 1.5 s / max 6 s / status 8 s → pacing median 27.5 s (50 seeded 1v1s)
 - Tested: testing_agent iteration_2 (faint-pick fix verified) + iteration_3 (rematch fix, switch, pause/speed, layout, result screen — all pass)
 
+### Phase 3 — DONE (2026-06) — tested via testing_agent iteration_4 (95%) + iteration_5 (100%) after fixes
+- `src/lib/progression.js`: species-win credit, evolution thresholds (3 / 5), Seal Keys (1 per 10 wins), `creditBattle`
+- `src/lib/gauntlet.js` + `pages/GauntletPage.jsx` + `/battle?mode=gauntlet`: 6-trainer run, HP/faint carry-over via `initialHp`, stage badge, Next trainer / run over flows, abandon
+- `src/lib/replay.js` + `/replay#code`: deterministic replay links (teams, movesets, inputs incl. auto-pick toggles), read-only HUD, Share button (navigator.share → clipboard)
+- `components/SaveTransfer.jsx`: export/import JSON with validation + confirm; `components/UnlockPanel.jsx`: progress bar / Seal Key spend in detail sheet
+- Engine: `state.inputLog`, `replayInputs` injection in `processInputs`, `auto` input type, auto-pick resolves a pending pick immediately; TeamStrip has an "Auto pick" button during forced picks
+- Harness: `__progressionTest`, `__replayTest(seed)`
+
 ## Backlog
-### Phase 2 follow-ups (only if user asks)
+### Phase 2/3 follow-ups (only if user asks)
 - Status moves rarely appear (most creatures have ≥4 damaging level-up moves) → shield/buff shapes mostly seen on Metapod/Abra-like creatures
 - Right-side control column still overlays arena cols 13–15 (translucent); could move into HUD on request
-### Phase 3 (P1) — DO NOT START until user says go
-- Progression: evolution unlocks via species wins, legendary unlocks via total wins
-- 6-trainer gauntlet w/ persistent HP, trainer archetypes
-- Export / import save JSON
+### Ideas (P2)
+- Gauntlet leaderboard / run history, replay gallery of saved links, daily seeded challenge
 ### Nice-to-have (P2)
 - Sprite blob caching in IDB for full offline; virtualized grid

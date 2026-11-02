@@ -184,7 +184,7 @@ export default function BattlePage() {
         <BattleHud snap={snap} speed={speed} setSpeed={setSpeed} paused={paused} setPaused={setPaused} autoPick={autoPick} setAutoPick={setAutoPick} onSwitch={() => setStripOpen(true)} readOnly={mode === "replay"} stage={mode === "gauntlet" ? stateRef.current?.meta.slot : null} />
       )}
       {phase === "battle" && mode !== "replay" && snap && (stripOpen || pendingPick) && !ended && (
-        <TeamStrip bench={snap.player.bench} forced={pendingPick} onPick={pick} onClose={() => setStripOpen(false)} />
+        <TeamStrip bench={snap.player.bench} forced={pendingPick} onPick={pick} onClose={() => setStripOpen(false)} onAuto={() => setAutoPick(true)} />
       )}
       {phase === "battle" && ended && stateRef.current && (mode === "replay" || outcome) && (
         <ResultScreen state={stateRef.current} mode={mode} outcome={outcome} creatures={creatures} onRematch={rematch} onNext={nextTrainer} onShare={share} onBack={back} />

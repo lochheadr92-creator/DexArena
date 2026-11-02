@@ -1,10 +1,10 @@
-import { X } from "lucide-react";
+import { X, Wand2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useGame } from "@/context/GameContext";
 import { SpriteImg } from "@/components/SpriteImg";
 import { TypeBadge } from "@/components/TypeBadge";
 
-export const TeamStrip = ({ bench, forced, onPick, onClose }) => {
+export const TeamStrip = ({ bench, forced, onPick, onClose, onAuto }) => {
   const { creatures } = useGame();
   return (
     <div className="absolute inset-0 z-20 flex items-end justify-center bg-black/70 backdrop-blur-sm" data-testid="team-strip">
@@ -17,6 +17,11 @@ export const TeamStrip = ({ bench, forced, onPick, onClose }) => {
           {!forced && (
             <button type="button" data-testid="team-strip-close" onClick={onClose} aria-label="Close" className="flex h-12 w-12 items-center justify-center rounded-lg border border-slate-700 text-slate-300">
               <X className="h-5 w-5" />
+            </button>
+          )}
+          {forced && onAuto && (
+            <button type="button" data-testid="team-strip-auto" onClick={onAuto} className="flex min-h-[48px] items-center gap-1.5 rounded-lg border border-emerald-700/70 bg-emerald-950/40 px-3 font-mono text-[10px] uppercase tracking-wider text-emerald-200 hover:border-emerald-400">
+              <Wand2 className="h-4 w-4" /> Auto pick
             </button>
           )}
         </div>
