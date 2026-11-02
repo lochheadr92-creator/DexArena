@@ -139,7 +139,7 @@ export default function BattlePage() {
       ev.persisted = true;
       const err = applyEvolutionItem({ itemId: ev.itemId, fromId: ev.from, toId: ev.to });
       const to = creatures[ev.to];
-      if (!err) toast.success(`${creatures[ev.from]?.displayName} evolved into ${to?.displayName}!`, { description: `${to?.displayName} is now part of your roster.` });
+      if (!err) toast.success(`${creatures[ev.from]?.displayName} evolved into ${to?.displayName}!`, { description: `${to?.displayName} is now part of your roster.`, duration: 1600 });
     }
   }, [snap, mode, applyEvolutionItem, creatures]);
 
@@ -165,6 +165,11 @@ export default function BattlePage() {
   const useItem = (option) => {
     const state = stateRef.current;
     if (!state) return;
+    if (bagCount(save, option.itemId) <= 0) {
+      toast.error(`No ${option.item.name} left in your bag`);
+      setBagOpen(false);
+      return;
+    }
     state.inputs.push({ type: "item", side: "player", index: state.teams.player.activeIndex, itemId: option.itemId });
     setBagOpen(false);
   };

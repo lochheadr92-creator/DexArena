@@ -30,9 +30,19 @@ export function validateSave(obj) {
   return null;
 }
 
+const cleanItems = (items) =>
+  Object.fromEntries(Object.entries(items && typeof items === "object" ? items : {}).filter(([id, n]) => /^[a-z0-9-]+$/.test(id) && Number.isInteger(n) && n > 0));
+
 export function normalizeSave(parsed) {
   const d = defaultSave();
-  return { ...d, ...parsed, gauntlet: { ...d.gauntlet, ...(parsed.gauntlet || {}) } };
+  const lvl = Math.round(Number(parsed.rivalLevel));
+  return {
+    ...d,
+    ...parsed,
+    rivalLevel: Number.isFinite(lvl) ? Math.min(6, Math.max(1, lvl)) : d.rivalLevel,
+    items: cleanItems(parsed.items),
+    gauntlet: { ...d.gauntlet, ...(parsed.gauntlet || {}) },
+  };
 }
 
 export function loadSave() {

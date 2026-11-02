@@ -21,9 +21,9 @@ export const RivalLevelPicker = ({ level, onChange, teamCreatures, totalWins }) 
         aria-label="Rival level"
         data-testid="rival-level-slider"
       />
-      <div className="mt-1.5 flex justify-between font-mono text-[9px] uppercase tracking-wider text-slate-600">
+      <div className="mt-1.5 flex justify-between font-mono text-[10px] uppercase tracking-wider text-slate-400">
         {RIVAL_LEVELS.map((l) => (
-          <button key={l.level} type="button" onClick={() => onChange(l.level)} className={l.level === plan.level ? "text-cyan-300" : "hover:text-slate-400"} data-testid={`rival-level-${l.level}`}>
+          <button key={l.level} type="button" onClick={() => onChange(l.level)} className={`flex h-9 w-9 items-center justify-center rounded-md transition-colors ${l.level === plan.level ? "bg-cyan-400/15 font-bold text-cyan-300" : "hover:bg-slate-800 hover:text-slate-200"}`} aria-label={`Rival level ${l.level}`} data-testid={`rival-level-${l.level}`}>
             {l.level}
           </button>
         ))}

@@ -33,18 +33,18 @@ export const BagSheet = ({ creatureId, unitName, onUse, onClose }) => {
             >
               <ItemIcon item={o.item} className="h-10 w-10 shrink-0" />
               <div className="min-w-0 flex-1">
-                <p className="truncate text-sm font-semibold text-slate-100">{o.item.name}</p>
+                <p className="text-sm font-semibold leading-tight text-slate-100">{o.item.name}</p>
                 <p className="font-mono text-[10px] uppercase tracking-wider text-slate-400">
                   {o.have > 0 ? `In bag ×${o.have}` : "Not in bag"}
                 </p>
               </div>
-              <span className="flex items-center gap-1 text-slate-300">
+              <span className="flex shrink-0 items-center gap-0.5 text-slate-300">
                 <SpriteImg src={base?.sprite} alt={base?.displayName} className="h-9 w-9" />
                 <ArrowRight className="h-4 w-4 text-cyan-400" />
                 <SpriteImg src={o.target?.sprite} alt={o.target?.displayName} className="h-9 w-9" />
               </span>
-              <div className="w-20 text-right">
-                <p className="truncate text-xs font-semibold text-slate-100">{o.target?.displayName}</p>
+              <div className="w-16 shrink-0 text-right">
+                <p className="text-xs font-semibold leading-tight text-slate-100">{o.target?.displayName}</p>
                 <p className="font-mono text-[10px] text-emerald-300">BST {o.target?.bst}</p>
               </div>
             </button>

@@ -19,6 +19,6 @@
     { "level": 3, "name": "Normal", "mult": 1.0, "slot": 3, "nextTier": true, "legendary": false },
     { "level": 4, "name": "Hard", "mult": 1.1, "slot": 4, "nextTier": true, "legendary": false },
     { "level": 5, "name": "Expert", "mult": 1.2, "slot": 5, "nextTier": true, "legendary": false },
-    { "level": 6, "name": "Champion", "mult": 1.3, "slot": 6, "nextTier": true, "legendary": true }
+    { "level": 6, "name": "Legend", "mult": 1.3, "slot": 6, "nextTier": true, "legendary": true }
   ]
 }

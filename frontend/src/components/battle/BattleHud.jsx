@@ -96,7 +96,8 @@ const SideBar = ({ u, side, label, numeric, children }) => (
 export const BattleHud = ({ snap, speed, setSpeed, paused, setPaused, autoPick, setAutoPick, onSwitch, onBag = null, bagOptions = 0, readOnly = false, stage = null }) => {
   if (!snap) return null;
   const canSwitch = !readOnly && snap.phase === "running" && snap.player.state === "active" && snap.player.bench.some((b) => b.state === "bench" && b.hp > 0);
-  const canBag = !readOnly && !!onBag && snap.phase === "running" && (snap.player.state === "active" || snap.player.state === "entering") && bagOptions > 0;
+  const bagOpenable = !readOnly && !!onBag && snap.phase === "running" && (snap.player.state === "active" || snap.player.state === "entering");
+  const canBag = bagOpenable && bagOptions > 0;
   return (
     <>
       <div className="pointer-events-none absolute inset-x-0 top-0 p-2" style={{ paddingTop: "max(0.5rem, env(safe-area-inset-top))" }}>
@@ -125,9 +126,12 @@ export const BattleHud = ({ snap, speed, setSpeed, paused, setPaused, autoPick, 
                     type="button"
                     data-testid="bag-button"
                     data-options={bagOptions}
-                    disabled={!canBag}
+                    disabled={!bagOpenable}
                     onClick={onBag}
-                    className="relative flex min-h-[48px] min-w-[48px] items-center gap-1.5 rounded-lg border border-amber-500/60 bg-amber-500/15 px-3 font-display text-xs font-bold uppercase tracking-wider text-amber-200 transition-colors hover:bg-amber-500/30 disabled:border-slate-800 disabled:bg-slate-900 disabled:text-slate-600"
+                    className={cn(
+                      "relative flex min-h-[48px] min-w-[48px] items-center gap-1.5 rounded-lg border px-3 font-display text-xs font-bold uppercase tracking-wider transition-colors disabled:border-slate-800 disabled:bg-slate-900 disabled:text-slate-600",
+                      canBag ? "border-amber-500/60 bg-amber-500/15 text-amber-200 hover:bg-amber-500/30" : "border-slate-700 bg-slate-900/80 text-slate-400 hover:bg-slate-800",
+                    )}
                   >
                     <Backpack className="h-4 w-4" /> Bag
                     {canBag && <span className="absolute -right-1 -top-1 flex h-4 min-w-4 items-center justify-center rounded-full bg-amber-400 px-1 font-mono text-[9px] text-slate-950" data-testid="bag-badge">{bagOptions}</span>}

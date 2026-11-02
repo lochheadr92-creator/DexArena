@@ -96,3 +96,14 @@ describe("evolution items", () => {
     expect(d.replayInputs).toEqual([{ tick: 120, type: "item", side: "player", index: 0, itemId: "thunder-stone" }]);
   });
 });
+
+describe("normalizeSave sanitizes new fields", () => {
+  const { normalizeSave } = require("@/lib/save");
+  test("clamps rivalLevel and drops bad items", () => {
+    const s = normalizeSave({ version: 1, rivalLevel: 99, items: { "thunder-stone": -5, "fake item": 2, "water-stone": 2, "fire-stone": 1.5 } });
+    expect(s.rivalLevel).toBe(6);
+    expect(s.items).toEqual({ "water-stone": 2 });
+    expect(normalizeSave({ version: 1 }).rivalLevel).toBe(2);
+    expect(normalizeSave({ version: 1, rivalLevel: "0" }).rivalLevel).toBe(1);
+  });
+});

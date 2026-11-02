@@ -761,11 +761,14 @@ export class BattleRenderer {
       if (t.kind === "splash") {
         ctx.globalAlpha = p < 0.15 ? p / 0.15 : p > 0.8 ? (1 - p) / 0.2 : 1;
         ctx.font = `700 ${Math.round(20 * this.scalePx())}px 'Chakra Petch', sans-serif`;
+        const half = ctx.measureText(t.text).width / 2;
+        const dpr = this.canvas.width / parseFloat(this.canvas.style.width || this.canvas.width);
+        const sx = Math.min(Math.max(x, half + 8 * dpr), this.canvas.width - half - 64 * dpr);
         ctx.lineWidth = 4;
         ctx.strokeStyle = "rgba(0,0,0,0.8)";
-        ctx.strokeText(t.text, x, y);
+        ctx.strokeText(t.text, sx, y);
         ctx.fillStyle = t.side === "player" ? "#67e8f9" : "#fca5a5";
-        ctx.fillText(t.text, x, y);
+        ctx.fillText(t.text, sx, y);
       } else {
         const rise = A.damageNumber.risePx * p * this.scalePx();
         const shake = t.big && p < 0.25 ? Math.sin(p * 40) * A.damageNumber.shakePx : 0;

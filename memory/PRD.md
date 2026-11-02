@@ -23,7 +23,7 @@ Constraints
 - Test IDs: `src/constants/testIds/dex.js`
 
 ## Save file schema (v1)
-`{ version, createdAt, updatedAt, totalWins, totalBattles, unlocked[], team[], terrain, speciesWins{}, gauntlet{runs, clears, bestStage} }`
+`{ version, createdAt, updatedAt, totalWins, totalBattles, unlocked[], team[], terrain, rivalLevel, speciesWins{}, speciesKoCredit{}, speciesStandingCredit{}, lastCreditedBattle, items{itemId: count}, gauntlet{runs, clears, bestStage, active} }`
 
 ## Creature record (IDB schema 2)
 `{ id, name, displayName, genus, types[], stats{hp,atk,def,spa,spd,spe}, bst, height, weight, sprite, artwork, moves[{id,name,level}], generation, isBaby, isLegendary, isMythical, captureRate, chainId, evolvesFrom, evolvesTo[], schema, cachedAt }`
@@ -62,8 +62,14 @@ Constraints
 - Coverage: 467 moves, 265 damaging, fallback 18/265 = 6.8%; harness `__visualCoverage()`, `__fxCount()`; `__pauseOnEvent.move` filter
 - Fixed: `pushEvent` projectile id collision (projectile events were skipped by the renderer); result screen now scrolls from the top on 360×780
 
-### Next (approved by user, not started): Task C — Rival Level slider
-- Arena page slider L1–6 (saved, quick battles only). Self power = avg team BST + 2×totalWins (cap +150). Rival budget = self power × [0.8,0.9,1.0,1.1,1.2,1.3]; archetype scoring kept but draft within ±10% of budget; next-tier evolutions only from L3; legendary only at L6 if owned; AI skill slot = level; default L2; pre-battle card shows both numbers. Constants in `difficulty.json`.
+### Task C/D/E — Rival Level slider, fallback visual overrides, Evolution Items — DONE (2026-06) — Jest 17/17 + testing_agent iteration_7 (~95%, all flows pass; polish items fixed after)
+- C: `components/RivalLevelPicker.jsx` + `lib/rival.js` + `config/difficulty.json` (`rivalLevels` L1 Rookie 0.8 … L6 Legend 1.3; self power = avg BST + 2×wins cap 150; AI slot = level); `save.rivalLevel` (default 2, clamped in `normalizeSave`); prebattle drafts within budget band; `__rivalTest` harness
+- D: `config/moveVisuals.json` `overrides` (71 moves; `pulse` archetype for Psychic/Confusion/etc., Thunderbolt → beam) → fallback damaging 0/265
+- E: `lib/items.js` (catalog from PokeAPI evolution items + 12 custom items in `config/items.json`, `rollDrop` 35% / guaranteed gauntlet stage / rare on champion, `applyEvolutionItem`), `save.items` (sanitized on load/import), `components/battle/BagSheet.jsx` + HUD `bag-button` (openable while active; badge = usable options), engine `item` input → `evolveUnit` (keeps HP %, cooldowns, status; swaps stats/types/sprite/moves; logged in replay inputLog), BattlePage persists evolutions to save, `UnlockPanel` roster use, `components/BagPanel.jsx` on Save page, `ItemIcon`
+- Post-test polish: splash text clamped inside canvas (clear of control column), bag-empty reachable, "Unlock X first" button label, King's Rock / Up-Grade names, bigger tick buttons, shorter evolve toast
+- Known balance note: rival avg BST plateaus ~527 at L4–L6 for mid-power teams because the drafting pool runs out (budget 513/559/606)
+
+### Next (not started)
 
 ## Backlog
 ### Phase 2/3 follow-ups (only if user asks)

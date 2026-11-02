@@ -7,7 +7,8 @@ export const ITEM_CATEGORIES = ITEMS.categories;
 const CUSTOM = ITEMS.custom;
 const customByTarget = Object.fromEntries(Object.entries(CUSTOM).map(([id, c]) => [c.to, id]));
 
-export const prettyName = (slug) => slug.split("-").map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join(" ");
+const NAME_FIX = { "kings-rock": "King's Rock", "up-grade": "Up-Grade", "deep-sea-tooth": "Deep Sea Tooth", "deep-sea-scale": "Deep Sea Scale" };
+export const prettyName = (slug) => NAME_FIX[slug] || slug.split("-").map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join(" ");
 export const isRareItem = (id) => ITEMS.rare.includes(id);
 
 export function evolutionItemFor(creature) {
