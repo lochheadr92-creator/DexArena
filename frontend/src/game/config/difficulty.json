@@ -7,5 +7,18 @@
     { "slot": 5, "dodgeMult": 0.96, "reactionDelayMult": 0.81 },
     { "slot": 6, "dodgeMult": 1.0, "reactionDelayMult": 0.7 }
   ],
-  "quickBattleSlot": 1
+  "quickBattleSlot": 1,
+  "defaultRivalLevel": 2,
+  "selfPower": { "winWeight": 2, "winCap": 150 },
+  "budgetBand": 0.1,
+  "bandWidenStep": 0.1,
+  "minCandidates": 8,
+  "rivalLevels": [
+    { "level": 1, "name": "Rookie", "mult": 0.8, "slot": 1, "nextTier": false, "legendary": false },
+    { "level": 2, "name": "Easy", "mult": 0.9, "slot": 2, "nextTier": false, "legendary": false },
+    { "level": 3, "name": "Normal", "mult": 1.0, "slot": 3, "nextTier": true, "legendary": false },
+    { "level": 4, "name": "Hard", "mult": 1.1, "slot": 4, "nextTier": true, "legendary": false },
+    { "level": 5, "name": "Expert", "mult": 1.2, "slot": 5, "nextTier": true, "legendary": false },
+    { "level": 6, "name": "Champion", "mult": 1.3, "slot": 6, "nextTier": true, "legendary": true }
+  ]
 }

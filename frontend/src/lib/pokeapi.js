@@ -72,15 +72,35 @@ export function machineMoves(moves) {
 
 export const ANIM_BASE = `${SPRITE_BASE}/versions/generation-v/black-white/animated`;
 
+function evolutionHow(details = []) {
+  if (!details.length) return null;
+  const pick = details.find((d) => d.item) || details.find((d) => d.held_item) || details[0];
+  return {
+    trigger: pick.trigger?.name || null,
+    item: pick.item?.name || null,
+    heldItem: pick.held_item?.name || null,
+    gender: pick.gender ?? null,
+    timeOfDay: pick.time_of_day || null,
+    minLevel: pick.min_level ?? null,
+    minHappiness: pick.min_happiness ?? null,
+    minBeauty: pick.min_beauty ?? null,
+    location: !!pick.location,
+    knownMove: pick.known_move?.name || null,
+    knownMoveType: pick.known_move_type?.name || null,
+    relativePhysicalStats: pick.relative_physical_stats ?? null,
+    partySpecies: pick.party_species?.name || null,
+  };
+}
+
 export function flattenChain(chainData) {
   const nodes = {};
-  const walk = (node, fromId) => {
+  const walk = (node, fromId, how) => {
     const id = idFromUrl(node.species.url);
     const to = node.evolves_to.map((e) => idFromUrl(e.species.url)).filter((x) => x <= MAX_ID);
-    nodes[id] = { from: fromId && fromId <= MAX_ID ? fromId : null, to };
-    node.evolves_to.forEach((e) => walk(e, id));
+    nodes[id] = { from: fromId && fromId <= MAX_ID ? fromId : null, to, how: fromId && fromId <= MAX_ID ? how : null };
+    node.evolves_to.forEach((e) => walk(e, id, evolutionHow(e.evolution_details)));
   };
-  walk(chainData.chain, null);
+  walk(chainData.chain, null, null);
   return nodes;
 }
 
@@ -131,5 +151,6 @@ export function normalizeCreature(pokemon, species, chainNodes) {
     chainId: idFromUrl(species.evolution_chain.url),
     evolvesFrom: node.from,
     evolvesTo: node.to,
+    evolution: node.how || null,
   };
 }

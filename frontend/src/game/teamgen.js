@@ -1,4 +1,4 @@
-import { archetypes as archetypeConfig } from "@/game/config";
+import { archetypes as archetypeConfig, difficulty as difficultyConfig } from "@/game/config";
 import { isSealed } from "@/lib/unlocks";
 import { ensureMoves } from "@/game/moveData";
 import { buildMoveset } from "@/game/moves";
@@ -46,11 +46,23 @@ function coveragePick(ranked, n) {
   return out;
 }
 
-export async function generateNpcTeam({ rng, creatures, unlockedIds, archetype, playerHasLegendary = false, log = [] }) {
+function withinBudget(list, budget, need) {
+  if (!budget) return list;
+  let band = difficultyConfig.budgetBand;
+  let out = list.filter((c) => Math.abs(c.bst - budget) <= budget * band);
+  while (out.length < Math.max(need, difficultyConfig.minCandidates) && band < 1) {
+    band += difficultyConfig.bandWidenStep;
+    out = list.filter((c) => Math.abs(c.bst - budget) <= budget * band);
+  }
+  return out;
+}
+
+export async function generateNpcTeam({ rng, creatures, unlockedIds, archetype, playerHasLegendary = false, budget = null, allowNextTier = true, allowLegendary = true, log = [] }) {
   const all = Object.values(creatures);
-  const pool = all.filter((c) => unlockedIds.has(c.id) && !isSealed(c));
-  const nextTier = all.filter((c) => !unlockedIds.has(c.id) && !isSealed(c) && c.evolvesFrom != null && unlockedIds.has(c.evolvesFrom));
-  const legends = playerHasLegendary ? all.filter((c) => isSealed(c) && unlockedIds.has(c.id)) : [];
+  const pool = withinBudget(all.filter((c) => unlockedIds.has(c.id) && !isSealed(c)), budget, 6);
+  const nextTier = allowNextTier ? withinBudget(all.filter((c) => !unlockedIds.has(c.id) && !isSealed(c) && c.evolvesFrom != null && unlockedIds.has(c.evolvesFrom)), budget, 1) : [];
+  const legends = allowLegendary && playerHasLegendary ? all.filter((c) => isSealed(c) && unlockedIds.has(c.id)) : [];
+  if (budget) log.push(`Rival budget ${budget} BST: ${pool.length} pool / ${nextTier.length} next-tier candidates in band`);
   const kind = archetype.team;
   let score = scorers[kind] || scorers.strongest;
   let poolRanked = [...pool].sort(byScore(score));

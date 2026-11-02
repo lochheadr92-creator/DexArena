@@ -21,7 +21,9 @@ export function makeSnapshot(state, fps) {
       dots: team.units.map((x, i) => (x.state === "fainted" || x.state === "fainting" || x.hp <= 0 ? "fainted" : i === team.activeIndex && x.state !== "bench" ? "active" : !x.revealed && s === "npc" ? "unknown" : "alive")),
       bench: team.units.map((x) => ({ index: x.index, name: x.name, hp: x.hp, maxHp: x.maxHp, state: x.state, creatureId: x.creatureId, types: x.types, burn: !!x.burn, paralysis: !!x.paralysis })),
       pendingPick: team.pendingPick,
-      label: team.name,
+      creatureId: u.creatureId,
+      index: u.index,
+      label: s === "npc" && state.meta?.rival ? `${team.name} · Lv.${state.meta.rival.level}` : team.name,
     };
   };
   return { tick: state.tick, phase: state.phase, winner: state.winner, player: side("player"), npc: side("npc"), fps };

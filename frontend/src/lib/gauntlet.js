@@ -20,12 +20,14 @@ export function stageSetup(run) {
     terrainId: run.terrains[i],
     archetypeId: run.archetypes[i],
     slot: run.stage,
+    rivalLevel: run.stage,
     initialHp: run.hp ? run.team.map((id) => run.hp[id]) : null,
   };
 }
 
 export function runAfterBattle(run, state) {
   const hp = {};
+  const team = state.teams.player.units.map((u) => u.creatureId);
   state.teams.player.units.forEach((u) => {
     hp[u.creatureId] = Math.max(0, u.hp);
   });
@@ -35,7 +37,7 @@ export function runAfterBattle(run, state) {
     outcome: lost ? "lost" : cleared ? "cleared" : "advance",
     stageReached: run.stage,
     hp,
-    run: lost || cleared ? null : { ...run, stage: run.stage + 1, hp },
+    run: lost || cleared ? null : { ...run, team, stage: run.stage + 1, hp },
   };
 }
 

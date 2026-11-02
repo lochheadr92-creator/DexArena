@@ -1,4 +1,4 @@
-import { Flame, Zap, Shield, ArrowUp, Pause, Play, Repeat, Wand2 } from "lucide-react";
+import { Flame, Zap, Shield, ArrowUp, Pause, Play, Repeat, Wand2, Backpack } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { typeColor } from "@/lib/types";
 import { TypeBadge } from "@/components/TypeBadge";
@@ -93,9 +93,10 @@ const SideBar = ({ u, side, label, numeric, children }) => (
   </div>
 );
 
-export const BattleHud = ({ snap, speed, setSpeed, paused, setPaused, autoPick, setAutoPick, onSwitch, readOnly = false, stage = null }) => {
+export const BattleHud = ({ snap, speed, setSpeed, paused, setPaused, autoPick, setAutoPick, onSwitch, onBag = null, bagOptions = 0, readOnly = false, stage = null }) => {
   if (!snap) return null;
   const canSwitch = !readOnly && snap.phase === "running" && snap.player.state === "active" && snap.player.bench.some((b) => b.state === "bench" && b.hp > 0);
+  const canBag = !readOnly && !!onBag && snap.phase === "running" && (snap.player.state === "active" || snap.player.state === "entering") && bagOptions > 0;
   return (
     <>
       <div className="pointer-events-none absolute inset-x-0 top-0 p-2" style={{ paddingTop: "max(0.5rem, env(safe-area-inset-top))" }}>
@@ -118,15 +119,30 @@ export const BattleHud = ({ snap, speed, setSpeed, paused, setPaused, autoPick, 
         <div className="pointer-events-auto">
           <SideBar u={snap.player} side="player" label="You" numeric>
             {!readOnly && (
-              <button
-                type="button"
-                data-testid="switch-button"
-                disabled={!canSwitch}
-                onClick={onSwitch}
-                className="flex min-h-[48px] min-w-[48px] items-center gap-1.5 rounded-lg bg-cyan-500 px-3 font-display text-xs font-bold uppercase tracking-wider text-slate-950 transition-colors hover:bg-cyan-400 disabled:bg-slate-800 disabled:text-slate-500"
-              >
-                <Repeat className="h-4 w-4" /> Switch
-              </button>
+              <span className="flex gap-1.5">
+                {onBag && (
+                  <button
+                    type="button"
+                    data-testid="bag-button"
+                    data-options={bagOptions}
+                    disabled={!canBag}
+                    onClick={onBag}
+                    className="relative flex min-h-[48px] min-w-[48px] items-center gap-1.5 rounded-lg border border-amber-500/60 bg-amber-500/15 px-3 font-display text-xs font-bold uppercase tracking-wider text-amber-200 transition-colors hover:bg-amber-500/30 disabled:border-slate-800 disabled:bg-slate-900 disabled:text-slate-600"
+                  >
+                    <Backpack className="h-4 w-4" /> Bag
+                    {canBag && <span className="absolute -right-1 -top-1 flex h-4 min-w-4 items-center justify-center rounded-full bg-amber-400 px-1 font-mono text-[9px] text-slate-950" data-testid="bag-badge">{bagOptions}</span>}
+                  </button>
+                )}
+                <button
+                  type="button"
+                  data-testid="switch-button"
+                  disabled={!canSwitch}
+                  onClick={onSwitch}
+                  className="flex min-h-[48px] min-w-[48px] items-center gap-1.5 rounded-lg bg-cyan-500 px-3 font-display text-xs font-bold uppercase tracking-wider text-slate-950 transition-colors hover:bg-cyan-400 disabled:bg-slate-800 disabled:text-slate-500"
+                >
+                  <Repeat className="h-4 w-4" /> Switch
+                </button>
+              </span>
             )}
           </SideBar>
         </div>

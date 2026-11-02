@@ -1,6 +1,6 @@
 import { engine, secToTicks, TICK_RATE } from "@/game/config";
 import { tileAt, movementMult, frictionFor, unitBlockedAt } from "@/game/terrain";
-import { pushEvent, logLine, activeUnit, enemyOf, aliveBench } from "@/game/state";
+import { pushEvent, logLine, activeUnit, enemyOf, aliveBench, evolveUnit } from "@/game/state";
 import { aiThink, npcSwitchDecision, bestMatchupIndex } from "@/game/ai";
 import { releaseCast, applyHit, updateProjectiles, updateStatuses, detectDodges, unitTopSpeed, hittable } from "@/game/combat";
 import { dist, norm, sub, add, scale, perp, len, angleOf, fromAngle, rotate, rotateToward, moveToward, clamp, angleDiff, overlaps } from "@/game/physics";
@@ -72,6 +72,17 @@ export function processInputs(state) {
     if (inp.type === "auto") {
       state.autoPick = !!inp.value;
       state.inputLog.push({ tick: state.tick, type: "auto", value: state.autoPick });
+      continue;
+    }
+    if (inp.type === "item") {
+      if (inp.side !== "player") continue;
+      const u = team.units[inp.index];
+      const option = u && u.hp > 0 && (u.state === "active" || u.state === "entering") ? (state.evolutions[u.creatureId] || []).find((o) => o.itemId === inp.itemId) : null;
+      if (!option) continue;
+      const from = u.creatureId;
+      evolveUnit(state, team, u, option);
+      state.inputLog.push({ tick: state.tick, type: "item", index: inp.index, itemId: inp.itemId });
+      state.evolved.push({ tick: state.tick, index: inp.index, from, to: u.creatureId, itemId: inp.itemId });
       continue;
     }
     const target = team.units[inp.index];

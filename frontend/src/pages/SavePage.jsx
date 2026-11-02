@@ -9,6 +9,7 @@ import { MAX_ID } from "@/lib/pokeapi";
 import { DEX } from "@/constants/testIds/dex";
 import { SpriteImg } from "@/components/SpriteImg";
 import { SaveTransfer } from "@/components/SaveTransfer";
+import { BagPanel } from "@/components/BagPanel";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -67,6 +68,7 @@ export default function SavePage() {
         <Stat icon={Flag} label={`Gauntlet · ${save.gauntlet.clears} clear${save.gauntlet.clears === 1 ? "" : "s"}`} value={`best ${save.gauntlet.bestStage}/6`} accent="#F59E0B" testId="save-gauntlet" />
       </div>
 
+      <BagPanel />
       <SaveTransfer />
 
       <section className="rounded-xl border border-slate-800 bg-slate-900/70 p-4">

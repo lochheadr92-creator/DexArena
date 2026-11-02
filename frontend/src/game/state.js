@@ -18,10 +18,35 @@ export function playerParams() {
   return { aggression: p.aggression, dodgeChance: p.dodgeChance, reactionDelaySec: p.reactionDelaySec, switchWillingness: engine.switchWillingness[p.switchWillingness] };
 }
 
+function unitAggression(stats, params) {
+  const ratio = stats.atk / (stats.atk + stats.def);
+  return Math.min(engine.ai.aggressionMax, Math.max(engine.ai.aggressionMin, ratio)) * params.aggression;
+}
+
+export function evolveUnit(state, team, u, option) {
+  const c = option.creature;
+  const ratio = u.maxHp > 0 ? u.hp / u.maxHp : 1;
+  const from = u.name;
+  const stats = battleStats(c.stats);
+  u.evolvedFrom = u.evolvedFrom ?? u.creatureId;
+  u.originalMoves = u.originalMoves ?? u.moves;
+  u.creatureId = c.id;
+  u.name = c.displayName;
+  u.types = c.types;
+  u.base = c.stats;
+  u.stats = stats;
+  u.maxHp = stats.hp;
+  u.hp = Math.max(1, Math.round(stats.hp * ratio));
+  u.aggression = unitAggression(stats, team.params);
+  u.moves = option.moveset.map((m, i) => ({ ...m, cdUntil: u.moves[i]?.cdUntil ?? 0 }));
+  u.cast = null;
+  u.nextThinkTick = state.tick;
+  pushEvent(state, { kind: "evolve", unitId: u.id, side: team.side, x: u.pos.x, y: u.pos.y, from, name: u.name, item: option.itemId });
+  logLine(state, `${team.side} used ${option.itemId} on ${from}: evolved into ${u.name} (HP ${u.hp}/${u.maxHp}, cooldowns kept)`);
+}
+
 function makeUnit(creature, moves, side, index, params, spawn) {
   const stats = battleStats(creature.stats);
-  const ratio = stats.atk / (stats.atk + stats.def);
-  const aggression = Math.min(engine.ai.aggressionMax, Math.max(engine.ai.aggressionMin, ratio)) * params.aggression;
   return {
     id: `${side}-${index}`,
     side,
@@ -34,7 +59,7 @@ function makeUnit(creature, moves, side, index, params, spawn) {
     maxHp: stats.hp,
     hp: stats.hp,
     radius: engine.unit.radius,
-    aggression,
+    aggression: unitAggression(stats, params),
     moves: moves.map((m) => ({ ...m, cdUntil: 0 })),
     pos: { x: spawn.x, y: spawn.y },
     vel: { x: 0, y: 0 },
@@ -118,6 +143,8 @@ export function createBattle({ seed, terrainId, player, npc, autoPick = false, t
     inputs: [],
     inputLog: [],
     replayInputs: null,
+    evolutions: player.evolutions || {},
+    evolved: [],
     autoPick,
     initialAutoPick: autoPick,
     trace: trace ? [] : null,

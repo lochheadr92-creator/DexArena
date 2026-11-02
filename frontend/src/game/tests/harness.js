@@ -519,8 +519,86 @@ function fxCount() {
   return n;
 }
 
+async function rivalTest(playerIds = FIXED_PLAYER, totalWins = 0, seed = 2024) {
+  const { rivalPlan } = await import("@/lib/rival");
+  const team = playerIds.map((id) => dex.creatures[id]);
+  const lines = [`__rivalTest: team [${team.map((c) => `${c.displayName} ${c.bst}`).join(", ")}] totalWins=${totalWins}`];
+  for (let level = 1; level <= 6; level++) {
+    const plan = rivalPlan(team, totalWins, level);
+    const log = [];
+    const rng = makeRng(seed + level);
+    const npc = await generateNpcTeam({ rng, creatures: dex.creatures, unlockedIds: dex.unlockedIds, archetype: archetypeConfig.archetypes.tactician, budget: plan.budget, allowNextTier: plan.nextTier, allowLegendary: plan.legendary, log });
+    const avg = Math.round(npc.reduce((s, c) => s + c.bst, 0) / npc.length);
+    const locked = npc.filter((c) => !dex.unlockedIds.has(c.id)).map((c) => c.displayName);
+    lines.push(`  L${level} ${plan.name}: power ${plan.power} → budget ${plan.budget} (slot ${plan.slot}) | rival avg BST ${avg} (${((avg / plan.power) * 100).toFixed(0)}% of you) | team ${npc.map((c) => `${c.displayName} ${c.bst}`).join(", ")} | locked picks: ${locked.join(", ") || "none"} | ${log[0]}`);
+  }
+  out(lines);
+}
+
+async function itemTest(seed = 4242) {
+  const { buildCatalog, optionsFor, rollDrop, applyEvolutionItem, isItemLocked } = await import("@/lib/items");
+  const { creditBattle } = await import("@/lib/progression");
+  const { encodeReplay, decodeReplay } = await import("@/lib/replay");
+  const catalog = buildCatalog(dex.creatures);
+  const locked = Object.values(dex.creatures).filter(isItemLocked);
+  const lines = [`__itemTest: catalog ${catalog.length} items covering ${locked.length} item-locked forms`];
+  for (const it of catalog) lines.push(`  ${it.name}${it.rare ? " (rare)" : ""} [${it.source}]: ${it.targets.map((t) => `${dex.creatures[t.from].displayName}→${dex.creatures[t.to].displayName}`).join(", ")}`);
+  const team = [25, 133, 44, 61, 79, 236];
+  let hits = 0;
+  const counts = {};
+  for (let s = 0; s < 200; s++) {
+    const d = rollDrop({ seed: s, catalog, teamIds: team, unlockedIds: dex.unlockedIds });
+    if (d) {
+      hits++;
+      counts[d] = (counts[d] || 0) + 1;
+    }
+  }
+  const same = rollDrop({ seed: 7, catalog, teamIds: team, unlockedIds: dex.unlockedIds }) === rollDrop({ seed: 7, catalog, teamIds: team, unlockedIds: dex.unlockedIds });
+  lines.push(`  drops over 200 seeded wins (team Pikachu/Eevee/Gloom/Poliwhirl/Slowpoke/Tyrogue): ${hits} drops (${((hits / 200) * 100).toFixed(0)}%, target 35%) · deterministic for same seed: ${same}`);
+  lines.push(`  drop distribution: ${Object.entries(counts).sort((a, b) => b[1] - a[1]).map(([k, v]) => `${k}=${v}`).join(", ")}`);
+  const guaranteed = rollDrop({ seed: 99, catalog, teamIds: team, unlockedIds: dex.unlockedIds, guaranteed: true });
+  const rare = rollDrop({ seed: 99, catalog, teamIds: team, unlockedIds: dex.unlockedIds, guaranteed: true, rareOnly: true });
+  lines.push(`  gauntlet guaranteed drop: ${guaranteed} · champion rare drop: ${rare} (rare=${catalog.find((c) => c.id === rare)?.rare})`);
+
+  const save = { version: 1, totalWins: 0, totalBattles: 0, unlocked: [], team, speciesWins: {}, speciesKoCredit: {}, speciesStandingCredit: {}, lastCreditedBattle: null, items: {}, gauntlet: { runs: 0, clears: 0, bestStage: 0, active: null } };
+  const credited = creditBattle(save, { win: true, playerIds: team, battleId: "x-1", bonuses: [], seed: 99, catalog, drop: { guaranteed: true } }, dex.creatures, dex.unlockedIds);
+  lines.push(`  creditBattle with guaranteed drop → items ${JSON.stringify(credited.save.items)} drop=${credited.drop}; Raichu in newUnlocks after 5 Pikachu wins? ${creditBattle({ ...save, speciesWins: { 25: 4 } }, { win: true, playerIds: team, battleId: "x-2", bonuses: [], seed: 1, catalog }, dex.creatures, dex.unlockedIds).newUnlocks.includes(26)} (expected false: Raichu is Thunder Stone-locked)`);
+  const withStone = { ...save, items: { "thunder-stone": 1 } };
+  const used = applyEvolutionItem(withStone, { itemId: "thunder-stone", fromId: 25, toId: 26 }, catalog);
+  const wrong = applyEvolutionItem(withStone, { itemId: "thunder-stone", fromId: 1, toId: 2 }, catalog);
+  lines.push(`  roster use: Thunder Stone on Pikachu → unlocked ${JSON.stringify(used.save.unlocked)} items ${JSON.stringify(used.save.items)} error=${used.error}; on Bulbasaur → error="${wrong.error}"`);
+
+  const state = await prepareBattle({ creatures: dex.creatures, unlockedIds: dex.unlockedIds, playerIds: team, npcIds: FIXED_NPC, terrainId: "pitch", seed, autoPick: true, decodeSprites: false });
+  const opts = Object.entries(state.evolutions).map(([from, list]) => `${dex.creatures[from].displayName}: ${list.map((o) => `${o.itemId}→${o.creature.displayName} [${o.moveset.map((m) => m.name).join("/")}]`).join(", ")}`);
+  lines.push(`  in-battle evolution options preloaded: ${opts.join(" | ")}`);
+  while (state.tick < 300) step(state);
+  const u = state.teams.player.units[0];
+  const before = { name: u.name, hp: u.hp, maxHp: u.maxHp, cds: u.moves.map((m) => Math.max(0, m.cdUntil - state.tick)), types: u.types.join("/"), spe: u.stats.spe };
+  state.inputs.push({ type: "item", side: "player", index: 0, itemId: "thunder-stone" });
+  step(state);
+  const after = { name: u.name, hp: u.hp, maxHp: u.maxHp, cds: u.moves.map((m) => Math.max(0, m.cdUntil - state.tick)), types: u.types.join("/"), spe: u.stats.spe, moves: u.moves.map((m) => m.name).join("/") };
+  lines.push(`  t${state.tick} item input: ${before.name} HP ${before.hp}/${before.maxHp} (${((before.hp / before.maxHp) * 100).toFixed(1)}%) cds ${before.cds.join("/")} spe ${before.spe} → ${after.name} HP ${after.hp}/${after.maxHp} (${((after.hp / after.maxHp) * 100).toFixed(1)}%) cds ${after.cds.join("/")} spe ${after.spe} types ${after.types} moves ${after.moves}`);
+  lines.push(`  log: ${state.log.filter((l) => l.includes("evolved")).join(" | ")} · evolved=${JSON.stringify(state.evolved)}`);
+  state.inputs.push({ type: "item", side: "player", index: 0, itemId: "thunder-stone" });
+  step(state);
+  lines.push(`  second stone on Raichu ignored: evolved count ${state.evolved.length}, inputLog items ${state.inputLog.filter((x) => x.type === "item").length}`);
+  runHeadless(state);
+  const s1 = summary(state);
+  state.meta.archetype = state.meta.archetype || "tactician";
+  const code = encodeReplay(state);
+  const setup = decodeReplay(code);
+  const replay = await prepareBattle({ creatures: dex.creatures, unlockedIds: dex.unlockedIds, ...setup, decodeSprites: false });
+  runHeadless(replay);
+  const s2 = summary(replay);
+  lines.push(`  replay with item input: payload p=${JSON.stringify(setup.playerIds)} inputs=${JSON.stringify(setup.replayInputs)} → original winner=${s1.winner} endTick=${s1.endTick} hp=[${s1.hp.player}|${s1.hp.npc}] · replay winner=${s2.winner} endTick=${s2.endTick} hp=[${s2.hp.player}|${s2.hp.npc}] · identical=${JSON.stringify(s1) === JSON.stringify(s2)} · replay unit0 now ${replay.teams.player.units[0].name}`);
+  out(lines);
+  return { catalog, state };
+}
+
 export function installHarness() {
   Object.assign(window, {
+    __itemTest: itemTest,
+    __rivalTest: rivalTest,
     __visualCoverage: visualCoverage,
     __fxCount: fxCount,
     __replayTest: replayTest,

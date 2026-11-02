@@ -10,7 +10,9 @@ import { decodeReplay, replayUrl } from "@/lib/replay";
 import { BattleCanvas } from "@/components/battle/BattleCanvas";
 import { BattleHud } from "@/components/battle/BattleHud";
 import { TeamStrip } from "@/components/battle/TeamStrip";
+import { BagSheet } from "@/components/battle/BagSheet";
 import { ResultScreen } from "@/components/battle/ResultScreen";
+import { optionsFor, bagCount } from "@/lib/items";
 
 function pickSeed() {
   const forced = typeof window.__seed === "number" && window.__seed !== window.__lastSeedUsed ? window.__seed : null;
@@ -21,7 +23,7 @@ function pickSeed() {
 }
 
 export default function BattlePage() {
-  const { creatures, unlockedIds, save, progress, movesetOverrides, creditResult, finishGauntletStage } = useGame();
+  const { creatures, unlockedIds, save, progress, movesetOverrides, creditResult, finishGauntletStage, catalog, applyEvolutionItem } = useGame();
   const navigate = useNavigate();
   const location = useLocation();
   const [params] = useSearchParams();
@@ -38,6 +40,7 @@ export default function BattlePage() {
   const [paused, setPausedState] = useState(false);
   const [autoPick, setAutoPickState] = useState(false);
   const [stripOpen, setStripOpen] = useState(false);
+  const [bagOpen, setBagOpen] = useState(false);
   const [ended, setEnded] = useState(false);
   const [outcome, setOutcome] = useState(null);
   const lastSetup = useRef(null);
@@ -47,8 +50,10 @@ export default function BattlePage() {
     setSpeedState(s);
   };
   const pendingPick = !!snap?.player.pendingPick && !autoPick;
-  const effectivePaused = paused || stripOpen || pendingPick || phase !== "battle";
+  const effectivePaused = paused || stripOpen || bagOpen || pendingPick || phase !== "battle";
   pausedRef.current = effectivePaused;
+
+  const bagOptions = mode === "replay" || !snap ? 0 : optionsFor(snap.player.creatureId, catalog).filter((o) => bagCount(save, o.itemId) > 0).length;
 
   const setPaused = useCallback((p) => setPausedState(p), []);
   const setAutoPick = (v) => {
@@ -67,6 +72,7 @@ export default function BattlePage() {
       setEnded(false);
       setOutcome(null);
       setStripOpen(false);
+      setBagOpen(false);
       setError(null);
       try {
         const state = await prepareBattle({ movesetOverrides, ...setup, creatures, unlockedIds, playerHasLegendary: playerHasLegendary(unlockedIds, creatures), onProgress: setStatus });
@@ -102,10 +108,10 @@ export default function BattlePage() {
         navigate("/gauntlet", { replace: true });
         return;
       }
-      setup = { ...stageSetup(save.gauntlet.active), seed: pickSeed() };
+      setup = { ...stageSetup(save.gauntlet.active), seed: pickSeed(), totalWins: save.totalWins };
     } else {
       const override = window.__battleOverride || {};
-      setup = { playerIds: override.playerIds || save.team, terrainId: override.terrainId || save.terrain, seed: override.seed ?? pickSeed(), archetypeId: override.archetypeId || null, npcIds: override.npcIds || null, autoPick: override.autoPick ?? false };
+      setup = { playerIds: override.playerIds || save.team, terrainId: override.terrainId || save.terrain, seed: override.seed ?? pickSeed(), archetypeId: override.archetypeId || null, npcIds: override.npcIds || null, autoPick: override.autoPick ?? false, rivalLevel: override.rivalLevel ?? save.rivalLevel, totalWins: save.totalWins };
       if (override.movesetOverrides) setup.movesetOverrides = override.movesetOverrides;
       if (override.npcMovesetOverrides) setup.npcMovesetOverrides = override.npcMovesetOverrides;
     }
@@ -127,10 +133,23 @@ export default function BattlePage() {
 
   useEffect(() => {
     const state = stateRef.current;
+    if (!snap || !state || mode === "replay") return;
+    for (const ev of state.evolved) {
+      if (ev.persisted) continue;
+      ev.persisted = true;
+      const err = applyEvolutionItem({ itemId: ev.itemId, fromId: ev.from, toId: ev.to });
+      const to = creatures[ev.to];
+      if (!err) toast.success(`${creatures[ev.from]?.displayName} evolved into ${to?.displayName}!`, { description: `${to?.displayName} is now part of your roster.` });
+    }
+  }, [snap, mode, applyEvolutionItem, creatures]);
+
+  useEffect(() => {
+    const state = stateRef.current;
     if (!ended || !state || state.credited) return;
     state.credited = true;
     if (mode === "replay") return;
-    const credit = creditResult(state);
+    const stage = state.meta.slot;
+    const credit = creditResult(state, { drop: mode === "gauntlet" ? { guaranteed: true, rare: stage >= 6 } : null });
     const gauntlet = mode === "gauntlet" ? finishGauntletStage(state) : null;
     setOutcome({ ...credit, gauntlet });
   }, [ended, mode, creditResult, finishGauntletStage]);
@@ -143,6 +162,13 @@ export default function BattlePage() {
     setStripOpen(false);
   };
 
+  const useItem = (option) => {
+    const state = stateRef.current;
+    if (!state) return;
+    state.inputs.push({ type: "item", side: "player", index: state.teams.player.activeIndex, itemId: option.itemId });
+    setBagOpen(false);
+  };
+
   const restart = (setup) => {
     stateRef.current = null;
     setSnap(null);
@@ -152,7 +178,7 @@ export default function BattlePage() {
   const rematch = () => restart({ ...lastSetup.current, seed: pickSeed(), autoPick });
   const nextTrainer = () => {
     const run = outcome?.gauntlet?.run;
-    if (run) restart({ ...stageSetup(run), seed: pickSeed(), autoPick });
+    if (run) restart({ ...stageSetup(run), seed: pickSeed(), autoPick, totalWins: save.totalWins });
   };
   const share = async () => {
     const url = replayUrl(stateRef.current);
@@ -183,8 +209,9 @@ export default function BattlePage() {
     <div className="relative h-[100dvh] w-full overflow-hidden bg-[#05070c]" data-testid="battle-screen" data-mode={mode}>
       {phase === "battle" && <BattleCanvas stateRef={stateRef} speedRef={speedRef} pausedRef={pausedRef} onSnapshot={onSnapshot} rendererRef={rendererRef} onForcePause={setPaused} />}
       {phase === "battle" && (
-        <BattleHud snap={snap} speed={speed} setSpeed={setSpeed} paused={paused} setPaused={setPaused} autoPick={autoPick} setAutoPick={setAutoPick} onSwitch={() => setStripOpen(true)} readOnly={mode === "replay"} stage={mode === "gauntlet" ? stateRef.current?.meta.slot : null} />
+        <BattleHud snap={snap} speed={speed} setSpeed={setSpeed} paused={paused} setPaused={setPaused} autoPick={autoPick} setAutoPick={setAutoPick} onSwitch={() => setStripOpen(true)} onBag={mode === "replay" ? null : () => setBagOpen(true)} bagOptions={bagOptions} readOnly={mode === "replay"} stage={mode === "gauntlet" ? stateRef.current?.meta.slot : null} />
       )}
+      {phase === "battle" && mode !== "replay" && snap && bagOpen && !ended && <BagSheet creatureId={snap.player.creatureId} unitName={snap.player.name} onUse={useItem} onClose={() => setBagOpen(false)} />}
       {phase === "battle" && mode !== "replay" && snap && (stripOpen || pendingPick) && !ended && (
         <TeamStrip bench={snap.player.bench} forced={pendingPick} onPick={pick} onClose={() => setStripOpen(false)} onAuto={() => setAutoPick(true)} />
       )}

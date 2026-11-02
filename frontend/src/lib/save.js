@@ -13,10 +13,12 @@ export function defaultSave() {
     unlocked: [],
     team: [],
     terrain: "pitch",
+    rivalLevel: 2,
     speciesWins: {},
     speciesKoCredit: {},
     speciesStandingCredit: {},
     lastCreditedBattle: null,
+    items: {},
     gauntlet: { runs: 0, clears: 0, bestStage: 0, active: null },
   };
 }

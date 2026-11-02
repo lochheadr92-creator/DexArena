@@ -274,6 +274,34 @@ const drawers = {
     ctx.restore();
     if (p < 0.6 && Math.random() < 0.6) r.particles.spawn({ x: from.x + (Math.random() - 0.5) * 1.2, y: from.y + 0.4, vx: 0, vy: -2.5, maxLife: 0.5, color: e.color, size: 2.5 });
   },
+  pulse(r, ctx, e, p) {
+    const g = r.toPx(e.x, e.y - 0.4);
+    ctx.save();
+    for (let i = 0; i < ARCH.pulse.rings; i++) {
+      const q = clamp((p - i * 0.12) / 0.7);
+      if (q <= 0 || q >= 1) continue;
+      const rad = r.px(0.2 + ARCH.pulse.ringTiles * (1 - q));
+      ctx.globalAlpha = 0.9 * Math.sin(q * Math.PI);
+      ctx.strokeStyle = i % 2 ? "#ffffff" : e.color;
+      ctx.lineWidth = (2 + 2 * q) * r.scalePx();
+      ctx.beginPath();
+      ctx.ellipse(g.x, g.y, rad, rad * 0.7, 0, 0, Math.PI * 2);
+      ctx.stroke();
+    }
+    const glow = ctx.createRadialGradient(g.x, g.y, 0, g.x, g.y, r.px(0.9));
+    glow.addColorStop(0, rgba(e.color, 0.55 * Math.sin(p * Math.PI)));
+    glow.addColorStop(1, rgba(e.color, 0));
+    ctx.globalAlpha = 1;
+    ctx.fillStyle = glow;
+    ctx.beginPath();
+    ctx.arc(g.x, g.y, r.px(0.9), 0, Math.PI * 2);
+    ctx.fill();
+    ctx.restore();
+    if (p < 0.5 && Math.random() < 0.5) {
+      const a = Math.random() * Math.PI * 2;
+      r.particles.spawn({ x: e.x + Math.cos(a) * 1.2, y: e.y - 0.4 + Math.sin(a) * 0.8, vx: -Math.cos(a) * 3, vy: -Math.sin(a) * 2, maxLife: 0.3, color: "#ffffff", size: 2 });
+    }
+  },
   impact(r, ctx, e, p) {
     const g = r.toPx(e.x, e.y - 0.4);
     ctx.save();

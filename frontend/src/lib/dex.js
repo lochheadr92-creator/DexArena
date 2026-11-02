@@ -2,7 +2,7 @@ import { API_BASE, fetchJson, flattenChain, normalizeCreature } from "@/lib/poke
 import { idbGetAll, idbPut, idbClear, STORE_CREATURES } from "@/lib/idb";
 
 export const CACHE_TTL_MS = 30 * 24 * 60 * 60 * 1000;
-export const SCHEMA_VERSION = 3;
+export const SCHEMA_VERSION = 4;
 const CONCURRENCY = 10;
 
 export async function loadCachedCreatures() {

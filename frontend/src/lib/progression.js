@@ -1,4 +1,5 @@
 import { isSealed } from "@/lib/unlocks";
+import { isItemLocked, evolutionItemFor, rollDrop, addItem } from "@/lib/items";
 
 export const EVOLUTION_THRESHOLDS = { 2: 3, 3: 5 };
 export const SEAL_KEY_WINS = 10;
@@ -20,6 +21,8 @@ export const evolutionThreshold = (creature, creatures) => EVOLUTION_THRESHOLDS[
 export function evolutionProgress(creature, creatures, save) {
   if (isSealed(creature) || creature.evolvesFrom == null || !creatures[creature.evolvesFrom]) return null;
   const pre = creatures[creature.evolvesFrom];
+  const itemId = evolutionItemFor(creature);
+  if (itemId) return { pre, itemId, have: save.items?.[itemId] || 0 };
   return { pre, have: save.speciesWins[pre.id] || 0, needed: evolutionThreshold(creature, creatures) };
 }
 
@@ -31,7 +34,7 @@ export function sealKeys(save, creatures) {
 
 export function pendingUnlocks(creatures, unlockedIds, speciesWins) {
   return Object.values(creatures)
-    .filter((c) => !unlockedIds.has(c.id) && !isSealed(c) && c.evolvesFrom != null && unlockedIds.has(c.evolvesFrom) && (speciesWins[c.evolvesFrom] || 0) >= evolutionThreshold(c, creatures))
+    .filter((c) => !unlockedIds.has(c.id) && !isSealed(c) && !isItemLocked(c) && c.evolvesFrom != null && unlockedIds.has(c.evolvesFrom) && (speciesWins[c.evolvesFrom] || 0) >= evolutionThreshold(c, creatures))
     .map((c) => c.id)
     .sort((a, b) => a - b);
 }
@@ -53,8 +56,8 @@ export function speciesCredit(save, id) {
   return { wins, koCredit, standingCredit, totalCredit: wins + koCredit + standingCredit };
 }
 
-export function creditBattle(save, { win, playerIds, battleId = null, bonuses = [] }, creatures, unlockedIds) {
-  if (battleId && save.lastCreditedBattle === battleId) return { save, newUnlocks: [], keysEarned: 0, credited: false, rows: [] };
+export function creditBattle(save, { win, playerIds, battleId = null, bonuses = [], seed = 0, catalog = [], drop = null }, creatures, unlockedIds) {
+  if (battleId && save.lastCreditedBattle === battleId) return { save, newUnlocks: [], keysEarned: 0, credited: false, rows: [], drop: null };
   const speciesWins = { ...save.speciesWins };
   const speciesKoCredit = { ...(save.speciesKoCredit || {}) };
   const speciesStandingCredit = { ...(save.speciesStandingCredit || {}) };
@@ -70,11 +73,13 @@ export function creditBattle(save, { win, playerIds, battleId = null, bonuses = 
     }
   }
   const totalWins = save.totalWins + (win ? 1 : 0);
-  const next = { ...save, totalBattles: save.totalBattles + 1, totalWins, speciesWins, speciesKoCredit, speciesStandingCredit, lastCreditedBattle: battleId };
+  let next = { ...save, totalBattles: save.totalBattles + 1, totalWins, speciesWins, speciesKoCredit, speciesStandingCredit, lastCreditedBattle: battleId };
   const newUnlocks = win ? pendingUnlocks(creatures, unlockedIds, speciesWins) : [];
   if (newUnlocks.length) next.unlocked = [...new Set([...save.unlocked, ...newUnlocks])];
   const keysEarned = Math.floor(totalWins / SEAL_KEY_WINS) - Math.floor(save.totalWins / SEAL_KEY_WINS);
-  return { save: next, newUnlocks, keysEarned, credited: true, rows };
+  const dropped = win && catalog.length ? rollDrop({ seed, catalog, teamIds: playerIds, unlockedIds, guaranteed: !!drop?.guaranteed, rareOnly: !!drop?.rare }) : null;
+  if (dropped) next = addItem(next, dropped);
+  return { save: next, newUnlocks, keysEarned, credited: true, rows, drop: dropped };
 }
 
 export const playerHasLegendary = (unlockedIds, creatures) => [...unlockedIds].some((id) => creatures[id] && isSealed(creatures[id]));

@@ -3,6 +3,8 @@ import { cn } from "@/lib/utils";
 import { TICK_RATE } from "@/game/config";
 import { GAUNTLET_STAGES } from "@/lib/gauntlet";
 import { KO_BONUS, STANDING_BONUS } from "@/lib/progression";
+import { itemInfo } from "@/lib/items";
+import { ItemIcon } from "@/components/ItemIcon";
 
 const Table = ({ title, units, testId }) => (
   <div className="rounded-xl border border-slate-800 bg-slate-950/70 p-3" data-testid={testId}>
@@ -25,9 +27,18 @@ const Table = ({ title, units, testId }) => (
 );
 
 const Rewards = ({ outcome, creatures }) => {
-  if (!outcome || (!outcome.newUnlocks.length && !outcome.keysEarned)) return null;
+  if (!outcome || (!outcome.newUnlocks.length && !outcome.keysEarned && !outcome.drop)) return null;
+  const drop = outcome.drop ? itemInfo(outcome.drop) : null;
   return (
     <div className="space-y-1.5 rounded-xl border border-emerald-900/60 bg-emerald-950/30 p-3" data-testid="result-rewards">
+      {drop && (
+        <p className="flex items-center gap-2 text-xs text-amber-200" data-testid="result-item-drop" data-item={drop.id}>
+          <ItemIcon item={drop} className="h-7 w-7 shrink-0" />
+          <span>
+            Found <span className="font-semibold">{drop.name}</span>{drop.rare ? " (rare)" : ""} — it's in your bag
+          </span>
+        </p>
+      )}
       {outcome.newUnlocks.length > 0 && (
         <p className="flex items-start gap-2 text-xs text-emerald-200" data-testid="result-unlocks">
           <Sparkles className="mt-0.5 h-3.5 w-3.5 shrink-0" />

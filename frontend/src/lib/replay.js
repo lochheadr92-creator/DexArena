@@ -2,19 +2,19 @@ const b64 = (s) => btoa(s).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/
 const unb64 = (s) => atob(s.replace(/-/g, "+").replace(/_/g, "/"));
 
 export function encodeReplay(state) {
-  const sets = (side) => state.teams[side].units.map((u) => u.moves.map((m) => m.id));
+  const sets = (side) => state.teams[side].units.map((u) => (u.originalMoves || u.moves).map((m) => m.id));
   const payload = {
     v: 1,
     seed: state.seed,
     t: state.terrain.id,
     a: state.meta.archetype,
     s: state.meta.slot,
-    p: state.teams.player.units.map((u) => u.creatureId),
+    p: state.teams.player.units.map((u) => u.evolvedFrom ?? u.creatureId),
     n: state.teams.npc.units.map((u) => u.creatureId),
     pm: sets("player"),
     nm: sets("npc"),
     ap: state.initialAutoPick ? 1 : 0,
-    i: state.inputLog.map((x) => (x.type === "auto" ? [x.tick, 2, x.value ? 1 : 0] : [x.tick, x.type === "pick" ? 1 : 0, x.index])),
+    i: state.inputLog.map((x) => (x.type === "auto" ? [x.tick, 2, x.value ? 1 : 0] : x.type === "item" ? [x.tick, 3, x.index, x.itemId] : [x.tick, x.type === "pick" ? 1 : 0, x.index])),
   };
   if (state.meta.initialHp) payload.hp = state.meta.initialHp;
   return b64(JSON.stringify(payload));
@@ -43,7 +43,7 @@ export function decodeReplay(code) {
     npcMovesetOverrides: overrides(d.n, d.nm),
     autoPick: !!d.ap,
     initialHp: d.hp || null,
-    replayInputs: d.i.map(([tick, kind, v]) => (kind === 2 ? { tick, type: "auto", side: "player", value: !!v } : { tick, type: kind === 1 ? "pick" : "switch", side: "player", index: v })),
+    replayInputs: d.i.map(([tick, kind, v, item]) => (kind === 2 ? { tick, type: "auto", side: "player", value: !!v } : kind === 3 ? { tick, type: "item", side: "player", index: v, itemId: String(item) } : { tick, type: kind === 1 ? "pick" : "switch", side: "player", index: v })),
   };
 }
 

@@ -6,9 +6,10 @@ import { TEAM_SIZE } from "@/lib/save";
 import { DEX } from "@/constants/testIds/dex";
 import { TerrainCard } from "@/components/TerrainCard";
 import { SpriteImg } from "@/components/SpriteImg";
+import { RivalLevelPicker } from "@/components/RivalLevelPicker";
 
 export default function TerrainPage() {
-  const { creatures, save, setTerrain } = useGame();
+  const { creatures, save, setTerrain, setRivalLevel } = useGame();
   const navigate = useNavigate();
   const terrain = terrainById(save.terrain);
   const ready = save.team.length === TEAM_SIZE;
@@ -63,6 +64,8 @@ export default function TerrainPage() {
           </p>
         )}
       </section>
+
+      <RivalLevelPicker level={save.rivalLevel} onChange={setRivalLevel} teamCreatures={save.team.map((id) => creatures[id])} totalWins={save.totalWins} />
 
       <button
         type="button"

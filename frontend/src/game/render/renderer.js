@@ -419,6 +419,15 @@ export class BattleRenderer {
       if (ev.id <= this.lastEventId) continue;
       this.lastEventId = ev.id;
       if (ev.kind === "switch-in") this.texts.push({ kind: "splash", text: `GO ${ev.name.toUpperCase()}!`, x: ev.x, y: ev.y - 2.2, until: now + A.switch.goSplashSec * 1000, start: now, side: ev.side });
+      if (ev.kind === "evolve") {
+        this.texts.push({ kind: "splash", text: `${ev.from.toUpperCase()} → ${ev.name.toUpperCase()}!`, x: ev.x, y: ev.y - 2.2, until: now + A.switch.goSplashSec * 1000 * 1.5, start: now, side: ev.side });
+        if (A.animationsEnabled && !this.reducedMotion) {
+          this.effects.push({ kind: "aura", fromId: ev.unitId, color: "#f8fafc", start: now, until: now + 1100 });
+          this.effects.push({ kind: "flash", x: ev.x, y: ev.y, color: "#ffffff", radiusTiles: 1.6, start: now, until: now + 450 });
+          this.particles.burst(ev.x, ev.y - 0.6, 26, { color: "#fde68a", speed: 4, maxLife: 0.9, size: 3, gravity: -3 });
+        } else this.effects.push({ kind: "flash", x: ev.x, y: ev.y, color: "#ffffff", radiusTiles: 1.2, start: now, until: now + moveVisuals.reducedMotionFlashSec * 1000 });
+        (this.unitFx[ev.unitId] ||= {}).hitUntil = now + 350;
+      }
       if (!A.animationsEnabled) continue;
       const color = tcolor(ev.type);
       if (this.reducedMotion) {
@@ -511,6 +520,7 @@ export class BattleRenderer {
     else if (v.archetype === "lob") this.effects.push({ ...base, kind: "lobArc", fy: ev.y - 0.4, arcTiles: V.lob.arcTiles, until: now + windupMs });
     else if (v.archetype === "spread") this.effects.push({ ...base, kind: "plume", until: now + windupMs + 250 });
     else if (v.archetype === "strike") this.effects.push({ kind: "flash", x: ev.tx, y: ev.ty, color: v.color, radiusTiles: 1.4, start: now, until: now + windupMs });
+    else if (v.archetype === "pulse") this.effects.push({ kind: "fog", x: ev.tx, y: ev.ty, color: v.color, start: now, until: now + windupMs });
   }
 
   takeCast(x, y) {
@@ -572,6 +582,9 @@ export class BattleRenderer {
         this.shakeUntil = now + V.shockwave.screenShakeSec * 1000;
         this.shakePx = V.shockwave.screenShakePx;
         break;
+      case "pulse":
+        this.effects.push({ kind: "pulse", x, y, color, start: now, until: now + V.pulse.sec * 1000 });
+        break;
       default:
         this.effects.push({ kind: "impact", x, y, color, radiusTiles: 0.9, start: now, until: now + V.burst.sec * 1000 });
         this.particles.burst(x, y - 0.4, A.area.detonateParticles, { color, speed: 5, maxLife: A.area.detonateSec, size: 3 });
@@ -589,6 +602,7 @@ export class BattleRenderer {
     else if (v?.archetype === "spread") this.effects.push({ kind: "plume", fx: v.origin.x, fy: v.origin.y + 0.4, tx: ev.x, ty: ev.y, color: c, fixedLen: 1, fadeOnly: true, start: now, until: now + 250 });
     if (hit) {
       if (v?.archetype === "lob") this.effects.push({ kind: "impact", x: ev.x, y: ev.y, color: c, radiusTiles: 1.2, start: now, until: now + V.lob.sec * 1000 });
+      if (v?.archetype === "pulse") this.effects.push({ kind: "pulse", x: ev.x, y: ev.y, color: c, start: now, until: now + V.pulse.sec * 1000 });
       this.particles.burst(ev.x, ev.y, v?.archetype === "lob" ? V.lob.burstParticles : A.projectile.burstParticles, { color: c, speed: 4, maxLife: A.projectile.burstSec, size: 3 });
     } else if (ev.kind === "projectile-blocked") this.particles.burst(ev.x, ev.y, 6, { color: c, speed: 2.5, maxLife: 0.3, size: 2.5 });
   }

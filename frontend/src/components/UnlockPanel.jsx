@@ -1,11 +1,13 @@
-import { KeyRound, Lock, Sparkles, Trophy } from "lucide-react";
+import { KeyRound, Lock, Sparkles, Trophy, Backpack } from "lucide-react";
 import { toast } from "sonner";
 import { useGame } from "@/context/GameContext";
 import { isSealed } from "@/lib/unlocks";
 import { evolutionProgress, sealKeys, SEAL_KEY_WINS } from "@/lib/progression";
+import { itemInfo } from "@/lib/items";
+import { ItemIcon } from "@/components/ItemIcon";
 
 export const UnlockPanel = ({ creature }) => {
-  const { creatures, save, unlockedIds, spendSealKey } = useGame();
+  const { creatures, save, unlockedIds, spendSealKey, applyEvolutionItem } = useGame();
 
   if (isSealed(creature)) {
     const keys = sealKeys(save, creatures);
@@ -36,6 +38,39 @@ export const UnlockPanel = ({ creature }) => {
   const prog = evolutionProgress(creature, creatures, save);
   if (!prog) return null;
   const preLocked = !unlockedIds.has(prog.pre.id);
+  if (prog.itemId) {
+    const item = itemInfo(prog.itemId);
+    const owned = unlockedIds.has(creature.id);
+    const onUse = () => {
+      const err = applyEvolutionItem({ itemId: prog.itemId, fromId: prog.pre.id, toId: creature.id });
+      if (err) toast.error(err);
+      else toast.success(`${prog.pre.displayName} evolved into ${creature.displayName}!`, { description: `${item.name} used — ${creature.displayName} joined your roster.` });
+    };
+    return (
+      <div className="mt-4 rounded-lg border border-amber-900/50 bg-amber-950/30 px-3 py-2.5" data-testid="unlock-panel-item">
+        <p className="flex items-center gap-2 text-xs text-amber-200">
+          <ItemIcon item={item} className="h-7 w-7 shrink-0" />
+          <span>
+            {prog.pre.displayName} evolves with <span className="font-semibold">{item.name}</span>{item.rare ? " (rare drop)" : ""}
+          </span>
+        </p>
+        <p className="mt-1 font-mono text-[10px] uppercase tracking-wider text-amber-300/80" data-testid="item-progress">
+          In bag: {prog.have} · {owned ? "already in your roster" : preLocked ? "unlock its earlier form first" : "items drop after wins and gauntlet stages"}
+        </p>
+        {!owned && (
+          <button
+            type="button"
+            data-testid="use-item-button"
+            disabled={prog.have <= 0 || preLocked}
+            onClick={onUse}
+            className="mt-2 flex min-h-[44px] w-full items-center justify-center gap-2 rounded-lg bg-amber-500 font-display text-xs font-bold uppercase tracking-wider text-slate-950 transition-colors hover:bg-amber-400 disabled:cursor-not-allowed disabled:bg-slate-800 disabled:text-slate-500"
+          >
+            <Backpack className="h-4 w-4" /> {prog.have > 0 ? `Use ${item.name}` : `No ${item.name} yet`}
+          </button>
+        )}
+      </div>
+    );
+  }
   const pct = Math.min(100, (prog.have / prog.needed) * 100);
   return (
     <div className="mt-4 rounded-lg border border-amber-900/50 bg-amber-950/30 px-3 py-2.5" data-testid="unlock-panel-evolution">
