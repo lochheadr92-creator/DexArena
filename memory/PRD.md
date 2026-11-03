@@ -23,10 +23,10 @@ Constraints
 - Test IDs: `src/constants/testIds/dex.js`
 
 ## Save file schema (v1)
-`{ version, createdAt, updatedAt, totalWins, totalBattles, unlocked[], team[], terrain, rivalLevel, speciesWins{}, speciesKoCredit{}, speciesStandingCredit{}, lastCreditedBattle, items{itemId: count}, gauntlet{runs, clears, bestStage, active} }`
+`{ version, createdAt, updatedAt, totalWins, totalBattles, unlocked[], team[], terrain, rivalLevel, speciesWins{}, speciesKoCredit{}, speciesStandingCredit{}, lastCreditedBattle, items{itemId: count}, abilities{creatureId: 0|1}, gauntlet{runs, clears, bestStage, active} }`
 
-## Creature record (IDB schema 2)
-`{ id, name, displayName, genus, types[], stats{hp,atk,def,spa,spd,spe}, bst, height, weight, sprite, artwork, moves[{id,name,level}], generation, isBaby, isLegendary, isMythical, captureRate, chainId, evolvesFrom, evolvesTo[], schema, cachedAt }`
+## Creature record (IDB schema 5)
+`{ id, name, displayName, genus, types[], abilities[] (Gen IV non-hidden slugs, slot order), stats{hp,atk,def,spa,spd,spe}, bst, height, weight, sprite, artwork, moves[{id,name,level}], tmMoves[], generation, isBaby, isLegendary, isMythical, captureRate, chainId, evolvesFrom, evolvesTo[], evolution, schema, cachedAt }` — schema-4 rows (no abilities) are kept and patched in the background (`dex.patchAbilities`, 1 request/species).
 
 ## Implemented
 ### Phase 1 — DONE (2026-06) — tested via testing_agent (iteration_1, 93% → all issues fixed & re-verified)
@@ -74,6 +74,14 @@ Constraints
 - Ultra FX (render-only, same-seed outcome identical across presets): `render/quality.js` (presets low/high/ultra in `animations.json quality`, localStorage `arenadex.gfx.v1`, `useGfx`, `FpsGovernor` auto step-down <45 fps ×3 s, `window.__gfx`), `render/particles.js` shaped/additive particles, `render/typeFx.js` per-type styles, `render/ambient.js` terrain ambience (pollen/glint/motes/snow), `render/archetypeFx.js` upgraded drawers + crack/scorch/slash/speedlines/starburst/vignette/lightColumn, renderer: hex shield, buff rune ring, typed hit bursts, SE starburst+vignette+shake, KO dim, melt steam, ground/air effect passes, damage-number pop; `components/GraphicsSettings.jsx` on Save page (`gfx-quality-*`, `gfx-auto-toggle`, `gfx-current`)
 - Crash found by testing agent & fixed: aura effects for benched/fainted units produced NaN anchors → createRadialGradient threw inside rAF and froze the battle. Fix: `anchor()` caches last good position + aura/cloud effects carry fx/fy; BattleCanvas wraps `renderer.render` in try/catch so a render bug can never stall the simulation
 - Reference: seed 9001 [6,94,25,143,130,65] vs [65,64,63,96,97,124] cavern autoPick, save rivalLevel 2 → player wins at tick 6690 (L3 7620, L4 7429); identical on low/ultra/reduced-motion
+
+### Ability System — DONE (2026-06) — Jest 34/34 + testing_agent iteration_9 (~95%; all 4 action items fixed & self-verified)
+- Data: `pokeapi.gen4Abilities` (past_abilities gen ≥ 4, hidden dropped) → `creature.abilities`; Dex schema 5 with background patch of schema-4 rows (LoadingBar `ability-patch-status`). Coverage: 493/493 species, 126 distinct abilities, 75 implemented, 401 species with ≥1 implemented ability.
+- Picks: `AbilityPicker` in the detail sheet (`ability-section[data-chosen]`, `ability-option-<id>`), default = first implemented slot, saved `save.abilities[id]`, sanitized on import. Rivals: seeded random implemented ability. Unimplemented abilities shown greyed "No effect in Arena".
+- Engine `game/abilities.js` + `config/abilities.json` (defs/params/weather): entry (Intimidate, Download, Pressure, Frisk, Slow Start, Arena Trap/Shadow Tag/Magnet Pull, Drizzle/Drought/Sand Stream/Snow Warning, Forecast, Cloud Nine/Air Lock), pinch (Blaze/Torrent/Overgrow/Swarm), offense (Huge/Pure Power, Hustle, Guts, Technician, Iron Fist, Adaptability, Tinted Lens, Scrappy, Mold Breaker, Compound Eyes, No Guard, Serene Grace, Truant, Solar Power, Flower Gift), defense (Levitate hover, Wonder Guard, Sturdy, Thick Fat, Heatproof, Solid Rock/Filter, Water/Volt Absorb, Flash Fire, Motor Drive, Dry Skin, Shield Dust, Limber, Water Veil, Leaf Guard, Suction Cups, Magic Guard, Color Change, Hyper Cutter/Clear Body/White Smoke, Sand Veil, Snow Cloak), contact/status (Static, Flame Body, Effect Spore, Rough Skin, Aftermath, Synchronize, Shed Skin, Natural Cure, Hydration, Speed Boost, Marvel Scale, Quick Feet, Ice Body, Rain Dish, Swift Swim, Chlorophyll). Weather: permanent, rain/sun ×1.3/×0.7, sand/hail chip 1/16 per 2 s; weather abilities also have terrain-tile variants (water tiles, Pitch, snow/ice, Cavern).
+- Presentation: `ability` events → canvas banners (side-aware placement, stacking, width-fit) + per-fx effects (`render/abilityFx.js`), passive auras/hover/trap ring, `WeatherFx` full-screen overlay, HUD `hud-ability-<side>` chips with live labels, `weather-chip`, `status-icon-intimidated`, Switch → "Trapped".
+- Replay v2 (`pa`/`na`/`ab`); v1 links play with abilities off. Unknown ability ids in links → null. Desynced replays no longer deadlock on a pending pick (BattleCanvas applies the next recorded pick / auto-picks).
+- Harness: `__abilityTest({seed, playerIds, npcIds, terrainId})`, `__abilityCoverage()`. Reference: seed 9001 fixed teams → npc wins tick 11910 (hash cdbea4b0).
 
 ### Next (not started)
 

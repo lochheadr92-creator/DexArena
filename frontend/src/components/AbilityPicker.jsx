@@ -44,7 +44,7 @@ export const AbilityPicker = ({ creature }) => {
                 <span className="font-display text-sm font-bold text-slate-50" data-testid={active ? "ability-chosen-name" : undefined}>
                   {abilityName(id)}
                 </span>
-                <span className={cn("rounded border px-1.5 py-0.5 font-mono text-[9px] uppercase tracking-wider", def ? "border-slate-700 text-slate-400" : "border-slate-800 text-slate-600")} style={def ? { borderColor: `${def.color}66`, color: def.color } : undefined}>
+                <span className={cn("rounded border px-1.5 py-0.5 font-mono text-[9px] uppercase tracking-wider", def ? "border-slate-700 text-slate-400" : "border-slate-600 text-slate-400")} style={def ? { borderColor: `${def.color}66`, color: def.color } : undefined}>
                   {def ? GROUP_LABEL[def.group] || def.group : "No effect in Arena"}
                 </span>
               </span>

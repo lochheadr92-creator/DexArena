@@ -7,7 +7,7 @@ import { createBattle, difficultyParams, playerParams } from "@/game/state";
 import { ensureSprite, spriteReport } from "@/game/render/sprites";
 import { rivalPlan } from "@/lib/rival";
 import { buildCatalog, optionsFor } from "@/lib/items";
-import { abilityFor, abilityName, randomAbility } from "@/game/abilities";
+import { abilityFor, abilityName, randomAbility, isImplemented } from "@/game/abilities";
 
 export const mappingLines = (creature, moves) =>
   moves.map((m) => `${creature.displayName}: ${m.name} [${m.type}/${m.damageClass} pow ${m.power}${m.accuracy != null ? ` acc ${m.accuracy}` : ""}] → ${m.shape}, cd ${m.cooldownSec.toFixed(1)}s${m.status ? `, ${m.status.kind} ${m.status.chance}%${m.status.attaches ? "" : " (not attached)"}` : ""}`);
@@ -44,8 +44,9 @@ export async function prepareBattle({ creatures, unlockedIds, playerIds, terrain
   const npcMovesets = await buildMovesets(npcCreatures, npcMovesetOverrides, log);
   const mapping = [...playerCreatures.flatMap((c, i) => mappingLines(c, playerMovesets[i])), ...npcCreatures.flatMap((c, i) => mappingLines(c, npcMovesets[i]))];
 
-  const playerAbilities = playerAbilityIds || playerCreatures.map((c) => abilityFor(c, abilityPicks));
-  const npcAbilities = npcAbilityIds || npcCreatures.map((c) => randomAbility(c, rng));
+  const known = (id, c) => (id && (isImplemented(id) || c.abilities?.includes(id)) ? id : null);
+  const playerAbilities = playerAbilityIds ? playerAbilityIds.map((id, i) => known(id, playerCreatures[i])) : playerCreatures.map((c) => abilityFor(c, abilityPicks));
+  const npcAbilities = npcAbilityIds ? npcAbilityIds.map((id, i) => known(id, npcCreatures[i])) : npcCreatures.map((c) => randomAbility(c, rng));
   if (abilitiesEnabled) {
     playerCreatures.forEach((c, i) => log.push(`Ability: ${c.displayName} → ${playerAbilities[i] ? abilityName(playerAbilities[i]) : "none (no data)"}`));
     npcCreatures.forEach((c, i) => log.push(`Ability (rival): ${c.displayName} → ${npcAbilities[i] ? abilityName(npcAbilities[i]) : "none (no data)"}`));

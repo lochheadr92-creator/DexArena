@@ -709,9 +709,9 @@ export class BattleRenderer {
   onAbility(state, ev, now) {
     const u = this.findUnit(state, ev.unitId);
     const dur = A.ability.bannerSec * 1000;
-    const live = this.texts.filter((t) => t.kind === "banner" && t.until > now).length;
+    const live = this.texts.filter((t) => t.kind === "banner" && t.until > now && t.side === ev.side).length;
     const rows = state.terrain.rows;
-    const baseY = ev.side === "npc" ? Math.max(1.4, ev.y - 2.7) + live * 1.5 : Math.min(rows - 1.4, ev.y - 2.7) - live * 1.5;
+    const baseY = ev.side === "npc" ? ev.y + 1.6 + live * 1.6 : ev.y - 4 - live * 1.6;
     this.texts.push({ kind: "banner", title: `${u?.name || ""}'s ${ev.name}`, sub: ev.text, color: ev.color, side: ev.side, x: ev.x, y: Math.min(rows - 1.2, Math.max(1.2, baseY)), start: now, until: now + dur });
     if (!A.animationsEnabled || this.reducedMotion) return;
     const color = ev.color;
@@ -1125,11 +1125,15 @@ BattleRenderer.prototype.drawBanner = function drawBanner(t, p, x, y) {
   const s = this.scalePx();
   const slide = p < 0.15 ? 1 - p / 0.15 : 0;
   ctx.globalAlpha = p < 0.12 ? p / 0.12 : p > 0.8 ? (1 - p) / 0.2 : 1;
-  ctx.font = `700 ${Math.round(12 * s)}px 'Chakra Petch', sans-serif`;
+  const titleFont = (k) => `700 ${Math.round(12 * s * k)}px 'Chakra Petch', sans-serif`;
+  const subFont = (k) => `500 ${Math.round(10 * s * k)}px 'Chakra Petch', sans-serif`;
+  ctx.font = titleFont(1);
   const tw = ctx.measureText(t.title).width;
-  ctx.font = `500 ${Math.round(10 * s)}px 'Chakra Petch', sans-serif`;
+  ctx.font = subFont(1);
   const sw = t.sub ? ctx.measureText(t.sub).width : 0;
-  const w = Math.max(tw, sw) + 22 * s;
+  const maxW = this.cssW - 12;
+  const k = Math.min(1, (maxW - 22 * s) / Math.max(1, Math.max(tw, sw)));
+  const w = Math.min(maxW, Math.max(tw, sw) * k + 22 * s);
   const h = (t.sub ? 30 : 20) * s;
   const bx = Math.min(Math.max(x - w / 2, 6), this.cssW - w - 6);
   const by = y - h / 2 - slide * 10 * s;
@@ -1144,11 +1148,11 @@ BattleRenderer.prototype.drawBanner = function drawBanner(t, p, x, y) {
   ctx.fillRect(bx, by + 3 * s, 3 * s, h - 6 * s);
   ctx.textAlign = "left";
   ctx.textBaseline = "middle";
-  ctx.font = `700 ${Math.round(12 * s)}px 'Chakra Petch', sans-serif`;
+  ctx.font = titleFont(k);
   ctx.fillStyle = "#f8fafc";
   ctx.fillText(t.title, bx + 11 * s, by + (t.sub ? 9.5 : 10) * s);
   if (t.sub) {
-    ctx.font = `500 ${Math.round(10 * s)}px 'Chakra Petch', sans-serif`;
+    ctx.font = subFont(k);
     ctx.fillStyle = t.color;
     ctx.fillText(t.sub, bx + 11 * s, by + 21.5 * s);
   }

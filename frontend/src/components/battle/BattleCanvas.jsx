@@ -73,6 +73,14 @@ export const BattleCanvas = ({ stateRef, speedRef, pausedRef, onSnapshot, render
       const state = stateRef.current;
       if (state) {
         const dt = Math.min(0.25, (now - last) / 1000);
+        if (state.replayInputs && state.phase === "running" && state.teams.player.pendingPick && !state.autoPick) {
+          if (!state.replayInputs.length) state.autoPick = true;
+          else if (!replayInputsDue(state)) {
+            const i = state.replayInputs.findIndex((x) => x.type === "pick");
+            if (i >= 0) state.inputs.push({ ...state.replayInputs.splice(i, 1)[0], tick: state.tick });
+            else state.autoPick = true;
+          }
+        }
         if (!pausedRef.current && state.phase === "running") {
           acc += dt * speedRef.current;
           let n = 0;
@@ -87,7 +95,6 @@ export const BattleCanvas = ({ stateRef, speedRef, pausedRef, onSnapshot, render
             processInputs(state);
             lastSnap = 0;
           }
-          if (state.replayInputs && !state.replayInputs.length && state.teams.player.pendingPick) state.autoPick = true;
         }
         const hook = window.__pauseOnEvent;
         if (hook && !hook.done) {
