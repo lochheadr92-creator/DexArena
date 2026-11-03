@@ -2,6 +2,7 @@ import { engine, archetypes as archetypeConfig, difficulty as difficultyConfig, 
 import { makeRng } from "@/game/rng";
 import { battleStats } from "@/game/stats";
 import { buildTerrain } from "@/game/terrain";
+import { onEntry } from "@/game/abilities";
 
 export function difficultyParams(archetype, slot) {
   const d = difficultyConfig.slots.find((s) => s.slot === slot) || difficultyConfig.slots[0];
@@ -30,9 +31,16 @@ export function evolveUnit(state, team, u, option) {
   const stats = battleStats(c.stats);
   u.evolvedFrom = u.evolvedFrom ?? u.creatureId;
   u.originalMoves = u.originalMoves ?? u.moves;
+  u.originalAbility = u.originalAbility ?? u.ability;
   u.creatureId = c.id;
   u.name = c.displayName;
-  u.types = c.types;
+  u.types = [...c.types];
+  u.baseTypes = [...c.types];
+  const nextAbility = state.abilitiesEnabled ? option.ability ?? u.ability : null;
+  const abilityChanged = nextAbility !== u.ability;
+  u.ability = nextAbility;
+  u.hover = nextAbility === "levitate";
+  if (abilityChanged) u.abilityState = {};
   u.base = c.stats;
   u.stats = stats;
   u.maxHp = stats.hp;
@@ -42,10 +50,11 @@ export function evolveUnit(state, team, u, option) {
   u.cast = null;
   u.nextThinkTick = state.tick;
   pushEvent(state, { kind: "evolve", unitId: u.id, side: team.side, x: u.pos.x, y: u.pos.y, from, name: u.name, item: option.itemId });
-  logLine(state, `${team.side} used ${option.itemId} on ${from}: evolved into ${u.name} (HP ${u.hp}/${u.maxHp}, cooldowns kept)`);
+  logLine(state, `${team.side} used ${option.itemId} on ${from}: evolved into ${u.name} (HP ${u.hp}/${u.maxHp}, cooldowns kept${u.ability ? `, ability ${u.ability}` : ""})`);
+  if (abilityChanged && u.state === "active") onEntry(state, u);
 }
 
-function makeUnit(creature, moves, side, index, params, spawn) {
+function makeUnit(creature, moves, side, index, params, spawn, ability = null) {
   const stats = battleStats(creature.stats);
   return {
     id: `${side}-${index}`,
@@ -53,7 +62,12 @@ function makeUnit(creature, moves, side, index, params, spawn) {
     index,
     creatureId: creature.id,
     name: creature.displayName,
-    types: creature.types,
+    types: [...creature.types],
+    baseTypes: [...creature.types],
+    ability,
+    abilityState: {},
+    hover: ability === "levitate",
+    lastHitSource: null,
     base: creature.stats,
     stats,
     maxHp: stats.hp,
@@ -100,12 +114,12 @@ function makeUnit(creature, moves, side, index, params, spawn) {
   };
 }
 
-export function createBattle({ seed, terrainId, player, npc, autoPick = false, trace = false }) {
+export function createBattle({ seed, terrainId, player, npc, autoPick = false, trace = false, abilitiesEnabled = true }) {
   const terrain = buildTerrain(terrainId);
   const spawns = { player: { x: 8, y: 24 }, npc: { x: 8, y: 3 } };
   const mkTeam = (side, cfg) => {
     const params = cfg.params;
-    const units = cfg.creatures.map((c, i) => makeUnit(c, cfg.movesets[i], side, i, params, spawns[side]));
+    const units = cfg.creatures.map((c, i) => makeUnit(c, cfg.movesets[i], side, i, params, spawns[side], abilitiesEnabled ? cfg.abilities?.[i] ?? null : null));
     if (cfg.initialHp) {
       units.forEach((u, i) => {
         if (cfg.initialHp[i] == null) return;
@@ -150,6 +164,9 @@ export function createBattle({ seed, terrainId, player, npc, autoPick = false, t
     trace: trace ? [] : null,
     dodgeLog: [],
     meltLog: [],
+    abilitiesEnabled,
+    abilityLog: [],
+    weather: null,
   };
   for (const side of ["player", "npc"]) {
     const team = state.teams[side];

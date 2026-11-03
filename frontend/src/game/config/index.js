@@ -9,9 +9,10 @@ import difficulty from "./difficulty.json";
 import animations from "./animations.json";
 import moveVisuals from "./moveVisuals.json";
 import items from "./items.json";
+import abilities from "./abilities.json";
 
-export const CONFIG = { typeChart, typeColors, engine, shapeMapping, terrains, modifiers, archetypes, difficulty, animations, moveVisuals, items };
-export { typeChart, typeColors, engine, shapeMapping, terrains, modifiers, archetypes, difficulty, animations, moveVisuals, items };
+export const CONFIG = { typeChart, typeColors, engine, shapeMapping, terrains, modifiers, archetypes, difficulty, animations, moveVisuals, items, abilities };
+export { typeChart, typeColors, engine, shapeMapping, terrains, modifiers, archetypes, difficulty, animations, moveVisuals, items, abilities };
 
 export const TICK_RATE = engine.TICK_RATE;
 export const TICK_SEC = 1 / TICK_RATE;

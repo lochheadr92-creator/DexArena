@@ -4,13 +4,14 @@ import { tileAt, moveDamageMult, damageTakenMult, findFavourableTile, projectile
 import { startCast, unitTopSpeed } from "@/game/combat";
 import { aliveBench } from "@/game/state";
 import { dist } from "@/game/physics";
+import { isLoafing, isTrapped } from "@/game/abilities";
 
 const terrainMultFor = (state, target, move) => {
   const tile = tileAt(state, target.pos.x, target.pos.y);
   return moveDamageMult(state, tile, move.type) * damageTakenMult(state, tile, target.types);
 };
 
-export const dashDistance = (unit) => unitTopSpeed(unit) * engine.shapes.dash.speedMult * (engine.shapes.dash.sec - engine.movement.accelSec / 2);
+export const dashDistance = (unit, state = null) => unitTopSpeed(unit, state) * engine.shapes.dash.speedMult * (engine.shapes.dash.sec - engine.movement.accelSec / 2);
 
 export function hasLineOfSight(state, from, to) {
   const d = dist(from, to);
@@ -31,7 +32,7 @@ export function inRange(state, unit, enemy, move, d) {
     case "melee":
       return d <= engine.shapes.melee.reach + enemy.radius;
     case "dash":
-      return d <= dashDistance(unit) + unit.radius + enemy.radius;
+      return d <= dashDistance(unit, state) + unit.radius + enemy.radius;
     default:
       return true;
   }
@@ -53,7 +54,7 @@ function incomingThreat(state, unit, enemy) {
 
 export function aiThink(state, unit, enemy, team) {
   const ranked = unit.moves
-    .map((m, i) => ({ m, i, v: expectedDamage(unit, enemy, m, terrainMultFor(state, enemy, m)) }))
+    .map((m, i) => ({ m, i, v: expectedDamage(unit, enemy, m, terrainMultFor(state, enemy, m), state) }))
     .sort((a, b) => b.v - a.v || a.i - b.i);
   const top = ranked[0];
   unit.kite = !!top && (top.m.shape === "projectile" || top.m.shape === "area");
@@ -68,7 +69,7 @@ export function aiThink(state, unit, enemy, team) {
   if (shieldMove && !unit.shield && incomingThreat(state, unit, enemy)) action = shieldMove;
   else if (usable.length) action = usable[0];
   else if (unit.hp >= unit.maxHp && !unit.buff) action = ready.find((r) => r.m.shape === "buff") || null;
-  if (action && !unit.cast && !unit.burst) startCast(state, unit, enemy, action.i);
+  if (action && !unit.cast && !unit.burst && !isLoafing(state, unit)) startCast(state, unit, enemy, action.i);
 
   if (state.tick < unit.backoffUntil) unit.intent = { mode: "backoff" };
   else {
@@ -99,7 +100,7 @@ export function npcSwitchDecision(state, team, enemy) {
   const active = team.units[team.activeIndex];
   if (active.state !== "active" || team.pendingPick) return -1;
   const bench = aliveBench(team);
-  if (!bench.length) return -1;
+  if (!bench.length || isTrapped(state, team)) return -1;
   const threat = maxEff(enemy.moves, active.types);
   if (threat >= 4) {
     const answer = bench.find((u) => maxEff(u.moves, enemy.types) >= 2 && maxEff(enemy.moves, u.types) < 4);

@@ -3,38 +3,166 @@
   "animatedSprites": true,
   "particleCap": 300,
   "spritePx": 48,
-  "idleBob": { "px": 2, "periodSec": 1 },
-  "windup": { "scale": 1.15, "sec": 0.15 },
-  "recovery": { "scale": 0.9, "sec": 0.1 },
-  "hitFlash": { "sec": 0.12 },
-  "recoil": { "tiles": 0.3, "sec": 0.2 },
-  "projectile": { "px": 12, "trailParticles": 6, "trailSec": 0.3, "burstPx": 20, "burstParticles": 8, "burstSec": 0.35 },
-  "area": { "windupSec": 0.4, "detonateParticles": 12, "detonateSec": 0.4, "flashSec": 0.15 },
-  "melee": { "arcDeg": 90, "sweepSec": 0.15, "lungeTiles": 0.3 },
-  "dash": { "afterimages": 3, "afterimageAlphas": [0.5, 0.3, 0.1], "streakSec": 0.3 },
-  "shield": { "alpha": 0.35, "fragments": 6, "shatterSec": 0.4 },
-  "buff": { "streamSec": 0.5, "streamParticles": 14 },
-  "burn": { "intervalSec": 0.5, "particles": 3 },
-  "paralysis": { "intervalSec": 0.4, "particles": 4, "jitterPx": 2, "jitterSec": 0.12 },
-  "faint": { "dropPx": 10, "sec": 0.5, "particles": 10 },
-  "switch": { "outSec": 0.3, "inSec": 0.3, "goSplashSec": 1 },
-  "damageNumber": { "risePx": 30, "sec": 0.6, "fontPx": 14, "superFontPx": 20, "shakePx": 3 },
-  "popup": { "sec": 0.9 },
+  "idleBob": {
+    "px": 2,
+    "periodSec": 1
+  },
+  "windup": {
+    "scale": 1.15,
+    "sec": 0.15
+  },
+  "recovery": {
+    "scale": 0.9,
+    "sec": 0.1
+  },
+  "hitFlash": {
+    "sec": 0.12
+  },
+  "recoil": {
+    "tiles": 0.3,
+    "sec": 0.2
+  },
+  "projectile": {
+    "px": 12,
+    "trailParticles": 6,
+    "trailSec": 0.3,
+    "burstPx": 20,
+    "burstParticles": 8,
+    "burstSec": 0.35
+  },
+  "area": {
+    "windupSec": 0.4,
+    "detonateParticles": 12,
+    "detonateSec": 0.4,
+    "flashSec": 0.15
+  },
+  "melee": {
+    "arcDeg": 90,
+    "sweepSec": 0.15,
+    "lungeTiles": 0.3
+  },
+  "dash": {
+    "afterimages": 3,
+    "afterimageAlphas": [
+      0.5,
+      0.3,
+      0.1
+    ],
+    "streakSec": 0.3
+  },
+  "shield": {
+    "alpha": 0.35,
+    "fragments": 6,
+    "shatterSec": 0.4
+  },
+  "buff": {
+    "streamSec": 0.5,
+    "streamParticles": 14
+  },
+  "burn": {
+    "intervalSec": 0.5,
+    "particles": 3
+  },
+  "paralysis": {
+    "intervalSec": 0.4,
+    "particles": 4,
+    "jitterPx": 2,
+    "jitterSec": 0.12
+  },
+  "faint": {
+    "dropPx": 10,
+    "sec": 0.5,
+    "particles": 10
+  },
+  "switch": {
+    "outSec": 0.3,
+    "inSec": 0.3,
+    "goSplashSec": 1
+  },
+  "damageNumber": {
+    "risePx": 30,
+    "sec": 0.6,
+    "fontPx": 14,
+    "superFontPx": 20,
+    "shakePx": 3
+  },
+  "popup": {
+    "sec": 0.9
+  },
   "quality": {
     "default": "ultra",
     "autoStepDownFps": 45,
     "autoStepDownSec": 3,
     "levels": {
-      "low": { "label": "Low", "blurb": "Plain particles, no glow, decals or screen effects — for older phones.", "particleCap": 90, "particleMult": 0.5, "additive": false, "typeParticles": false, "ambient": 0, "decals": false, "screenFx": false, "afterimages": 1, "trailGhosts": 0 },
-      "high": { "label": "High", "blurb": "Glow, elemental particles, ground decals and screen flashes.", "particleCap": 320, "particleMult": 1, "additive": true, "typeParticles": true, "ambient": 18, "decals": true, "screenFx": true, "afterimages": 3, "trailGhosts": 2 },
-      "ultra": { "label": "Ultra", "blurb": "Everything on: dense elemental particles, ambient weather, decals and screen effects.", "particleCap": 700, "particleMult": 1.8, "additive": true, "typeParticles": true, "ambient": 42, "decals": true, "screenFx": true, "afterimages": 5, "trailGhosts": 4 }
+      "low": {
+        "label": "Low",
+        "blurb": "Plain particles, no glow, decals or screen effects \u2014 for older phones.",
+        "particleCap": 90,
+        "particleMult": 0.5,
+        "additive": false,
+        "typeParticles": false,
+        "ambient": 0,
+        "decals": false,
+        "screenFx": false,
+        "afterimages": 1,
+        "trailGhosts": 0
+      },
+      "high": {
+        "label": "High",
+        "blurb": "Glow, elemental particles, ground decals and screen flashes.",
+        "particleCap": 320,
+        "particleMult": 1,
+        "additive": true,
+        "typeParticles": true,
+        "ambient": 18,
+        "decals": true,
+        "screenFx": true,
+        "afterimages": 3,
+        "trailGhosts": 2
+      },
+      "ultra": {
+        "label": "Ultra",
+        "blurb": "Everything on: dense elemental particles, ambient weather, decals and screen effects.",
+        "particleCap": 700,
+        "particleMult": 1.8,
+        "additive": true,
+        "typeParticles": true,
+        "ambient": 42,
+        "decals": true,
+        "screenFx": true,
+        "afterimages": 5,
+        "trailGhosts": 4
+      }
     }
   },
   "ambient": {
-    "pitch": { "kind": "pollen", "color": "#d9f99d" },
-    "shoreline": { "kind": "glint", "color": "#e0f2fe" },
-    "cavern": { "kind": "motes", "color": "#d6d3d1" },
-    "snowfield": { "kind": "snow", "color": "#ffffff" }
+    "pitch": {
+      "kind": "pollen",
+      "color": "#d9f99d"
+    },
+    "shoreline": {
+      "kind": "glint",
+      "color": "#e0f2fe"
+    },
+    "cavern": {
+      "kind": "motes",
+      "color": "#d6d3d1"
+    },
+    "snowfield": {
+      "kind": "snow",
+      "color": "#ffffff"
+    }
   },
-  "decal": { "crackSec": 2.0, "scorchSec": 1.8, "slashSec": 0.45, "starburstSec": 0.38, "vignetteSec": 0.26, "lightColumnSec": 0.65 }
+  "decal": {
+    "crackSec": 2.0,
+    "scorchSec": 1.8,
+    "slashSec": 0.45,
+    "starburstSec": 0.38,
+    "vignetteSec": 0.26,
+    "lightColumnSec": 0.65
+  },
+  "ability": {
+    "bannerSec": 1.7,
+    "weatherBannerSec": 2.2
+  }
 }

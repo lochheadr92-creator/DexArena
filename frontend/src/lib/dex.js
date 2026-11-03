@@ -1,18 +1,39 @@
-import { API_BASE, fetchJson, flattenChain, normalizeCreature } from "@/lib/pokeapi";
+import { API_BASE, fetchJson, flattenChain, normalizeCreature, gen4Abilities } from "@/lib/pokeapi";
 import { idbGetAll, idbPut, idbClear, STORE_CREATURES } from "@/lib/idb";
 
 export const CACHE_TTL_MS = 30 * 24 * 60 * 60 * 1000;
-export const SCHEMA_VERSION = 4;
+export const SCHEMA_VERSION = 5;
+const PATCHABLE_SCHEMAS = new Set([4]);
 const CONCURRENCY = 10;
+
+export const needsAbilityPatch = (c) => c.schema !== SCHEMA_VERSION;
 
 export async function loadCachedCreatures() {
   try {
     const rows = await idbGetAll(STORE_CREATURES);
     const now = Date.now();
-    return rows.filter((r) => r.schema === SCHEMA_VERSION && r.cachedAt && now - r.cachedAt < CACHE_TTL_MS);
+    return rows.filter((r) => (r.schema === SCHEMA_VERSION || PATCHABLE_SCHEMAS.has(r.schema)) && r.cachedAt && now - r.cachedAt < CACHE_TTL_MS);
   } catch {
     return [];
   }
+}
+
+export function patchAbilities(creatures, { onCreature, onError }) {
+  const queue = [...creatures];
+  const worker = async () => {
+    while (queue.length) {
+      const c = queue.shift();
+      try {
+        const pokemon = await fetchJson(`${API_BASE}/pokemon/${c.id}`);
+        const patched = { ...c, abilities: gen4Abilities(pokemon), schema: SCHEMA_VERSION };
+        idbPut(STORE_CREATURES, patched).catch(() => {});
+        onCreature(patched);
+      } catch (err) {
+        onError(c.id, err);
+      }
+    }
+  };
+  return Promise.all(Array.from({ length: CONCURRENCY }, worker));
 }
 
 export async function clearCreatureCache() {

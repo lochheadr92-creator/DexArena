@@ -13,6 +13,7 @@ import { StatBar } from "@/components/StatBar";
 import { EvolutionLine } from "@/components/EvolutionLine";
 import { MovesetEditor } from "@/components/MovesetEditor";
 import { UnlockPanel } from "@/components/UnlockPanel";
+import { AbilityPicker } from "@/components/AbilityPicker";
 import { speciesCredit } from "@/lib/progression";
 
 const SpeciesRecord = ({ save, id }) => {
@@ -130,6 +131,11 @@ export const CreatureDetailSheet = ({ creatureId, onClose, onPick, onToggleTeam 
               {locked && <UnlockPanel creature={creature} />}
 
               <SpeciesRecord save={save} id={creature.id} />
+
+              <section className="mt-5">
+                <h3 className="mb-2 font-mono text-[10px] uppercase tracking-widest text-slate-500">Ability · Gen IV</h3>
+                <AbilityPicker creature={creature} />
+              </section>
 
               <section className="mt-5">
                 <h3 className="mb-2 font-mono text-[10px] uppercase tracking-widest text-slate-500">Base stats</h3>

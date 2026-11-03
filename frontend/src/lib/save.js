@@ -19,6 +19,7 @@ export function defaultSave() {
     speciesStandingCredit: {},
     lastCreditedBattle: null,
     items: {},
+    abilities: {},
     gauntlet: { runs: 0, clears: 0, bestStage: 0, active: null },
   };
 }
@@ -33,6 +34,9 @@ export function validateSave(obj) {
 const cleanItems = (items) =>
   Object.fromEntries(Object.entries(items && typeof items === "object" ? items : {}).filter(([id, n]) => /^[a-z0-9-]+$/.test(id) && Number.isInteger(n) && n > 0));
 
+const cleanAbilities = (abilities) =>
+  Object.fromEntries(Object.entries(abilities && typeof abilities === "object" ? abilities : {}).filter(([id, slot]) => /^\d+$/.test(id) && (slot === 0 || slot === 1)));
+
 export function normalizeSave(parsed) {
   const d = defaultSave();
   const lvl = Math.round(Number(parsed.rivalLevel));
@@ -41,6 +45,7 @@ export function normalizeSave(parsed) {
     ...parsed,
     rivalLevel: Number.isFinite(lvl) ? Math.min(6, Math.max(1, lvl)) : d.rivalLevel,
     items: cleanItems(parsed.items),
+    abilities: cleanAbilities(parsed.abilities),
     gauntlet: { ...d.gauntlet, ...(parsed.gauntlet || {}) },
   };
 }

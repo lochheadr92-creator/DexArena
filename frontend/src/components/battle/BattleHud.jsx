@@ -1,4 +1,4 @@
-import { Flame, Zap, Shield, ArrowUp, Pause, Play, Repeat, Wand2, Backpack } from "lucide-react";
+import { Flame, Zap, Shield, ArrowUp, ArrowDown, Pause, Play, Repeat, Wand2, Backpack, CloudRain, Sun, Wind, Snowflake, Lock } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { typeColor } from "@/lib/types";
 import { TypeBadge } from "@/components/TypeBadge";
@@ -17,7 +17,7 @@ const CooldownRing = ({ move }) => {
 };
 
 const Dots = ({ dots, testId }) => (
-  <div className="flex gap-1" data-testid={testId}>
+  <div className="flex gap-0.5" data-testid={testId}>
     {dots.map((d, i) => (
       <span
         key={i}
@@ -57,8 +57,42 @@ const StatusIcons = ({ u }) => (
     {u.paralysis && <Zap className="h-3.5 w-3.5 text-yellow-300" data-testid="status-icon-paralysis" />}
     {u.shield && <Shield className="h-3.5 w-3.5 text-cyan-300" />}
     {u.buff && <ArrowUp className="h-3.5 w-3.5 text-emerald-300" />}
+    {u.intimidated && <ArrowDown className="h-3.5 w-3.5 text-rose-400" data-testid="status-icon-intimidated" />}
   </span>
 );
+
+const AbilityChip = ({ ability, side }) => {
+  if (!ability) return null;
+  const noEffect = ability.label === "no effect";
+  return (
+    <span
+      data-testid={`hud-ability-${side}`}
+      data-ability={ability.id}
+      data-active={ability.active}
+      title={ability.name}
+      className={cn(
+        "inline-flex min-w-0 items-center gap-1 rounded-md border px-1 py-0.5 font-mono text-[8px] uppercase tracking-wider transition-colors",
+        ability.active ? "border-amber-400/70 bg-amber-400/15 text-amber-200 shadow-[0_0_8px_rgba(251,191,36,0.45)]" : noEffect ? "border-slate-800 text-slate-600" : "border-slate-700 text-slate-400",
+      )}
+    >
+      <span className="truncate">{ability.name}</span>
+      {ability.label && !noEffect && <span className="shrink-0 text-amber-300">{ability.label}</span>}
+    </span>
+  );
+};
+
+const WEATHER_ICON = { rain: CloudRain, sun: Sun, sand: Wind, hail: Snowflake };
+const WEATHER_CLASS = { rain: "border-blue-400/60 bg-blue-950/90 text-blue-200", sun: "border-amber-400/60 bg-amber-950/90 text-amber-200", sand: "border-yellow-700/60 bg-yellow-950/90 text-yellow-200", hail: "border-sky-300/60 bg-sky-950/90 text-sky-100" };
+
+const WeatherChip = ({ weather }) => {
+  if (!weather) return null;
+  const Icon = WEATHER_ICON[weather.kind] || Sun;
+  return (
+    <span data-testid="weather-chip" data-weather={weather.kind} data-suppressed={weather.suppressed} className={cn("inline-flex items-center gap-1 rounded-full border px-2.5 py-0.5 font-mono text-[9px] uppercase tracking-[0.2em]", WEATHER_CLASS[weather.kind], weather.suppressed && "opacity-50 line-through")}>
+      <Icon className="h-3 w-3" /> {weather.name}
+    </span>
+  );
+};
 
 const SideBar = ({ u, side, label, numeric, children }) => (
   <div className="rounded-xl border border-slate-800 bg-slate-950/85 px-3 py-2 backdrop-blur-md" data-testid={`hud-${side}`}>
@@ -86,8 +120,11 @@ const SideBar = ({ u, side, label, numeric, children }) => (
         ))}
       </span>
     </div>
-    <div className="mt-1.5 flex items-center justify-between">
-      <Dots dots={u.dots} testId={`team-dots-${side}`} />
+    <div className="mt-1.5 flex items-center justify-between gap-2">
+      <span className="flex min-w-0 items-center gap-2">
+        <Dots dots={u.dots} testId={`team-dots-${side}`} />
+        <AbilityChip ability={u.ability} side={side} />
+      </span>
       {children}
     </div>
   </div>
@@ -95,7 +132,8 @@ const SideBar = ({ u, side, label, numeric, children }) => (
 
 export const BattleHud = ({ snap, speed, setSpeed, paused, setPaused, autoPick, setAutoPick, onSwitch, onBag = null, bagOptions = 0, readOnly = false, stage = null }) => {
   if (!snap) return null;
-  const canSwitch = !readOnly && snap.phase === "running" && snap.player.state === "active" && snap.player.bench.some((b) => b.state === "bench" && b.hp > 0);
+  const trapped = !!snap.player.trapped;
+  const canSwitch = !readOnly && snap.phase === "running" && snap.player.state === "active" && !trapped && snap.player.bench.some((b) => b.state === "bench" && b.hp > 0);
   const bagOpenable = !readOnly && !!onBag && snap.phase === "running" && (snap.player.state === "active" || snap.player.state === "entering");
   const canBag = bagOpenable && bagOptions > 0;
   return (
@@ -104,14 +142,17 @@ export const BattleHud = ({ snap, speed, setSpeed, paused, setPaused, autoPick, 
         <div className="pointer-events-auto">
           <SideBar u={snap.npc} side="npc" label={snap.npc.label} numeric={false} />
         </div>
-        {(readOnly || stage) && (
-          <div className="mt-1.5 flex justify-center">
-            <span
-              data-testid={readOnly ? "replay-badge" : "gauntlet-stage-badge"}
-              className={cn("rounded-full border px-2.5 py-0.5 font-mono text-[9px] uppercase tracking-[0.2em]", readOnly ? "border-cyan-500/50 bg-cyan-950/90 text-cyan-200" : "border-amber-500/50 bg-amber-950/90 text-amber-200")}
-            >
-              {readOnly ? "Replay · watch only" : `Gauntlet · Trainer ${stage} of 6`}
-            </span>
+        {(readOnly || stage || snap.weather) && (
+          <div className="mt-1.5 flex justify-center gap-2">
+            <WeatherChip weather={snap.weather} />
+            {(readOnly || stage) && (
+              <span
+                data-testid={readOnly ? "replay-badge" : "gauntlet-stage-badge"}
+                className={cn("rounded-full border px-2.5 py-0.5 font-mono text-[9px] uppercase tracking-[0.2em]", readOnly ? "border-cyan-500/50 bg-cyan-950/90 text-cyan-200" : "border-amber-500/50 bg-amber-950/90 text-amber-200")}
+              >
+                {readOnly ? "Replay · watch only" : `Gauntlet · Trainer ${stage} of 6`}
+              </span>
+            )}
           </div>
         )}
       </div>
@@ -140,11 +181,13 @@ export const BattleHud = ({ snap, speed, setSpeed, paused, setPaused, autoPick, 
                 <button
                   type="button"
                   data-testid="switch-button"
+                  data-trapped={trapped}
                   disabled={!canSwitch}
                   onClick={onSwitch}
+                  title={trapped ? "Trapped — cannot switch" : undefined}
                   className="flex min-h-[48px] min-w-[48px] items-center gap-1.5 rounded-lg bg-cyan-500 px-3 font-display text-xs font-bold uppercase tracking-wider text-slate-950 transition-colors hover:bg-cyan-400 disabled:bg-slate-800 disabled:text-slate-500"
                 >
-                  <Repeat className="h-4 w-4" /> Switch
+                  {trapped ? <Lock className="h-4 w-4 text-purple-300" data-testid="hud-trapped-player" /> : <Repeat className="h-4 w-4" />} {trapped ? "Trapped" : "Switch"}
                 </button>
               </span>
             )}

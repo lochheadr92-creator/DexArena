@@ -75,7 +75,7 @@ export default function BattlePage() {
       setBagOpen(false);
       setError(null);
       try {
-        const state = await prepareBattle({ movesetOverrides, ...setup, creatures, unlockedIds, playerHasLegendary: playerHasLegendary(unlockedIds, creatures), onProgress: setStatus });
+        const state = await prepareBattle({ movesetOverrides, abilityPicks: save.abilities, ...setup, creatures, unlockedIds, playerHasLegendary: playerHasLegendary(unlockedIds, creatures), onProgress: setStatus });
         state.mode = mode;
         stateRef.current = state;
         window.__battle = state;
@@ -88,7 +88,7 @@ export default function BattlePage() {
         setPhase("error");
       }
     },
-    [creatures, unlockedIds, movesetOverrides, mode],
+    [creatures, unlockedIds, movesetOverrides, mode, save.abilities],
   );
 
   const startedRef = useRef(false);

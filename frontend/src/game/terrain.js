@@ -32,7 +32,8 @@ function lookupByTypes(table, types, fallback) {
   return table["*"] ?? fallback;
 }
 
-export function movementMult(state, tile, types) {
+export function movementMult(state, tile, types, hover = false) {
+  if (hover && tile !== "wall") return 1;
   const blocked = modifiers.blockedTiles.includes(tile) ? 0 : 1;
   return lookupByTypes(mods(state).movement?.[tile], types, blocked);
 }
@@ -49,20 +50,20 @@ export function moveDamageMult(state, tile, moveType) {
   return mods(state).moveDamage?.[tile]?.[moveType] ?? 1;
 }
 
-export function frictionFor(state, tile, types) {
+export function frictionFor(state, tile, types, hover = false) {
   const table = mods(state).friction?.[tile];
   const base = { accelSec: engine.movement.accelSec, decelSec: engine.movement.decelSec };
-  if (!table) return base;
+  if (!table || hover) return base;
   for (const t of types) if (table[t]) return table[t];
   return table["*"] || base;
 }
 
 export const projectileBlocked = (tile) => modifiers.projectileBlockedTiles.includes(tile);
 
-export function unitBlockedAt(state, x, y, types, radius) {
+export function unitBlockedAt(state, x, y, types, radius, hover = false) {
   const r = radius * 0.7;
   for (const [dx, dy] of [[-r, -r], [r, -r], [-r, r], [r, r]]) {
-    if (movementMult(state, tileAt(state, x + dx, y + dy), types) === 0) return true;
+    if (movementMult(state, tileAt(state, x + dx, y + dy), types, hover) === 0) return true;
   }
   return false;
 }
@@ -87,7 +88,7 @@ export function applyMelt(state, cx, cy, radius, moveType) {
 export function findFavourableTile(state, unit) {
   const range = engine.ai.favourableTileRange;
   const here = tileAt(state, unit.pos.x, unit.pos.y);
-  const score = (tile) => movementMult(state, tile, unit.types) - damageTakenMult(state, tile, unit.types);
+  const score = (tile) => movementMult(state, tile, unit.types, unit.hover) - damageTakenMult(state, tile, unit.types);
   const current = score(here);
   let best = null;
   for (let r = Math.floor(unit.pos.y - range); r <= Math.floor(unit.pos.y + range); r++) {
@@ -97,7 +98,7 @@ export function findFavourableTile(state, unit) {
       const d2 = (cx - unit.pos.x) ** 2 + (cy - unit.pos.y) ** 2;
       if (d2 > range * range) continue;
       const tile = tileAt(state, cx, cy);
-      const mult = movementMult(state, tile, unit.types);
+      const mult = movementMult(state, tile, unit.types, unit.hover);
       if (mult === 0) continue;
       const s = score(tile);
       if (s > current + 1e-6 && (!best || s > best.s || (s === best.s && d2 < best.d2))) best = { x: cx, y: cy, s, d2, tile };

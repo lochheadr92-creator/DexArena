@@ -596,8 +596,49 @@ async function itemTest(seed = 4242) {
   return { catalog, state };
 }
 
+async function abilityTest(opts = {}) {
+  const { abilityDef, isImplemented } = await import("@/game/abilities");
+  const seed = opts.seed ?? 4242;
+  const playerIds = opts.playerIds || [130, 94, 6, 248, 65, 143];
+  const npcIds = opts.npcIds || [9, 25, 59, 68, 376, 450];
+  const picks = opts.abilityPicks || {};
+  const state = await prepareBattle({ creatures: dex.creatures, unlockedIds: dex.unlockedIds, playerIds, npcIds, archetypeId: opts.archetypeId || "tactician", terrainId: opts.terrainId || "pitch", seed, autoPick: true, decodeSprites: false, abilityPicks: picks, playerAbilityIds: opts.playerAbilityIds || null, npcAbilityIds: opts.npcAbilityIds || null });
+  const lines = [`__abilityTest seed=${seed} terrain=${state.terrain.id}`];
+  lines.push(`  player: ${state.teams.player.units.map((u) => `${u.name}=${u.ability || "—"}`).join(", ")}`);
+  lines.push(`  rival:  ${state.teams.npc.units.map((u) => `${u.name}=${u.ability || "—"}`).join(", ")}`);
+  runHeadless(state, opts.maxTicks || 60 * 600);
+  const s = summary(state);
+  const counts = {};
+  for (const e of state.abilityLog) counts[e.ability] = (counts[e.ability] || 0) + 1;
+  lines.push(`  winner=${s.winner} endTick=${s.endTick} (${s.durationSec}s) weather=${state.weather ? state.weather.kind : "none"} triggers=${state.abilityLog.length}`);
+  lines.push(`  by ability: ${Object.entries(counts).map(([k, v]) => `${k}×${v}`).join(", ") || "none"}`);
+  lines.push(`  first 12: ${state.abilityLog.slice(0, 12).map((e) => `t${e.tick} ${e.side}:${e.ability} "${e.text}"`).join(" | ")}`);
+  out(lines);
+  window.__lastAbilityLog = state.abilityLog;
+  return { ...s, abilities: state.meta.abilities, triggers: state.abilityLog.length, counts, weather: state.weather?.kind || null, log: state.abilityLog, lines, implemented: Object.keys(counts).filter(isImplemented).length, defs: Object.keys(counts).map((k) => abilityDef(k)?.name || k) };
+}
+
+async function abilityCoverage() {
+  const { isImplemented, abilityName } = await import("@/game/abilities");
+  const all = Object.values(dex.creatures);
+  const withData = all.filter((c) => Array.isArray(c.abilities));
+  const slots = withData.flatMap((c) => c.abilities);
+  const uniq = [...new Set(slots)];
+  const implemented = uniq.filter(isImplemented);
+  const speciesCovered = withData.filter((c) => c.abilities.some(isImplemented)).length;
+  const missing = uniq.filter((a) => !isImplemented(a)).sort();
+  const freq = {};
+  for (const a of slots) freq[a] = (freq[a] || 0) + 1;
+  const topMissing = missing.sort((a, b) => freq[b] - freq[a]).slice(0, 12).map((a) => `${abilityName(a)}×${freq[a]}`);
+  const lines = [`__abilityCoverage: ${withData.length}/${all.length} species have ability data · ${uniq.length} distinct abilities · ${implemented.length} implemented · ${speciesCovered}/${withData.length} species have ≥1 implemented ability`, `  no-effect abilities (top by species count): ${topMissing.join(", ")}`];
+  out(lines);
+  return { species: all.length, withData: withData.length, distinct: uniq.length, implemented: implemented.length, speciesCovered, missing };
+}
+
 export function installHarness() {
   Object.assign(window, {
+    __abilityTest: abilityTest,
+    __abilityCoverage: abilityCoverage,
     __itemTest: itemTest,
     __rivalTest: rivalTest,
     __visualCoverage: visualCoverage,

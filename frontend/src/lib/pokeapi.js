@@ -118,6 +118,20 @@ export function gen4Types(pokemon) {
   return [...source].sort((a, b) => a.slot - b.slot).map((t) => t.type.name);
 }
 
+export function gen4Abilities(pokemon) {
+  const past = (pokemon.past_abilities || [])
+    .map((p) => ({ gen: genNumber(p.generation.name), abilities: p.abilities }))
+    .filter((p) => p.gen >= 4)
+    .sort((a, b) => a.gen - b.gen)[0];
+  const current = (pokemon.abilities || []).filter((a) => !a.is_hidden);
+  let source = current;
+  if (past) {
+    const overridden = new Set(past.abilities.map((a) => a.slot));
+    source = [...past.abilities.filter((a) => a.ability && !a.is_hidden), ...current.filter((a) => !overridden.has(a.slot))];
+  }
+  return [...source].sort((a, b) => a.slot - b.slot).map((a) => a.ability.name);
+}
+
 export function normalizeCreature(pokemon, species, chainNodes) {
   const stats = {};
   pokemon.stats.forEach((s) => {
@@ -130,6 +144,7 @@ export function normalizeCreature(pokemon, species, chainNodes) {
     displayName: english(species.names, "name") || pokemon.name,
     genus: english(species.genera, "genus"),
     types: gen4Types(pokemon),
+    abilities: gen4Abilities(pokemon),
     stats,
     bst: Object.values(stats).reduce((a, b) => a + b, 0),
     height: pokemon.height,

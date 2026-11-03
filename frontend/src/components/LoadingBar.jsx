@@ -5,8 +5,9 @@ import { DEX } from "@/constants/testIds/dex";
 
 export const LoadingBar = () => {
   const { loaded, total, progress, retryFailed } = useGame();
-  const visible = progress.status === "cache" || progress.status === "fetching" || progress.status === "error";
-  const pct = Math.round((loaded / total) * 100);
+  const patching = progress.status === "done" && !!progress.patch;
+  const visible = progress.status === "cache" || progress.status === "fetching" || progress.status === "error" || patching;
+  const pct = patching ? Math.round((progress.patch.done / progress.patch.total) * 100) : Math.round((loaded / total) * 100);
 
   return (
     <AnimatePresence>
@@ -29,9 +30,10 @@ export const LoadingBar = () => {
                 {progress.status === "cache" && "Reading local Dex cache"}
                 {progress.status === "fetching" && "Syncing Dex from PokéAPI"}
                 {progress.status === "error" && `${progress.failed.length} entries failed`}
+                {patching && <span data-testid="ability-patch-status">Syncing abilities from PokéAPI</span>}
               </span>
               <span>
-                {loaded}/{total} · {pct}%
+                {patching ? `${progress.patch.done}/${progress.patch.total}` : `${loaded}/${total}`} · {pct}%
               </span>
             </div>
             <div className="relative h-1.5 w-full overflow-hidden rounded-full bg-slate-800">

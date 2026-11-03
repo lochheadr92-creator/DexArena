@@ -1,6 +1,6 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState } from "react";
 import { MAX_ID } from "@/lib/pokeapi";
-import { clearCreatureCache, fetchCreatures, loadCachedCreatures } from "@/lib/dex";
+import { clearCreatureCache, fetchCreatures, loadCachedCreatures, patchAbilities, needsAbilityPatch } from "@/lib/dex";
 import { clearSave, defaultSave, loadSave, normalizeSave, persistSave, validateSave, TEAM_SIZE } from "@/lib/save";
 import { computeStarterIds, isSealed } from "@/lib/unlocks";
 import { creditBattle, battleBonuses, sealKeys } from "@/lib/progression";
@@ -15,7 +15,7 @@ installHarness();
 
 export function GameProvider({ children }) {
   const [creatures, setCreatures] = useState({});
-  const [progress, setProgress] = useState({ status: "idle", failed: [] });
+  const [progress, setProgress] = useState({ status: "idle", failed: [], patch: null });
   const [save, setSave] = useState(loadSave);
   const [movesetOverrides, setMovesetOverrides] = useState({});
   const saveRef = useRef(save);
@@ -42,11 +42,33 @@ export function GameProvider({ children }) {
 
   const sync = useCallback(
     async (ids) => {
-      setProgress({ status: "fetching", failed: [] });
+      setProgress((p) => ({ ...p, status: "fetching", failed: [] }));
       const failed = [];
       await fetchCreatures(ids, { onCreature: queueCreature, onError: (id) => failed.push(id) });
       flush();
-      setProgress({ status: failed.length ? "error" : "done", failed });
+      setProgress((p) => ({ ...p, status: failed.length ? "error" : "done", failed }));
+    },
+    [queueCreature, flush],
+  );
+
+  const patch = useCallback(
+    async (stale) => {
+      if (!stale.length) return;
+      let done = 0;
+      setProgress((p) => ({ ...p, patch: { done, total: stale.length } }));
+      const tick = () => {
+        done++;
+        if (done % 10 === 0 || done === stale.length) setProgress((p) => ({ ...p, patch: { done, total: stale.length } }));
+      };
+      await patchAbilities(stale, {
+        onCreature: (c) => {
+          queueCreature(c);
+          tick();
+        },
+        onError: tick,
+      });
+      flush();
+      setProgress((p) => ({ ...p, patch: null }));
     },
     [queueCreature, flush],
   );
@@ -55,7 +77,7 @@ export function GameProvider({ children }) {
     if (startedRef.current) return;
     startedRef.current = true;
     (async () => {
-      setProgress({ status: "cache", failed: [] });
+      setProgress((p) => ({ ...p, status: "cache", failed: [] }));
       const cached = await loadCachedCreatures();
       const map = {};
       cached.forEach((c) => {
@@ -64,9 +86,10 @@ export function GameProvider({ children }) {
       setCreatures(map);
       const missing = ALL_IDS.filter((id) => !map[id]);
       if (missing.length) await sync(missing);
-      else setProgress({ status: "done", failed: [] });
+      else setProgress((p) => ({ ...p, status: "done", failed: [] }));
+      patch(cached.filter(needsAbilityPatch));
     })();
-  }, [sync]);
+  }, [sync, patch]);
 
   const retryFailed = useCallback(() => sync(progress.failed), [sync, progress.failed]);
 
@@ -119,6 +142,7 @@ export function GameProvider({ children }) {
   const clearTeam = useCallback(() => updateSave((prev) => ({ ...prev, team: [] })), [updateSave]);
   const setTerrain = useCallback((terrain) => updateSave((prev) => ({ ...prev, terrain })), [updateSave]);
   const setRivalLevel = useCallback((rivalLevel) => updateSave((prev) => ({ ...prev, rivalLevel: clampLevel(rivalLevel) })), [updateSave]);
+  const setAbility = useCallback((creatureId, slot) => updateSave((prev) => ({ ...prev, abilities: { ...prev.abilities, [creatureId]: slot === 1 ? 1 : 0 } })), [updateSave]);
   const resetSave = useCallback(() => {
     clearSave();
     setSave(persistSave(defaultSave()));
@@ -201,6 +225,7 @@ export function GameProvider({ children }) {
       clearTeam,
       setTerrain,
       setRivalLevel,
+      setAbility,
       resetSave,
       retryFailed,
       resyncDex,
@@ -215,7 +240,7 @@ export function GameProvider({ children }) {
       finishGauntletStage,
       abandonGauntlet,
     }),
-    [creatures, list, progress, save, starterIds, unlockedIds, toggleTeam, clearTeam, setTerrain, setRivalLevel, resetSave, retryFailed, resyncDex, movesetOverrides, setMovesetOverride, importSave, creditResult, catalog, applyEvolutionItem, spendSealKey, startGauntlet, finishGauntletStage, abandonGauntlet],
+    [creatures, list, progress, save, starterIds, unlockedIds, toggleTeam, clearTeam, setTerrain, setRivalLevel, setAbility, resetSave, retryFailed, resyncDex, movesetOverrides, setMovesetOverride, importSave, creditResult, catalog, applyEvolutionItem, spendSealKey, startGauntlet, finishGauntletStage, abandonGauntlet],
   );
 
   return <GameContext.Provider value={value}>{children}</GameContext.Provider>;

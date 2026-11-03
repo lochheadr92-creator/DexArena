@@ -4,14 +4,16 @@ import { tileAt, moveDamageMult, damageTakenMult, projectileBlocked, applyMelt }
 import { pushEvent, logLine, activeUnit, enemyOf } from "@/game/state";
 import { dist, norm, sub, add, scale, dot, cross, angleOf, angleDiff, overlaps } from "@/game/physics";
 import { topSpeed } from "@/game/stats";
+import { accuracyFor, cooldownMult, resolveImmunity, sturdyCheck, afterHit, afterRelease, statusBlocker, afterStatus, statusChanceMult, ignoresKnockback, ignoresChip, speedMult, dodgeChanceFor, abilityName } from "@/game/abilities";
 
 export const hittable = (u) => u.state === "active";
 export const targetable = (u) => u.state === "active" || u.state === "entering";
 
 export function startCast(state, unit, enemy, idx) {
   const m = unit.moves[idx];
-  m.cdUntil = state.tick + secToTicks(m.cooldownSec);
-  const hit = m.accuracy == null || m.accuracy >= 100 || state.rng.chance(m.accuracy / 100);
+  m.cdUntil = state.tick + secToTicks(m.cooldownSec * cooldownMult(state, unit, enemy));
+  const accuracy = accuracyFor(state, unit, enemy, m);
+  const hit = accuracy == null || accuracy >= 100 || state.rng.chance(accuracy / 100);
   const windup = m.shape === "area" ? secToTicks(engine.shapes.area.windupSec) : 0;
   unit.cast = { idx, startTick: state.tick, releaseTick: state.tick + windup, target: { x: enemy.pos.x, y: enemy.pos.y }, hit };
   unit.lastCastTick = state.tick;
@@ -28,6 +30,7 @@ export function releaseCast(state, unit, enemy) {
   const toTarget = norm(sub(c.target, unit.pos));
   const dir = toTarget.x === 0 && toTarget.y === 0 ? { x: 0, y: -1 } : toTarget;
   if (!c.hit) logLine(state, `${unit.name} used ${m.name}: missed (accuracy ${m.accuracy})`);
+  afterRelease(state, unit);
   switch (m.shape) {
     case "projectile": {
       const p = engine.shapes.projectile;
@@ -114,30 +117,45 @@ export function applyHit(state, attacker, target, move, source) {
     logLine(state, `${attacker.name} ${move.name} → ${target.name}: blocked by shield`);
     return false;
   }
+  if (resolveImmunity(state, attacker, target, move, source)) return false;
   const tile = tileAt(state, target.pos.x, target.pos.y);
   const terrainMult = moveDamageMult(state, tile, move.type) * damageTakenMult(state, tile, target.types);
-  const { damage, eff } = computeDamage(attacker, target, move, terrainMult, state.rng.next());
+  const computed = computeDamage(attacker, target, move, terrainMult, state.rng.next(), state);
+  const eff = computed.eff;
+  const damage = sturdyCheck(state, attacker, target, computed.damage);
   target.hp = Math.max(0, target.hp - damage);
   attacker.damageDealt += damage;
   if (damage > 0) {
     target.lastHitBy = attacker.id;
     target.lastHitIndirect = false;
+    target.lastHitSource = source;
   }
   logLine(state, `${attacker.name} ${move.name} [${move.type}/${source}] → ${target.name} [${target.types.join("/")}]: ${eff}x, ${damage} dmg${terrainMult !== 1 ? ` (terrain x${terrainMult} on ${tile})` : ""}`);
   pushEvent(state, { kind: "hit", targetId: target.id, attackerId: attacker.id, damage, eff, type: move.type, source, x: target.pos.x, y: target.pos.y });
   if (eff === 0) return true;
   const kb = source === "melee" ? engine.knockback.melee : source === "dash" ? engine.knockback.dash : 0;
-  if (kb > 0) target.knockback = { dir: norm(sub(target.pos, attacker.pos)), remaining: kb };
-  if (move.status?.attaches && damage > 0 && state.rng.chance(move.status.chance / 100)) applyStatus(state, attacker, target, move.status.kind);
+  if (kb > 0 && !ignoresKnockback(target)) target.knockback = { dir: norm(sub(target.pos, attacker.pos)), remaining: kb };
+  if (move.status?.attaches && damage > 0 && state.rng.chance(Math.min(1, (move.status.chance / 100) * statusChanceMult(attacker)))) applyStatus(state, attacker, target, move.status.kind, { fromMove: true });
+  afterHit(state, attacker, target, move, damage, source);
   return true;
 }
 
-export function applyStatus(state, attacker, target, kind) {
+export function applyStatus(state, attacker, target, kind, opts = {}) {
+  if (target.hp <= 0) return false;
+  const blocker = statusBlocker(state, attacker, target, kind, opts);
+  if (blocker) {
+    pushEvent(state, { kind: "ability", unitId: target.id, side: target.side, ability: blocker, name: abilityName(blocker), text: `prevents ${kind}!`, fx: "immune", color: "#e2e8f0", x: target.pos.x, y: target.pos.y });
+    state.abilityLog.push({ tick: state.tick, unitId: target.id, side: target.side, ability: blocker, text: `prevents ${kind}` });
+    logLine(state, `${target.name}'s ${abilityName(blocker)} prevents ${kind}`);
+    return false;
+  }
   const cfg = engine.status[kind];
-  if (kind === "burn") target.burn = { until: state.tick + secToTicks(cfg.sec), by: attacker.id, perTick: (target.maxHp * cfg.fraction) / (cfg.sec * TICK_RATE) };
+  if (kind === "burn") target.burn = { until: state.tick + secToTicks(cfg.sec), by: attacker?.id ?? null, perTick: (target.maxHp * cfg.fraction) / (cfg.sec * TICK_RATE) };
   if (kind === "paralysis") target.paralysis = { until: state.tick + secToTicks(cfg.sec) };
   pushEvent(state, { kind: "status", unitId: target.id, status: kind, x: target.pos.x, y: target.pos.y });
   logLine(state, `${target.name} is ${kind === "burn" ? "burned" : "paralysed"}`);
+  afterStatus(state, attacker, target, kind, opts);
+  return true;
 }
 
 export function updateProjectiles(state) {
@@ -201,7 +219,8 @@ export function detectDodges(state, unit, team) {
     if (eta > horizon) continue;
     let n = p.noticed[unit.id];
     if (!n) {
-      n = p.noticed[unit.id] = { at: state.tick + team.reactionTicks, dodge: state.rng.chance(team.params.dodgeChance), done: false };
+      const owner = findUnit(state, p.ownerId);
+      n = p.noticed[unit.id] = { at: state.tick + team.reactionTicks, dodge: state.rng.chance(dodgeChanceFor(state, unit, team, owner)), done: false };
     }
     if (n.done || !n.dodge || state.tick < n.at) continue;
     if (state.tick < unit.dodgeCooldownUntil || unit.burst) continue;
@@ -221,7 +240,7 @@ export function detectDodges(state, unit, team) {
 export function updateStatuses(state, unit) {
   if (unit.burn) {
     if (state.tick >= unit.burn.until) unit.burn = null;
-    else if (unit.hp > 0) {
+    else if (unit.hp > 0 && !ignoresChip(unit)) {
       unit.burnAcc += unit.burn.perTick;
       const whole = Math.floor(unit.burnAcc);
       if (whole > 0) {
@@ -247,9 +266,10 @@ export function findUnit(state, id) {
   return null;
 }
 
-export function unitTopSpeed(unit) {
+export function unitTopSpeed(unit, state = null) {
   let v = topSpeed(unit.stats.spe);
   if (unit.buff?.stat === "spe") v *= unit.buff.mult;
   if (unit.paralysis) v *= engine.status.paralysis.speedMult;
+  if (state) v *= speedMult(state, unit);
   return v;
 }

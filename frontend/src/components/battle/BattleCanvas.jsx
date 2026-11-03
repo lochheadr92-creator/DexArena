@@ -4,6 +4,7 @@ import { step, processInputs, replayInputsDue } from "@/game/step";
 import { BattleRenderer } from "@/game/render/renderer";
 import { FpsGovernor, subscribeGfx, getGfx, gfxConfig } from "@/game/render/quality";
 import { TICK_SEC, terrains } from "@/game/config";
+import { abilityStatus, isTrapped, weatherStatus } from "@/game/abilities";
 
 export function makeSnapshot(state, fps) {
   const side = (s) => {
@@ -19,6 +20,9 @@ export function makeSnapshot(state, fps) {
       paralysis: !!u.paralysis,
       buff: u.buff ? u.buff.stat : null,
       shield: !!u.shield,
+      intimidated: !!u.abilityState?.intimidated,
+      ability: abilityStatus(state, u),
+      trapped: isTrapped(state, team),
       moves: u.moves.map((m) => ({ name: m.name, type: m.type, shape: m.shape, cd: Math.max(0, m.cdUntil - state.tick) / (m.cooldownSec / TICK_SEC) })),
       dots: team.units.map((x, i) => (x.state === "fainted" || x.state === "fainting" || x.hp <= 0 ? "fainted" : i === team.activeIndex && x.state !== "bench" ? "active" : !x.revealed && s === "npc" ? "unknown" : "alive")),
       bench: team.units.map((x) => ({ index: x.index, name: x.name, hp: x.hp, maxHp: x.maxHp, state: x.state, creatureId: x.creatureId, types: x.types, burn: !!x.burn, paralysis: !!x.paralysis })),
@@ -28,7 +32,7 @@ export function makeSnapshot(state, fps) {
       label: s === "npc" && state.meta?.rival ? `${team.name} · Lv.${state.meta.rival.level}` : team.name,
     };
   };
-  return { tick: state.tick, phase: state.phase, winner: state.winner, player: side("player"), npc: side("npc"), fps };
+  return { tick: state.tick, phase: state.phase, winner: state.winner, player: side("player"), npc: side("npc"), weather: weatherStatus(state), fps };
 }
 
 export const BattleCanvas = ({ stateRef, speedRef, pausedRef, onSnapshot, rendererRef, onForcePause }) => {
@@ -88,7 +92,7 @@ export const BattleCanvas = ({ stateRef, speedRef, pausedRef, onSnapshot, render
         const hook = window.__pauseOnEvent;
         if (hook && !hook.done) {
           if (hook.armedAt == null) {
-            const ev = state.events.find((e) => e.id > (hook.afterId || 0) && e.kind === hook.kind && (!hook.status || e.status === hook.status) && (!hook.side || e.side === hook.side) && (!hook.move || e.move === hook.move));
+            const ev = state.events.find((e) => e.id > (hook.afterId || 0) && e.kind === hook.kind && (!hook.status || e.status === hook.status) && (!hook.side || e.side === hook.side) && (!hook.move || e.move === hook.move) && (!hook.ability || e.ability === hook.ability));
             if (ev) {
               hook.armedAt = now + (hook.delayMs || 0);
               hook.eventTick = ev.tick;

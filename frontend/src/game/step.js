@@ -4,6 +4,7 @@ import { pushEvent, logLine, activeUnit, enemyOf, aliveBench, evolveUnit } from 
 import { aiThink, npcSwitchDecision, bestMatchupIndex } from "@/game/ai";
 import { releaseCast, applyHit, updateProjectiles, updateStatuses, detectDodges, unitTopSpeed, hittable } from "@/game/combat";
 import { dist, norm, sub, add, scale, perp, len, angleOf, fromAngle, rotate, rotateToward, moveToward, clamp, angleDiff, overlaps } from "@/game/physics";
+import { onEntry, onExit, onFaint, abilityTick, isTrapped } from "@/game/abilities";
 
 const DT = 1 / TICK_RATE;
 const TURN = (engine.movement.turnRateDeg * Math.PI) / 180;
@@ -53,6 +54,7 @@ export function step(state) {
   }
   updateProjectiles(state);
   for (const side of ["player", "npc"]) for (const u of state.teams[side].units) if (u.hp > 0 || u.state === "active") updateStatuses(state, u);
+  abilityTick(state);
 
   checkFaints(state);
   checkEnd(state);
@@ -87,6 +89,10 @@ export function processInputs(state) {
     }
     const target = team.units[inp.index];
     if (!target || target.hp <= 0 || target.state !== "bench") continue;
+    if (inp.type === "switch" && isTrapped(state, team)) {
+      logLine(state, `${inp.side} switch to ${target.name} blocked: trapped`);
+      continue;
+    }
     const applied = (inp.type === "pick" && team.pendingPick) || (inp.type === "switch" && !team.pendingPick && activeUnit(team).state === "active");
     if (!applied) continue;
     beginSwitch(state, team, inp.index, inp.type === "pick" ? "pick" : "manual");
@@ -99,6 +105,7 @@ export function processInputs(state) {
 export function beginSwitch(state, team, inIndex, reason) {
   const out = activeUnit(team);
   if (out.state === "active" || out.state === "entering") {
+    onExit(state, out);
     out.state = "bench";
     out.cast = null;
     out.burst = null;
@@ -126,6 +133,7 @@ function updateTeamFlow(state, team) {
   if (u.state === "entering" && state.tick >= u.entryUntil) {
     u.state = "active";
     u.nextThinkTick = state.tick;
+    onEntry(state, u);
   }
   if (u.state === "fainting" && state.tick >= u.faintUntil) {
     u.state = "fainted";
@@ -195,7 +203,7 @@ function desiredDirection(state, unit, enemy) {
   }
   if (dir.x === 0 && dir.y === 0) return { dir, speedMult };
   const look = unit.radius + 0.6;
-  const probe = (v) => !unitBlockedAt(state, unit.pos.x + v.x * look, unit.pos.y + v.y * look, unit.types, unit.radius);
+  const probe = (v) => !unitBlockedAt(state, unit.pos.x + v.x * look, unit.pos.y + v.y * look, unit.types, unit.radius, unit.hover);
   if (probe(dir)) return { dir, speedMult };
   for (const deg of [45, -45, 90, -90, 135, -135]) {
     const alt = rotate(dir, (deg * Math.PI) / 180);
@@ -208,12 +216,12 @@ function integrate(state, unit, vel) {
   const nx = unit.pos.x + vel.x * DT;
   const ny = unit.pos.y + vel.y * DT;
   let blocked = false;
-  if (!unitBlockedAt(state, nx, unit.pos.y, unit.types, unit.radius)) unit.pos.x = nx;
+  if (!unitBlockedAt(state, nx, unit.pos.y, unit.types, unit.radius, unit.hover)) unit.pos.x = nx;
   else {
     vel.x = 0;
     blocked = true;
   }
-  if (!unitBlockedAt(state, unit.pos.x, ny, unit.types, unit.radius)) unit.pos.y = ny;
+  if (!unitBlockedAt(state, unit.pos.x, ny, unit.types, unit.radius, unit.hover)) unit.pos.y = ny;
   else {
     vel.y = 0;
     blocked = true;
@@ -226,8 +234,8 @@ function integrate(state, unit, vel) {
 function updateMovement(state, unit, enemy) {
   const prev = { x: unit.pos.x, y: unit.pos.y };
   const tile = tileAt(state, unit.pos.x, unit.pos.y);
-  const tileMult = movementMult(state, tile, unit.types) || 1;
-  const vmax = unitTopSpeed(unit) * tileMult;
+  const tileMult = movementMult(state, tile, unit.types, unit.hover) || 1;
+  const vmax = unitTopSpeed(unit, state) * tileMult;
 
   if (unit.knockback) {
     const kb = unit.knockback;
@@ -254,7 +262,7 @@ function updateMovement(state, unit, enemy) {
       if (unit.burst.kind === "dash") pushEvent(state, { kind: "dash-end", unitId: unit.id, path: unit.burst.path, type: unit.moves[unit.burst.moveIdx].type });
       unit.burst = null;
     }
-    const friction = frictionFor(state, tile, unit.types);
+    const friction = frictionFor(state, tile, unit.types, unit.hover);
     let target = { x: 0, y: 0 };
     let active = false;
     if (unit.state === "active" && enemy) {
@@ -299,7 +307,7 @@ function resolveUnitCollision(state) {
   const d = dist(a.pos, b.pos);
   const total = a.radius + b.radius - d + 0.002;
   const dir = d < 1e-6 ? { x: 0, y: 1 } : norm(sub(a.pos, b.pos));
-  const free = (u, p) => !unitBlockedAt(state, p.x, p.y, u.types, u.radius);
+  const free = (u, p) => !unitBlockedAt(state, p.x, p.y, u.types, u.radius, u.hover);
   const pa = add(a.pos, scale(dir, total / 2));
   const pb = sub(b.pos, scale(dir, total / 2));
   const aFree = free(a, pa);
@@ -337,6 +345,7 @@ function checkFaints(state) {
       if (killer) killer.kills++;
       pushEvent(state, { kind: "faint", unitId: u.id, side, x: u.pos.x, y: u.pos.y });
       logLine(state, `${u.name} fainted${killer ? ` (by ${killer.name})` : ""}`);
+      onFaint(state, u, killer);
     }
   }
 }

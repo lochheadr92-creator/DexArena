@@ -7,6 +7,8 @@ import { gfxConfig } from "@/game/render/quality";
 import { resolveVisual } from "@/game/render/moveVisuals";
 import { typeBurst, typeTrail } from "@/game/render/typeFx";
 import { drawArchetypeEffect, drawCone, drawBeam, drawOrb, makeFallChunks, GROUND_EFFECTS, DECAL_SEC } from "@/game/render/archetypeFx";
+import { ABILITY_DRAWERS, WeatherFx, drawTrapRing, drawHoverShadow, drawPassiveAura } from "@/game/render/abilityFx";
+import { passiveVisual, isTrapped, weatherActive, WEATHER } from "@/game/abilities";
 
 const tcolor = (t) => typeColors[t]?.bg || "#94a3b8";
 const ease = (t) => Math.min(1, Math.max(0, t));
@@ -21,6 +23,7 @@ export class BattleRenderer {
     this.lastEventId = 0;
     this.particles = new ParticleSystem();
     this.ambient = new Ambient();
+    this.weatherFx = new WeatherFx();
     this.effects = [];
     this.texts = [];
     this.unitFx = {};
@@ -112,8 +115,14 @@ export class BattleRenderer {
       this.particles.draw(ctx, this.toPx, this.ts);
       if (state.phase === "running") this.ambient.update(dt, state);
       this.ambient.draw(ctx, this);
-      this.drawTexts(now);
     }
+    const wk = state.weather?.kind || null;
+    this.weatherFx.setTarget(wk, !!wk && weatherActive(state) === wk);
+    if (!this.reducedMotion) {
+      this.weatherFx.update(dt, state, Math.max(14, this.gfx.ambient));
+      this.weatherFx.draw(ctx, this, now);
+    }
+    if (A.animationsEnabled) this.drawTexts(now);
   }
 
   tickFps(now) {
@@ -226,8 +235,16 @@ export class BattleRenderer {
       }
       const speed = Math.hypot(u.vel.x, u.vel.y);
       if (speed < 0.1 && u.state === "active") dy += Math.sin((now / (A.idleBob.periodSec * 1000)) * Math.PI * 2) * A.idleBob.px;
+      if (fx.tint && now < fx.tint.until) tint = { color: fx.tint.color, alpha: 0.6 * ((fx.tint.until - now) / fx.tint.dur) };
       this.statusParticles(u, now, fx);
+      this.abilityPassive(state, u, x, y, now, fx);
     }
+    if (u.hover) {
+      const lift = 0.5 + 0.5 * Math.sin(now / 520);
+      dy -= this.px(0.3) + lift * 4 * this.scalePx();
+      drawHoverShadow(this, ctx, x, y, lift);
+    }
+    if (u.state === "active" && isTrapped(state, state.teams[u.side])) drawTrapRing(this, ctx, x, y, "#a855f7", now);
     if (u.state === "fainting") {
       const p = ease(1 - (u.faintUntil - state.tick) / secToTicks(engine.switching.faintPuffSec));
       alpha = 1 - p;
@@ -265,6 +282,28 @@ export class BattleRenderer {
     }
     if (u.buff && anim) this.drawBuffArrow(x, y - this.spriteHeight(entry) - 6, u.buff);
     ctx.globalAlpha = 1;
+  }
+
+  abilityPassive(state, u, x, y, now, fx) {
+    const pv = passiveVisual(state, u);
+    if (!pv) return;
+    if (pv.kind === "aura") {
+      drawPassiveAura(this, this.ctx, x, y, pv.color, now, pv.soft);
+      if (!pv.soft && this.gfx.typeParticles && now - (fx.auraAt || 0) > 110) {
+        fx.auraAt = now;
+        if (pv.type) typeBurst(this.particles, pv.type, u.pos.x + (Math.random() - 0.5) * 0.9, u.pos.y - 0.1, 1, { speed: 1.2, maxLife: 0.6, size: 2.2, gravity: -2.5 });
+        else this.particles.spawn({ x: u.pos.x + (Math.random() - 0.5) * 0.9, y: u.pos.y - 0.1, vx: 0, vy: -1.8, maxLife: 0.6, color: pv.color, color2: "#ffffff", size: 2, shape: "sparkle", additive: true });
+      }
+    } else if (pv.kind === "speed") {
+      const moving = Math.hypot(u.vel.x, u.vel.y) > 0.8;
+      if (moving && now - (fx.auraAt || 0) > 70) {
+        fx.auraAt = now;
+        this.particles.spawn({ x: u.pos.x - u.vel.x * 0.08, y: u.pos.y - 0.3, vx: -u.vel.x * 0.4, vy: -u.vel.y * 0.4, maxLife: 0.35, color: pv.color, color2: "#ffffff", size: 1.6 + pv.stacks * 0.5, shape: "spark", additive: true });
+      }
+    } else if ((pv.kind === "loaf" || pv.kind === "drowsy") && now - (fx.auraAt || 0) > 650) {
+      fx.auraAt = now;
+      this.texts.push({ kind: "popup", text: pv.kind === "loaf" ? "Zzz…" : "…", x: u.pos.x + 0.7, y: u.pos.y - 2, until: now + 700, start: now, color: pv.color });
+    }
   }
 
   spriteScale(entry) {
@@ -540,6 +579,20 @@ export class BattleRenderer {
         } else this.effects.push({ kind: "flash", x: ev.x, y: ev.y, color: "#ffffff", radiusTiles: 1.2, start: now, until: now + moveVisuals.reducedMotionFlashSec * 1000 });
         (this.unitFx[ev.unitId] ||= {}).hitUntil = now + 350;
       }
+      if (ev.kind === "ability") {
+        this.onAbility(state, ev, now);
+        continue;
+      }
+      if (ev.kind === "weather") {
+        this.texts.push({ kind: "center", text: ev.text, color: WEATHER[ev.weather]?.color || "#e2e8f0", start: now, until: now + A.ability.weatherBannerSec * 1000 });
+        if (A.animationsEnabled && !this.reducedMotion && this.gfx.screenFx) this.effects.push({ kind: "vignette", color: WEATHER[ev.weather]?.color || "#ffffff", alpha: 0.3, inner: true, start: now, until: now + 500 });
+        continue;
+      }
+      if (ev.kind === "heal") {
+        this.texts.push({ kind: "dmg", text: `+${ev.amount}`, x: ev.x, y: ev.y - 1.4, until: now + A.damageNumber.sec * 1000, start: now, big: false, color: "#4ade80" });
+        if (A.animationsEnabled && !this.reducedMotion) this.particles.burst(ev.x, ev.y - 0.4, 8, { color: "#4ade80", color2: "#bbf7d0", shape: "sparkle", additive: true, speed: 1.6, maxLife: 0.7, size: 2.5, gravity: -3 });
+        continue;
+      }
       if (!A.animationsEnabled) continue;
       const color = tcolor(ev.type);
       if (this.reducedMotion) {
@@ -553,6 +606,13 @@ export class BattleRenderer {
           break;
         case "hit": {
           const fx = (this.unitFx[ev.targetId] ||= {});
+          if (ev.blocked === "ability") break;
+          if (ev.source === "chip") {
+            fx.hitUntil = now + A.hitFlash.sec * 500;
+            this.texts.push({ kind: "dmg", text: String(ev.damage), x: ev.x, y: ev.y - 1.4, until: now + A.damageNumber.sec * 1000, start: now, big: false, color: "#cbd5e1" });
+            this.particles.burst(ev.x, ev.y - 0.5, 4, { color: "#cbd5e1", shape: "smoke", speed: 1.2, maxLife: 0.4, size: 2.5 });
+            break;
+          }
           fx.hitUntil = now + A.hitFlash.sec * 1000;
           if (ev.source === "melee" || ev.source === "dash") fx.shake = { px: V.contact.shakePx, until: now + V.contact.shakeSec * 1000 };
           let dir = null;
@@ -643,6 +703,77 @@ export class BattleRenderer {
         default:
           break;
       }
+    }
+  }
+
+  onAbility(state, ev, now) {
+    const u = this.findUnit(state, ev.unitId);
+    const dur = A.ability.bannerSec * 1000;
+    const live = this.texts.filter((t) => t.kind === "banner" && t.until > now).length;
+    const rows = state.terrain.rows;
+    const baseY = ev.side === "npc" ? Math.max(1.4, ev.y - 2.7) + live * 1.5 : Math.min(rows - 1.4, ev.y - 2.7) - live * 1.5;
+    this.texts.push({ kind: "banner", title: `${u?.name || ""}'s ${ev.name}`, sub: ev.text, color: ev.color, side: ev.side, x: ev.x, y: Math.min(rows - 1.2, Math.max(1.2, baseY)), start: now, until: now + dur });
+    if (!A.animationsEnabled || this.reducedMotion) return;
+    const color = ev.color;
+    const self = { fromId: ev.unitId, fx: ev.x, fy: ev.y };
+    const tfx = ev.targetId ? (this.unitFx[ev.targetId] ||= {}) : null;
+    switch (ev.fx) {
+      case "intimidate":
+        this.effects.push({ kind: "shockwave", x: ev.x, y: ev.y, color, radiusTiles: 4.5, start: now, until: now + 750 });
+        if (tfx && ev.tx != null) {
+          tfx.shake = { px: 4, until: now + 650 };
+          tfx.tint = { color, until: now + 600, dur: 600 };
+          this.effects.push({ kind: "arrows", x: ev.tx, y: ev.ty, color, dir: 1, count: 5, start: now + 250, until: now + 1150 });
+        }
+        this.shake(2, 0.25, now);
+        break;
+      case "boost":
+        this.effects.push({ kind: "arrows", x: ev.x, y: ev.y, color, dir: -1, count: 5, start: now, until: now + 900 });
+        this.effects.push({ kind: "aura", ...self, color, start: now, until: now + 900 });
+        break;
+      case "debuff":
+        this.effects.push({ kind: "arrows", x: ev.x, y: ev.y, color, dir: 1, count: 4, start: now, until: now + 900 });
+        break;
+      case "immune":
+        this.effects.push({ kind: "hexflash", ...self, color, start: now, until: now + 650 });
+        this.effects.push({ kind: "impact", x: ev.x, y: ev.y, color, radiusTiles: 1.2, start: now, until: now + 320 });
+        break;
+      case "heal":
+      case "cure":
+        this.effects.push({ kind: "aura", ...self, color: ev.fx === "heal" ? "#4ade80" : color, start: now, until: now + 900 });
+        this.particles.burst(ev.x, ev.y - 0.5, 14, { color: "#4ade80", color2: "#ffffff", shape: "sparkle", additive: true, speed: 2, maxLife: 0.8, size: 2.6, gravity: -3.5 });
+        break;
+      case "endure":
+        this.effects.push({ kind: "starburst", x: ev.x, y: ev.y, color: "#fde047", rot: Math.random() * Math.PI, radiusTiles: 2.1, start: now, until: now + 450 });
+        this.effects.push({ kind: "hexflash", ...self, color: "#fde047", start: now, until: now + 700 });
+        if (this.gfx.screenFx) this.effects.push({ kind: "vignette", color: "#fde047", alpha: 0.3, start: now, until: now + 400 });
+        this.shake(3, 0.2, now);
+        break;
+      case "contact":
+        if (ev.tx != null) typeBurst(this.particles, ev.ability === "static" ? "electric" : ev.ability === "flame-body" ? "fire" : ev.ability === "effect-spore" ? "grass" : "rock", ev.tx, ev.ty - 0.5, 12, { speed: 3, maxLife: 0.5, size: 2.8 });
+        this.effects.push({ kind: "aura", ...self, color, start: now, until: now + 600 });
+        break;
+      case "trap":
+        if (ev.tx != null) this.effects.push({ kind: "shockwave", x: ev.tx, y: ev.ty, color, radiusTiles: 1.8, start: now, until: now + 600 });
+        break;
+      case "reveal":
+        if (this.gfx.screenFx) this.effects.push({ kind: "vignette", color, alpha: 0.28, start: now, until: now + 600 });
+        this.effects.push({ kind: "glyph", x: ev.x, y: ev.y, color, text: "SCAN", start: now, until: now + 900 });
+        break;
+      case "loaf":
+        this.texts.push({ kind: "popup", text: "Zzz…", x: ev.x + 0.7, y: ev.y - 2, until: now + 900, start: now, color });
+        break;
+      case "transform": {
+        const fx = (this.unitFx[ev.unitId] ||= {});
+        fx.tint = { color: tcolor(ev.type), until: now + 700, dur: 700 };
+        this.effects.push({ kind: "flash", x: ev.x, y: ev.y, color: tcolor(ev.type), radiusTiles: 1.3, start: now, until: now + 350 });
+        break;
+      }
+      case "weather":
+        break;
+      default:
+        this.effects.push({ kind: "aura", ...self, color, start: now, until: now + 800 });
+        break;
     }
   }
 
@@ -928,7 +1059,7 @@ export class BattleRenderer {
           break;
         }
         default:
-          drawArchetypeEffect(this, ctx, e, p, state);
+          if (!drawArchetypeEffect(this, ctx, e, p, state)) ABILITY_DRAWERS[e.kind]?.(this, ctx, e, p, state);
           break;
       }
       if (!groundPass) keep.push(e);
@@ -946,7 +1077,19 @@ export class BattleRenderer {
       ctx.save();
       ctx.textAlign = "center";
       ctx.textBaseline = "middle";
-      if (t.kind === "splash") {
+      if (t.kind === "banner") {
+        this.drawBanner(t, p, x, y);
+      } else if (t.kind === "center") {
+        ctx.globalAlpha = p < 0.15 ? p / 0.15 : p > 0.75 ? (1 - p) / 0.25 : 1;
+        ctx.font = `700 ${Math.round(17 * this.scalePx())}px 'Chakra Petch', sans-serif`;
+        const cx = this.cssW / 2;
+        const cy = this.cssH * 0.3 - p * 10;
+        ctx.lineWidth = 5;
+        ctx.strokeStyle = "rgba(0,0,0,0.85)";
+        ctx.strokeText(t.text, cx, cy);
+        ctx.fillStyle = t.color;
+        ctx.fillText(t.text, cx, cy);
+      } else if (t.kind === "splash") {
         ctx.globalAlpha = p < 0.15 ? p / 0.15 : p > 0.8 ? (1 - p) / 0.2 : 1;
         ctx.font = `700 ${Math.round(20 * this.scalePx())}px 'Chakra Petch', sans-serif`;
         const half = ctx.measureText(t.text).width / 2;
@@ -976,5 +1119,39 @@ export class BattleRenderer {
     this.texts = keep;
   }
 }
+
+BattleRenderer.prototype.drawBanner = function drawBanner(t, p, x, y) {
+  const ctx = this.ctx;
+  const s = this.scalePx();
+  const slide = p < 0.15 ? 1 - p / 0.15 : 0;
+  ctx.globalAlpha = p < 0.12 ? p / 0.12 : p > 0.8 ? (1 - p) / 0.2 : 1;
+  ctx.font = `700 ${Math.round(12 * s)}px 'Chakra Petch', sans-serif`;
+  const tw = ctx.measureText(t.title).width;
+  ctx.font = `500 ${Math.round(10 * s)}px 'Chakra Petch', sans-serif`;
+  const sw = t.sub ? ctx.measureText(t.sub).width : 0;
+  const w = Math.max(tw, sw) + 22 * s;
+  const h = (t.sub ? 30 : 20) * s;
+  const bx = Math.min(Math.max(x - w / 2, 6), this.cssW - w - 6);
+  const by = y - h / 2 - slide * 10 * s;
+  ctx.fillStyle = "rgba(2,6,23,0.88)";
+  ctx.strokeStyle = t.color;
+  ctx.lineWidth = 1.2 * s;
+  ctx.beginPath();
+  ctx.roundRect(bx, by, w, h, 6 * s);
+  ctx.fill();
+  ctx.stroke();
+  ctx.fillStyle = t.color;
+  ctx.fillRect(bx, by + 3 * s, 3 * s, h - 6 * s);
+  ctx.textAlign = "left";
+  ctx.textBaseline = "middle";
+  ctx.font = `700 ${Math.round(12 * s)}px 'Chakra Petch', sans-serif`;
+  ctx.fillStyle = "#f8fafc";
+  ctx.fillText(t.title, bx + 11 * s, by + (t.sub ? 9.5 : 10) * s);
+  if (t.sub) {
+    ctx.font = `500 ${Math.round(10 * s)}px 'Chakra Petch', sans-serif`;
+    ctx.fillStyle = t.color;
+    ctx.fillText(t.sub, bx + 11 * s, by + 21.5 * s);
+  }
+};
 
 export const tileLabelAt = (state, x, y) => tileAt(state, x, y);
