@@ -23,7 +23,7 @@ Constraints
 - Test IDs: `src/constants/testIds/dex.js`
 
 ## Save file schema (v1)
-`{ version, createdAt, updatedAt, totalWins, totalBattles, unlocked[], team[], terrain, rivalLevel, speciesWins{}, speciesKoCredit{}, speciesStandingCredit{}, lastCreditedBattle, items{itemId: count}, abilities{creatureId: 0|1}, gauntlet{runs, clears, bestStage, active} }`
+`{ version, createdAt, updatedAt, totalWins, totalBattles, unlocked[], team[], terrain, rivalLevel, speciesWins{}, speciesKoCredit{}, speciesStandingCredit{}, lastCreditedBattle, items{itemId: count}, abilities{creatureId: 0|1}, gauntlet{runs, clears, bestStage, active, history[≤20]}, daily{key, attempts, best} }`
 
 ## Creature record (IDB schema 5)
 `{ id, name, displayName, genus, types[], abilities[] (Gen IV non-hidden slugs, slot order), stats{hp,atk,def,spa,spd,spe}, bst, height, weight, sprite, artwork, moves[{id,name,level}], tmMoves[], generation, isBaby, isLegendary, isMythical, captureRate, chainId, evolvesFrom, evolvesTo[], evolution, schema, cachedAt }` — schema-4 rows (no abilities) are kept and patched in the background (`dex.patchAbilities`, 1 request/species).
@@ -83,13 +83,22 @@ Constraints
 - Replay v2 (`pa`/`na`/`ab`); v1 links play with abilities off. Unknown ability ids in links → null. Desynced replays no longer deadlock on a pending pick (BattleCanvas applies the next recorded pick / auto-picks).
 - Harness: `__abilityTest({seed, playerIds, npcIds, terrainId})`, `__abilityCoverage()`. Reference: seed 9001 fixed teams → npc wins tick 11910 (hash cdbea4b0).
 
+### Ability Dex Filter · Run History · Daily Challenge · Weather Terrain Tie-in — DONE (2026-06) — Jest 46/46 + testing_agent iteration_10 (100%)
+- Ability filter: `components/AbilityFilter.jsx` (Popover + cmdk; groups "Arena-effective"/"No effect in Arena", species counts, search by name/slug; `ability-filter-button/-search/-option-<slug>/-clear`, `ability-filter-desc` note), `filters.ability` in RosterPage/RosterFilters (`EMPTY_FILTERS` exported), combines with gen/type/unlocked
+- Run history: `save.gauntlet.history[]` (max `HISTORY_MAX` 20, sanitized on load/import) — entry `{seed, startedAt, endedAt, outcome cleared|lost|abandoned, cleared, stageReached, team[6], items[], archetypes[6], terrains[6]}`; runs carry `items[]` (gauntlet drops passed via `finishGauntletStage(state, drop)`), `abandonRun` writes an entry; `components/RunHistory.jsx` collapsible on the Gauntlet page (`gauntlet-history*` test ids)
+- Daily challenge: `lib/daily.js` — UTC `dailyKey`, FNV `dailySeed`, `buildDaily(creatures)` drafts the rival from the full non-sealed pool at `difficulty.daily.budget` 560 (Legend slot 6, seeded abilities, terrain + archetype), identical for everyone; `attemptSeed(seed, attempts)` varies the battle RNG per attempt while the rival stays fixed; score = win 1000 + standing×100 + rival KOs×50 + win speed bonus max(0, 300 − s); `save.daily {key, attempts, best}`; `/battle?mode=daily`; `components/DailyCard.jsx` on the Arena tab (rival hidden until first attempt, best result, reset countdown, share text `Arena Dex Daily <key> · WIN in m:ss · N standing · K KOs · score S`); ResultScreen `result-daily` + Retry/Share result. GameContext builds `daily` once the Dex (incl. ability patch) is complete and rebuilds on UTC rollover (30 s poll)
+- Weather tie-in: `difficulty.legendWeather {level 6, shoreline→rain, snowfield→hail}`; `rival.legendWeather(terrainId, level)`; prebattle derives `initialWeather` (level = rivalLevel ?? slot) → `createBattle` calls `startWeather` at tick 0 (banner from `abilities.json weather[].ambient`, `state.initialWeather`, `meta.weather`); applies to quick L6, gauntlet stage 6, daily; replay payload `w` (absent/null = none, so older links don't desync). UI hints: `terrain-legend-weather` (Arena), `rival-legend-weather` (picker at L6), `gauntlet-stage-weather-6`, `daily-weather`
+- Engine fixes found by testing: Specialist rival with a tiny budget drafted an empty team (`rng.pick([])`) → crash; now falls back to the most common type and tops up to 6. Infinite stall (grass types on Snowfield kept walking back to "favourable" ice tiles instead of approaching) → `aiThink` ignores a favourable tile that is farther from the enemy when it must close distance. Safety nets: `engine.suddenDeath` (after 300 s damage ×(1 + 0.5/min), `notice` event + HUD `sudden-death-chip`) and `engine.timeLimitSec` 600 → winner by remaining HP fraction (`state.timedOut`, result-meta text). Reference seed 9001 unchanged (npc · 11910 · cdbea4b0)
+- Harness: `__dailyTest({key?, playerIds?, attempt?})`, `__weatherStartTest({terrainId, rivalLevel})`, `__stallSweep({seeds|n, playerIds, archetypeId, terrainId, rivalLevel, maxTicks})`, `__step`
+
 ### Next (not started)
 
 ## Backlog
 ### Phase 2/3 follow-ups (only if user asks)
 - Status moves rarely appear (most creatures have ≥4 damaging level-up moves) → shield/buff shapes mostly seen on Metapod/Abra-like creatures
 - Right-side control column still overlays arena cols 13–15 (translucent); could move into HUD on request
+- Wall archetype vs faster no-attack units (e.g. Wynaut) can run to the 600 s time limit; AI tuning if it shows up in play
 ### Ideas (P2)
-- Gauntlet leaderboard / run history, replay gallery of saved links, daily seeded challenge
+- Replay gallery of saved links, daily leaderboard / streaks, daily history by day
 ### Nice-to-have (P2)
 - Sprite blob caching in IDB for full offline; virtualized grid
