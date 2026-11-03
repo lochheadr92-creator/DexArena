@@ -5,6 +5,7 @@ import { BattleRenderer } from "@/game/render/renderer";
 import { FpsGovernor, subscribeGfx, getGfx, gfxConfig } from "@/game/render/quality";
 import { TICK_SEC, terrains } from "@/game/config";
 import { abilityStatus, isTrapped, weatherStatus } from "@/game/abilities";
+import { suddenDeathMult } from "@/game/combat";
 
 export function makeSnapshot(state, fps) {
   const side = (s) => {
@@ -32,7 +33,7 @@ export function makeSnapshot(state, fps) {
       label: s === "npc" && state.meta?.rival ? `${team.name} · Lv.${state.meta.rival.level}` : team.name,
     };
   };
-  return { tick: state.tick, phase: state.phase, winner: state.winner, player: side("player"), npc: side("npc"), weather: weatherStatus(state), fps };
+  return { tick: state.tick, phase: state.phase, winner: state.winner, player: side("player"), npc: side("npc"), weather: weatherStatus(state), suddenDeath: suddenDeathMult(state), fps };
 }
 
 export const BattleCanvas = ({ stateRef, speedRef, pausedRef, onSnapshot, rendererRef, onForcePause }) => {

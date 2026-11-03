@@ -109,6 +109,12 @@ function logEntryBlock(state, target, m) {
   pushEvent(state, { kind: "hit", targetId: target.id, damage: 0, eff: 1, type: m.type, x: target.pos.x, y: target.pos.y, blocked: "entry" });
 }
 
+export const suddenDeathMult = (state) => {
+  const sd = engine.suddenDeath;
+  const past = state.tick / TICK_RATE - sd.startSec;
+  return past <= 0 ? 1 : 1 + (past / 60) * sd.rampPerMin;
+};
+
 export function applyHit(state, attacker, target, move, source) {
   if (!hittable(target)) return false;
   if (target.shield) {
@@ -122,7 +128,7 @@ export function applyHit(state, attacker, target, move, source) {
   const terrainMult = moveDamageMult(state, tile, move.type) * damageTakenMult(state, tile, target.types);
   const computed = computeDamage(attacker, target, move, terrainMult, state.rng.next(), state);
   const eff = computed.eff;
-  const damage = sturdyCheck(state, attacker, target, computed.damage);
+  const damage = sturdyCheck(state, attacker, target, Math.floor(computed.damage * suddenDeathMult(state)));
   target.hp = Math.max(0, target.hp - damage);
   attacker.damageDealt += damage;
   if (damage > 0) {

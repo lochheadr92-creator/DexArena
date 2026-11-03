@@ -94,11 +94,19 @@ export async function generateNpcTeam({ rng, creatures, unlockedIds, archetype, 
   if (kind === "mono") {
     const counts = {};
     [...pool, ...nextTier].forEach((c) => c.types.forEach((t) => (counts[t] = (counts[t] || 0) + 1)));
-    const eligible = Object.keys(counts).filter((t) => counts[t] >= TB.minMonoCandidates).sort();
-    const type = rng.pick(eligible);
-    poolRanked = poolRanked.filter((c) => c.types.includes(type));
-    tierRanked = tierRanked.filter((c) => c.types.includes(type));
-    log.push(`Specialist mono-type: ${type} (${poolRanked.length} pool / ${tierRanked.length} tier candidates)`);
+    const typesByCount = Object.keys(counts).sort((a, b) => counts[b] - counts[a] || a.localeCompare(b));
+    const eligible = typesByCount.filter((t) => counts[t] >= TB.minMonoCandidates).sort();
+    const type = eligible.length ? rng.pick(eligible) : typesByCount[0];
+    const monoPool = poolRanked.filter((c) => c.types.includes(type));
+    const monoTier = tierRanked.filter((c) => c.types.includes(type));
+    if (monoPool.length + monoTier.length >= 6) {
+      poolRanked = monoPool;
+      tierRanked = monoTier;
+    } else {
+      poolRanked = [...monoPool, ...poolRanked.filter((c) => !monoPool.includes(c))];
+      tierRanked = [...monoTier, ...tierRanked.filter((c) => !monoTier.includes(c))];
+    }
+    log.push(`Specialist mono-type: ${type} (${monoPool.length} pool / ${monoTier.length} tier candidates${monoPool.length + monoTier.length < 6 ? ", topped up with other types" : ""})`);
   }
 
   if (kind === "kiter" || kind === "bulk") {
@@ -113,6 +121,19 @@ export async function generateNpcTeam({ rng, creatures, unlockedIds, archetype, 
   const need = 6 - fromTier.length;
   const fromPool = kind === "coverage" ? coveragePick(poolRanked, need) : pickWeighted(rng, poolRanked, need);
   let team = [...fromPool, ...fromTier];
+  if (team.length < 6) {
+    const used = new Set(team.map((c) => c.id));
+    const target = budget || 0;
+    const rest = [...owned, ...extra].filter((c) => !used.has(c.id)).sort((a, b) => Math.abs(a.bst - target) - Math.abs(b.bst - target) || a.id - b.id);
+    for (const c of rest) {
+      if (team.length >= 6) break;
+      if (!used.has(c.id)) {
+        used.add(c.id);
+        team.push(c);
+      }
+    }
+    log.push(`Rival pool too small: topped up to ${team.length} from the wider pool`);
+  }
   if (legends.length && kind === "strongest") team[team.length - 1] = rng.pick(legends);
   team = rng.shuffle(team);
   log.push(`NPC team (${archetype.name}): ${team.map((c) => `${c.displayName}#${c.id}`).join(", ")} | tier picks: ${fromTier.map((c) => c.displayName).join(", ") || "none"}`);

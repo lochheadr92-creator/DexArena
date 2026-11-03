@@ -583,9 +583,10 @@ export class BattleRenderer {
         this.onAbility(state, ev, now);
         continue;
       }
-      if (ev.kind === "weather") {
-        this.texts.push({ kind: "center", text: ev.text, color: WEATHER[ev.weather]?.color || "#e2e8f0", start: now, until: now + A.ability.weatherBannerSec * 1000 });
-        if (A.animationsEnabled && !this.reducedMotion && this.gfx.screenFx) this.effects.push({ kind: "vignette", color: WEATHER[ev.weather]?.color || "#ffffff", alpha: 0.3, inner: true, start: now, until: now + 500 });
+      if (ev.kind === "weather" || ev.kind === "notice") {
+        const color = ev.kind === "notice" ? ev.color || "#e2e8f0" : WEATHER[ev.weather]?.color || "#e2e8f0";
+        this.texts.push({ kind: "center", text: ev.text, color, start: now, until: now + A.ability.weatherBannerSec * 1000 });
+        if (A.animationsEnabled && !this.reducedMotion && this.gfx.screenFx) this.effects.push({ kind: "vignette", color, alpha: 0.3, inner: true, start: now, until: now + 500 });
         continue;
       }
       if (ev.kind === "heal") {
@@ -770,6 +771,7 @@ export class BattleRenderer {
         break;
       }
       case "weather":
+      case "notice":
         break;
       default:
         this.effects.push({ kind: "aura", ...self, color, start: now, until: now + 800 });

@@ -74,8 +74,9 @@ export function aiThink(state, unit, enemy, team) {
   if (state.tick < unit.backoffUntil) unit.intent = { mode: "backoff" };
   else {
     const fav = findFavourableTile(state, unit);
-    if (fav) unit.intent = { mode: "waypoint", x: fav.x, y: fav.y };
-    else if (damaging.length && !usable.length) unit.intent = { mode: "approach" };
+    const mustClose = damaging.length && !usable.length;
+    if (fav && !(mustClose && dist(fav, enemy.pos) > d)) unit.intent = { mode: "waypoint", x: fav.x, y: fav.y };
+    else if (mustClose) unit.intent = { mode: "approach" };
     else if (d > unit.preferred + engine.movement.holdBand) unit.intent = { mode: "approach" };
     else if (d < unit.preferred - engine.movement.holdBand) unit.intent = { mode: "retreat" };
     else unit.intent = { mode: "hold" };

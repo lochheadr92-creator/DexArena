@@ -148,6 +148,7 @@ export const ResultScreen = ({ state, mode = "quick", outcome, creatures = {}, o
             </h2>
             <p className="font-mono text-[10px] uppercase tracking-widest text-slate-400" data-testid="result-meta">
               {seconds}s · you {remaining("player")}/6 · rival {remaining("npc")}/6 · seed {state.seed}
+              {state.timedOut ? " · time limit — decided by remaining HP" : ""}
             </p>
           </div>
         </div>

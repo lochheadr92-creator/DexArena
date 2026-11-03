@@ -142,9 +142,14 @@ export const BattleHud = ({ snap, speed, setSpeed, paused, setPaused, autoPick, 
         <div className="pointer-events-auto">
           <SideBar u={snap.npc} side="npc" label={snap.npc.label} numeric={false} />
         </div>
-        {(readOnly || stage || snap.weather) && (
+        {(readOnly || stage || snap.weather || snap.suddenDeath > 1) && (
           <div className="mt-1.5 flex justify-center gap-2">
             <WeatherChip weather={snap.weather} />
+            {snap.suddenDeath > 1 && (
+              <span data-testid="sudden-death-chip" data-mult={snap.suddenDeath.toFixed(2)} className="inline-flex items-center gap-1 rounded-full border border-rose-500/60 bg-rose-950/90 px-2.5 py-0.5 font-mono text-[9px] uppercase tracking-[0.2em] text-rose-200">
+                <Flame className="h-3 w-3" /> Sudden death ×{snap.suddenDeath.toFixed(1)}
+              </span>
+            )}
             {(readOnly || stage) && (
               <span
                 data-testid={readOnly ? "replay-badge" : "gauntlet-stage-badge"}

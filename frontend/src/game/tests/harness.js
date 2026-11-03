@@ -668,8 +668,30 @@ async function weatherStartTest(opts = {}) {
   return { initialWeather: state.initialWeather, atStart, text: firstEvent?.text || null, lines };
 }
 
+async function stallSweep(opts = {}) {
+  const seeds = opts.seeds || Array.from({ length: opts.n || 24 }, (_, i) => 1000 + i);
+  const res = [];
+  for (const seed of seeds) {
+    const state = await prepareBattle({ creatures: dex.creatures, unlockedIds: dex.unlockedIds, playerIds: opts.playerIds || FIXED_PLAYER, npcIds: opts.npcIds || null, archetypeId: opts.archetypeId || "kiter", terrainId: opts.terrainId || "snowfield", seed, autoPick: true, decodeSprites: false, rivalLevel: opts.rivalLevel ?? 1 });
+    runHeadless(state, opts.maxTicks || 40000);
+    const s = summary(state);
+    res.push({ seed, ended: state.phase === "ended", tick: state.tick, winner: s.winner, npc: state.teams.npc.units.map((u) => u.name).join(","), hits: state.log.filter((l) => l.includes(" dmg")).length, active: [activeUnitName(state, "player"), activeUnitName(state, "npc")], state: state.phase === "ended" ? null : state });
+  }
+  const stuck = res.filter((r) => !r.ended);
+  out([`__stallSweep ${res.length} battles, stuck=${stuck.length}, median endTick=${median(res.filter((r) => r.ended).map((r) => r.tick))}`, ...stuck.map((r) => `  seed ${r.seed} tick ${r.tick} hits ${r.hits} active ${r.active.join(" vs ")} npc ${r.npc}`)]);
+  window.__lastStuck = stuck.map((r) => r.state);
+  return res;
+}
+const activeUnitName = (state, side) => {
+  const t = state.teams[side];
+  const u = t.units[t.activeIndex];
+  return u ? `${u.name}(${u.hp}/${u.maxHp},${u.state})` : "none";
+};
+
 export function installHarness() {
   Object.assign(window, {
+    __step: step,
+    __stallSweep: stallSweep,
     __dailyTest: dailyTest,
     __weatherStartTest: weatherStartTest,
     __abilityTest: abilityTest,

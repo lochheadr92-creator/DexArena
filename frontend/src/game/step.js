@@ -14,6 +14,10 @@ export function step(state) {
   processInputs(state);
   if (state.teams.player.pendingPick && !state.autoPick) return;
   state.tick++;
+  if (state.tick === secToTicks(engine.suddenDeath.startSec)) {
+    pushEvent(state, { kind: "notice", text: "Sudden death — damage ramps up!", color: "#f87171" });
+    logLine(state, `sudden death: damage ×${(1 + engine.suddenDeath.rampPerMin).toFixed(1)} per extra minute`);
+  }
 
   for (const side of ["player", "npc"]) updateTeamFlow(state, state.teams[side]);
 
@@ -358,7 +362,19 @@ function findUnitById(state, id) {
 function checkEnd(state) {
   const p = state.teams.player.defeated;
   const n = state.teams.npc.defeated;
-  if (!p && !n) return;
+  if (!p && !n) {
+    if (state.tick < secToTicks(engine.timeLimitSec)) return;
+    const frac = (team) => team.units.reduce((s, u) => s + u.hp, 0) / Math.max(1, team.units.reduce((s, u) => s + u.maxHp, 0));
+    const pf = frac(state.teams.player);
+    const nf = frac(state.teams.npc);
+    state.phase = "ended";
+    state.endTick = state.tick;
+    state.winner = pf > nf ? "player" : pf < nf ? "npc" : engine.doubleKoWinner;
+    state.timedOut = true;
+    pushEvent(state, { kind: "end", winner: state.winner, timeout: true });
+    logLine(state, `battle ended on time limit: winner ${state.winner} by remaining HP (${(pf * 100).toFixed(0)}% vs ${(nf * 100).toFixed(0)}%) at tick ${state.tick}`);
+    return;
+  }
   state.phase = "ended";
   state.endTick = state.tick;
   state.winner = p && n ? engine.doubleKoWinner : p ? "npc" : "player";
