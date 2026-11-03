@@ -4,7 +4,8 @@ import { clearCreatureCache, fetchCreatures, loadCachedCreatures, patchAbilities
 import { clearSave, defaultSave, loadSave, normalizeSave, persistSave, validateSave, TEAM_SIZE } from "@/lib/save";
 import { computeStarterIds, isSealed } from "@/lib/unlocks";
 import { creditBattle, battleBonuses, sealKeys } from "@/lib/progression";
-import { applyRunToSave, newRun, runAfterBattle } from "@/lib/gauntlet";
+import { applyRunToSave, newRun, runAfterBattle, abandonRun } from "@/lib/gauntlet";
+import { buildDaily, dailyKey, dailyResult, recordDaily } from "@/lib/daily";
 import { clampLevel } from "@/lib/rival";
 import { buildCatalog, applyEvolutionItem as applyItemToSave } from "@/lib/items";
 import { registerDex, installHarness } from "@/game/tests/harness";
@@ -199,17 +200,49 @@ export function GameProvider({ children }) {
     return run;
   }, [updateSave]);
 
-  const finishGauntletStage = useCallback((state) => {
+  const finishGauntletStage = useCallback((state, drop = null) => {
     const run = saveRef.current.gauntlet.active;
     if (!run) return null;
-    const result = runAfterBattle(run, state);
+    const result = runAfterBattle(run, state, drop);
     const next = applyRunToSave(saveRef.current, result);
     setSave(persistSave(next));
     saveRef.current = next;
     return result;
   }, []);
 
-  const abandonGauntlet = useCallback(() => updateSave((prev) => ({ ...prev, gauntlet: { ...prev.gauntlet, active: null } })), [updateSave]);
+  const abandonGauntlet = useCallback(() => updateSave(abandonRun), [updateSave]);
+
+  const [daily, setDaily] = useState(null);
+  const dailyRef = useRef(null);
+  dailyRef.current = daily;
+  const dexComplete = progress.status === "done" && !progress.patch;
+  useEffect(() => {
+    if (!dexComplete) return undefined;
+    let cancelled = false;
+    const build = () =>
+      buildDaily(creaturesRef.current)
+        .then((d) => {
+          if (!cancelled) setDaily(d);
+        })
+        .catch((e) => console.error("daily build failed", e));
+    build();
+    const id = setInterval(() => {
+      if (dailyRef.current && dailyRef.current.key !== dailyKey()) build();
+    }, 30000);
+    return () => {
+      cancelled = true;
+      clearInterval(id);
+    };
+  }, [dexComplete]);
+
+  const recordDailyResult = useCallback((state) => {
+    const key = dailyRef.current?.key || dailyKey();
+    const result = dailyResult(state);
+    const res = recordDaily(saveRef.current, key, result);
+    setSave(persistSave(res.save));
+    saveRef.current = res.save;
+    return { key, result, isBest: res.isBest, best: res.save.daily.best, attempts: res.save.daily.attempts };
+  }, []);
 
   const value = useMemo(
     () => ({
@@ -239,8 +272,10 @@ export function GameProvider({ children }) {
       startGauntlet,
       finishGauntletStage,
       abandonGauntlet,
+      daily,
+      recordDailyResult,
     }),
-    [creatures, list, progress, save, starterIds, unlockedIds, toggleTeam, clearTeam, setTerrain, setRivalLevel, setAbility, resetSave, retryFailed, resyncDex, movesetOverrides, setMovesetOverride, importSave, creditResult, catalog, applyEvolutionItem, spendSealKey, startGauntlet, finishGauntletStage, abandonGauntlet],
+    [creatures, list, progress, save, starterIds, unlockedIds, toggleTeam, clearTeam, setTerrain, setRivalLevel, setAbility, resetSave, retryFailed, resyncDex, movesetOverrides, setMovesetOverride, importSave, creditResult, catalog, applyEvolutionItem, spendSealKey, startGauntlet, finishGauntletStage, abandonGauntlet, daily, recordDailyResult],
   );
 
   return <GameContext.Provider value={value}>{children}</GameContext.Provider>;

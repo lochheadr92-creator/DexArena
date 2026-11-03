@@ -1,3 +1,5 @@
+import { abilities } from "@/game/config";
+
 const b64 = (s) => btoa(s).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
 const unb64 = (s) => atob(s.replace(/-/g, "+").replace(/_/g, "/"));
 
@@ -20,9 +22,11 @@ export function encodeReplay(state) {
     i: state.inputLog.map((x) => (x.type === "auto" ? [x.tick, 2, x.value ? 1 : 0] : x.type === "item" ? [x.tick, 3, x.index, x.itemId] : [x.tick, x.type === "pick" ? 1 : 0, x.index])),
   };
   if (state.meta.initialHp) payload.hp = state.meta.initialHp;
+  if (state.initialWeather) payload.w = state.initialWeather;
   return b64(JSON.stringify(payload));
 }
 
+const WEATHER_KINDS = Object.keys(abilities.weather);
 const isMovesetList = (sets) => Array.isArray(sets) && sets.length === 6 && sets.every((s) => Array.isArray(s) && s.every((id) => Number.isInteger(id)));
 
 export function decodeReplay(code) {
@@ -36,10 +40,12 @@ export function decodeReplay(code) {
   const okAbilities = (arr) => Array.isArray(arr) && arr.length === 6 && arr.every((a) => a === null || (typeof a === "string" && /^[a-z0-9-]+$/.test(a)));
   if (![1, 2].includes(d.v) || !okIds(d.p) || !okIds(d.n) || !isMovesetList(d.pm) || !isMovesetList(d.nm) || !Array.isArray(d.i)) throw new Error("This replay link is not valid");
   if (d.v === 2 && (!okAbilities(d.pa) || !okAbilities(d.na))) throw new Error("This replay link is not valid");
+  if (d.w !== undefined && !WEATHER_KINDS.includes(d.w)) throw new Error("This replay link is not valid");
   const overrides = (ids, sets) => Object.fromEntries(ids.map((id, k) => [id, sets[k]]));
   const abilitiesEnabled = d.v === 2 && d.ab !== 0;
   return {
     abilitiesEnabled,
+    initialWeather: d.w || null,
     playerAbilityIds: abilitiesEnabled ? d.pa : null,
     npcAbilityIds: abilitiesEnabled ? d.na : null,
     seed: d.seed >>> 0,

@@ -3,6 +3,9 @@ import { cn } from "@/lib/utils";
 import { TYPES, TYPE_COLORS } from "@/lib/types";
 import { GEN_LABELS, titleCase } from "@/lib/format";
 import { DEX } from "@/constants/testIds/dex";
+import { AbilityFilter } from "@/components/AbilityFilter";
+
+export const EMPTY_FILTERS = { query: "", gen: 0, type: null, onlyUnlocked: false, ability: null };
 
 const Chip = ({ active, onClick, children, testId, style, className }) => (
   <button
@@ -23,7 +26,7 @@ const Chip = ({ active, onClick, children, testId, style, className }) => (
   </button>
 );
 
-export const RosterFilters = ({ filters, setFilters, hasFilters }) => {
+export const RosterFilters = ({ filters, setFilters, hasFilters, list = [] }) => {
   const set = (patch) => setFilters((f) => ({ ...f, ...patch }));
 
   return (
@@ -67,10 +70,11 @@ export const RosterFilters = ({ filters, setFilters, hasFilters }) => {
         >
           <Unlock className="h-3 w-3" /> Unlocked
         </Chip>
+        <AbilityFilter value={filters.ability} onChange={(ability) => set({ ability })} list={list} />
         {hasFilters && (
           <Chip
             testId={DEX.clearFilters}
-            onClick={() => setFilters({ query: "", gen: 0, type: null, onlyUnlocked: false })}
+            onClick={() => setFilters(EMPTY_FILTERS)}
             className="flex items-center gap-1 border-rose-900/60 text-rose-300"
           >
             <X className="h-3 w-3" /> Clear

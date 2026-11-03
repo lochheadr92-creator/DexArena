@@ -5,9 +5,9 @@ import { buildMoveset, toBattleMove, STRUGGLE_ID } from "@/game/moves";
 import { generateNpcTeam } from "@/game/teamgen";
 import { createBattle, difficultyParams, playerParams } from "@/game/state";
 import { ensureSprite, spriteReport } from "@/game/render/sprites";
-import { rivalPlan } from "@/lib/rival";
+import { rivalPlan, legendWeather } from "@/lib/rival";
 import { buildCatalog, optionsFor } from "@/lib/items";
-import { abilityFor, abilityName, randomAbility, isImplemented } from "@/game/abilities";
+import { abilityFor, abilityName, randomAbility, isImplemented, WEATHER } from "@/game/abilities";
 
 export const mappingLines = (creature, moves) =>
   moves.map((m) => `${creature.displayName}: ${m.name} [${m.type}/${m.damageClass} pow ${m.power}${m.accuracy != null ? ` acc ${m.accuracy}` : ""}] → ${m.shape}, cd ${m.cooldownSec.toFixed(1)}s${m.status ? `, ${m.status.kind} ${m.status.chance}%${m.status.attaches ? "" : " (not attached)"}` : ""}`);
@@ -30,7 +30,7 @@ export async function buildMovesets(creatures, overrides = {}, log = []) {
   });
 }
 
-export async function prepareBattle({ creatures, unlockedIds, playerIds, terrainId, seed, movesetOverrides = {}, npcMovesetOverrides = {}, autoPick = false, archetypeId = null, npcIds = null, slot = null, rivalLevel = null, totalWins = 0, initialHp = null, replayInputs = null, playerHasLegendary = false, trace = false, onProgress = () => {}, decodeSprites = true, abilityPicks = {}, playerAbilityIds = null, npcAbilityIds = null, abilitiesEnabled = true }) {
+export async function prepareBattle({ creatures, unlockedIds, playerIds, terrainId, seed, movesetOverrides = {}, npcMovesetOverrides = {}, autoPick = false, archetypeId = null, npcIds = null, slot = null, rivalLevel = null, totalWins = 0, initialHp = null, replayInputs = null, playerHasLegendary = false, trace = false, onProgress = () => {}, decodeSprites = true, abilityPicks = {}, playerAbilityIds = null, npcAbilityIds = null, abilitiesEnabled = true, initialWeather }) {
   const log = [];
   const rng = makeRng((seed ^ 0x9e3779b9) >>> 0);
   const archetype = archetypeConfig.archetypes[archetypeId || rng.pick(archetypeConfig.quickBattlePool)];
@@ -38,6 +38,8 @@ export async function prepareBattle({ creatures, unlockedIds, playerIds, terrain
   const playerCreatures = playerIds.map((id) => creatures[id]);
   const plan = rivalPlan(playerCreatures, totalWins, rivalLevel ?? slot ?? difficultyConfig.defaultRivalLevel);
   const npcCreatures = npcIds ? npcIds.map((id) => creatures[id]) : await generateNpcTeam({ rng, creatures, unlockedIds, archetype, playerHasLegendary, budget: plan.budget, pool: plan.pool, tierPicks: plan.tierPicks, allowLegendary: plan.legendary, log });
+  const weather = initialWeather === undefined ? legendWeather(terrainId, plan.level) : initialWeather && WEATHER[initialWeather] ? initialWeather : null;
+  if (weather) log.push(`Weather: ${terrainId} starts in ${WEATHER[weather].name} (Legend rival)`);
 
   onProgress("Fetching move data");
   const playerMovesets = await buildMovesets(playerCreatures, movesetOverrides, log);
@@ -78,11 +80,12 @@ export async function prepareBattle({ creatures, unlockedIds, playerIds, terrain
     autoPick,
     trace,
     abilitiesEnabled,
+    initialWeather: weather,
     player: { creatures: playerCreatures, movesets: playerMovesets, params: playerParams(), name: "You", initialHp, evolutions, abilities: playerAbilities },
     npc: { creatures: npcCreatures, movesets: npcMovesets, params: difficultyParams(archetype, difficultySlot), archetypeId: archetype.id, name: archetype.name, abilities: npcAbilities },
   });
   if (replayInputs) state.replayInputs = replayInputs.map((x) => ({ ...x })).sort((a, b) => a.tick - b.tick);
   state.battleId = `${seed}-${Date.now().toString(36)}`;
-  state.meta = { archetype: archetype.id, slot: difficultySlot, rival: plan, initialHp, mapping, log, spriteStats, damageScale: engine.DAMAGE_SCALE, abilities: { player: playerAbilities, npc: npcAbilities, enabled: abilitiesEnabled } };
+  state.meta = { archetype: archetype.id, slot: difficultySlot, rival: plan, initialHp, mapping, log, spriteStats, damageScale: engine.DAMAGE_SCALE, weather, abilities: { player: playerAbilities, npc: npcAbilities, enabled: abilitiesEnabled } };
   return state;
 }

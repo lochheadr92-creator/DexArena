@@ -4,12 +4,12 @@ import { toast } from "sonner";
 import { useGame } from "@/context/GameContext";
 import { MAX_ID } from "@/lib/pokeapi";
 import { DEX } from "@/constants/testIds/dex";
-import { RosterFilters } from "@/components/RosterFilters";
+import { RosterFilters, EMPTY_FILTERS } from "@/components/RosterFilters";
+import { AbilityFilterNote } from "@/components/AbilityFilter";
 import { CreatureCard } from "@/components/CreatureCard";
 import { TeamTray } from "@/components/TeamTray";
 import { CreatureDetailSheet } from "@/components/CreatureDetailSheet";
 
-const EMPTY_FILTERS = { query: "", gen: 0, type: null, onlyUnlocked: false };
 const ALL_IDS = Array.from({ length: MAX_ID }, (_, i) => i + 1);
 
 const Placeholder = ({ id }) => (
@@ -25,7 +25,7 @@ export default function RosterPage() {
   const [filters, setFilters] = useState(EMPTY_FILTERS);
   const [detailId, setDetailId] = useState(null);
 
-  const hasFilters = !!(filters.query || filters.gen || filters.type || filters.onlyUnlocked);
+  const hasFilters = !!(filters.query || filters.gen || filters.type || filters.onlyUnlocked || filters.ability);
   const q = filters.query.trim().toLowerCase();
 
   const filtered = useMemo(
@@ -35,10 +35,12 @@ export default function RosterPage() {
           (!filters.gen || c.generation === filters.gen) &&
           (!filters.type || c.types.includes(filters.type)) &&
           (!filters.onlyUnlocked || unlockedIds.has(c.id)) &&
+          (!filters.ability || (c.abilities || []).includes(filters.ability)) &&
           (!q || c.displayName.toLowerCase().includes(q) || c.name.includes(q) || String(c.id) === q.replace(/^#0*/, "")),
       ),
-    [list, filters.gen, filters.type, filters.onlyUnlocked, unlockedIds, q],
+    [list, filters.gen, filters.type, filters.onlyUnlocked, filters.ability, unlockedIds, q],
   );
+  const abilityCount = useMemo(() => (filters.ability ? list.filter((c) => (c.abilities || []).includes(filters.ability)).length : 0), [list, filters.ability]);
 
   const slotOf = useMemo(() => new Map(save.team.map((id, i) => [id, i])), [save.team]);
 
@@ -56,7 +58,12 @@ export default function RosterPage() {
 
   return (
     <div className="pb-48">
-      <RosterFilters filters={filters} setFilters={setFilters} hasFilters={hasFilters} />
+      <RosterFilters filters={filters} setFilters={setFilters} hasFilters={hasFilters} list={list} />
+      {filters.ability && (
+        <div className="mt-2.5">
+          <AbilityFilterNote value={filters.ability} count={abilityCount} />
+        </div>
+      )}
 
       <div className="mt-3 flex items-center justify-between font-mono text-[10px] uppercase tracking-widest text-slate-500">
         <span data-testid={DEX.rosterCount}>

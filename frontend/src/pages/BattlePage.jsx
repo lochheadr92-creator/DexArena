@@ -6,6 +6,7 @@ import { useGame } from "@/context/GameContext";
 import { prepareBattle } from "@/game/prebattle";
 import { playerHasLegendary } from "@/lib/progression";
 import { stageSetup } from "@/lib/gauntlet";
+import { dailySetup, attemptSeed, todaysDaily, shareText } from "@/lib/daily";
 import { decodeReplay, replayUrl } from "@/lib/replay";
 import { BattleCanvas } from "@/components/battle/BattleCanvas";
 import { BattleHud } from "@/components/battle/BattleHud";
@@ -23,11 +24,11 @@ function pickSeed() {
 }
 
 export default function BattlePage() {
-  const { creatures, unlockedIds, save, progress, movesetOverrides, creditResult, finishGauntletStage, catalog, applyEvolutionItem } = useGame();
+  const { creatures, unlockedIds, save, progress, movesetOverrides, creditResult, finishGauntletStage, catalog, applyEvolutionItem, daily, recordDailyResult } = useGame();
   const navigate = useNavigate();
   const location = useLocation();
   const [params] = useSearchParams();
-  const mode = location.pathname === "/replay" ? "replay" : params.get("mode") === "gauntlet" ? "gauntlet" : "quick";
+  const mode = location.pathname === "/replay" ? "replay" : ["gauntlet", "daily"].includes(params.get("mode")) ? params.get("mode") : "quick";
   const stateRef = useRef(null);
   const rendererRef = useRef(null);
   const speedRef = useRef(1);
@@ -109,6 +110,12 @@ export default function BattlePage() {
         return;
       }
       setup = { ...stageSetup(save.gauntlet.active), seed: pickSeed(), totalWins: save.totalWins };
+    } else if (mode === "daily") {
+      if (!daily) {
+        if (progress.status === "error") navigate("/arena", { replace: true });
+        return;
+      }
+      setup = dailySetup(daily, save);
     } else {
       const override = window.__battleOverride || {};
       setup = { playerIds: override.playerIds || save.team, terrainId: override.terrainId || save.terrain, seed: override.seed ?? pickSeed(), archetypeId: override.archetypeId || null, npcIds: override.npcIds || null, autoPick: override.autoPick ?? false, rivalLevel: override.rivalLevel ?? save.rivalLevel, totalWins: save.totalWins };
@@ -124,7 +131,7 @@ export default function BattlePage() {
     }
     startedRef.current = true;
     start(setup);
-  }, [phase, progress.status, save, creatures, start, navigate, mode, location.hash]);
+  }, [phase, progress.status, save, creatures, start, navigate, mode, location.hash, daily]);
 
   const onSnapshot = useCallback((s) => {
     setSnap(s);
@@ -150,9 +157,10 @@ export default function BattlePage() {
     if (mode === "replay") return;
     const stage = state.meta.slot;
     const credit = creditResult(state, { drop: mode === "gauntlet" ? { guaranteed: true, rare: stage >= 6 } : null });
-    const gauntlet = mode === "gauntlet" ? finishGauntletStage(state) : null;
-    setOutcome({ ...credit, gauntlet });
-  }, [ended, mode, creditResult, finishGauntletStage]);
+    const gauntlet = mode === "gauntlet" ? finishGauntletStage(state, credit.drop) : null;
+    const dailyOut = mode === "daily" ? recordDailyResult(state) : null;
+    setOutcome({ ...credit, gauntlet, daily: dailyOut });
+  }, [ended, mode, creditResult, finishGauntletStage, recordDailyResult]);
 
   const pick = (index) => {
     const state = stateRef.current;
@@ -180,24 +188,25 @@ export default function BattlePage() {
     startedRef.current = true;
     start(setup);
   };
-  const rematch = () => restart({ ...lastSetup.current, seed: pickSeed(), autoPick });
+  const rematch = () => restart({ ...lastSetup.current, seed: mode === "daily" ? attemptSeed(daily.seed, todaysDaily(save, daily.key).attempts) : pickSeed(), autoPick });
   const nextTrainer = () => {
     const run = outcome?.gauntlet?.run;
     if (run) restart({ ...stageSetup(run), seed: pickSeed(), autoPick, totalWins: save.totalWins });
   };
-  const share = async () => {
-    const url = replayUrl(stateRef.current);
+  const copyOrShare = async (title, text, url) => {
     try {
-      if (navigator.share) await navigator.share({ title: "Arena Dex replay", url });
+      if (navigator.share) await navigator.share({ title, text, url });
       else {
-        await navigator.clipboard.writeText(url);
-        toast.success("Replay link copied", { description: "Anyone opening it watches this exact battle." });
+        await navigator.clipboard.writeText(text ? `${text}\n${url}` : url);
+        toast.success(text ? "Result copied" : "Replay link copied", { description: text ? "Paste it to a friend and compare." : "Anyone opening it watches this exact battle." });
       }
     } catch {
-      window.prompt("Copy this replay link", url);
+      window.prompt("Copy this", text ? `${text}\n${url}` : url);
     }
   };
-  const back = () => navigate(mode === "gauntlet" ? "/gauntlet" : "/");
+  const share = () => copyOrShare("Arena Dex replay", null, replayUrl(stateRef.current));
+  const shareDaily = () => copyOrShare("Arena Dex Daily", shareText(outcome.daily.key, outcome.daily.result), `${window.location.origin}/arena`);
+  const back = () => navigate(mode === "gauntlet" ? "/gauntlet" : mode === "daily" ? "/arena" : "/");
 
   if (phase === "error") {
     return (
@@ -221,14 +230,14 @@ export default function BattlePage() {
         <TeamStrip bench={snap.player.bench} forced={pendingPick} onPick={pick} onClose={() => setStripOpen(false)} onAuto={() => setAutoPick(true)} />
       )}
       {phase === "battle" && ended && stateRef.current && (mode === "replay" || outcome) && (
-        <ResultScreen state={stateRef.current} mode={mode} outcome={outcome} creatures={creatures} onRematch={rematch} onNext={nextTrainer} onShare={share} onBack={back} />
+        <ResultScreen state={stateRef.current} mode={mode} outcome={outcome} creatures={creatures} onRematch={rematch} onNext={nextTrainer} onShare={share} onShareDaily={shareDaily} onBack={back} />
       )}
       {phase === "loading" && (
         <div className="flex h-full flex-col items-center justify-center gap-4" data-testid="battle-loading">
           <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-cyan-500/15 text-cyan-300">
             <Swords className="h-7 w-7" />
           </span>
-          <p className="font-display text-lg font-bold uppercase tracking-widest text-slate-100">{mode === "replay" ? "Loading replay" : mode === "gauntlet" ? `Gauntlet · Trainer ${save.gauntlet.active?.stage ?? ""}` : "Entering arena"}</p>
+          <p className="font-display text-lg font-bold uppercase tracking-widest text-slate-100">{mode === "replay" ? "Loading replay" : mode === "gauntlet" ? `Gauntlet · Trainer ${save.gauntlet.active?.stage ?? ""}` : mode === "daily" ? `Daily challenge · ${daily?.key ?? ""}` : "Entering arena"}</p>
           <p className="flex items-center gap-2 font-mono text-[11px] uppercase tracking-wider text-cyan-400" data-testid="battle-loading-status">
             <Loader2 className="h-3.5 w-3.5 animate-spin" /> {status}
           </p>

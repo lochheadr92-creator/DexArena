@@ -1,5 +1,11 @@
 import { Slider } from "@/components/ui/slider";
-import { RIVAL_LEVELS, rivalPlan } from "@/lib/rival";
+import { RIVAL_LEVELS, rivalPlan, LEGEND_WEATHER } from "@/lib/rival";
+import { WEATHER } from "@/game/abilities";
+import { terrainById } from "@/lib/terrains";
+
+const LEGEND_WEATHER_TEXT = Object.entries(LEGEND_WEATHER.terrains)
+  .map(([t, k]) => `${terrainById(t).name} starts in ${WEATHER[k].name}`)
+  .join(", ");
 
 const POOL_TEXT = {
   unlocked: () => ", from your unlocked pool only",
@@ -54,6 +60,11 @@ export const RivalLevelPicker = ({ level, onChange, teamCreatures, totalWins }) 
         {POOL_TEXT[plan.pool](plan.tierPicks)}
         {plan.legendary ? ", and may bring a legendary if you own one" : ""}.
       </p>
+      {plan.level >= LEGEND_WEATHER.level && (
+        <p className="mt-1.5 text-[11px] leading-snug text-sky-300/90" data-testid="rival-legend-weather">
+          Legend arenas open under weather: {LEGEND_WEATHER_TEXT}.
+        </p>
+      )}
     </section>
   );
 };

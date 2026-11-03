@@ -2,7 +2,7 @@ import { engine, archetypes as archetypeConfig, difficulty as difficultyConfig, 
 import { makeRng } from "@/game/rng";
 import { battleStats } from "@/game/stats";
 import { buildTerrain } from "@/game/terrain";
-import { onEntry } from "@/game/abilities";
+import { onEntry, startWeather, WEATHER } from "@/game/abilities";
 
 export function difficultyParams(archetype, slot) {
   const d = difficultyConfig.slots.find((s) => s.slot === slot) || difficultyConfig.slots[0];
@@ -114,7 +114,7 @@ function makeUnit(creature, moves, side, index, params, spawn, ability = null) {
   };
 }
 
-export function createBattle({ seed, terrainId, player, npc, autoPick = false, trace = false, abilitiesEnabled = true }) {
+export function createBattle({ seed, terrainId, player, npc, autoPick = false, trace = false, abilitiesEnabled = true, initialWeather = null }) {
   const terrain = buildTerrain(terrainId);
   const spawns = { player: { x: 8, y: 24 }, npc: { x: 8, y: 3 } };
   const mkTeam = (side, cfg) => {
@@ -167,6 +167,7 @@ export function createBattle({ seed, terrainId, player, npc, autoPick = false, t
     abilitiesEnabled,
     abilityLog: [],
     weather: null,
+    initialWeather: initialWeather && WEATHER[initialWeather] ? initialWeather : null,
   };
   for (const side of ["player", "npc"]) {
     const team = state.teams[side];
@@ -177,6 +178,7 @@ export function createBattle({ seed, terrainId, player, npc, autoPick = false, t
     u.entries++;
     pushEvent(state, { kind: "switch-in", unitId: u.id, side, name: u.name, x: u.pos.x, y: u.pos.y });
   }
+  if (state.initialWeather) startWeather(state, state.initialWeather, WEATHER[state.initialWeather].ambient);
   return state;
 }
 

@@ -1,9 +1,60 @@
 {
   "weather": {
-    "rain": { "name": "Rain", "typeMult": { "water": 1.3, "fire": 0.7 }, "color": "#60a5fa", "start": "It started to rain!" },
-    "sun": { "name": "Harsh sunlight", "typeMult": { "fire": 1.3, "water": 0.7 }, "color": "#fbbf24", "start": "The sunlight turned harsh!" },
-    "sand": { "name": "Sandstorm", "typeMult": {}, "chipFraction": 0.0625, "chipEverySec": 2, "immuneTypes": ["rock", "ground", "steel"], "immuneAbilities": ["sand-veil", "magic-guard"], "color": "#d4a373", "start": "A sandstorm kicked up!" },
-    "hail": { "name": "Hail", "typeMult": {}, "chipFraction": 0.0625, "chipEverySec": 2, "immuneTypes": ["ice"], "immuneAbilities": ["snow-cloak", "ice-body", "magic-guard"], "color": "#bae6fd", "start": "It started to hail!" }
+    "rain": {
+      "name": "Rain",
+      "typeMult": {
+        "water": 1.3,
+        "fire": 0.7
+      },
+      "color": "#60a5fa",
+      "start": "It started to rain!",
+      "ambient": "The rain is pouring down!"
+    },
+    "sun": {
+      "name": "Harsh sunlight",
+      "typeMult": {
+        "fire": 1.3,
+        "water": 0.7
+      },
+      "color": "#fbbf24",
+      "start": "The sunlight turned harsh!",
+      "ambient": "The sunlight is blazing!"
+    },
+    "sand": {
+      "name": "Sandstorm",
+      "typeMult": {},
+      "chipFraction": 0.0625,
+      "chipEverySec": 2,
+      "immuneTypes": [
+        "rock",
+        "ground",
+        "steel"
+      ],
+      "immuneAbilities": [
+        "sand-veil",
+        "magic-guard"
+      ],
+      "color": "#d4a373",
+      "start": "A sandstorm kicked up!",
+      "ambient": "A sandstorm rages across the arena!"
+    },
+    "hail": {
+      "name": "Hail",
+      "typeMult": {},
+      "chipFraction": 0.0625,
+      "chipEverySec": 2,
+      "immuneTypes": [
+        "ice"
+      ],
+      "immuneAbilities": [
+        "snow-cloak",
+        "ice-body",
+        "magic-guard"
+      ],
+      "color": "#bae6fd",
+      "start": "It started to hail!",
+      "ambient": "Hail batters the arena!"
+    }
   },
   "params": {
     "pinchHpFraction": 0.3334,
@@ -53,80 +104,534 @@
     "tickEverySec": 1
   },
   "defs": {
-    "intimidate": { "name": "Intimidate", "group": "entry", "color": "#ef4444", "fx": "intimidate", "desc": "On entry, cows the foe: its Attack drops to ×0.67 until it switches. Blocked by Hyper Cutter, Clear Body and White Smoke." },
-    "download": { "name": "Download", "group": "entry", "color": "#22d3ee", "fx": "boost", "desc": "On entry, scans the foe and raises Attack or Sp. Atk ×1.5 — whichever hits the foe's weaker defence." },
-    "pressure": { "name": "Pressure", "group": "entry", "color": "#a78bfa", "fx": "aura", "desc": "While out, the foe's move cooldowns are 25% longer." },
-    "frisk": { "name": "Frisk", "group": "entry", "color": "#fbbf24", "fx": "reveal", "desc": "On entry, reveals the rival's whole hidden team." },
-    "slow-start": { "name": "Slow Start", "group": "entry", "color": "#94a3b8", "fx": "debuff", "desc": "Attack and Speed are halved for the first 5 seconds after entering." },
-    "arena-trap": { "name": "Arena Trap", "group": "entry", "color": "#a16207", "fx": "trap", "desc": "The foe cannot switch out while this creature is active. Flying types and Levitate escape." },
-    "shadow-tag": { "name": "Shadow Tag", "group": "entry", "color": "#6b21a8", "fx": "trap", "desc": "The foe cannot switch out while this creature is active (unless it also has Shadow Tag)." },
-    "magnet-pull": { "name": "Magnet Pull", "group": "entry", "color": "#64748b", "fx": "trap", "desc": "Steel-type foes cannot switch out while this creature is active." },
-    "drizzle": { "name": "Drizzle", "group": "weather", "color": "#60a5fa", "fx": "weather", "desc": "Summons rain on entry: Water moves ×1.3, Fire moves ×0.7 for everyone." },
-    "drought": { "name": "Drought", "group": "weather", "color": "#fbbf24", "fx": "weather", "desc": "Summons harsh sunlight on entry: Fire moves ×1.3, Water moves ×0.7 for everyone." },
-    "sand-stream": { "name": "Sand Stream", "group": "weather", "color": "#d4a373", "fx": "weather", "desc": "Summons a sandstorm on entry: non Rock/Ground/Steel creatures lose 1/16 HP every 2 s." },
-    "snow-warning": { "name": "Snow Warning", "group": "weather", "color": "#bae6fd", "fx": "weather", "desc": "Summons hail on entry: non Ice creatures lose 1/16 HP every 2 s." },
-    "forecast": { "name": "Forecast", "group": "weather", "color": "#e2e8f0", "fx": "transform", "desc": "Changes type with the weather: Fire in sun, Water in rain, Ice in hail." },
-    "cloud-nine": { "name": "Cloud Nine", "group": "weather", "color": "#e2e8f0", "fx": "aura", "desc": "While out, all weather effects are suppressed." },
-    "air-lock": { "name": "Air Lock", "group": "weather", "color": "#e2e8f0", "fx": "aura", "desc": "While out, all weather effects are suppressed." },
-    "blaze": { "name": "Blaze", "group": "pinch", "type": "fire", "color": "#f97316", "fx": "pinch", "desc": "Below ⅓ HP, Fire moves deal ×1.5 damage." },
-    "torrent": { "name": "Torrent", "group": "pinch", "type": "water", "color": "#3b82f6", "fx": "pinch", "desc": "Below ⅓ HP, Water moves deal ×1.5 damage." },
-    "overgrow": { "name": "Overgrow", "group": "pinch", "type": "grass", "color": "#22c55e", "fx": "pinch", "desc": "Below ⅓ HP, Grass moves deal ×1.5 damage." },
-    "swarm": { "name": "Swarm", "group": "pinch", "type": "bug", "color": "#a3e635", "fx": "pinch", "desc": "Below ⅓ HP, Bug moves deal ×1.5 damage." },
-    "huge-power": { "name": "Huge Power", "group": "offense", "color": "#f43f5e", "fx": "passive", "desc": "Attack is doubled." },
-    "pure-power": { "name": "Pure Power", "group": "offense", "color": "#f43f5e", "fx": "passive", "desc": "Attack is doubled." },
-    "hustle": { "name": "Hustle", "group": "offense", "color": "#fb7185", "fx": "passive", "desc": "Attack ×1.5, but physical moves are only 80% as accurate." },
-    "guts": { "name": "Guts", "group": "offense", "color": "#f59e0b", "fx": "boost", "desc": "Attack ×1.5 while burned or paralysed." },
-    "technician": { "name": "Technician", "group": "offense", "color": "#38bdf8", "fx": "passive", "desc": "Moves with 60 power or less deal ×1.5 damage." },
-    "iron-fist": { "name": "Iron Fist", "group": "offense", "color": "#94a3b8", "fx": "passive", "desc": "Punching moves deal ×1.2 damage." },
-    "adaptability": { "name": "Adaptability", "group": "offense", "color": "#c084fc", "fx": "passive", "desc": "Same-type attack bonus is ×2 instead of ×1.5." },
-    "tinted-lens": { "name": "Tinted Lens", "group": "offense", "color": "#e879f9", "fx": "passive", "desc": "Not-very-effective moves deal double damage." },
-    "scrappy": { "name": "Scrappy", "group": "offense", "color": "#fda4af", "fx": "passive", "desc": "Normal and Fighting moves can hit Ghost types." },
-    "mold-breaker": { "name": "Mold Breaker", "group": "offense", "color": "#fbbf24", "fx": "passive", "desc": "Moves ignore the foe's defensive abilities (Levitate, Wonder Guard, absorbs, Sturdy…)." },
-    "compound-eyes": { "name": "Compound Eyes", "group": "offense", "color": "#a3e635", "fx": "passive", "desc": "Move accuracy ×1.3." },
-    "no-guard": { "name": "No Guard", "group": "offense", "color": "#f87171", "fx": "passive", "desc": "Every move by or against this creature hits — no misses, no dodges." },
-    "serene-grace": { "name": "Serene Grace", "group": "offense", "color": "#f9a8d4", "fx": "passive", "desc": "Moves' burn and paralysis chances are doubled." },
-    "truant": { "name": "Truant", "group": "offense", "color": "#94a3b8", "fx": "loaf", "desc": "Loafs around for 2 seconds after every move." },
-    "solar-power": { "name": "Solar Power", "group": "weather", "color": "#fbbf24", "fx": "boost", "desc": "In harsh sunlight, Sp. Atk ×1.5 but loses 1/8 HP every 2 s." },
-    "flower-gift": { "name": "Flower Gift", "group": "weather", "color": "#f9a8d4", "fx": "boost", "desc": "In harsh sunlight, Attack and Sp. Def ×1.5." },
-    "levitate": { "name": "Levitate", "group": "defense", "color": "#c4b5fd", "fx": "immune", "desc": "Hovers: immune to Ground moves, ignores tile effects and Arena Trap." },
-    "wonder-guard": { "name": "Wonder Guard", "group": "defense", "color": "#fde68a", "fx": "immune", "desc": "Only super-effective moves can deal damage." },
-    "sturdy": { "name": "Sturdy", "group": "defense", "color": "#fbbf24", "fx": "endure", "desc": "Survives any single hit from full HP with 1 HP left." },
-    "thick-fat": { "name": "Thick Fat", "group": "defense", "color": "#fda4af", "fx": "resist", "desc": "Fire and Ice damage taken ×0.5." },
-    "heatproof": { "name": "Heatproof", "group": "defense", "color": "#fdba74", "fx": "resist", "desc": "Fire damage taken ×0.5." },
-    "solid-rock": { "name": "Solid Rock", "group": "defense", "color": "#a8a29e", "fx": "resist", "desc": "Super-effective damage taken ×0.75." },
-    "filter": { "name": "Filter", "group": "defense", "color": "#a8a29e", "fx": "resist", "desc": "Super-effective damage taken ×0.75." },
-    "water-absorb": { "name": "Water Absorb", "group": "defense", "color": "#3b82f6", "fx": "heal", "desc": "Immune to Water moves and heals ¼ HP when hit by one." },
-    "volt-absorb": { "name": "Volt Absorb", "group": "defense", "color": "#facc15", "fx": "heal", "desc": "Immune to Electric moves and heals ¼ HP when hit by one." },
-    "flash-fire": { "name": "Flash Fire", "group": "defense", "color": "#f97316", "fx": "boost", "desc": "Immune to Fire moves; being hit by one powers up its own Fire moves ×1.5." },
-    "motor-drive": { "name": "Motor Drive", "group": "defense", "color": "#facc15", "fx": "boost", "desc": "Immune to Electric moves; being hit by one raises Speed ×1.5." },
-    "dry-skin": { "name": "Dry Skin", "group": "defense", "color": "#86efac", "fx": "heal", "desc": "Absorbs Water (heals ¼), takes ×1.25 from Fire. Heals in rain, hurts in sun." },
-    "shield-dust": { "name": "Shield Dust", "group": "defense", "color": "#fde68a", "fx": "immune", "desc": "Moves' extra burn and paralysis effects don't land." },
-    "limber": { "name": "Limber", "group": "defense", "color": "#f9a8d4", "fx": "immune", "desc": "Cannot be paralysed." },
-    "water-veil": { "name": "Water Veil", "group": "defense", "color": "#38bdf8", "fx": "immune", "desc": "Cannot be burned." },
-    "leaf-guard": { "name": "Leaf Guard", "group": "weather", "color": "#4ade80", "fx": "immune", "desc": "Cannot be burned or paralysed in harsh sunlight or on the grass Pitch." },
-    "suction-cups": { "name": "Suction Cups", "group": "defense", "color": "#c084fc", "fx": "passive", "desc": "Cannot be knocked back by contact moves." },
-    "magic-guard": { "name": "Magic Guard", "group": "defense", "color": "#e879f9", "fx": "passive", "desc": "Only takes damage from direct attacks — no burn, weather or recoil chip." },
-    "color-change": { "name": "Color Change", "group": "defense", "color": "#34d399", "fx": "transform", "desc": "Changes to the type of the last move that hit it." },
-    "hyper-cutter": { "name": "Hyper Cutter", "group": "defense", "color": "#f87171", "fx": "immune", "desc": "Attack cannot be lowered by Intimidate." },
-    "clear-body": { "name": "Clear Body", "group": "defense", "color": "#e2e8f0", "fx": "immune", "desc": "Stats cannot be lowered by Intimidate." },
-    "white-smoke": { "name": "White Smoke", "group": "defense", "color": "#e2e8f0", "fx": "immune", "desc": "Stats cannot be lowered by Intimidate." },
-    "sand-veil": { "name": "Sand Veil", "group": "weather", "color": "#d4a373", "fx": "passive", "desc": "+20% dodge chance in a sandstorm or in the dusty Cavern; immune to sandstorm chip." },
-    "snow-cloak": { "name": "Snow Cloak", "group": "weather", "color": "#bae6fd", "fx": "passive", "desc": "+20% dodge chance in hail or on snow and ice tiles; immune to hail chip." },
-    "static": { "name": "Static", "group": "contact", "color": "#facc15", "fx": "contact", "desc": "30% chance to paralyse attackers that make contact." },
-    "flame-body": { "name": "Flame Body", "group": "contact", "color": "#f97316", "fx": "contact", "desc": "30% chance to burn attackers that make contact." },
-    "effect-spore": { "name": "Effect Spore", "group": "contact", "color": "#a3e635", "fx": "contact", "desc": "30% chance to burn or paralyse attackers that make contact." },
-    "rough-skin": { "name": "Rough Skin", "group": "contact", "color": "#a8a29e", "fx": "contact", "desc": "Attackers that make contact lose ⅛ of their HP." },
-    "aftermath": { "name": "Aftermath", "group": "contact", "color": "#f87171", "fx": "contact", "desc": "When knocked out by a contact move, the attacker loses ¼ of its HP." },
-    "synchronize": { "name": "Synchronize", "group": "status", "color": "#e879f9", "fx": "contact", "desc": "Passes any burn or paralysis it receives back to the attacker." },
-    "shed-skin": { "name": "Shed Skin", "group": "status", "color": "#86efac", "fx": "cure", "desc": "Every 3 s, 30% chance to shrug off burn or paralysis." },
-    "natural-cure": { "name": "Natural Cure", "group": "status", "color": "#86efac", "fx": "cure", "desc": "Burn and paralysis are cured when switching out." },
-    "hydration": { "name": "Hydration", "group": "weather", "color": "#60a5fa", "fx": "cure", "desc": "Cures burn and paralysis every second in rain or on water tiles." },
-    "speed-boost": { "name": "Speed Boost", "group": "status", "color": "#22d3ee", "fx": "boost", "desc": "Speed rises 20% every 3 s while out, up to +60%." },
-    "marvel-scale": { "name": "Marvel Scale", "group": "status", "color": "#f9a8d4", "fx": "boost", "desc": "Defence ×1.5 while burned or paralysed." },
-    "quick-feet": { "name": "Quick Feet", "group": "status", "color": "#22d3ee", "fx": "boost", "desc": "Speed ×1.5 while burned or paralysed." },
-    "ice-body": { "name": "Ice Body", "group": "weather", "color": "#bae6fd", "fx": "heal", "desc": "Heals 1/16 HP every 2 s in hail or on snow and ice tiles; immune to hail chip." },
-    "rain-dish": { "name": "Rain Dish", "group": "weather", "color": "#60a5fa", "fx": "heal", "desc": "Heals 1/16 HP every 2 s in rain or on water tiles." },
-    "swift-swim": { "name": "Swift Swim", "group": "weather", "color": "#60a5fa", "fx": "boost", "desc": "Speed ×2 in rain, ×1.5 on water tiles." },
-    "chlorophyll": { "name": "Chlorophyll", "group": "weather", "color": "#4ade80", "fx": "boost", "desc": "Speed ×2 in harsh sunlight, ×1.5 on the grass Pitch." }
+    "intimidate": {
+      "name": "Intimidate",
+      "group": "entry",
+      "color": "#ef4444",
+      "fx": "intimidate",
+      "desc": "On entry, cows the foe: its Attack drops to \u00d70.67 until it switches. Blocked by Hyper Cutter, Clear Body and White Smoke."
+    },
+    "download": {
+      "name": "Download",
+      "group": "entry",
+      "color": "#22d3ee",
+      "fx": "boost",
+      "desc": "On entry, scans the foe and raises Attack or Sp. Atk \u00d71.5 \u2014 whichever hits the foe's weaker defence."
+    },
+    "pressure": {
+      "name": "Pressure",
+      "group": "entry",
+      "color": "#a78bfa",
+      "fx": "aura",
+      "desc": "While out, the foe's move cooldowns are 25% longer."
+    },
+    "frisk": {
+      "name": "Frisk",
+      "group": "entry",
+      "color": "#fbbf24",
+      "fx": "reveal",
+      "desc": "On entry, reveals the rival's whole hidden team."
+    },
+    "slow-start": {
+      "name": "Slow Start",
+      "group": "entry",
+      "color": "#94a3b8",
+      "fx": "debuff",
+      "desc": "Attack and Speed are halved for the first 5 seconds after entering."
+    },
+    "arena-trap": {
+      "name": "Arena Trap",
+      "group": "entry",
+      "color": "#a16207",
+      "fx": "trap",
+      "desc": "The foe cannot switch out while this creature is active. Flying types and Levitate escape."
+    },
+    "shadow-tag": {
+      "name": "Shadow Tag",
+      "group": "entry",
+      "color": "#6b21a8",
+      "fx": "trap",
+      "desc": "The foe cannot switch out while this creature is active (unless it also has Shadow Tag)."
+    },
+    "magnet-pull": {
+      "name": "Magnet Pull",
+      "group": "entry",
+      "color": "#64748b",
+      "fx": "trap",
+      "desc": "Steel-type foes cannot switch out while this creature is active."
+    },
+    "drizzle": {
+      "name": "Drizzle",
+      "group": "weather",
+      "color": "#60a5fa",
+      "fx": "weather",
+      "desc": "Summons rain on entry: Water moves \u00d71.3, Fire moves \u00d70.7 for everyone."
+    },
+    "drought": {
+      "name": "Drought",
+      "group": "weather",
+      "color": "#fbbf24",
+      "fx": "weather",
+      "desc": "Summons harsh sunlight on entry: Fire moves \u00d71.3, Water moves \u00d70.7 for everyone."
+    },
+    "sand-stream": {
+      "name": "Sand Stream",
+      "group": "weather",
+      "color": "#d4a373",
+      "fx": "weather",
+      "desc": "Summons a sandstorm on entry: non Rock/Ground/Steel creatures lose 1/16 HP every 2 s."
+    },
+    "snow-warning": {
+      "name": "Snow Warning",
+      "group": "weather",
+      "color": "#bae6fd",
+      "fx": "weather",
+      "desc": "Summons hail on entry: non Ice creatures lose 1/16 HP every 2 s."
+    },
+    "forecast": {
+      "name": "Forecast",
+      "group": "weather",
+      "color": "#e2e8f0",
+      "fx": "transform",
+      "desc": "Changes type with the weather: Fire in sun, Water in rain, Ice in hail."
+    },
+    "cloud-nine": {
+      "name": "Cloud Nine",
+      "group": "weather",
+      "color": "#e2e8f0",
+      "fx": "aura",
+      "desc": "While out, all weather effects are suppressed."
+    },
+    "air-lock": {
+      "name": "Air Lock",
+      "group": "weather",
+      "color": "#e2e8f0",
+      "fx": "aura",
+      "desc": "While out, all weather effects are suppressed."
+    },
+    "blaze": {
+      "name": "Blaze",
+      "group": "pinch",
+      "type": "fire",
+      "color": "#f97316",
+      "fx": "pinch",
+      "desc": "Below \u2153 HP, Fire moves deal \u00d71.5 damage."
+    },
+    "torrent": {
+      "name": "Torrent",
+      "group": "pinch",
+      "type": "water",
+      "color": "#3b82f6",
+      "fx": "pinch",
+      "desc": "Below \u2153 HP, Water moves deal \u00d71.5 damage."
+    },
+    "overgrow": {
+      "name": "Overgrow",
+      "group": "pinch",
+      "type": "grass",
+      "color": "#22c55e",
+      "fx": "pinch",
+      "desc": "Below \u2153 HP, Grass moves deal \u00d71.5 damage."
+    },
+    "swarm": {
+      "name": "Swarm",
+      "group": "pinch",
+      "type": "bug",
+      "color": "#a3e635",
+      "fx": "pinch",
+      "desc": "Below \u2153 HP, Bug moves deal \u00d71.5 damage."
+    },
+    "huge-power": {
+      "name": "Huge Power",
+      "group": "offense",
+      "color": "#f43f5e",
+      "fx": "passive",
+      "desc": "Attack is doubled."
+    },
+    "pure-power": {
+      "name": "Pure Power",
+      "group": "offense",
+      "color": "#f43f5e",
+      "fx": "passive",
+      "desc": "Attack is doubled."
+    },
+    "hustle": {
+      "name": "Hustle",
+      "group": "offense",
+      "color": "#fb7185",
+      "fx": "passive",
+      "desc": "Attack \u00d71.5, but physical moves are only 80% as accurate."
+    },
+    "guts": {
+      "name": "Guts",
+      "group": "offense",
+      "color": "#f59e0b",
+      "fx": "boost",
+      "desc": "Attack \u00d71.5 while burned or paralysed."
+    },
+    "technician": {
+      "name": "Technician",
+      "group": "offense",
+      "color": "#38bdf8",
+      "fx": "passive",
+      "desc": "Moves with 60 power or less deal \u00d71.5 damage."
+    },
+    "iron-fist": {
+      "name": "Iron Fist",
+      "group": "offense",
+      "color": "#94a3b8",
+      "fx": "passive",
+      "desc": "Punching moves deal \u00d71.2 damage."
+    },
+    "adaptability": {
+      "name": "Adaptability",
+      "group": "offense",
+      "color": "#c084fc",
+      "fx": "passive",
+      "desc": "Same-type attack bonus is \u00d72 instead of \u00d71.5."
+    },
+    "tinted-lens": {
+      "name": "Tinted Lens",
+      "group": "offense",
+      "color": "#e879f9",
+      "fx": "passive",
+      "desc": "Not-very-effective moves deal double damage."
+    },
+    "scrappy": {
+      "name": "Scrappy",
+      "group": "offense",
+      "color": "#fda4af",
+      "fx": "passive",
+      "desc": "Normal and Fighting moves can hit Ghost types."
+    },
+    "mold-breaker": {
+      "name": "Mold Breaker",
+      "group": "offense",
+      "color": "#fbbf24",
+      "fx": "passive",
+      "desc": "Moves ignore the foe's defensive abilities (Levitate, Wonder Guard, absorbs, Sturdy\u2026)."
+    },
+    "compound-eyes": {
+      "name": "Compound Eyes",
+      "group": "offense",
+      "color": "#a3e635",
+      "fx": "passive",
+      "desc": "Move accuracy \u00d71.3."
+    },
+    "no-guard": {
+      "name": "No Guard",
+      "group": "offense",
+      "color": "#f87171",
+      "fx": "passive",
+      "desc": "Every move by or against this creature hits \u2014 no misses, no dodges."
+    },
+    "serene-grace": {
+      "name": "Serene Grace",
+      "group": "offense",
+      "color": "#f9a8d4",
+      "fx": "passive",
+      "desc": "Moves' burn and paralysis chances are doubled."
+    },
+    "truant": {
+      "name": "Truant",
+      "group": "offense",
+      "color": "#94a3b8",
+      "fx": "loaf",
+      "desc": "Loafs around for 2 seconds after every move."
+    },
+    "solar-power": {
+      "name": "Solar Power",
+      "group": "weather",
+      "color": "#fbbf24",
+      "fx": "boost",
+      "desc": "In harsh sunlight, Sp. Atk \u00d71.5 but loses 1/8 HP every 2 s."
+    },
+    "flower-gift": {
+      "name": "Flower Gift",
+      "group": "weather",
+      "color": "#f9a8d4",
+      "fx": "boost",
+      "desc": "In harsh sunlight, Attack and Sp. Def \u00d71.5."
+    },
+    "levitate": {
+      "name": "Levitate",
+      "group": "defense",
+      "color": "#c4b5fd",
+      "fx": "immune",
+      "desc": "Hovers: immune to Ground moves, ignores tile effects and Arena Trap."
+    },
+    "wonder-guard": {
+      "name": "Wonder Guard",
+      "group": "defense",
+      "color": "#fde68a",
+      "fx": "immune",
+      "desc": "Only super-effective moves can deal damage."
+    },
+    "sturdy": {
+      "name": "Sturdy",
+      "group": "defense",
+      "color": "#fbbf24",
+      "fx": "endure",
+      "desc": "Survives any single hit from full HP with 1 HP left."
+    },
+    "thick-fat": {
+      "name": "Thick Fat",
+      "group": "defense",
+      "color": "#fda4af",
+      "fx": "resist",
+      "desc": "Fire and Ice damage taken \u00d70.5."
+    },
+    "heatproof": {
+      "name": "Heatproof",
+      "group": "defense",
+      "color": "#fdba74",
+      "fx": "resist",
+      "desc": "Fire damage taken \u00d70.5."
+    },
+    "solid-rock": {
+      "name": "Solid Rock",
+      "group": "defense",
+      "color": "#a8a29e",
+      "fx": "resist",
+      "desc": "Super-effective damage taken \u00d70.75."
+    },
+    "filter": {
+      "name": "Filter",
+      "group": "defense",
+      "color": "#a8a29e",
+      "fx": "resist",
+      "desc": "Super-effective damage taken \u00d70.75."
+    },
+    "water-absorb": {
+      "name": "Water Absorb",
+      "group": "defense",
+      "color": "#3b82f6",
+      "fx": "heal",
+      "desc": "Immune to Water moves and heals \u00bc HP when hit by one."
+    },
+    "volt-absorb": {
+      "name": "Volt Absorb",
+      "group": "defense",
+      "color": "#facc15",
+      "fx": "heal",
+      "desc": "Immune to Electric moves and heals \u00bc HP when hit by one."
+    },
+    "flash-fire": {
+      "name": "Flash Fire",
+      "group": "defense",
+      "color": "#f97316",
+      "fx": "boost",
+      "desc": "Immune to Fire moves; being hit by one powers up its own Fire moves \u00d71.5."
+    },
+    "motor-drive": {
+      "name": "Motor Drive",
+      "group": "defense",
+      "color": "#facc15",
+      "fx": "boost",
+      "desc": "Immune to Electric moves; being hit by one raises Speed \u00d71.5."
+    },
+    "dry-skin": {
+      "name": "Dry Skin",
+      "group": "defense",
+      "color": "#86efac",
+      "fx": "heal",
+      "desc": "Absorbs Water (heals \u00bc), takes \u00d71.25 from Fire. Heals in rain, hurts in sun."
+    },
+    "shield-dust": {
+      "name": "Shield Dust",
+      "group": "defense",
+      "color": "#fde68a",
+      "fx": "immune",
+      "desc": "Moves' extra burn and paralysis effects don't land."
+    },
+    "limber": {
+      "name": "Limber",
+      "group": "defense",
+      "color": "#f9a8d4",
+      "fx": "immune",
+      "desc": "Cannot be paralysed."
+    },
+    "water-veil": {
+      "name": "Water Veil",
+      "group": "defense",
+      "color": "#38bdf8",
+      "fx": "immune",
+      "desc": "Cannot be burned."
+    },
+    "leaf-guard": {
+      "name": "Leaf Guard",
+      "group": "weather",
+      "color": "#4ade80",
+      "fx": "immune",
+      "desc": "Cannot be burned or paralysed in harsh sunlight or on the grass Pitch."
+    },
+    "suction-cups": {
+      "name": "Suction Cups",
+      "group": "defense",
+      "color": "#c084fc",
+      "fx": "passive",
+      "desc": "Cannot be knocked back by contact moves."
+    },
+    "magic-guard": {
+      "name": "Magic Guard",
+      "group": "defense",
+      "color": "#e879f9",
+      "fx": "passive",
+      "desc": "Only takes damage from direct attacks \u2014 no burn, weather or recoil chip."
+    },
+    "color-change": {
+      "name": "Color Change",
+      "group": "defense",
+      "color": "#34d399",
+      "fx": "transform",
+      "desc": "Changes to the type of the last move that hit it."
+    },
+    "hyper-cutter": {
+      "name": "Hyper Cutter",
+      "group": "defense",
+      "color": "#f87171",
+      "fx": "immune",
+      "desc": "Attack cannot be lowered by Intimidate."
+    },
+    "clear-body": {
+      "name": "Clear Body",
+      "group": "defense",
+      "color": "#e2e8f0",
+      "fx": "immune",
+      "desc": "Stats cannot be lowered by Intimidate."
+    },
+    "white-smoke": {
+      "name": "White Smoke",
+      "group": "defense",
+      "color": "#e2e8f0",
+      "fx": "immune",
+      "desc": "Stats cannot be lowered by Intimidate."
+    },
+    "sand-veil": {
+      "name": "Sand Veil",
+      "group": "weather",
+      "color": "#d4a373",
+      "fx": "passive",
+      "desc": "+20% dodge chance in a sandstorm or in the dusty Cavern; immune to sandstorm chip."
+    },
+    "snow-cloak": {
+      "name": "Snow Cloak",
+      "group": "weather",
+      "color": "#bae6fd",
+      "fx": "passive",
+      "desc": "+20% dodge chance in hail or on snow and ice tiles; immune to hail chip."
+    },
+    "static": {
+      "name": "Static",
+      "group": "contact",
+      "color": "#facc15",
+      "fx": "contact",
+      "desc": "30% chance to paralyse attackers that make contact."
+    },
+    "flame-body": {
+      "name": "Flame Body",
+      "group": "contact",
+      "color": "#f97316",
+      "fx": "contact",
+      "desc": "30% chance to burn attackers that make contact."
+    },
+    "effect-spore": {
+      "name": "Effect Spore",
+      "group": "contact",
+      "color": "#a3e635",
+      "fx": "contact",
+      "desc": "30% chance to burn or paralyse attackers that make contact."
+    },
+    "rough-skin": {
+      "name": "Rough Skin",
+      "group": "contact",
+      "color": "#a8a29e",
+      "fx": "contact",
+      "desc": "Attackers that make contact lose \u215b of their HP."
+    },
+    "aftermath": {
+      "name": "Aftermath",
+      "group": "contact",
+      "color": "#f87171",
+      "fx": "contact",
+      "desc": "When knocked out by a contact move, the attacker loses \u00bc of its HP."
+    },
+    "synchronize": {
+      "name": "Synchronize",
+      "group": "status",
+      "color": "#e879f9",
+      "fx": "contact",
+      "desc": "Passes any burn or paralysis it receives back to the attacker."
+    },
+    "shed-skin": {
+      "name": "Shed Skin",
+      "group": "status",
+      "color": "#86efac",
+      "fx": "cure",
+      "desc": "Every 3 s, 30% chance to shrug off burn or paralysis."
+    },
+    "natural-cure": {
+      "name": "Natural Cure",
+      "group": "status",
+      "color": "#86efac",
+      "fx": "cure",
+      "desc": "Burn and paralysis are cured when switching out."
+    },
+    "hydration": {
+      "name": "Hydration",
+      "group": "weather",
+      "color": "#60a5fa",
+      "fx": "cure",
+      "desc": "Cures burn and paralysis every second in rain or on water tiles."
+    },
+    "speed-boost": {
+      "name": "Speed Boost",
+      "group": "status",
+      "color": "#22d3ee",
+      "fx": "boost",
+      "desc": "Speed rises 20% every 3 s while out, up to +60%."
+    },
+    "marvel-scale": {
+      "name": "Marvel Scale",
+      "group": "status",
+      "color": "#f9a8d4",
+      "fx": "boost",
+      "desc": "Defence \u00d71.5 while burned or paralysed."
+    },
+    "quick-feet": {
+      "name": "Quick Feet",
+      "group": "status",
+      "color": "#22d3ee",
+      "fx": "boost",
+      "desc": "Speed \u00d71.5 while burned or paralysed."
+    },
+    "ice-body": {
+      "name": "Ice Body",
+      "group": "weather",
+      "color": "#bae6fd",
+      "fx": "heal",
+      "desc": "Heals 1/16 HP every 2 s in hail or on snow and ice tiles; immune to hail chip."
+    },
+    "rain-dish": {
+      "name": "Rain Dish",
+      "group": "weather",
+      "color": "#60a5fa",
+      "fx": "heal",
+      "desc": "Heals 1/16 HP every 2 s in rain or on water tiles."
+    },
+    "swift-swim": {
+      "name": "Swift Swim",
+      "group": "weather",
+      "color": "#60a5fa",
+      "fx": "boost",
+      "desc": "Speed \u00d72 in rain, \u00d71.5 on water tiles."
+    },
+    "chlorophyll": {
+      "name": "Chlorophyll",
+      "group": "weather",
+      "color": "#4ade80",
+      "fx": "boost",
+      "desc": "Speed \u00d72 in harsh sunlight, \u00d71.5 on the grass Pitch."
+    }
   }
 }

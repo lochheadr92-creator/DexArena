@@ -1,7 +1,8 @@
-import { Trophy, Skull, RotateCcw, Grid3x3, Share2, ChevronRight, Sparkles, KeyRound, Flag } from "lucide-react";
+import { Trophy, Skull, RotateCcw, Grid3x3, Share2, ChevronRight, Sparkles, KeyRound, Flag, CalendarDays, Swords } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { TICK_RATE } from "@/game/config";
 import { GAUNTLET_STAGES } from "@/lib/gauntlet";
+import { fmtTime } from "@/lib/daily";
 import { KO_BONUS, STANDING_BONUS } from "@/lib/progression";
 import { itemInfo } from "@/lib/items";
 import { ItemIcon } from "@/components/ItemIcon";
@@ -98,6 +99,21 @@ const GauntletNote = ({ g }) => {
   );
 };
 
+const DailyNote = ({ d }) => {
+  if (!d) return null;
+  const r = d.result;
+  return (
+    <div className="rounded-xl border border-fuchsia-900/60 bg-fuchsia-950/30 px-3 py-2 text-xs text-fuchsia-100" data-testid="result-daily" data-score={r.score} data-best={d.isBest} data-attempt={d.attempts}>
+      <p className="flex items-center gap-2">
+        <CalendarDays className="h-3.5 w-3.5 shrink-0" /> Daily challenge {d.key} · attempt {d.attempts}
+      </p>
+      <p className="mt-1 font-mono text-[10px] uppercase tracking-wider text-fuchsia-300" data-testid="result-daily-score">
+        Score {r.score} · {fmtTime(r.seconds)} · {r.standing} standing · {r.kos} KOs · {d.isBest ? "new best" : `best ${d.best.score}`}
+      </p>
+    </div>
+  );
+};
+
 const Btn = ({ primary, testId, onClick, icon: Icon, children }) => (
   <button
     type="button"
@@ -112,7 +128,7 @@ const Btn = ({ primary, testId, onClick, icon: Icon, children }) => (
   </button>
 );
 
-export const ResultScreen = ({ state, mode = "quick", outcome, creatures = {}, onRematch, onNext, onShare, onBack }) => {
+export const ResultScreen = ({ state, mode = "quick", outcome, creatures = {}, onRematch, onNext, onShare, onShareDaily, onBack }) => {
   const win = state.winner === "player";
   const remaining = (side) => state.teams[side].units.filter((u) => u.hp > 0).length;
   const seconds = (state.endTick / TICK_RATE).toFixed(1);
@@ -128,6 +144,7 @@ export const ResultScreen = ({ state, mode = "quick", outcome, creatures = {}, o
             <h2 className="font-display text-3xl font-bold tracking-tight text-slate-50" data-testid="result-title">
               {win ? "Win" : "Loss"}
               {mode === "replay" && <span className="ml-2 align-middle font-mono text-[10px] uppercase tracking-widest text-cyan-400">Replay</span>}
+              {mode === "daily" && <span className="ml-2 align-middle font-mono text-[10px] uppercase tracking-widest text-fuchsia-400">Daily</span>}
             </h2>
             <p className="font-mono text-[10px] uppercase tracking-widest text-slate-400" data-testid="result-meta">
               {seconds}s · you {remaining("player")}/6 · rival {remaining("npc")}/6 · seed {state.seed}
@@ -135,6 +152,7 @@ export const ResultScreen = ({ state, mode = "quick", outcome, creatures = {}, o
           </div>
         </div>
         <GauntletNote g={g} />
+        <DailyNote d={outcome?.daily} />
         <Rewards outcome={outcome} creatures={creatures} />
         {mode !== "replay" && <CreditBreakdown outcome={outcome} win={win} />}
         <Table title="Your team" units={state.teams.player.units} testId="result-table-player" />
@@ -143,6 +161,16 @@ export const ResultScreen = ({ state, mode = "quick", outcome, creatures = {}, o
           {mode === "quick" && (
             <Btn primary testId="rematch-button" onClick={onRematch} icon={RotateCcw}>
               Rematch
+            </Btn>
+          )}
+          {mode === "daily" && (
+            <Btn primary testId="daily-retry-button" onClick={onRematch} icon={RotateCcw}>
+              Retry daily
+            </Btn>
+          )}
+          {mode === "daily" && (
+            <Btn testId="share-daily-button" onClick={onShareDaily} icon={CalendarDays}>
+              Share result
             </Btn>
           )}
           {mode === "gauntlet" && g?.outcome === "advance" && (
@@ -164,8 +192,8 @@ export const ResultScreen = ({ state, mode = "quick", outcome, creatures = {}, o
             Share replay
           </Btn>
           {mode !== "replay" && (
-            <Btn testId="back-to-roster-button" onClick={onBack} icon={Grid3x3}>
-              {mode === "gauntlet" ? "Leave" : "Roster"}
+            <Btn testId="back-to-roster-button" onClick={onBack} icon={mode === "daily" ? Swords : Grid3x3}>
+              {mode === "gauntlet" ? "Leave" : mode === "daily" ? "Arena" : "Roster"}
             </Btn>
           )}
         </div>

@@ -6,9 +6,12 @@ import { useGame } from "@/context/GameContext";
 import { GAUNTLET_STAGES } from "@/lib/gauntlet";
 import { TEAM_SIZE } from "@/lib/save";
 import { terrainById } from "@/lib/terrains";
+import { legendWeather } from "@/lib/rival";
+import { WEATHER } from "@/game/abilities";
 import { archetypes as archetypeConfig } from "@/game/config";
 import { battleStats } from "@/game/stats";
 import { SpriteImg } from "@/components/SpriteImg";
+import { RunHistory } from "@/components/RunHistory";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -37,6 +40,7 @@ const StageRow = ({ index, run }) => {
   const status = !run ? "upcoming" : stage < run.stage ? "cleared" : stage === run.stage ? "current" : "upcoming";
   const archetype = run ? archetypeConfig.archetypes[run.archetypes[index]] : null;
   const terrain = run ? terrainById(run.terrains[index]) : null;
+  const weather = terrain ? legendWeather(terrain.id, stage) : null;
   return (
     <div
       data-testid={`gauntlet-stage-${stage}`}
@@ -54,7 +58,14 @@ const StageRow = ({ index, run }) => {
           {stage === GAUNTLET_STAGES && <Crown className="mr-1 inline h-3.5 w-3.5 text-amber-300" />}
           {archetype ? archetype.name : stage === GAUNTLET_STAGES ? "Champion" : "Hidden trainer"}
         </p>
-        <p className="font-mono text-[10px] uppercase tracking-wider text-slate-500">{terrain ? terrain.name : "Terrain revealed on start"} · difficulty slot {stage}</p>
+        <p className="font-mono text-[10px] uppercase tracking-wider text-slate-500">
+          {terrain ? terrain.name : "Terrain revealed on start"} · difficulty slot {stage}
+          {weather && (
+            <span className="ml-1" style={{ color: WEATHER[weather].color }} data-testid={`gauntlet-stage-weather-${stage}`} data-weather={weather}>
+              · starts in {WEATHER[weather].name}
+            </span>
+          )}
+        </p>
       </div>
       {status === "upcoming" && run && <Lock className="h-4 w-4 text-slate-600" />}
     </div>
@@ -125,6 +136,10 @@ export default function GauntletPage() {
         {Array.from({ length: GAUNTLET_STAGES }, (_, i) => (
           <StageRow key={i} index={i} run={run} />
         ))}
+      </section>
+
+      <section className="space-y-2">
+        <RunHistory history={save.gauntlet.history || []} runs={save.gauntlet.runs} hasActive={!!run} creatures={creatures} />
       </section>
 
       {run ? (

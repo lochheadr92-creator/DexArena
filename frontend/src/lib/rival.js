@@ -24,3 +24,6 @@ export function rivalPlan(teamCreatures, totalWins, level) {
   const power = selfPower(teamCreatures, totalWins);
   return { level: cfg.level, name: cfg.name, slot: cfg.slot, power, budget: rivalBudget(power, cfg.level), pool: cfg.pool, tierPicks: cfg.tierPicks, legendary: cfg.legendary };
 }
+
+export const LEGEND_WEATHER = difficulty.legendWeather;
+export const legendWeather = (terrainId, level) => (clampLevel(level) >= LEGEND_WEATHER.level ? LEGEND_WEATHER.terrains[terrainId] || null : null);

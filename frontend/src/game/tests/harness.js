@@ -635,8 +635,43 @@ async function abilityCoverage() {
   return { species: all.length, withData: withData.length, distinct: uniq.length, implemented: implemented.length, speciesCovered, missing };
 }
 
+async function dailyTest(opts = {}) {
+  const { buildDaily, dailySeed, dailyKey, dailySetup, dailyResult } = await import("@/lib/daily");
+  const key = opts.key || dailyKey();
+  const d1 = await buildDaily(dex.creatures, key);
+  const d2 = await buildDaily(dex.creatures, key);
+  const same = JSON.stringify(d1.npcIds) === JSON.stringify(d2.npcIds) && d1.terrainId === d2.terrainId && JSON.stringify(d1.npcAbilityIds) === JSON.stringify(d2.npcAbilityIds);
+  const lines = [`__dailyTest key=${key} seed=${dailySeed(key)} terrain=${d1.terrainId} archetype=${d1.archetypeId} weather=${d1.weather || "none"} deterministic=${same}`];
+  lines.push(`  rival: ${d1.npcIds.map((id, i) => `${dex.creatures[id]?.displayName}#${id}=${d1.npcAbilityIds[i] || "—"}`).join(", ")}`);
+  lines.push(`  avg BST ${Math.round(d1.npcIds.reduce((s, id) => s + (dex.creatures[id]?.bst || 0), 0) / 6)}`);
+  const save = { team: opts.playerIds || FIXED_PLAYER, totalWins: 0, daily: { key, attempts: opts.attempt || 0, best: null } };
+  const setup = dailySetup(d1, save);
+  const state = await prepareBattle({ creatures: dex.creatures, unlockedIds: dex.unlockedIds, ...setup, autoPick: true, decodeSprites: false });
+  runHeadless(state);
+  const s = summary(state);
+  const r = dailyResult(state);
+  lines.push(`  attempt seed=${setup.seed} initialWeather=${state.initialWeather || "none"} tick0Weather=${state.log.find((l) => l.includes("weather:")) || "none"} → winner=${s.winner} endTick=${s.endTick} score=${r.score} standing=${r.standing} kos=${r.kos}`);
+  out(lines);
+  return { daily: d1, deterministic: same, setup, result: r, summary: s, lines };
+}
+
+async function weatherStartTest(opts = {}) {
+  const terrainId = opts.terrainId || "shoreline";
+  const rivalLevel = opts.rivalLevel ?? 6;
+  const state = await prepareBattle({ creatures: dex.creatures, unlockedIds: dex.unlockedIds, playerIds: opts.playerIds || FIXED_PLAYER, npcIds: opts.npcIds || FIXED_NPC, archetypeId: "tactician", terrainId, seed: opts.seed ?? 777, autoPick: true, decodeSprites: false, rivalLevel });
+  const atStart = state.weather?.kind || null;
+  const firstEvent = state.events.find((e) => e.kind === "weather");
+  const lines = [`__weatherStartTest terrain=${terrainId} rivalLevel=${rivalLevel} → initialWeather=${state.initialWeather || "none"} weather@t0=${atStart || "none"} event="${firstEvent?.text || ""}" slot=${state.meta.slot}`];
+  runHeadless(state, 600);
+  lines.push(`  after 600 ticks: weather=${state.weather?.kind || "none"} hail/sand chip lines=${state.log.filter((l) => l.includes("is hurt by")).length}`);
+  out(lines);
+  return { initialWeather: state.initialWeather, atStart, text: firstEvent?.text || null, lines };
+}
+
 export function installHarness() {
   Object.assign(window, {
+    __dailyTest: dailyTest,
+    __weatherStartTest: weatherStartTest,
     __abilityTest: abilityTest,
     __abilityCoverage: abilityCoverage,
     __itemTest: itemTest,

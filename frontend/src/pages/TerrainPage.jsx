@@ -1,12 +1,31 @@
 import { Link, useNavigate } from "react-router-dom";
-import { Swords, AlertTriangle } from "lucide-react";
+import { Swords, AlertTriangle, CloudRain, Snowflake } from "lucide-react";
 import { useGame } from "@/context/GameContext";
 import { TERRAINS, terrainById } from "@/lib/terrains";
 import { TEAM_SIZE } from "@/lib/save";
+import { legendWeather, LEGEND_WEATHER } from "@/lib/rival";
+import { WEATHER } from "@/game/abilities";
 import { DEX } from "@/constants/testIds/dex";
 import { TerrainCard } from "@/components/TerrainCard";
 import { SpriteImg } from "@/components/SpriteImg";
 import { RivalLevelPicker } from "@/components/RivalLevelPicker";
+import { DailyCard } from "@/components/DailyCard";
+
+const WEATHER_ICON = { rain: CloudRain, hail: Snowflake };
+
+const LegendWeatherHint = ({ terrainId, level }) => {
+  const kind = LEGEND_WEATHER.terrains[terrainId];
+  if (!kind) return null;
+  const active = !!legendWeather(terrainId, level);
+  const Icon = WEATHER_ICON[kind] || CloudRain;
+  const w = WEATHER[kind];
+  return (
+    <p className="mt-2 flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-wider" style={{ color: active ? w.color : undefined }} data-testid="terrain-legend-weather" data-weather={kind} data-active={active}>
+      <Icon className="h-3.5 w-3.5" />
+      <span className={active ? "" : "text-slate-500"}>{active ? `Legend rival · battle starts in ${w.name}` : `Legend (Lv.${LEGEND_WEATHER.level}) rival: battle starts in ${w.name}`}</span>
+    </p>
+  );
+};
 
 export default function TerrainPage() {
   const { creatures, save, setTerrain, setRivalLevel } = useGame();
@@ -35,6 +54,7 @@ export default function TerrainPage() {
           {terrain.name} effect
         </p>
         <p className="mt-1 text-sm text-slate-200">{terrain.effect}</p>
+        <LegendWeatherHint terrainId={terrain.id} level={save.rivalLevel} />
       </div>
 
       <section className="mt-6">
@@ -76,6 +96,8 @@ export default function TerrainPage() {
       >
         <Swords className="h-5 w-5" /> Start battle
       </button>
+
+      <DailyCard />
     </div>
   );
 }

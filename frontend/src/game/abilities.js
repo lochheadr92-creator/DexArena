@@ -91,14 +91,16 @@ export function weatherActive(state) {
   return w.kind;
 }
 
-export function setWeather(state, kind, u) {
+export function startWeather(state, kind, text, u = null) {
   if (state.weather?.kind === kind) return false;
-  state.weather = { kind, byId: u.id, since: state.tick };
-  pushEvent(state, { kind: "weather", weather: kind, name: WEATHER[kind].name, text: WEATHER[kind].start, unitId: u.id, side: u.side });
-  logLine(state, `weather: ${WEATHER[kind].name} (${u.name})`);
+  state.weather = { kind, byId: u?.id ?? null, since: state.tick };
+  pushEvent(state, { kind: "weather", weather: kind, name: WEATHER[kind].name, text, unitId: u?.id ?? null, side: u?.side ?? null });
+  logLine(state, `weather: ${WEATHER[kind].name} (${u ? u.name : "arena"})`);
   for (const side of ["player", "npc"]) applyForecast(state, activeUnit(state.teams[side]));
   return true;
 }
+
+export const setWeather = (state, kind, u) => startWeather(state, kind, WEATHER[kind].start, u);
 
 export const weatherTypeMult = (state, type) => {
   const k = weatherActive(state);
