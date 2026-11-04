@@ -1,4 +1,4 @@
-import { addPreset, overwritePreset, renamePreset, deletePreset, loadPreset, presetIssues, canSavePreset, PRESET_MAX } from "@/lib/presets";
+import { addPreset, overwritePreset, renamePreset, deletePreset, loadPreset, presetIssues, canSavePreset, isCurrentTeam, PRESET_MAX } from "@/lib/presets";
 import { addReplay, renameReplay, deleteReplay, parseReplayLink, REPLAY_MAX } from "@/lib/replays";
 import { dailyStats, recordDaily, shiftDay } from "@/lib/daily";
 import { defaultSave, normalizeSave } from "@/lib/save";
@@ -107,5 +107,13 @@ describe("daily leaderboard", () => {
     const bad = normalizeSave({ ...defaultSave(), daily: { key: "nope", attempts: 1, best: res(5), history: [{ key: "2026-01-01", best: { score: 1 } }, { key: "x" }] } });
     expect(bad.daily.key).toBeNull();
     expect(bad.daily.history).toEqual([{ key: "2026-01-01", attempts: 1, best: { score: 1 } }]);
+    const dup = normalizeSave({ ...defaultSave(), daily: { key: null, attempts: 0, best: null, history: [{ key: "2026-01-02", best: { score: 2 } }, { key: "2026-01-02", best: { score: 9 } }] } });
+    expect(dup.daily.history).toHaveLength(1);
+  });
+  test("isCurrentTeam compares ability picks too", () => {
+    const s = { ...defaultSave(), team: [1, 4, 7, 25, 133, 143], abilities: { 133: 1 } };
+    const preset = { team: [1, 4, 7, 25, 133, 143], abilities: { 133: 0 } };
+    expect(isCurrentTeam(s, preset)).toBe(false);
+    expect(isCurrentTeam(s, { ...preset, abilities: { 133: 1 } })).toBe(true);
   });
 });

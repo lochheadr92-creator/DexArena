@@ -63,7 +63,7 @@ const Entry = ({ r, index }) => {
               <p className="truncate font-display text-sm font-bold text-slate-50" data-testid={`replay-name-${index}`}>
                 {r.name}
               </p>
-              <p className="truncate font-mono text-[9px] uppercase tracking-wider text-slate-500" data-testid={`replay-meta-${index}`}>
+              <p className="font-mono text-[9px] uppercase leading-relaxed tracking-wider text-slate-500" data-testid={`replay-meta-${index}`}>
                 {m.winner ? (m.winner === "player" ? "Win" : "Loss") : "Unwatched"}
                 {m.seconds != null ? ` · ${fmtTime(m.seconds)}` : ""} · <span style={{ color: terrain?.accent }}>{terrain?.name || m.terrainId}</span> · vs {rival} L{m.slot} · {MODE_LABEL[m.mode] || m.mode} · {formatDate(r.savedAt)}
               </p>
@@ -113,7 +113,7 @@ const AddFromLink = () => {
     <div className="rounded-xl border border-dashed border-slate-700 p-3" data-testid="replay-add-panel">
       <p className="font-mono text-[10px] uppercase tracking-widest text-slate-500">Add from link</p>
       <div className="mt-2 flex flex-col gap-2 sm:flex-row">
-        <input value={text} onChange={(e) => setText(e.target.value)} placeholder="Paste a replay link or code" data-testid="replay-add-input" className="h-10 min-w-0 flex-1 rounded-lg border border-slate-700 bg-slate-950 px-3 text-sm text-slate-100 placeholder:text-slate-600 focus:border-cyan-500 focus:outline-none" />
+        <input value={text} onChange={(e) => setText(e.target.value)} placeholder="Paste a replay link or code" data-testid="replay-add-input" className="h-10 min-w-0 flex-none rounded-lg border border-slate-700 bg-slate-950 px-3 text-sm text-slate-100 placeholder:text-slate-600 focus:border-cyan-500 focus:outline-none sm:flex-1" />
         <div className="flex gap-2">
           <input value={name} onChange={(e) => setName(e.target.value)} maxLength={NAME_MAX} placeholder="Name (optional)" data-testid="replay-add-name" className="h-10 w-full min-w-0 rounded-lg border border-slate-700 bg-slate-950 px-3 text-sm text-slate-100 placeholder:text-slate-600 focus:border-cyan-500 focus:outline-none sm:w-36" />
           <button type="button" data-testid="replay-add-button" disabled={!text.trim()} onClick={add} className="flex h-10 shrink-0 items-center gap-1.5 rounded-lg border border-cyan-700/60 bg-cyan-950/40 px-3 font-mono text-[10px] uppercase tracking-wider text-cyan-200 transition-colors hover:bg-cyan-900/40 disabled:cursor-not-allowed disabled:opacity-40">

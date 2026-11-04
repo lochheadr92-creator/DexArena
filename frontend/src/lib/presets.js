@@ -28,4 +28,4 @@ export const presetIssues = (preset, unlockedIds, creatures) => preset.team.filt
 
 export const loadPreset = (save, preset) => ({ ...save, team: [...preset.team], abilities: { ...save.abilities, ...preset.abilities } });
 
-export const isCurrentTeam = (save, preset) => preset.team.length === save.team.length && preset.team.every((id, i) => save.team[i] === id);
+export const isCurrentTeam = (save, preset) => preset.team.length === save.team.length && preset.team.every((id, i) => save.team[i] === id && (preset.abilities?.[id] ?? 0) === (save.abilities[id] ?? 0));

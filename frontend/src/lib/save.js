@@ -56,7 +56,11 @@ const cleanDaily = (daily, d) => {
     .filter((e) => e && typeof e === "object" && isDayKey(e.key) && cleanBest(e.best))
     .map((e) => ({ key: e.key, attempts: Number.isInteger(e.attempts) && e.attempts > 0 ? e.attempts : 1, best: e.best }));
   if (key && best && !history.some((e) => e.key === key)) history = [{ key, attempts: Math.max(1, attempts), best }, ...history];
-  history = history.sort((a, b) => (a.key < b.key ? 1 : -1)).slice(0, DAILY_HISTORY_MAX);
+  const seen = new Set();
+  history = history
+    .filter((e) => !seen.has(e.key) && seen.add(e.key))
+    .sort((a, b) => (a.key < b.key ? 1 : -1))
+    .slice(0, DAILY_HISTORY_MAX);
   return { key, attempts: key ? attempts : 0, best: key ? best : null, history };
 };
 
