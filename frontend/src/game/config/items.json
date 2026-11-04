@@ -1,0 +1,28 @@
+{
+  "categories": {
+    "evolution": { "name": "Evolution items", "enabled": true, "description": "Use on the right creature — in battle or from the roster — to evolve it on the spot." },
+    "healing": { "name": "Healing items", "enabled": false, "description": "Coming later." },
+    "held": { "name": "Held items", "enabled": false, "description": "Coming later." }
+  },
+  "drop": {
+    "winChance": 0.35,
+    "weights": { "team": 3, "unlocked": 1, "other": 0.25, "exhausted": 0.1 },
+    "gauntletStageGuaranteed": true,
+    "championRare": true
+  },
+  "rare": ["shiny-stone", "dusk-stone", "dawn-stone", "protector", "electirizer", "magmarizer", "reaper-cloth", "dubious-disc", "up-grade", "razor-claw", "razor-fang", "deep-sea-tooth", "deep-sea-scale", "prism-scale", "hollow-husk", "sun-shard", "moon-shard", "mossy-rock-chip", "icy-rock-chip"],
+  "custom": {
+    "sun-shard": { "name": "Sun Shard", "to": 196, "icon": "sun", "type": "psychic" },
+    "moon-shard": { "name": "Moon Shard", "to": 197, "icon": "moon", "type": "dark" },
+    "mossy-rock-chip": { "name": "Mossy Rock Chip", "to": 470, "icon": "leaf", "type": "grass" },
+    "icy-rock-chip": { "name": "Icy Rock Chip", "to": 471, "icon": "snowflake", "type": "ice" },
+    "strikers-band": { "name": "Striker's Band", "to": 106, "icon": "footprints", "type": "fighting" },
+    "boxers-band": { "name": "Boxer's Band", "to": 107, "icon": "hand", "type": "fighting" },
+    "spinners-band": { "name": "Spinner's Band", "to": 237, "icon": "refresh-cw", "type": "fighting" },
+    "silk-thread": { "name": "Silk Thread", "to": 266, "icon": "spool", "type": "bug" },
+    "shadow-thread": { "name": "Shadow Thread", "to": 268, "icon": "spool", "type": "poison" },
+    "weavers-cloak": { "name": "Weaver's Cloak", "to": 413, "icon": "shirt", "type": "bug" },
+    "moth-dust": { "name": "Moth Dust", "to": 414, "icon": "sparkles", "type": "bug" },
+    "hollow-husk": { "name": "Hollow Husk", "to": 292, "icon": "ghost", "type": "ghost" }
+  }
+}

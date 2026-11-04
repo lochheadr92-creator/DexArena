@@ -1,0 +1,20 @@
+{
+  "blockedTiles": ["wall", "rock"],
+  "projectileBlockedTiles": ["wall", "rock"],
+  "terrains": {
+    "pitch": {},
+    "shoreline": {
+      "movement": { "water": { "*": 0.5, "water": 1.0 } },
+      "moveDamage": { "water": { "fire": 0.75, "electric": 1.5 } }
+    },
+    "cavern": {
+      "movement": { "rock": { "*": 0, "flying": 1 } },
+      "damageTaken": { "ground": { "rock": 0.75, "ground": 0.75 } }
+    },
+    "snowfield": {
+      "movement": { "snow": { "*": 1, "grass": 0.75 } },
+      "friction": { "ice": { "*": { "accelSec": 0.6, "decelSec": 0.5 }, "ice": { "accelSec": 0.15, "decelSec": 0.1 } } },
+      "melt": { "ice": { "fire": { "becomes": "ground", "sec": 10 } } }
+    }
+  }
+}

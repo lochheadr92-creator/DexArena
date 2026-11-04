@@ -1,0 +1,33 @@
+{
+  "summary": "Frontend-only test of the Ability System (abilities, weather, terrain bonuses, HUD, banners, replay v2/v1, save import/export) at mobile 390x800 plus one desktop 1920x1080 check. Nearly everything passed: Dex ability data (coverage 493/493, 75 implemented, 401 species covered), Gengar Levitate and Snorlax/Charizard AbilityPicker with save persistence, the Intimidate pause, HUD chips, intimidated icon and canvas banner, Tyranitar Sand Stream (weather chip SANDSTORM, 5 'is hurt by Sandstorm' log lines, fps 61, no renderErrors), Shadow Tag trapping (switch disabled with TRAPPED and a lock icon, Gengar hover=true with the trap ring), the Blaze ×1.5 label and aura, headless determinism, replay v2 (same=true, v=2, pa/na arrays of 6), save export/import cleanup ({'143':1}), the Arena start flow with both ability chips, and __smokeTest. No page errors or console errors in any run. One real issue: a v1 replay built by the prescribed method loads correctly with abilities off, then deadlocks at tick 5793 and never finishes. Two minor issues: unknown ability ids are accepted in v2 replays, and banners overlap or clip at the arena edge.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [
+      {"component": "Replay (legacy v1) / BattleCanvas.jsx line ~90 + step.js line 15", "issue": "I took a v2 code from __replayTest, stripped pa/na/ab and set v:1. It loads correctly: abilitiesEnabled=false, all unit.ability null, no hud-ability chips. But it never finishes. Without abilities the battle diverges, and Snorlax (the last active player unit) faints at t5763 with pendingPick=true. autoPick was off (the recorded input at t2000 turned it off). The next recorded input is a pick at t6291, but the sim does not advance ticks while a pick is pending, so that input is never reached. The battle stays frozen at t5793 with no winner. The fallback at BattleCanvas line 90 sets autoPick=true only when replayInputs is EMPTY. Fix: when a replay has a pending pick and no input is due, either apply the next queued 'pick' input immediately or force autoPick=true.", "selector": "[data-testid=battle-canvas], [data-testid=replay-badge]", "priority": "MEDIUM"},
+      {"component": "lib/replay.js decodeReplay", "issue": "v2 pa/na entries are checked only against the regex ^[a-z0-9-]+$. A crafted code with pa[0]='made-up-ability' loads and the HUD chip shows 'MADE UP ABILITY'. Unknown ids should be mapped to null, or to the species' default ability.", "selector": "[data-testid=hud-ability-player]", "priority": "LOW"}
+    ],
+    "integration_issues": [],
+    "design_issues": [
+      {"screen": "Battle canvas banners", "issues": ["When several ability events fire together (Tyranitar enters with Sand Stream and Pikachu's Static hits right away, near the left edge), the banners stack on top of each other and cover the centre text 'A sandstorm kicked up!' and 'GO TYRANITAR!'. They are also clipped at the arena's left edge: 'Static zapped Tyranitar!' showed as 'tatic zapped…'. Clamp banner x to the arena bounds and stagger or queue banners vertically.", "On desktop the Intimidate banner partly covers the Gyarados sprite (the head sits under the banner)."]},
+      {"screen": "AbilityPicker", "issues": ["The 'No effect in Arena' badge (slate-600 border and text on slate-950) has very low contrast and is hard to read."]}
+    ]
+  },
+  "test_report_links": ["/app/frontend/src/lib/__tests__/abilities.test.js"],
+  "action_items": [
+    "Fix the replay deadlock: when replayInputs still has items but a pendingPick is unresolved and the next input tick > state.tick, apply the next 'pick' input now or enable autoPick (BattleCanvas.jsx ~line 90).",
+    "Check v2 replay pa/na ids against the abilities.json defs and the species ability list; map unknown ids to null.",
+    "Clamp ability banners inside the arena and stack or offset overlapping banners so they don't cover the weather centre text.",
+    "Raise the contrast of the 'No effect in Arena' badge."
+  ],
+  "critical_code_review_comments": [
+    "Jest: abilities.test.js reports 12 tests (all pass). The 34 in the review request is presumably the total across all suites; I did not verify that.",
+    "setAbility in GameContext coerces any slot other than 1 to 0. That is fine for 2-ability species but silently masks bad input."
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "N/A", "frontend": "~95% (legacy v1 replay fails to reach the end; all other listed checks pass)"},
+  "seed_data_creation": "None. The Playwright profile localStorage was modified (Snorlax ability pick, imported save).",
+  "retest_needed": true,
+  "should_main_agent_self_test": true,
+  "context_for_next_testing_agent": "Dex sync on a fresh profile took only ~10s here. Printed lines: __abilityTest seed 31337 → endTick 7830 winner npc triggers 6 weather hail counts {intimidate:2, snow-warning:1, speed-boost:3}, identical on two runs. seed 555 → endTick 13668 winner player weather sun counts {drizzle:1, shadow-tag:1, truant:5, sand-stream:1, drought:1}. __smokeTest 9001 → winner npc endTick 11910 hash cdbea4b0. __replayTest same=true, v2 inputs [[300,0,2],[900,0,0],[2000,2,0],[3489,1,5],[6291,1,4],[7000,2,1]]. Legacy v1 reproduction: strip pa/na/ab from that code, set v:1 → the battle freezes at t5793 with pendingPick=true. There is no tab-roster on the battle page; use history.pushState('/').",
+  "rca of the issue": "Legacy replay deadlock: step.js line 15 returns early while the player has a pending pick and autoPick is off, so state.tick stops advancing. processInputs releases replayInputs only when input.tick <= state.tick (replayInputsDue), so a pick recorded at a later tick can never be released. The only escape (BattleCanvas line 90) needs replayInputs to be empty. Reproduce: take the __replayTest code, convert it to v1 as described in the review request, open /replay#<code> at 4x, and watch __battle.tick stop at 5793. Mitigation: in replay mode, if pendingPick and the next replay input is a pick, apply it immediately; otherwise set autoPick=true."
+}

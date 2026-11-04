@@ -1,0 +1,25 @@
+{
+  "summary": "Frontend-only retest at 360x780 of the replay auto-pick toggle fix, the gauntlet badge fix and invalid replay handling. All requested checks passed. (A) Started with autoPick ON (seed 7, tactician): at the first faint (tick 3571, inputLog empty) I turned AUTO OFF, picked team-strip-slot-1 at the next forced pick (tick 5098), then turned AUTO ON. Result: Win, 209.9s, tick 12597. inputLog = auto:false@3575, pick:1@5098, auto:true@5458. The shared replay reached phase 'ended' and showed the result screen. The result rows, result-meta, seed, final tick and inputLog all matched the original exactly. The replay had no switch-button and no auto-pick-toggle, and save.totalBattles stayed at 1. (B) Reverse order, starting with autoPick OFF: manual pick of slot 5 at tick 3569, then at the second forced pick (tick 6632) AUTO ON via window.__setAutoPick(true). The strip closed and the sim resumed right away (tick moved to 6991, pendingPick false, Charmander active and alive), with no soft-lock. Result: Loss, 204.1s, tick 12245. The replay matched the original exactly and totalBattles stayed at 1. (C) Gauntlet stage 1 vs brawler ended with data-outcome=advance (Win). The badge on the result screen read 'Gauntlet · Trainer 1 of 6'. After next-trainer-button it read 'Trainer 2 of 6' and the rival was the kiter. (D) /replay#eyJ2IjoxfQ shows battle-error 'Could not start the battle: This replay link is not valid'. No page errors were seen in any run. One new UX issue: during a forced pick the team-strip overlay covers the auto-pick toggle, so a real user cannot turn AUTO ON from that screen. The engine path works, but I could only reach it through window.__setAutoPick.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [
+      {"component": "TeamStrip / BattleHud", "issue": "The forced-pick TeamStrip is 'absolute inset-0 z-20' and covers the whole screen, including the HUD auto-pick-toggle. At 360x780 the toggle (304,474, 48x48) sits under team-strip-slot-2, so elementFromPoint returns the slot and a normal Playwright click times out. Users cannot use the 'turn AUTO ON during a forced pick' flow from the UI. A coordinate click there picks slot 2 instead.", "selector": "[data-testid='auto-pick-toggle'] under [data-testid='team-strip']", "priority": "MEDIUM"}
+    ],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "test_report_links": [],
+  "action_items": [
+    "Make AUTO reachable during a forced pick: either put an 'Auto-pick' button inside TeamStrip when forced (calls setAutoPick(true)), or raise the HUD toggle above the strip (z-30) and keep it out of the slot grid."
+  ],
+  "critical_code_review_comments": [
+    "The replay fix looks sound: 'auto' inputs are logged with their tick in processInputs and encoded as kind 2. BattleCanvas still runs processInputs while paused when replay inputs are due, and it falls back to autoPick when replay inputs run out during a pendingPick.",
+    "In replay mode the UI autoPick state is never updated from replayed 'auto' inputs. It works because BattleCanvas processes replay inputs while paused, but in replays the pendingPick pause logic depends on that fallback. Consider deriving the paused state from state.autoPick when mode is replay."
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "N/A", "frontend": "100% of requested checks (4/4); 1 new medium UX issue"},
+  "seed_data_creation": "localStorage arenadex.save.v1 seeded per test in fresh browser contexts only",
+  "retest_needed": false,
+  "should_main_agent_self_test": true,
+  "context_for_next_testing_agent": "Seed 7 / tactician / team [1,4,7,25,133,143]: with autoPick false the forced strips appear at ticks 3569 and 6632. AUTO ON at 6632 after picking slot 5 at 3569 gives a Loss at 204.1s, tick 12245. AUTO ON->OFF@3575, pick 1@5098, ON@5458 gives a Win at 209.9s, tick 12597. Both replays are identical. The gauntlet team [150,149,248,373,376,445] beats brawler at stage 1. Delete Navigator.prototype.share in an init script so share uses the clipboard."
+}

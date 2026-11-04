@@ -1,0 +1,32 @@
+{
+  "summary": "Tested Phase 3 frontend flows in Playwright at 360x780. Everything passed except one real bug: a replay never finishes if auto-pick was switched during the original battle. Progression worked: the seed 7 win credited species wins, unlocked all 10 evolutions and earned a Seal Key, and spending the key on Mewtwo worked. A loss credits nothing. The Gauntlet worked for the loss path, a win followed by Next trainer with exact HP and faint carry-over, a hand-made stage 2 run (HP, faints, Kiter, snowfield), the /gauntlet active view, abandoning a run and the guard redirect. Export and import worked, including the invalid JSON, wrong version, malformed, cancel and confirm cases. Replay share worked: the link was copied to the clipboard, the replay page is read-only, end state matched the original (including with a manual switch), the save was not modified, and an invalid link shows an error. Regression checks passed: rematch, forced faint pick, 4 nav tabs, arena and roster pages, and both team-size guards.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [
+      {"component": "Replay (lib/replay.js encodeReplay + game/step.js updateTeamFlow)", "issue": "The replay hangs forever when auto-pick was toggled during the original battle. Repro: quick battle with seed 7 and autoPick:true at 4x. After the first auto faint-pick, call __setAutoPick(false) and pick manually at the next faints. Then share and open the replay. The replay stops at tick 3569 with pendingPick=true, autoPick=false and phase running. Replay mode has no team strip, so the user is stuck. Toggling the other way (off, then on) makes the replay diverge instead. RCA: encodeReplay saves only the final state.autoPick as 'ap'. Auto faint-picks (beginSwitch in updateTeamFlow with reason 'auto-pick') are never added to state.inputLog.", "selector": "[data-testid=auto-pick-toggle], /replay#...", "priority": "HIGH"},
+      {"component": "BattlePage gauntlet stage badge", "issue": "After a gauntlet win, the gauntlet-stage-badge shows 'Trainer 2 of 6' while the result for trainer 1 is still on screen. Cause: stage = save.gauntlet.active?.stage is read after finishGauntletStage has advanced the run. The badge sits behind the result overlay, so impact is low.", "selector": "[data-testid=gauntlet-stage-badge]", "priority": "LOW"}
+    ],
+    "integration_issues": [],
+    "design_issues": [
+      {"screen": "Battle canvas (gauntlet)", "issues": ["The gauntlet-stage-badge pill at the top of the canvas overlaps another top-of-canvas label, so faint text shows behind the badge."]}
+    ]
+  },
+  "test_report_links": [],
+  "action_items": [
+    "Fix replay determinism when auto-pick changes mid-battle. Option 1: add player auto faint-picks to state.inputLog as type 'pick' (in step.js updateTeamFlow) and always replay with autoPick=false. Option 2: log auto-pick toggles with their tick and apply them during replay.",
+    "Optional: compute the gauntlet badge stage from the battle's own stage (e.g. state.meta.slot, or the stage captured at battle start) so the result for trainer 1 does not show 'Trainer 2 of 6'.",
+    "Optional: in decodeReplay, check that pm/nm are 6-element arrays so a malformed link shows the friendly 'not valid' message instead of a raw TypeError."
+  ],
+  "critical_code_review_comments": [
+    "replay.js: 'ap' stores only the final autoPick value, so input history is incomplete (bug above).",
+    "replay.js decodeReplay: pm/nm are not validated, and overrides() throws a raw TypeError when they are missing.",
+    "BattlePage: the HUD stage prop reads the live save, which is already advanced when the result screen shows."
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "N/A (frontend only)", "frontend": "95% (1 HIGH bug: replay hangs or diverges after an auto-pick toggle; 1 low-priority badge issue)"},
+  "seed_data_creation": "Only localStorage saves seeded inside the Playwright contexts. Nothing persisted.",
+  "retest_needed": true,
+  "should_main_agent_self_test": true,
+  "context_for_next_testing_agent": "Seed 7 with FIXED teams and autoPick true is a Win (209.9s). With a manual switch at tick 182 to slot 2 it becomes a Loss (152.0s), and its replay reproduces it exactly. Seed 12345 is a Loss (191.1s). The team [150,149,248,373,376,445] won gauntlet stage 1 vs brawler, which is useful for testing the advance path. To repro the replay hang: wait until the first player unit faints and is auto-picked, call __setAutoPick(false), pick manually, share, open the replay, and it stalls at tick 3569. Do NOT remove sonner toast DOM nodes manually; that crashes React (insertBefore error).",
+  "rca of the issue": "Auto faint-picks bypass processInputs (step.js updateTeamFlow calls beginSwitch directly), so they never reach inputLog. encodeReplay saves only the final autoPick value. On replay, the first faint that was auto-picked in the original sets pendingPick, and no logged input exists for it. With autoPick=false the sim pauses forever, and in replay mode no strip is shown."
+}

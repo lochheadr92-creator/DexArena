@@ -1,0 +1,25 @@
+{
+  "summary": "Frontend-only test at 360x780 of Task A (KO/standing credit) and Task B (archetype move animations), using the seeded save and __battleOverride with seed 9001. All 7 requested items passed. (1) Smoke: winner player, endTick 7608, matching the expected deterministic result. There were zero console errors and zero pageerrors; the only warning was the acceptable Canvas2D willReadFrequently one. (2) Speed and pause: ticks per 2s were 120 at 1x, 240 at 2x and 480 at 4x. Paused gave 0 ticks over 1.5s. After resuming, 239 ticks ran in 1s at 4x. (3) Animations: a 1x mid-fight screenshot showed an orange beam/cone, a ring, particles and damage numbers. effectCount was 51 mid-fight. Units and HUD rendered and the canvas was never blank. (4) effectCount() was 0 after the battle ended plus 2.5s, in both normal and reduced-motion runs. (5) The result-credit table showed Charizard 1/0/0/1, Gengar 1/0/0/1, Pikachu 1/1/0/2, Snorlax 1/4/0/5, Gyarados 1/1/1/3 and Alakazam 1/0/0/1 (Win/KO/Stand/Total). The data-ko, data-standing and data-total attributes are consistent: total = 1 + ko + standing. KO counts match unit.kills, and standing is only given to Gyarados, which entered and is alive. Alakazam never entered, so it got no standing credit. localStorage after the battle: totalWins 1, speciesKoCredit {25:1,130:1,143:4}, speciesStandingCredit {130:1}. Reloading on the result screen left the save byte-identical (no double credit). (6) Snorlax species-record showed wins 1, ko 4, standing 0, total 5, matching the save. (7) Reduced motion: reducedMotion was true and particles.muted was true, with 0 particles mid-fight. The battle ended with the same result (player, 7608), so outcomes are unaffected by visuals, and there were no console errors. One minor layout issue: the result screen card overflows at the top on 360x780.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": [
+      {"screen": "ResultScreen at 360x780", "issues": ["The overlay uses 'flex items-center justify-center overflow-y-auto'. The card is 844px tall and the viewport is 780px, so the card is centered with top at -32px and result-title at -11px. The top ~32px (trophy icon and part of the 'Win' title) is clipped and cannot be scrolled to, because a flex-centered overflow cannot scroll into negative space. The new credit table made the card taller, which brings this out. Fix: use 'items-start' with 'my-auto' on the card (or 'justify-start' + 'm-auto'), or use 'safe center'."]}
+    ]
+  },
+  "test_report_links": [],
+  "action_items": [
+    "ResultScreen: replace items-center on the scroll container with items-start and add my-auto/m-auto to the inner card, so the top of the card is never clipped on short mobile viewports."
+  ],
+  "critical_code_review_comments": [
+    "battleId is `${seed}-${Date.now()}`, so the lastCreditedBattle guard only stops re-crediting the same in-memory battle. Reloading /battle with the same override re-runs the fight and credits it as a new battle once it ends. That is expected for a new fight. Reloading on the result screen does not double the credit, which I verified.",
+    "Every team member gets +1 Win even if it never entered (here Alakazam has entries=0). This matches the 'win +1' header, but confirm this is intended, since the standing bonus already requires entering."
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "N/A", "frontend": "100% (7/7 requested checks); 1 minor layout issue"},
+  "seed_data_creation": "localStorage arenadex.save.v1 seeded per fresh browser context via add_init_script (guarded with if !getItem so reload keeps the save)",
+  "retest_needed": false,
+  "should_main_agent_self_test": true,
+  "context_for_next_testing_agent": "Seed 9001, team [6,94,25,143,130,65] vs npc [65,64,63,96,97,124] on cavern with autoPick gives a player win at endTick 7608, also under reduced motion. Credit rows: 6:1, 94:1, 25:2 (ko1), 143:5 (ko4), 130:3 (ko1 + stand1), 65:1. Guard the init-script seed with if(!localStorage.getItem(...)), otherwise a reload resets the save."
+}

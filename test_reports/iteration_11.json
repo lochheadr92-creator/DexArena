@@ -1,0 +1,35 @@
+{
+  "summary": "Frontend-only test, run mostly at mobile 390x800 with a desktop 1920x1080 sanity pass. All 4 new features and the regressions work end to end. Two real bugs were found: (1) a preset is marked 'current' by team ids only, so ability differences are ignored; (2) on mobile the replay-add-input collapses to 19px tall. TEAM PRESETS: the empty state, saving 'Rain squad' (current=true, 6 sprites, Load disabled), filling all 5 slots (hint 'All 5 slots used', save disabled), the 'Pick a full team of 6' hint with 5/6, rename to 'Sun squad', deleting #5, and loading after swapping Snorlax for Caterpie (dialog closes, 'Loaded' toast, team restored) all passed. Overwrite passed (current=true afterwards). The ability pick round-trip passed using Eevee (Adaptability, slot 1): Bulbasaur has only one ability in this dataset, so it could not be used. Presets persist in the save and survive reload. presets-open-button exists on Roster, Arena and Save. A locked preset (team includes Ivysaur) shows preset-issues and its Load is disabled. Loading from the Arena updates the team slots. DAILY BOARD: closed by default with 0 days and the empty state; after 1 play: 1 day, wins 0/1, entry for 2026-11-04 with data-score = daily-best (0); after a 2nd play: '2 att.' and still one row. Injected history gave streak 3, best streak 4, month wins 1/3, top 1300, newest first. An old-format save migrates to 1 row. REPLAY GALLERY: 0/20 empty; save from the result screen (prefill 'Win vs Kiter' style, 'Saved to gallery' badge and toast); meta reads 'WIN · 4:30 · PITCH · VS WALL L2 · QUICK BATTLE'; Watch replays with an identical result-meta/seed and the Replay tag; re-saving says 'already in your gallery' and the count stays 1. Rename, Copy (origin/replay#code), duplicate add, the 'Friend' import (Unwatched · … · Imported, and it plays), junk ('Could not add replay'), delete and reload persistence all passed. The cap of 20 holds: the newest goes first, the oldest is dropped, and the toast says so. A fake code shows battle-error. WALL AI: wall seeds 7000/7013/7020/7031 ended at 16953/15486/14948/15600 ticks with 354-409 hits. Smoke 9001 = npc/11910/cdbea4b0. Kiter 12/12 ended (max 15998). The UI quick battles vs Wall L2 finished normally. REGRESSION: the Levitate filter gives 27 matches. The export JSON includes presets, replays and daily.history; an edited import round-trips. Desktop has no overflow. No page errors and no console errors.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [
+      {"component": "PresetsDialog / lib/presets.js isCurrentTeam", "issue": "'Current' compares team ids only and ignores ability picks. If the user changes an ability (e.g. Eevee Adaptability→Run Away) while keeping the same 6, the preset still shows CURRENT. Load is then disabled (can't restore the preset's ability picks) and Overwrite is disabled (can't save the new ability picks into the preset). The user has to change the team first as a workaround. Fix: also compare preset.abilities[id] against (save.abilities[id] ?? 0) for each id in isCurrentTeam.", "selector": "[data-testid=preset-load-<i>], [data-testid=preset-overwrite-<i>]", "priority": "MEDIUM"},
+      {"component": "ReplayGallery AddFromLink (mobile)", "issue": "On mobile (<sm) the container is flex-col and the input has 'flex-1', so its flex-basis is 0. The h-10 height is ignored and replay-add-input renders only 19px tall (see the Save tab screenshot), much shorter than the 40px name input next to it. Fix: use 'sm:flex-1' (or add 'flex-none sm:flex-1') on the link input.", "selector": "[data-testid=replay-add-input]", "priority": "MEDIUM"}
+    ],
+    "integration_issues": [],
+    "design_issues": [
+      {"screen": "Save tab replay row (mobile 390)", "issues": ["replay-meta is a single truncated line: 'WIN · 4:30 · PITCH · VS WA…'. The rival, mode (Quick battle/Imported) and date are cut off on mobile. Consider wrapping the line or splitting it into 2 lines."]},
+      {"screen": "Presets dialog (mobile)", "issues": ["Sonner toasts at the top cover the dialog's header/title area for a few seconds after save/load. Low priority."]}
+    ]
+  },
+  "test_report_links": [],
+  "action_items": [
+    "Make isCurrentTeam (lib/presets.js) also compare ability picks, so a preset with the same team but different abilities can be loaded and overwritten.",
+    "Fix the collapsed replay-add-input height on mobile (flex-1 → sm:flex-1 in ReplayGallery AddFromLink).",
+    "LOW: Show the full replay-meta on mobile (wrap instead of truncate).",
+    "LOW: Dedupe daily.history keys in normalizeSave cleanDaily. A tampered or imported file with two entries for the same day renders 2 rows with the same React key and inflates monthPlayed."
+  ],
+  "critical_code_review_comments": [
+    "lib/presets.js isCurrentTeam ignores abilities (see ui_bugs).",
+    "lib/save.js cleanDaily does not dedupe history by key (only reachable via a crafted or imported save).",
+    "Imported (Unwatched) replays keep winner=null after being watched. That is acceptable, but meta could be filled in after the first watch.",
+    "ai.js patience logic is clean: impatient needs canHurt, preferred is clamped to engageDistance, and !canHurt makes the unit hold. Deterministic smoke hash is unchanged."
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "N/A", "frontend": "96%"},
+  "seed_data_creation": "None. All data was created in fresh Playwright browser contexts via localStorage. Note: injected saves must carry version:1 or loadSave falls back to the default save.",
+  "retest_needed": false,
+  "should_main_agent_self_test": true,
+  "context_for_next_testing_agent": "The browser_automation tool navigates BEFORE the script runs, so add_init_script stubs (clipboard/share) only apply after an explicit page.goto(). auto-pick-toggle state (data-active) persists across rematch, so check data-active before clicking it. Bulbasaur has only 1 ability in this dataset; use Eevee (#133: run-away/adaptability) for ability tests. Today's UTC key in the env is 2026-11-04.",
+  "rca of the issue": "Preset 'current' bug: isCurrentTeam = preset.team ids equal save.team, and both the Load and Overwrite disabled flags depend on it. Replay input: Tailwind flex-1 (flex:1 1 0%) inside flex-col with an auto-height parent collapses the input to its content height."
+}

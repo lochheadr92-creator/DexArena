@@ -1,0 +1,26 @@
+{
+  "summary": "Frontend-only test at mobile 390x800, plus a desktop 1920x1080 sanity check. Both engine fixes are confirmed. FIX 1 (Specialist crash with a weak team): __stallSweep returned 8 results for seeds 5000-5007, all ended, each with 6 NPC names and no exception. Through the UI, with the weak team 129/10/13/191/265/298 built via roster cards, 7 gauntlet runs were started and abandoned. Every run reached battle-screen with a canvas and hud-npc-name. There was no battle-error and no 'Could not start the battle'. Run #6 had stage 1 'Specialist · Snowfield'. FIX 2 (infinite stall): the kiter/snowfield sweep (n=20) ended 20/20; the slowest took 16534 ticks and seed 1016 ended at 9260 ticks. Wall seed 7000 ended at exactly tick 36000, winner player, timedOut=true. Its last log line is 'battle ended on time limit: winner player by remaining HP (100% vs 85%) at tick 36000', and the sudden-death line was logged at t18000. __smokeTest seed 9001 is unchanged (npc / 11910 / cdbea4b0). Regressions passed: the Pitch L2 quick battle with no weather-chip, then Rematch with a new seed, both finished, and Roster returned to /. __abilityTest printed output without throwing. Snowfield L6 showed weather-chip=hail from the first frame and __battle.initialWeather=hail, finished in about 21 s real time, and the share URL's base64 JSON contains \"w\":\"hail\". The ability filter (Levitate gives 27 matches, description shown, clear resets to 493) passed. The daily card (data-key 2026-11-03 = UTC today, mode=daily; result-daily, retry and share buttons; back on /arena, daily-best score 50 and the rival team revealed) passed. Run history (entry with outcome abandoned, toggle open/close) passed. Desktop showed no horizontal overflow. No page errors or console errors in any run. The optional UI check of the time-limit and sudden-death presentation was not done.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": [
+      {"screen": "Roster desktop 1920x1080 – ability popover", "issues": ["In the screenshot, the cards behind the popover list (Squirtle, Weedle text) show faintly through it. This is most likely the open fade animation captured mid-transition, but if it persists, the popover should get an opaque bg (bg-slate-900 without transparency). Low priority."]}
+    ]
+  },
+  "test_report_links": [],
+  "action_items": [
+    "Optional/LOW: The wall archetype on Snowfield (seed 7000) still lands only 14 hits in 600 s and is decided by the time limit (100% vs 85%). The safety net works, but the Wall AI is still very passive in this matchup. Consider tuning it so that time-limit endings stay rare.",
+    "Optional/LOW: Check that the desktop ability popover background is fully opaque once its open animation finishes."
+  ],
+  "critical_code_review_comments": [
+    "The quick-battle AUTO toggle defaults to off. A test that only sets 4x will sit at the 'Choose who goes next' modal forever. This is expected behaviour, not a bug, but it is worth knowing for future test runs.",
+    "harness.js is 720 lines, over the 700-line guideline. Consider splitting it."
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "N/A (no backend)", "frontend": "100%"},
+  "seed_data_creation": "None. Only browser-local saves in throwaway Playwright contexts.",
+  "retest_needed": false,
+  "should_main_agent_self_test": false,
+  "context_for_next_testing_agent": "The battle page hides the tab bar, so navigate to BASE/gauntlet with page.goto to abandon a run. AUTO (auto-pick-toggle, data-active) must be clicked on for quick battles. With 4x+AUTO, battles take about 20-30 s real time. Stubbing navigator.clipboard must be done via Object.defineProperty right before clicking share. The daily rival on 2026-11-03 is Legend Brawler on Shoreline (rain), and a loss is expected. Not yet tested: the UI time-limit text in result-meta, and sudden-death-chip after 300 s of battle time."
+}

@@ -1,0 +1,35 @@
+{
+  "summary": "Frontend-only Phase 1 test of Arena Dex (mobile 390x844 and desktop 1920x1080) using 4 Playwright runs. Passed: PokeAPI sync (fetching -> done in 15-22s, 493/493, loading bar shows then hides), IndexedDB 'arenadex-cache'/'creatures' holds 493 rows, cached reload reaches 'done' in about 2.7s, unlock flags (1,25,172,128 unlocked; 2,26,150,151 locked; 150 sealed), adding and removing team members (card, tray slot, detail button), clear team, to-arena enabled at 6/6, team persists across reload, all filters + empty state + clear, detail sheet (stats, evo nodes switch creature, moves, locked 'Not available yet', close via X/overlay/Escape), long-press opens the sheet without selecting, arena terrain select + effect text + persistence, start battle disabled <6 and shows the Phase 2 toast at 6, Save page stats (0/0/232/35), reset confirm (team emptied, terrain back to pitch), re-sync (loading bar reappears, back to 493). No console errors or warnings. 2 bugs found: the 'Team is full' toast never appears, and on mobile the tray's Arena button runs off the right edge of the screen.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [
+      {"component": "RosterPage handleSelect / GameContext.toggleTeam", "issue": "The 'Team is full' toast never appears. Clicking a 7th (and 8th) unlocked card when the team is 6/6 does nothing (the team correctly stays 6/6). Reproduced on both mobile and desktop. The Sonner toaster itself works (the Phase 2 and reset toasts show).", "selector": "[data-testid='creature-card-19'] with team 6/6", "priority": "HIGH"},
+      {"component": "TeamTray (mobile 390px)", "issue": "The Arena button (to-arena-button) runs off the right edge of the screen. Its bounding box is x=378, width=85 in a 390px viewport, so it is mostly cut off and hard to tap. The row is too wide: 6x48px slots + gaps + trash button + Arena button.", "selector": "[data-testid='to-arena-button']", "priority": "HIGH"}
+    ],
+    "integration_issues": [],
+    "design_issues": [
+      {"screen": "Roster type data", "issues": ["PokeAPI returns current-generation (Gen 6+) types, so Clefairy, Jigglypuff and others show as FAIRY and the type filter has a 'fairy' chip. This is inconsistent with a 'Gen I-IV' game. Consider using pokemon.past_types to restore Gen 4 typings."]},
+      {"screen": "Arena page mobile, team < 6", "issues": ["The Start Battle button sits partly behind the bottom nav at first view (y≈740-780 in an 844px viewport). It can be scrolled into view, so this is minor."]},
+      {"screen": "Toasts mobile", "issues": ["Top-center toasts cover the header/title area. Acceptable, but consider a shorter duration."]}
+    ]
+  },
+  "test_report_links": [],
+  "action_items": [
+    "Fix toggleTeam in GameContext.jsx. It sets 'result' inside the setSave updater (via updateSave) and returns it synchronously, but React does not always run the updater right away, so it returns 'added' even when the team is full. Instead, work out the result from the current save state before calling the update (e.g. keep a saveRef synced to save, check saveRef.current.team.includes/length >= TEAM_SIZE, then update). The same stale-result risk applies to 'removed'.",
+    "Make the mobile TeamTray fit inside 390px: shrink slots (e.g. h-10 w-10 below sm), use gap-1, make the Arena button icon-only or shrink-0 with a smaller label, or put the slots on their own row.",
+    "Optional: restore Gen 4 typings with past_types so Fairy types do not appear."
+  ],
+  "critical_code_review_comments": [
+    "GameContext.toggleTeam: the result is changed as a side effect inside the setState updater and returned synchronously. This is the root cause of the missing 'Team is full' toast.",
+    "computeStarterIds: logic is correct for babies (Pichu->Pikachu, Munchlax->Snorlax, etc.). 232 unlocked and 35 sealed are consistent.",
+    "dex.js fetchCreatures: the idbPut errors are swallowed silently, which is fine for a cache. CONCURRENCY=10 with retries is reasonable.",
+    "All files are under 160 lines and data-testids are well covered."
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "N/A (frontend-only)", "frontend": "93%"},
+  "seed_data_creation": "None",
+  "retest_needed": true,
+  "should_main_agent_self_test": true,
+  "context_for_next_testing_agent": "Pure SPA, no backend. Fresh browser sync takes about 15-22s. To check the fix: fill the team to 6/6, click another unlocked card, and expect a toast in [data-sonner-toast] reading 'Team is full'. On mobile, check that the to-arena-button bounding box x+width <= 390. Re-sync was already exercised once and works.",
+  "rca of the issue": "Team-full toast: RosterPage.handleSelect uses the return value of toggleTeam. toggleTeam starts with let result='added' and only changes it inside the updater passed to setSave. React only runs that updater immediately when the fiber has no pending work, which fails after earlier renders, so the updater runs later during render and toggleTeam has already returned 'added'. Repro: select 6 creatures, click a 7th: no toast. Mitigation: work out the result from a ref of the current save before calling setSave."
+}

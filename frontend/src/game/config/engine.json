@@ -1,0 +1,114 @@
+{
+  "TICK_RATE": 60,
+  "LEVEL": 50,
+  "DAMAGE_SCALE": 0.12,
+  "RANDOM_MIN": 0.85,
+  "RANDOM_MAX": 1.0,
+  "STAB": 1.5,
+  "cooldown": {
+    "divisor": 25,
+    "min": 1.5,
+    "max": 6,
+    "status": 8
+  },
+  "unit": {
+    "radius": 0.45,
+    "spriteTiles": 2.2
+  },
+  "speed": {
+    "base": 1.5,
+    "divisor": 40
+  },
+  "movement": {
+    "accelSec": 0.15,
+    "decelSec": 0.1,
+    "turnRateDeg": 540,
+    "driftSpeedMult": 0.25,
+    "approachAngleDeg": 35,
+    "holdBand": 0.5
+  },
+  "strafe": {
+    "minTiles": 2,
+    "maxTiles": 4,
+    "minSec": 1,
+    "maxSec": 2
+  },
+  "dodge": {
+    "sec": 0.25,
+    "speedMult": 2.5,
+    "cooldownSec": 1.2,
+    "horizonSec": 1
+  },
+  "melee": {
+    "backoffSec": 0.5
+  },
+  "knockback": {
+    "melee": 0.5,
+    "dash": 1,
+    "speed": 6
+  },
+  "shapes": {
+    "projectile": {
+      "speed": 10,
+      "range": 8,
+      "radius": 0.2
+    },
+    "area": {
+      "radius": 1.5,
+      "windupSec": 0.4,
+      "range": 8
+    },
+    "melee": {
+      "reach": 1.3,
+      "arcDeg": 90
+    },
+    "dash": {
+      "sec": 0.25,
+      "speedMult": 2.5
+    },
+    "shield": {
+      "sec": 3
+    },
+    "buff": {
+      "sec": 5,
+      "mult": 1.5
+    }
+  },
+  "status": {
+    "burn": {
+      "sec": 4,
+      "fraction": 0.125
+    },
+    "paralysis": {
+      "sec": 2,
+      "speedMult": 0.5
+    }
+  },
+  "switching": {
+    "sec": 1.5,
+    "faintPuffSec": 0.5,
+    "goSplashSec": 1
+  },
+  "ai": {
+    "kiteDistance": 5,
+    "closeDistance": 1,
+    "favourableTileRange": 4,
+    "aggressionMin": 0.3,
+    "aggressionMax": 0.9,
+    "switchHpFraction": 0.2,
+    "shieldHorizonSec": 1,
+    "patienceSec": 10,
+    "impatientRangeFraction": 0.6
+  },
+  "switchWillingness": {
+    "low": 0.2,
+    "medium": 0.5,
+    "high": 0.9
+  },
+  "doubleKoWinner": "npc",
+  "timeLimitSec": 600,
+  "suddenDeath": {
+    "startSec": 300,
+    "rampPerMin": 0.5
+  }
+}
