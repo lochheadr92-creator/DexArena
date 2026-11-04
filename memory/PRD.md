@@ -97,7 +97,16 @@ Constraints
 - Daily leaderboard: `save.daily.history[≤60]` `{key, attempts, best}` upserted by `recordDaily`, deduped/sorted in `normalizeSave` (old saves migrate their current day); `dailyStats` → streak (consecutive days played, alive through yesterday), bestStreak, monthPlayed/Wins/Best; `components/DailyBoard.jsx` "Your month" collapsible under the Daily card (`daily-board*` test ids)
 - Replay gallery: `save.replays[≤20]` `{id, name, code, meta{winner, seconds, terrainId, archetypeId, slot, mode, playerIds, npcIds, standing}, savedAt}` (`lib/replays.js`: addReplay dedupes by code, trims oldest; parseReplayLink accepts URL or bare code); ResultScreen "Save replay" (name panel → `replay-saved-badge`; works in replay mode too); `components/ReplayGallery.jsx` on the Save tab: Watch (/replay#code), Copy link, Rename, Delete, Add from link (`replay-*` test ids)
 
+### 150 Original Creatures roster + flat-vector sprites — DONE (2026-06) — self-tested (roster render, team select, live battle e2e, verify_original_roster.mjs PASS, 0 console errors)
+- Dual-roster system: `lib/rosters.js` registry (`pokemon` MAX_ID=493 PokeAPI, `original` 150 bundled), per-roster save keys, `RosterToggle.jsx` UI toggle wired through `GameContext`. Pokémon roster untouched (still PokeAPI sprites).
+- Original content bundled offline in `src/content/original/` (`creatures.json` 150 species, `moves.json` 72 original moves, `abilityNames.json`); `index.js` seeds the shared move cache. Data matches the real Pokémon reference distribution (types/stats/stages) — `build_original_roster.mjs` + `verify_original_roster.mjs`.
+- Art: 300 AI flat-vector sprites (front + back, 512² transparent PNG) in `frontend/public/original/oNNN-{front,back}.png`. Generated via Fal.ai **Nano Banana Pro** (`fal-ai/nano-banana-pro`) text-to-image + **BiRefNet v2** (`fal-ai/birefnet/v2`) background removal, through the Emergent Universal Key integration proxy. Scripts: `scripts/fal_lib.py` (submit→poll→result helper w/ bounded retries, generate_sprite), `scripts/fal_gen.py` (per-type visual prompts, front-first ordering, resume-on-existing, 5 workers). Style = flat vector, bold outlines, solid flat colors, plain white bg keyed out.
+- Hero line (per user PDF): roster dex 1–3 reskinned to **Mossplod → Mosshull → Bathyward** (Water / Water / Water-Steel; tardigrade → armored tardigrade → steel diving bell). Only name/displayName/genus/types changed; stats/moves/abilities/evolution chain kept from the generated data.
+- Render: original sprites render smoothed (not pixelated) — `SpriteImg` auto-detects `/original/` src; `game/render/sprites.js` sets `entry.smooth`; renderer gates `imageSmoothingEnabled` on it (3 sites). Pokémon sprites stay pixelated.
+- KNOWN minor inconsistency: Mossplod-line retyped to Water/Steel but still carries its originally-generated grass/rock-themed move ids (thematic only; engine uses move types independently). verify warns grass −4 type deviation (expected from the swap).
+
 ### Next (not started)
+- Resume paused "mobile app (Expo)" task — add the mobile surface for the Original roster.
 
 ## Backlog
 ### Phase 2/3 follow-ups (only if user asks)

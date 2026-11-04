@@ -1,0 +1,1052 @@
+[
+  {
+    "dexNo": 1,
+    "name": "Fernling",
+    "front": "/original/o001-front.png",
+    "back": "/original/o001-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 2,
+    "name": "Frondlynx",
+    "front": "/original/o002-front.png",
+    "back": "/original/o002-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 3,
+    "name": "Thornmane",
+    "front": "/original/o003-front.png",
+    "back": "/original/o003-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 4,
+    "name": "Cindcub",
+    "front": "/original/o004-front.png",
+    "back": "/original/o004-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 5,
+    "name": "Emberpaw",
+    "front": "/original/o005-front.png",
+    "back": "/original/o005-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 6,
+    "name": "Pyrelynx",
+    "front": "/original/o006-front.png",
+    "back": "/original/o006-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 7,
+    "name": "Rivpup",
+    "front": "/original/o007-front.png",
+    "back": "/original/o007-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 8,
+    "name": "Ottersurge",
+    "front": "/original/o008-front.png",
+    "back": "/original/o008-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 9,
+    "name": "Tidewarden",
+    "front": "/original/o009-front.png",
+    "back": "/original/o009-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 10,
+    "name": "Snaplet",
+    "front": "/original/o010-front.png",
+    "back": "/original/o010-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 11,
+    "name": "Cragshell",
+    "front": "/original/o011-front.png",
+    "back": "/original/o011-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 12,
+    "name": "Bastioturtle",
+    "front": "/original/o012-front.png",
+    "back": "/original/o012-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 13,
+    "name": "Sparkit",
+    "front": "/original/o013-front.png",
+    "back": "/original/o013-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 14,
+    "name": "Voltnip",
+    "front": "/original/o014-front.png",
+    "back": "/original/o014-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 15,
+    "name": "Thundril",
+    "front": "/original/o015-front.png",
+    "back": "/original/o015-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 16,
+    "name": "Pebblug",
+    "front": "/original/o016-front.png",
+    "back": "/original/o016-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 17,
+    "name": "Gravelcarl",
+    "front": "/original/o017-front.png",
+    "back": "/original/o017-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 18,
+    "name": "Boulderon",
+    "front": "/original/o018-front.png",
+    "back": "/original/o018-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 19,
+    "name": "Mothlet",
+    "front": "/original/o019-front.png",
+    "back": "/original/o019-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 20,
+    "name": "Dustwing",
+    "front": "/original/o020-front.png",
+    "back": "/original/o020-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 21,
+    "name": "Lumothra",
+    "front": "/original/o021-front.png",
+    "back": "/original/o021-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 22,
+    "name": "Kitsol",
+    "front": "/original/o022-front.png",
+    "back": "/original/o022-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 23,
+    "name": "Mystifox",
+    "front": "/original/o023-front.png",
+    "back": "/original/o023-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 24,
+    "name": "Orakitsu",
+    "front": "/original/o024-front.png",
+    "back": "/original/o024-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 25,
+    "name": "Wyrmlet",
+    "front": "/original/o025-front.png",
+    "back": "/original/o025-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 26,
+    "name": "Drakoil",
+    "front": "/original/o026-front.png",
+    "back": "/original/o026-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 27,
+    "name": "Sauranox",
+    "front": "/original/o027-front.png",
+    "back": "/original/o027-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 28,
+    "name": "Wisplit",
+    "front": "/original/o028-front.png",
+    "back": "/original/o028-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 29,
+    "name": "Lanternox",
+    "front": "/original/o029-front.png",
+    "back": "/original/o029-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 30,
+    "name": "Pyreveil",
+    "front": "/original/o030-front.png",
+    "back": "/original/o030-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 31,
+    "name": "Scrapup",
+    "front": "/original/o031-front.png",
+    "back": "/original/o031-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 32,
+    "name": "Brawlmonk",
+    "front": "/original/o032-front.png",
+    "back": "/original/o032-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 33,
+    "name": "Kombruiser",
+    "front": "/original/o033-front.png",
+    "back": "/original/o033-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 34,
+    "name": "Floepup",
+    "front": "/original/o034-front.png",
+    "back": "/original/o034-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 35,
+    "name": "Glaciff",
+    "front": "/original/o035-front.png",
+    "back": "/original/o035-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 36,
+    "name": "Permabrim",
+    "front": "/original/o036-front.png",
+    "back": "/original/o036-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 37,
+    "name": "Shadepup",
+    "front": "/original/o037-front.png",
+    "back": "/original/o037-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 38,
+    "name": "Nightfang",
+    "front": "/original/o038-front.png",
+    "back": "/original/o038-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 39,
+    "name": "Umbrawulf",
+    "front": "/original/o039-front.png",
+    "back": "/original/o039-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 40,
+    "name": "Moldig",
+    "front": "/original/o040-front.png",
+    "back": "/original/o040-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 41,
+    "name": "Burrodon",
+    "front": "/original/o041-front.png",
+    "back": "/original/o041-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 42,
+    "name": "Terravore",
+    "front": "/original/o042-front.png",
+    "back": "/original/o042-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 43,
+    "name": "Coggle",
+    "front": "/original/o043-front.png",
+    "back": "/original/o043-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 44,
+    "name": "Ironclad",
+    "front": "/original/o044-front.png",
+    "back": "/original/o044-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 45,
+    "name": "Magnaform",
+    "front": "/original/o045-front.png",
+    "back": "/original/o045-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 46,
+    "name": "Sludgle",
+    "front": "/original/o046-front.png",
+    "back": "/original/o046-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 47,
+    "name": "Toxiserp",
+    "front": "/original/o047-front.png",
+    "back": "/original/o047-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 48,
+    "name": "Venomire",
+    "front": "/original/o048-front.png",
+    "back": "/original/o048-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 49,
+    "name": "Tuftkit",
+    "front": "/original/o049-front.png",
+    "back": "/original/o049-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 50,
+    "name": "Fluffox",
+    "front": "/original/o050-front.png",
+    "back": "/original/o050-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 51,
+    "name": "Regalox",
+    "front": "/original/o051-front.png",
+    "back": "/original/o051-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 52,
+    "name": "Gustling",
+    "front": "/original/o052-front.png",
+    "back": "/original/o052-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 53,
+    "name": "Falcres",
+    "front": "/original/o053-front.png",
+    "back": "/original/o053-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 54,
+    "name": "Skytalon",
+    "front": "/original/o054-front.png",
+    "back": "/original/o054-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 55,
+    "name": "Chillkoi",
+    "front": "/original/o055-front.png",
+    "back": "/original/o055-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 56,
+    "name": "Frostcarp",
+    "front": "/original/o056-front.png",
+    "back": "/original/o056-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 57,
+    "name": "Glacidon",
+    "front": "/original/o057-front.png",
+    "back": "/original/o057-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 58,
+    "name": "Mousling",
+    "front": "/original/o058-front.png",
+    "back": "/original/o058-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 59,
+    "name": "Brindlebeast",
+    "front": "/original/o059-front.png",
+    "back": "/original/o059-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 60,
+    "name": "Pufflet",
+    "front": "/original/o060-front.png",
+    "back": "/original/o060-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 61,
+    "name": "Driftglide",
+    "front": "/original/o061-front.png",
+    "back": "/original/o061-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 62,
+    "name": "Nibbit",
+    "front": "/original/o062-front.png",
+    "back": "/original/o062-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 63,
+    "name": "Chompkin",
+    "front": "/original/o063-front.png",
+    "back": "/original/o063-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 64,
+    "name": "Dozowl",
+    "front": "/original/o064-front.png",
+    "back": "/original/o064-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 65,
+    "name": "Lullowl",
+    "front": "/original/o065-front.png",
+    "back": "/original/o065-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 66,
+    "name": "Trillark",
+    "front": "/original/o066-front.png",
+    "back": "/original/o066-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 67,
+    "name": "Carolcrest",
+    "front": "/original/o067-front.png",
+    "back": "/original/o067-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 68,
+    "name": "Jabibb",
+    "front": "/original/o068-front.png",
+    "back": "/original/o068-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 69,
+    "name": "Thumpkin",
+    "front": "/original/o069-front.png",
+    "back": "/original/o069-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 70,
+    "name": "Quillmouse",
+    "front": "/original/o070-front.png",
+    "back": "/original/o070-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 71,
+    "name": "Prickbarr",
+    "front": "/original/o071-front.png",
+    "back": "/original/o071-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 72,
+    "name": "Guppet",
+    "front": "/original/o072-front.png",
+    "back": "/original/o072-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 73,
+    "name": "Finfury",
+    "front": "/original/o073-front.png",
+    "back": "/original/o073-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 74,
+    "name": "Blubble",
+    "front": "/original/o074-front.png",
+    "back": "/original/o074-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 75,
+    "name": "Medujelly",
+    "front": "/original/o075-front.png",
+    "back": "/original/o075-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 76,
+    "name": "Splashru",
+    "front": "/original/o076-front.png",
+    "back": "/original/o076-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 77,
+    "name": "Gullfin",
+    "front": "/original/o077-front.png",
+    "back": "/original/o077-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 78,
+    "name": "Tadmuck",
+    "front": "/original/o078-front.png",
+    "back": "/original/o078-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 79,
+    "name": "Marshog",
+    "front": "/original/o079-front.png",
+    "back": "/original/o079-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 80,
+    "name": "Nipclaw",
+    "front": "/original/o080-front.png",
+    "back": "/original/o080-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 81,
+    "name": "Crushtide",
+    "front": "/original/o081-front.png",
+    "back": "/original/o081-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 82,
+    "name": "Sproutle",
+    "front": "/original/o082-front.png",
+    "back": "/original/o082-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 83,
+    "name": "Cabblade",
+    "front": "/original/o083-front.png",
+    "back": "/original/o083-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 84,
+    "name": "Vineling",
+    "front": "/original/o084-front.png",
+    "back": "/original/o084-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 85,
+    "name": "Thornweed",
+    "front": "/original/o085-front.png",
+    "back": "/original/o085-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 86,
+    "name": "Seedwing",
+    "front": "/original/o086-front.png",
+    "back": "/original/o086-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 87,
+    "name": "Glideleaf",
+    "front": "/original/o087-front.png",
+    "back": "/original/o087-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 88,
+    "name": "Mossmit",
+    "front": "/original/o088-front.png",
+    "back": "/original/o088-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 89,
+    "name": "Loamoss",
+    "front": "/original/o089-front.png",
+    "back": "/original/o089-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 90,
+    "name": "Budox",
+    "front": "/original/o090-front.png",
+    "back": "/original/o090-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 91,
+    "name": "Bloomox",
+    "front": "/original/o091-front.png",
+    "back": "/original/o091-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 92,
+    "name": "Grublet",
+    "front": "/original/o092-front.png",
+    "back": "/original/o092-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 93,
+    "name": "Beewing",
+    "front": "/original/o093-front.png",
+    "back": "/original/o093-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 94,
+    "name": "Crawlit",
+    "front": "/original/o094-front.png",
+    "back": "/original/o094-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 95,
+    "name": "Venbug",
+    "front": "/original/o095-front.png",
+    "back": "/original/o095-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 96,
+    "name": "Pincher",
+    "front": "/original/o096-front.png",
+    "back": "/original/o096-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 97,
+    "name": "Mandibex",
+    "front": "/original/o097-front.png",
+    "back": "/original/o097-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 98,
+    "name": "Talonet",
+    "front": "/original/o098-front.png",
+    "back": "/original/o098-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 99,
+    "name": "Ravenwing",
+    "front": "/original/o099-front.png",
+    "back": "/original/o099-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 100,
+    "name": "Rubble",
+    "front": "/original/o100-front.png",
+    "back": "/original/o100-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 101,
+    "name": "Stoneroc",
+    "front": "/original/o101-front.png",
+    "back": "/original/o101-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 102,
+    "name": "Orbling",
+    "front": "/original/o102-front.png",
+    "back": "/original/o102-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 103,
+    "name": "Psygaze",
+    "front": "/original/o103-front.png",
+    "back": "/original/o103-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 104,
+    "name": "Mystling",
+    "front": "/original/o104-front.png",
+    "back": "/original/o104-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 105,
+    "name": "Astralyn",
+    "front": "/original/o105-front.png",
+    "back": "/original/o105-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 106,
+    "name": "Monkai",
+    "front": "/original/o106-front.png",
+    "back": "/original/o106-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 107,
+    "name": "Zenchi",
+    "front": "/original/o107-front.png",
+    "back": "/original/o107-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 108,
+    "name": "Shadeye",
+    "front": "/original/o108-front.png",
+    "back": "/original/o108-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 109,
+    "name": "Hexeer",
+    "front": "/original/o109-front.png",
+    "back": "/original/o109-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 110,
+    "name": "Gaslug",
+    "front": "/original/o110-front.png",
+    "back": "/original/o110-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 111,
+    "name": "Smogoyle",
+    "front": "/original/o111-front.png",
+    "back": "/original/o111-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 112,
+    "name": "Mirelash",
+    "front": "/original/o112-front.png",
+    "back": "/original/o112-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 113,
+    "name": "Toxisaur",
+    "front": "/original/o113-front.png",
+    "back": "/original/o113-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 114,
+    "name": "Eelet",
+    "front": "/original/o114-front.png",
+    "back": "/original/o114-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 115,
+    "name": "Zapeel",
+    "front": "/original/o115-front.png",
+    "back": "/original/o115-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 116,
+    "name": "Fangoo",
+    "front": "/original/o116-front.png",
+    "back": "/original/o116-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 117,
+    "name": "Direvex",
+    "front": "/original/o117-front.png",
+    "back": "/original/o117-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 118,
+    "name": "Dustkit",
+    "front": "/original/o118-front.png",
+    "back": "/original/o118-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 119,
+    "name": "Terrapaw",
+    "front": "/original/o119-front.png",
+    "back": "/original/o119-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 120,
+    "name": "Rockpup",
+    "front": "/original/o120-front.png",
+    "back": "/original/o120-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 121,
+    "name": "Craggol",
+    "front": "/original/o121-front.png",
+    "back": "/original/o121-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 122,
+    "name": "Flarepup",
+    "front": "/original/o122-front.png",
+    "back": "/original/o122-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 123,
+    "name": "Cindhound",
+    "front": "/original/o123-front.png",
+    "back": "/original/o123-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 124,
+    "name": "Emberfowl",
+    "front": "/original/o124-front.png",
+    "back": "/original/o124-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 125,
+    "name": "Blazerooster",
+    "front": "/original/o125-front.png",
+    "back": "/original/o125-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 126,
+    "name": "Voltbird",
+    "front": "/original/o126-front.png",
+    "back": "/original/o126-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 127,
+    "name": "Zapcrest",
+    "front": "/original/o127-front.png",
+    "back": "/original/o127-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 128,
+    "name": "Frostcub",
+    "front": "/original/o128-front.png",
+    "back": "/original/o128-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 129,
+    "name": "Snowmaw",
+    "front": "/original/o129-front.png",
+    "back": "/original/o129-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 130,
+    "name": "Drakit",
+    "front": "/original/o130-front.png",
+    "back": "/original/o130-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 131,
+    "name": "Wyverng",
+    "front": "/original/o131-front.png",
+    "back": "/original/o131-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 132,
+    "name": "Pelibeak",
+    "front": "/original/o132-front.png",
+    "back": "/original/o132-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 133,
+    "name": "Lumifish",
+    "front": "/original/o133-front.png",
+    "back": "/original/o133-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 134,
+    "name": "Mirecroak",
+    "front": "/original/o134-front.png",
+    "back": "/original/o134-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 135,
+    "name": "Cervandra",
+    "front": "/original/o135-front.png",
+    "back": "/original/o135-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 136,
+    "name": "Sabrewind",
+    "front": "/original/o136-front.png",
+    "back": "/original/o136-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 137,
+    "name": "Golmite",
+    "front": "/original/o137-front.png",
+    "back": "/original/o137-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 138,
+    "name": "Voltmoth",
+    "front": "/original/o138-front.png",
+    "back": "/original/o138-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 139,
+    "name": "Cryptbat",
+    "front": "/original/o139-front.png",
+    "back": "/original/o139-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 140,
+    "name": "Aegisteel",
+    "front": "/original/o140-front.png",
+    "back": "/original/o140-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 141,
+    "name": "Magmaroth",
+    "front": "/original/o141-front.png",
+    "back": "/original/o141-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 142,
+    "name": "Leviacoil",
+    "front": "/original/o142-front.png",
+    "back": "/original/o142-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 143,
+    "name": "Voltraptor",
+    "front": "/original/o143-front.png",
+    "back": "/original/o143-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 144,
+    "name": "Colossand",
+    "front": "/original/o144-front.png",
+    "back": "/original/o144-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 145,
+    "name": "Borealis",
+    "front": "/original/o145-front.png",
+    "back": "/original/o145-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 146,
+    "name": "Nocturnyx",
+    "front": "/original/o146-front.png",
+    "back": "/original/o146-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 147,
+    "name": "Oraceleste",
+    "front": "/original/o147-front.png",
+    "back": "/original/o147-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 148,
+    "name": "Sylphage",
+    "front": "/original/o148-front.png",
+    "back": "/original/o148-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 149,
+    "name": "Relictar",
+    "front": "/original/o149-front.png",
+    "back": "/original/o149-back.png",
+    "hasArt": false
+  },
+  {
+    "dexNo": 150,
+    "name": "Wanderae",
+    "front": "/original/o150-front.png",
+    "back": "/original/o150-back.png",
+    "hasArt": false
+  }
+]

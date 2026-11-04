@@ -1,7 +1,7 @@
 import { Check, CircleOff, Sparkles } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useGame } from "@/context/GameContext";
-import { abilityDef, abilityName, chosenSlot } from "@/game/abilities";
+import { abilityDef, abilityName, abilityDescription, chosenSlot } from "@/game/abilities";
 
 const GROUP_LABEL = { entry: "On entry", pinch: "Pinch", offense: "Offense", defense: "Defense", contact: "Contact", status: "Status", weather: "Weather" };
 
@@ -49,7 +49,7 @@ export const AbilityPicker = ({ creature }) => {
                 </span>
               </span>
               <span className="mt-0.5 block text-xs leading-snug text-slate-400" data-testid={`ability-desc-${id}`}>
-                {def ? def.desc : "This ability relies on mechanics the Arena does not simulate (crits, flinches, sleep, items…), so it does nothing here."}
+                {def ? abilityDescription(id) : "This ability relies on mechanics the Arena does not simulate (crits, flinches, sleep, items…), so it does nothing here."}
               </span>
             </span>
           </button>

@@ -12,22 +12,29 @@ import { encodeReplay } from "@/lib/replay";
 import { clampLevel } from "@/lib/rival";
 import { buildCatalog, applyEvolutionItem as applyItemToSave } from "@/lib/items";
 import { registerDex, installHarness } from "@/game/tests/harness";
+import { setAbilityDisplay } from "@/game/abilities";
+import { ROSTERS, loadRosterId, saveRosterId } from "@/lib/rosters";
+import { loadOriginalCreatures, ORIGINAL_ABILITY_NAMES } from "@/content/original";
 
 const GameContext = createContext(null);
 const ALL_IDS = Array.from({ length: MAX_ID }, (_, i) => i + 1);
 installHarness();
 
 export function GameProvider({ children }) {
+  const initialRoster = loadRosterId();
+  const [rosterId, setRosterId] = useState(initialRoster);
+  const saveKeyRef = useRef(ROSTERS[initialRoster].saveKey);
   const [creatures, setCreatures] = useState({});
   const [progress, setProgress] = useState({ status: "idle", failed: [], patch: null });
-  const [save, setSave] = useState(loadSave);
+  const [save, setSave] = useState(() => loadSave(ROSTERS[initialRoster].saveKey));
   const [movesetOverrides, setMovesetOverrides] = useState({});
   const saveRef = useRef(save);
   saveRef.current = save;
   const pendingRef = useRef({});
   const flushTimer = useRef(null);
-  const startedRef = useRef(false);
   const unlockedRef = useRef(new Set());
+
+  const persist = useCallback((s) => persistSave(s, saveKeyRef.current), []);
 
   const flush = useCallback(() => {
     flushTimer.current = null;
@@ -77,12 +84,31 @@ export function GameProvider({ children }) {
     [queueCreature, flush],
   );
 
+  // Load the active roster's creatures + save whenever the roster changes.
   useEffect(() => {
-    if (startedRef.current) return;
-    startedRef.current = true;
+    let cancelled = false;
+    const roster = ROSTERS[rosterId];
+    saveKeyRef.current = roster.saveKey;
+    const loaded = loadSave(roster.saveKey);
+    saveRef.current = loaded;
+    setSave(loaded);
+    setMovesetOverrides({});
+    setAbilityDisplay(rosterId === "original" ? ORIGINAL_ABILITY_NAMES : {});
+    pendingRef.current = {};
+    setCreatures({});
+
+    if (rosterId === "original") {
+      setCreatures(loadOriginalCreatures());
+      setProgress({ status: "done", failed: [], patch: null });
+      return () => {
+        cancelled = true;
+      };
+    }
+
+    setProgress({ status: "cache", failed: [], patch: null });
     (async () => {
-      setProgress((p) => ({ ...p, status: "cache", failed: [] }));
       const cached = await loadCachedCreatures();
+      if (cancelled) return;
       const map = {};
       cached.forEach((c) => {
         map[c.id] = c;
@@ -93,21 +119,38 @@ export function GameProvider({ children }) {
       else setProgress((p) => ({ ...p, status: "done", failed: [] }));
       patch(cached.filter(needsAbilityPatch));
     })();
-  }, [sync, patch]);
+    return () => {
+      cancelled = true;
+    };
+  }, [rosterId, sync, patch]);
+
+  const setRoster = useCallback(
+    (id) => {
+      if (!ROSTERS[id] || id === rosterId) return;
+      saveRosterId(id);
+      setRosterId(id);
+    },
+    [rosterId],
+  );
 
   const retryFailed = useCallback(() => sync(progress.failed), [sync, progress.failed]);
 
   const resyncDex = useCallback(async () => {
+    if (rosterId === "original") {
+      setCreatures(loadOriginalCreatures());
+      setProgress({ status: "done", failed: [], patch: null });
+      return;
+    }
     await clearCreatureCache();
     setCreatures({});
     await sync(ALL_IDS);
-  }, [sync]);
+  }, [sync, rosterId]);
 
   const updateSave = useCallback((fn) => {
-    setSave((prev) => persistSave(fn(prev)));
-  }, []);
+    setSave((prev) => persist(fn(prev)));
+  }, [persist]);
 
-  const list = useMemo(() => Object.values(creatures).sort((a, b) => a.id - b.id), [creatures]);
+  const list = useMemo(() => Object.values(creatures).sort((a, b) => (a.dexNo ?? a.id) - (b.dexNo ?? b.id)), [creatures]);
   const starterIds = useMemo(() => computeStarterIds(creatures), [creatures]);
   const unlockedIds = useMemo(() => {
     const s = new Set(starterIds);
@@ -148,9 +191,11 @@ export function GameProvider({ children }) {
   const setRivalLevel = useCallback((rivalLevel) => updateSave((prev) => ({ ...prev, rivalLevel: clampLevel(rivalLevel) })), [updateSave]);
   const setAbility = useCallback((creatureId, slot) => updateSave((prev) => ({ ...prev, abilities: { ...prev.abilities, [creatureId]: slot === 1 ? 1 : 0 } })), [updateSave]);
   const resetSave = useCallback(() => {
-    clearSave();
-    setSave(persistSave(defaultSave()));
-  }, []);
+    clearSave(saveKeyRef.current);
+    const fresh = persist(defaultSave());
+    saveRef.current = fresh;
+    setSave(fresh);
+  }, [persist]);
 
   const creaturesRef = useRef(creatures);
   creaturesRef.current = creatures;
@@ -158,9 +203,11 @@ export function GameProvider({ children }) {
   const importSave = useCallback((obj) => {
     const error = validateSave(obj);
     if (error) return error;
-    setSave(persistSave(normalizeSave(obj)));
+    const next = persist(normalizeSave(obj));
+    saveRef.current = next;
+    setSave(next);
     return null;
-  }, []);
+  }, [persist]);
 
   const catalog = useMemo(() => buildCatalog(creatures), [creatures]);
   const catalogRef = useRef(catalog);
@@ -175,20 +222,22 @@ export function GameProvider({ children }) {
         unlockedRef.current,
       );
       if (!res.credited) return { newUnlocks: [], keysEarned: 0, credited: false, rows: [], drop: null };
-      setSave(persistSave(res.save));
-      saveRef.current = res.save;
+      const saved = persist(res.save);
+      setSave(saved);
+      saveRef.current = saved;
       return { newUnlocks: res.newUnlocks, keysEarned: res.keysEarned, credited: true, rows: res.rows, drop: res.drop };
     },
-    [],
+    [persist],
   );
 
-  const applyEvolutionItem = useCallback(({ itemId, fromId, toId }) => {
-    const res = applyItemToSave(saveRef.current, { itemId, fromId, toId }, catalogRef.current);
+  const applyEvolutionItem = useCallback((opts) => {
+    const res = applyItemToSave(saveRef.current, opts, catalogRef.current);
     if (res.error) return res.error;
-    setSave(persistSave(res.save));
-    saveRef.current = res.save;
+    const saved = persist(res.save);
+    setSave(saved);
+    saveRef.current = saved;
     return null;
-  }, []);
+  }, [persist]);
 
   const spendSealKey = useCallback((id) => {
     const c = creaturesRef.current[id];
@@ -207,11 +256,11 @@ export function GameProvider({ children }) {
     const run = saveRef.current.gauntlet.active;
     if (!run) return null;
     const result = runAfterBattle(run, state, drop);
-    const next = applyRunToSave(saveRef.current, result);
-    setSave(persistSave(next));
+    const next = persist(applyRunToSave(saveRef.current, result));
+    setSave(next);
     saveRef.current = next;
     return result;
-  }, []);
+  }, [persist]);
 
   const abandonGauntlet = useCallback(() => updateSave(abandonRun), [updateSave]);
 
@@ -236,16 +285,17 @@ export function GameProvider({ children }) {
       cancelled = true;
       clearInterval(id);
     };
-  }, [dexComplete]);
+  }, [dexComplete, rosterId]);
 
   const recordDailyResult = useCallback((state) => {
     const key = dailyRef.current?.key || dailyKey();
     const result = dailyResult(state);
     const res = recordDaily(saveRef.current, key, result);
-    setSave(persistSave(res.save));
-    saveRef.current = res.save;
-    return { key, result, isBest: res.isBest, best: res.save.daily.best, attempts: res.save.daily.attempts };
-  }, []);
+    const saved = persist(res.save);
+    setSave(saved);
+    saveRef.current = saved;
+    return { key, result, isBest: res.isBest, best: saved.daily.best, attempts: saved.daily.attempts };
+  }, [persist]);
 
   const presets = useMemo(
     () => ({
@@ -261,34 +311,40 @@ export function GameProvider({ children }) {
   const saveReplay = useCallback((state, name, mode) => {
     const res = addReplay(saveRef.current, { name, code: encodeReplay(state), meta: replayMeta(state, mode) });
     if (res.status !== "duplicate") {
-      setSave(persistSave(res.save));
-      saveRef.current = res.save;
+      const saved = persist(res.save);
+      setSave(saved);
+      saveRef.current = saved;
     }
     return res.status;
-  }, []);
+  }, [persist]);
 
   const replays = useMemo(
     () => ({
       add: (entry) => {
         const res = addReplay(saveRef.current, entry);
         if (res.status !== "duplicate") {
-          setSave(persistSave(res.save));
-          saveRef.current = res.save;
+          const saved = persist(res.save);
+          setSave(saved);
+          saveRef.current = saved;
         }
         return res.status;
       },
       rename: (id, name) => updateSave((prev) => renameReplay(prev, id, name)),
       remove: (id) => updateSave((prev) => deleteReplay(prev, id)),
     }),
-    [updateSave],
+    [updateSave, persist],
   );
 
+  const roster = ROSTERS[rosterId];
   const value = useMemo(
     () => ({
       creatures,
       list,
       loaded: list.length,
-      total: MAX_ID,
+      total: roster.total,
+      rosterId,
+      roster,
+      setRoster,
       progress,
       save,
       starterIds,
@@ -317,7 +373,7 @@ export function GameProvider({ children }) {
       saveReplay,
       replays,
     }),
-    [creatures, list, progress, save, starterIds, unlockedIds, toggleTeam, clearTeam, setTerrain, setRivalLevel, setAbility, resetSave, retryFailed, resyncDex, movesetOverrides, setMovesetOverride, importSave, creditResult, catalog, applyEvolutionItem, spendSealKey, startGauntlet, finishGauntletStage, abandonGauntlet, daily, recordDailyResult, presets, saveReplay, replays],
+    [creatures, list, roster, rosterId, setRoster, progress, save, starterIds, unlockedIds, toggleTeam, clearTeam, setTerrain, setRivalLevel, setAbility, resetSave, retryFailed, resyncDex, movesetOverrides, setMovesetOverride, importSave, creditResult, catalog, applyEvolutionItem, spendSealKey, startGauntlet, finishGauntletStage, abandonGauntlet, daily, recordDailyResult, presets, saveReplay, replays],
   );
 
   return <GameContext.Provider value={value}>{children}</GameContext.Provider>;

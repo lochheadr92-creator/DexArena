@@ -26,7 +26,7 @@ const Chip = ({ active, onClick, children, testId, style, className }) => (
   </button>
 );
 
-export const RosterFilters = ({ filters, setFilters, hasFilters, list = [] }) => {
+export const RosterFilters = ({ filters, setFilters, hasFilters, list = [], showGen = true }) => {
   const set = (patch) => setFilters((f) => ({ ...f, ...patch }));
 
   return (
@@ -53,15 +53,19 @@ export const RosterFilters = ({ filters, setFilters, hasFilters, list = [] }) =>
       </div>
 
       <div className="flex items-center gap-1.5 overflow-x-auto scrollbar-hide">
-        <Chip testId={DEX.genFilter("all")} active={filters.gen === 0} onClick={() => set({ gen: 0 })}>
-          All Gens
-        </Chip>
-        {[1, 2, 3, 4].map((g) => (
-          <Chip key={g} testId={DEX.genFilter(g)} active={filters.gen === g} onClick={() => set({ gen: filters.gen === g ? 0 : g })}>
-            Gen {GEN_LABELS[g]}
-          </Chip>
-        ))}
-        <span className="mx-1 h-4 w-px shrink-0 bg-slate-800" />
+        {showGen && (
+          <>
+            <Chip testId={DEX.genFilter("all")} active={filters.gen === 0} onClick={() => set({ gen: 0 })}>
+              All Gens
+            </Chip>
+            {[1, 2, 3, 4].map((g) => (
+              <Chip key={g} testId={DEX.genFilter(g)} active={filters.gen === g} onClick={() => set({ gen: filters.gen === g ? 0 : g })}>
+                Gen {GEN_LABELS[g]}
+              </Chip>
+            ))}
+            <span className="mx-1 h-4 w-px shrink-0 bg-slate-800" />
+          </>
+        )}
         <Chip
           testId={DEX.unlockedFilter}
           active={filters.onlyUnlocked}

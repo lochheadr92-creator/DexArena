@@ -270,7 +270,7 @@ export class BattleRenderer {
       ctx.globalAlpha = alpha;
       ctx.translate(x + dx, y + dy + this.px(u.radius) * 0.5);
       ctx.scale(flip ? -sx : sx, sy);
-      ctx.imageSmoothingEnabled = false;
+      ctx.imageSmoothingEnabled = !!entry.smooth;
       if (tint && anim) this.drawTinted(frame, -w / 2, -h, w, h, tint.color, tint.alpha);
       else ctx.drawImage(frame, -w / 2, -h, w, h);
       ctx.restore();
@@ -1025,7 +1025,7 @@ export class BattleRenderer {
                 const pt = this.toPx(path[idx].x, path[idx].y);
                 ctx.save();
                 ctx.globalAlpha = alpha * (1 - p);
-                ctx.imageSmoothingEnabled = false;
+                ctx.imageSmoothingEnabled = !!entry.smooth;
                 ctx.drawImage(frame, pt.x - w / 2, pt.y + this.px(0.45) * 0.5 - h, w, h);
                 ctx.restore();
               }
@@ -1052,7 +1052,7 @@ export class BattleRenderer {
             const w = e.entry.width * scale;
             const h = e.entry.height * scale;
             ctx.save();
-            ctx.imageSmoothingEnabled = false;
+            ctx.imageSmoothingEnabled = !!e.entry.smooth;
             ctx.globalAlpha = 1 - p * 0.5;
             ctx.drawImage(frame, x - w / 2, y + this.px(0.45) * 0.5 - h, w, h);
             ctx.restore();

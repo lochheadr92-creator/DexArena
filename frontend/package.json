@@ -64,7 +64,8 @@
   "scripts": {
     "start": "craco start",
     "build": "craco build",
-    "test": "craco test"
+    "test": "craco test",
+    "verify:original-roster": "node ../scripts/verify_original_roster.mjs"
   },
   "browserslist": {
     "production": [

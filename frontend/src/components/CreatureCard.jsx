@@ -53,7 +53,7 @@ export const CreatureCard = memo(function CreatureCard({ creature, locked, slot,
       )}
     >
       <div className="flex w-full items-center justify-between">
-        <span className="font-accent text-[7px] text-slate-500">{dexNo(creature.id)}</span>
+        <span className="font-accent text-[7px] text-slate-500">{dexNo(creature.dexNo ?? creature.id)}</span>
         <button
           type="button"
           data-testid={DEX.creatureInfo(creature.id)}

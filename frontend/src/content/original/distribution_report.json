@@ -1,0 +1,186 @@
+{
+  "species": 150,
+  "single": 83,
+  "dual": 67,
+  "singleTarget": 82,
+  "dualTarget": 68,
+  "sealed": 11,
+  "legendary": 8,
+  "mythical": 3,
+  "sealedTarget": 11,
+  "stageCount": {
+    "1": 75,
+    "2": 56,
+    "3": 19
+  },
+  "stageTarget": {
+    "1": 75,
+    "2": 56,
+    "3": 19
+  },
+  "typeTable": [
+    {
+      "type": "water",
+      "target": 28,
+      "actual": 27,
+      "dev": -1
+    },
+    {
+      "type": "normal",
+      "target": 24,
+      "actual": 23,
+      "dev": -1
+    },
+    {
+      "type": "flying",
+      "target": 19,
+      "actual": 17,
+      "dev": -2
+    },
+    {
+      "type": "psychic",
+      "target": 16,
+      "actual": 17,
+      "dev": 1
+    },
+    {
+      "type": "grass",
+      "target": 17,
+      "actual": 16,
+      "dev": -1
+    },
+    {
+      "type": "poison",
+      "target": 15,
+      "actual": 15,
+      "dev": 0
+    },
+    {
+      "type": "bug",
+      "target": 14,
+      "actual": 14,
+      "dev": 0
+    },
+    {
+      "type": "ground",
+      "target": 14,
+      "actual": 13,
+      "dev": -1
+    },
+    {
+      "type": "rock",
+      "target": 11,
+      "actual": 13,
+      "dev": 2
+    },
+    {
+      "type": "fire",
+      "target": 10,
+      "actual": 10,
+      "dev": 0
+    },
+    {
+      "type": "electric",
+      "target": 9,
+      "actual": 8,
+      "dev": -1
+    },
+    {
+      "type": "ice",
+      "target": 7,
+      "actual": 8,
+      "dev": 1
+    },
+    {
+      "type": "fighting",
+      "target": 8,
+      "actual": 8,
+      "dev": 0
+    },
+    {
+      "type": "dragon",
+      "target": 6,
+      "actual": 8,
+      "dev": 2
+    },
+    {
+      "type": "steel",
+      "target": 8,
+      "actual": 8,
+      "dev": 0
+    },
+    {
+      "type": "dark",
+      "target": 7,
+      "actual": 7,
+      "dev": 0
+    },
+    {
+      "type": "ghost",
+      "target": 5,
+      "actual": 5,
+      "dev": 0
+    }
+  ],
+  "bstByTier": {
+    "stage1": {
+      "n": 64,
+      "min": 296,
+      "max": 469,
+      "median": 323,
+      "mean": 337
+    },
+    "stage2": {
+      "n": 56,
+      "min": 385,
+      "max": 476,
+      "median": 441,
+      "mean": 435
+    },
+    "stage3": {
+      "n": 19,
+      "min": 499,
+      "max": 544,
+      "median": 523,
+      "mean": 523
+    },
+    "rare": {
+      "n": 11,
+      "min": 592,
+      "max": 638,
+      "median": 631,
+      "mean": 623
+    }
+  },
+  "bstTarget": {
+    "stage1": {
+      "n": 212,
+      "min": 180,
+      "max": 535,
+      "median": 314,
+      "mean": 327
+    },
+    "stage2": {
+      "n": 184,
+      "min": 205,
+      "max": 555,
+      "median": 455,
+      "mean": 445
+    },
+    "stage3": {
+      "n": 62,
+      "min": 385,
+      "max": 670,
+      "median": 525,
+      "mean": 514
+    },
+    "rare": {
+      "n": 35,
+      "min": 480,
+      "max": 720,
+      "median": 600,
+      "mean": 615
+    }
+  },
+  "moves": 72
+}

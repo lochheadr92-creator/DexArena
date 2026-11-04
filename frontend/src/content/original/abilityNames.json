@@ -1,0 +1,222 @@
+{
+  "blaze": {
+    "name": "Emberheart",
+    "desc": "Below ⅓ HP, Fire moves deal ×1.5 damage."
+  },
+  "torrent": {
+    "name": "Tidecaller",
+    "desc": "Below ⅓ HP, Water moves deal ×1.5 damage."
+  },
+  "overgrow": {
+    "name": "Verdant Fury",
+    "desc": "Below ⅓ HP, Grass moves deal ×1.5 damage."
+  },
+  "swarm": {
+    "name": "Hivemind",
+    "desc": "Below ⅓ HP, Bug moves deal ×1.5 damage."
+  },
+  "intimidate": {
+    "name": "Dreadroar",
+    "desc": "On entry, cows the foe — its Attack drops until it switches."
+  },
+  "huge-power": {
+    "name": "Titan Grip",
+    "desc": "Attack is doubled."
+  },
+  "guts": {
+    "name": "Tenacity",
+    "desc": "Attack ×1.5 while burned or paralysed."
+  },
+  "iron-fist": {
+    "name": "Heavy Hands",
+    "desc": "Striking moves deal ×1.2 damage."
+  },
+  "technician": {
+    "name": "Finesse",
+    "desc": "Weaker moves (60 power or less) deal ×1.5 damage."
+  },
+  "adaptability": {
+    "name": "Zealot",
+    "desc": "Same-type attack bonus is ×2 instead of ×1.5."
+  },
+  "compound-eyes": {
+    "name": "Keen Eye",
+    "desc": "Move accuracy ×1.3."
+  },
+  "serene-grace": {
+    "name": "Twin Fate",
+    "desc": "Burn and paralysis chances are doubled."
+  },
+  "mold-breaker": {
+    "name": "Breaker",
+    "desc": "Moves ignore the foe's defensive abilities."
+  },
+  "no-guard": {
+    "name": "Deadeye",
+    "desc": "Every move by or against it lands — no misses, no dodges."
+  },
+  "sturdy": {
+    "name": "Bedrock",
+    "desc": "Survives any single hit from full HP with 1 HP left."
+  },
+  "levitate": {
+    "name": "Skyborne",
+    "desc": "Hovers: immune to Ground moves and tile effects."
+  },
+  "wonder-guard": {
+    "name": "Spectral Ward",
+    "desc": "Only super-effective moves can deal damage."
+  },
+  "thick-fat": {
+    "name": "Blubber",
+    "desc": "Fire and Ice damage taken ×0.5."
+  },
+  "heatproof": {
+    "name": "Cinderproof",
+    "desc": "Fire damage taken ×0.5."
+  },
+  "filter": {
+    "name": "Dampen",
+    "desc": "Super-effective damage taken ×0.75."
+  },
+  "solid-rock": {
+    "name": "Granite Hide",
+    "desc": "Super-effective damage taken ×0.75."
+  },
+  "water-absorb": {
+    "name": "Thirst",
+    "desc": "Immune to Water moves and heals ¼ HP when hit by one."
+  },
+  "volt-absorb": {
+    "name": "Conduct",
+    "desc": "Immune to Electric moves and heals ¼ HP when hit by one."
+  },
+  "flash-fire": {
+    "name": "Kindle",
+    "desc": "Immune to Fire; being hit by one powers up its Fire moves."
+  },
+  "motor-drive": {
+    "name": "Overclock",
+    "desc": "Immune to Electric; being hit by one raises its Speed."
+  },
+  "dry-skin": {
+    "name": "Porous",
+    "desc": "Absorbs Water, weak to Fire; heals in rain, hurts in sun."
+  },
+  "clear-body": {
+    "name": "Composure",
+    "desc": "Its stats cannot be lowered by Intimidate."
+  },
+  "limber": {
+    "name": "Loose Joints",
+    "desc": "Cannot be paralysed."
+  },
+  "water-veil": {
+    "name": "Coolant",
+    "desc": "Cannot be burned."
+  },
+  "static": {
+    "name": "Livewire",
+    "desc": "30% chance to paralyse attackers that make contact."
+  },
+  "flame-body": {
+    "name": "Cinderskin",
+    "desc": "30% chance to burn attackers that make contact."
+  },
+  "effect-spore": {
+    "name": "Spore Cloud",
+    "desc": "30% chance to burn or paralyse attackers on contact."
+  },
+  "rough-skin": {
+    "name": "Barbed Hide",
+    "desc": "Attackers that make contact lose ⅛ of their HP."
+  },
+  "aftermath": {
+    "name": "Last Spite",
+    "desc": "When KO'd by a contact move, the attacker loses ¼ HP."
+  },
+  "speed-boost": {
+    "name": "Quickening",
+    "desc": "Speed rises every few seconds while out."
+  },
+  "marvel-scale": {
+    "name": "Scaleguard",
+    "desc": "Defence ×1.5 while burned or paralysed."
+  },
+  "quick-feet": {
+    "name": "Fleetfoot",
+    "desc": "Speed ×1.5 while burned or paralysed."
+  },
+  "natural-cure": {
+    "name": "Mend",
+    "desc": "Burn and paralysis are cured when it switches out."
+  },
+  "shed-skin": {
+    "name": "Molt",
+    "desc": "May shrug off burn or paralysis over time."
+  },
+  "magic-guard": {
+    "name": "Charmward",
+    "desc": "Only takes damage from direct attacks — no chip."
+  },
+  "synchronize": {
+    "name": "Reflection",
+    "desc": "Passes any burn or paralysis it receives back to the foe."
+  },
+  "chlorophyll": {
+    "name": "Sunchaser",
+    "desc": "Much faster in harsh sunlight or on the grass Pitch."
+  },
+  "swift-swim": {
+    "name": "Streamline",
+    "desc": "Much faster in rain or on water tiles."
+  },
+  "sand-veil": {
+    "name": "Dustveil",
+    "desc": "+20% dodge in sandstorms or the Cavern; immune to sand chip."
+  },
+  "snow-cloak": {
+    "name": "Frostveil",
+    "desc": "+20% dodge in hail or on snow; immune to hail chip."
+  },
+  "ice-body": {
+    "name": "Permafrost",
+    "desc": "Heals in hail or on snow and ice; immune to hail chip."
+  },
+  "rain-dish": {
+    "name": "Raincatch",
+    "desc": "Heals in rain or on water tiles."
+  },
+  "hydration": {
+    "name": "Rinse",
+    "desc": "Cures burn and paralysis in rain or on water."
+  },
+  "drizzle": {
+    "name": "Stormcall",
+    "desc": "Summons rain on entry: Water ×1.3, Fire ×0.7."
+  },
+  "drought": {
+    "name": "Sunflare",
+    "desc": "Summons harsh sunlight on entry: Fire ×1.3, Water ×0.7."
+  },
+  "sand-stream": {
+    "name": "Sandcaller",
+    "desc": "Summons a sandstorm on entry."
+  },
+  "snow-warning": {
+    "name": "Snowcaller",
+    "desc": "Summons hail on entry."
+  },
+  "pressure": {
+    "name": "Overbearing",
+    "desc": "The foe's move cooldowns are 25% longer."
+  },
+  "frisk": {
+    "name": "Insight",
+    "desc": "On entry, reveals the rival's whole hidden team."
+  },
+  "leaf-guard": {
+    "name": "Sunward",
+    "desc": "Cannot be burned or paralysed in sun or on the Pitch."
+  }
+}

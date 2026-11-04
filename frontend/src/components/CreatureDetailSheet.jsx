@@ -108,7 +108,7 @@ export const CreatureDetailSheet = ({ creatureId, onClose, onPick, onToggleTeam 
                 </div>
                 <div className="min-w-0 flex-1 pt-1">
                   <div className="flex items-center gap-2">
-                    <span className="font-accent text-[9px] text-slate-500">{dexNo(creature.id)}</span>
+                    <span className="font-accent text-[9px] text-slate-500">{dexNo(creature.dexNo ?? creature.id)}</span>
                     <span className="rounded border border-slate-800 px-1.5 py-0.5 font-mono text-[9px] uppercase tracking-wider text-slate-400">
                       Gen {GEN_LABELS[creature.generation]}
                     </span>

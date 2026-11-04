@@ -70,5 +70,11 @@ export async function ensureMoves(ids, onProgress) {
   return map;
 }
 
+// Preload a batch of fully-normalized moves (e.g. the Original roster) so
+// ensureMoves() resolves them from memory with no network request.
+export function registerMoves(list) {
+  for (const m of list) memory.set(m.id, m);
+}
+
 export const getMoveSync = (id) => memory.get(id);
 export const moveMapSnapshot = () => Object.fromEntries(memory);

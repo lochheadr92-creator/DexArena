@@ -21,7 +21,7 @@ const Placeholder = ({ id }) => (
 );
 
 export default function RosterPage() {
-  const { creatures, list, loaded, progress, unlockedIds, save, toggleTeam } = useGame();
+  const { creatures, list, loaded, total, roster, progress, unlockedIds, save, toggleTeam } = useGame();
   const [filters, setFilters] = useState(EMPTY_FILTERS);
   const [detailId, setDetailId] = useState(null);
 
@@ -36,7 +36,7 @@ export default function RosterPage() {
           (!filters.type || c.types.includes(filters.type)) &&
           (!filters.onlyUnlocked || unlockedIds.has(c.id)) &&
           (!filters.ability || (c.abilities || []).includes(filters.ability)) &&
-          (!q || c.displayName.toLowerCase().includes(q) || c.name.includes(q) || String(c.id) === q.replace(/^#0*/, "")),
+          (!q || c.displayName.toLowerCase().includes(q) || c.name.includes(q) || String(c.id) === q.replace(/^#0*/, "") || String(c.dexNo ?? "") === q.replace(/^#0*/, "")),
       ),
     [list, filters.gen, filters.type, filters.onlyUnlocked, filters.ability, unlockedIds, q],
   );
@@ -58,7 +58,7 @@ export default function RosterPage() {
 
   return (
     <div className="pb-48">
-      <RosterFilters filters={filters} setFilters={setFilters} hasFilters={hasFilters} list={list} />
+      <RosterFilters filters={filters} setFilters={setFilters} hasFilters={hasFilters} list={list} showGen={roster.hasGenerations} />
       {filters.ability && (
         <div className="mt-2.5">
           <AbilityFilterNote value={filters.ability} count={abilityCount} />
@@ -67,7 +67,7 @@ export default function RosterPage() {
 
       <div className="mt-3 flex items-center justify-between font-mono text-[10px] uppercase tracking-widest text-slate-500">
         <span data-testid={DEX.rosterCount}>
-          {hasFilters ? `${filtered.length} match` : `${loaded} / ${MAX_ID} creatures`}
+          {hasFilters ? `${filtered.length} match` : `${loaded} / ${total} creatures`}
         </span>
         <span>
           <span className="text-emerald-400">{unlockedIds.size}</span> unlocked

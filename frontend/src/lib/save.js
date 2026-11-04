@@ -94,9 +94,9 @@ export function normalizeSave(parsed) {
   };
 }
 
-export function loadSave() {
+export function loadSave(key = SAVE_KEY) {
   try {
-    const raw = localStorage.getItem(SAVE_KEY);
+    const raw = localStorage.getItem(key);
     if (!raw) return defaultSave();
     const parsed = JSON.parse(raw);
     if (parsed?.version !== SAVE_VERSION) return defaultSave();
@@ -106,16 +106,16 @@ export function loadSave() {
   }
 }
 
-export function persistSave(save) {
+export function persistSave(save, key = SAVE_KEY) {
   const next = { ...save, updatedAt: Date.now() };
   try {
-    localStorage.setItem(SAVE_KEY, JSON.stringify(next));
+    localStorage.setItem(key, JSON.stringify(next));
   } catch {
     /* storage full or blocked */
   }
   return next;
 }
 
-export function clearSave() {
-  localStorage.removeItem(SAVE_KEY);
+export function clearSave(key = SAVE_KEY) {
+  localStorage.removeItem(key);
 }

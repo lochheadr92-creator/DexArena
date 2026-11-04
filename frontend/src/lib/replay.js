@@ -9,6 +9,8 @@ export function encodeReplay(state) {
     v: 2,
     seed: state.seed,
     t: state.terrain.id,
+    r: state.meta.roster || "pokemon",
+    cv: state.meta.contentVersion ?? null,
     a: state.meta.archetype,
     s: state.meta.slot,
     p: state.teams.player.units.map((u) => u.evolvedFrom ?? u.creatureId),
@@ -46,6 +48,8 @@ export function decodeReplay(code) {
   return {
     abilitiesEnabled,
     initialWeather: d.w || null,
+    roster: d.r || "pokemon",
+    contentVersion: d.cv ?? null,
     playerAbilityIds: abilitiesEnabled ? d.pa : null,
     npcAbilityIds: abilitiesEnabled ? d.na : null,
     seed: d.seed >>> 0,

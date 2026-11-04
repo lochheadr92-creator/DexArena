@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
 import { Check, ChevronDown, Sparkles, X } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { abilityDef, abilityName } from "@/game/abilities";
+import { abilityDef, abilityName, abilityDescription } from "@/game/abilities";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from "@/components/ui/command";
 
@@ -88,7 +88,7 @@ export const AbilityFilterNote = ({ value, count }) => {
         <span className="font-semibold text-slate-50">{abilityName(value)}</span>
         <span className="font-mono text-[10px] uppercase tracking-wider text-slate-500"> · {count} species</span>
         <br />
-        {def ? def.desc : "No effect in Arena battles — listed for completeness."}
+        {def ? abilityDescription(value) : "No effect in Arena battles — listed for completeness."}
       </p>
     </div>
   );

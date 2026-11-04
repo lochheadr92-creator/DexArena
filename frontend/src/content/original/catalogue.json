@@ -1,0 +1,3903 @@
+[
+  {
+    "dexNo": 1,
+    "name": "Fernling",
+    "types": [
+      "grass"
+    ],
+    "family": 1,
+    "stage": 1,
+    "rarity": "ordinary",
+    "bst": 319,
+    "stats": {
+      "hp": 51,
+      "atk": 25,
+      "def": 44,
+      "spa": 82,
+      "spd": 53,
+      "spe": 64
+    },
+    "abilities": [
+      "Zealot"
+    ],
+    "evolvesFrom": null,
+    "evolvesTo": [
+      "Frondlynx"
+    ]
+  },
+  {
+    "dexNo": 2,
+    "name": "Frondlynx",
+    "types": [
+      "grass"
+    ],
+    "family": 1,
+    "stage": 2,
+    "rarity": "ordinary",
+    "bst": 410,
+    "stats": {
+      "hp": 66,
+      "atk": 27,
+      "def": 53,
+      "spa": 111,
+      "spd": 66,
+      "spe": 87
+    },
+    "abilities": [
+      "Zealot"
+    ],
+    "evolvesFrom": "Fernling",
+    "evolvesTo": [
+      "Thornmane"
+    ]
+  },
+  {
+    "dexNo": 3,
+    "name": "Thornmane",
+    "types": [
+      "grass",
+      "rock"
+    ],
+    "family": 1,
+    "stage": 3,
+    "rarity": "ordinary",
+    "bst": 532,
+    "stats": {
+      "hp": 85,
+      "atk": 39,
+      "def": 66,
+      "spa": 139,
+      "spd": 95,
+      "spe": 108
+    },
+    "abilities": [
+      "Verdant Fury",
+      "Bedrock"
+    ],
+    "evolvesFrom": "Frondlynx",
+    "evolvesTo": []
+  },
+  {
+    "dexNo": 4,
+    "name": "Cindcub",
+    "types": [
+      "fire"
+    ],
+    "family": 2,
+    "stage": 1,
+    "rarity": "ordinary",
+    "bst": 321,
+    "stats": {
+      "hp": 55,
+      "atk": 84,
+      "def": 52,
+      "spa": 25,
+      "spd": 42,
+      "spe": 63
+    },
+    "abilities": [
+      "Tenacity",
+      "Heavy Hands"
+    ],
+    "evolvesFrom": null,
+    "evolvesTo": [
+      "Emberpaw"
+    ]
+  },
+  {
+    "dexNo": 5,
+    "name": "Emberpaw",
+    "types": [
+      "fire"
+    ],
+    "family": 2,
+    "stage": 2,
+    "rarity": "ordinary",
+    "bst": 422,
+    "stats": {
+      "hp": 70,
+      "atk": 106,
+      "def": 74,
+      "spa": 30,
+      "spd": 55,
+      "spe": 87
+    },
+    "abilities": [
+      "Titan Grip",
+      "Cinderskin"
+    ],
+    "evolvesFrom": "Cindcub",
+    "evolvesTo": [
+      "Pyrelynx"
+    ]
+  },
+  {
+    "dexNo": 6,
+    "name": "Pyrelynx",
+    "types": [
+      "fire",
+      "fighting"
+    ],
+    "family": 2,
+    "stage": 3,
+    "rarity": "ordinary",
+    "bst": 520,
+    "stats": {
+      "hp": 89,
+      "atk": 132,
+      "def": 92,
+      "spa": 37,
+      "spd": 66,
+      "spe": 104
+    },
+    "abilities": [
+      "Sunflare"
+    ],
+    "evolvesFrom": "Emberpaw",
+    "evolvesTo": []
+  },
+  {
+    "dexNo": 7,
+    "name": "Rivpup",
+    "types": [
+      "water"
+    ],
+    "family": 3,
+    "stage": 1,
+    "rarity": "ordinary",
+    "bst": 331,
+    "stats": {
+      "hp": 56,
+      "atk": 57,
+      "def": 59,
+      "spa": 55,
+      "spd": 53,
+      "spe": 51
+    },
+    "abilities": [
+      "Tidecaller"
+    ],
+    "evolvesFrom": null,
+    "evolvesTo": [
+      "Ottersurge"
+    ]
+  },
+  {
+    "dexNo": 8,
+    "name": "Ottersurge",
+    "types": [
+      "water"
+    ],
+    "family": 3,
+    "stage": 2,
+    "rarity": "ordinary",
+    "bst": 385,
+    "stats": {
+      "hp": 64,
+      "atk": 66,
+      "def": 62,
+      "spa": 70,
+      "spd": 58,
+      "spe": 65
+    },
+    "abilities": [
+      "Scaleguard",
+      "Rinse"
+    ],
+    "evolvesFrom": "Rivpup",
+    "evolvesTo": [
+      "Tidewarden"
+    ]
+  },
+  {
+    "dexNo": 9,
+    "name": "Tidewarden",
+    "types": [
+      "water",
+      "ground"
+    ],
+    "family": 3,
+    "stage": 3,
+    "rarity": "ordinary",
+    "bst": 532,
+    "stats": {
+      "hp": 89,
+      "atk": 87,
+      "def": 86,
+      "spa": 94,
+      "spd": 87,
+      "spe": 89
+    },
+    "abilities": [
+      "Sandcaller",
+      "Dreadroar"
+    ],
+    "evolvesFrom": "Ottersurge",
+    "evolvesTo": []
+  },
+  {
+    "dexNo": 10,
+    "name": "Snaplet",
+    "types": [
+      "water"
+    ],
+    "family": 4,
+    "stage": 1,
+    "rarity": "ordinary",
+    "bst": 312,
+    "stats": {
+      "hp": 67,
+      "atk": 46,
+      "def": 68,
+      "spa": 35,
+      "spd": 63,
+      "spe": 33
+    },
+    "abilities": [
+      "Dampen",
+      "Bedrock"
+    ],
+    "evolvesFrom": null,
+    "evolvesTo": [
+      "Cragshell"
+    ]
+  },
+  {
+    "dexNo": 11,
+    "name": "Cragshell",
+    "types": [
+      "water",
+      "rock"
+    ],
+    "family": 4,
+    "stage": 2,
+    "rarity": "ordinary",
+    "bst": 404,
+    "stats": {
+      "hp": 86,
+      "atk": 64,
+      "def": 92,
+      "spa": 45,
+      "spd": 77,
+      "spe": 40
+    },
+    "abilities": [
+      "Thirst",
+      "Bedrock"
+    ],
+    "evolvesFrom": "Snaplet",
+    "evolvesTo": [
+      "Bastioturtle"
+    ]
+  },
+  {
+    "dexNo": 12,
+    "name": "Bastioturtle",
+    "types": [
+      "water",
+      "rock"
+    ],
+    "family": 4,
+    "stage": 3,
+    "rarity": "ordinary",
+    "bst": 523,
+    "stats": {
+      "hp": 117,
+      "atk": 79,
+      "def": 115,
+      "spa": 59,
+      "spd": 98,
+      "spe": 55
+    },
+    "abilities": [
+      "Dampen",
+      "Scaleguard"
+    ],
+    "evolvesFrom": "Cragshell",
+    "evolvesTo": []
+  },
+  {
+    "dexNo": 13,
+    "name": "Sparkit",
+    "types": [
+      "electric"
+    ],
+    "family": 5,
+    "stage": 1,
+    "rarity": "ordinary",
+    "bst": 320,
+    "stats": {
+      "hp": 42,
+      "atk": 56,
+      "def": 35,
+      "spa": 60,
+      "spd": 35,
+      "spe": 92
+    },
+    "abilities": [
+      "Quickening"
+    ],
+    "evolvesFrom": null,
+    "evolvesTo": [
+      "Voltnip"
+    ]
+  },
+  {
+    "dexNo": 14,
+    "name": "Voltnip",
+    "types": [
+      "electric"
+    ],
+    "family": 5,
+    "stage": 2,
+    "rarity": "ordinary",
+    "bst": 398,
+    "stats": {
+      "hp": 53,
+      "atk": 73,
+      "def": 42,
+      "spa": 67,
+      "spd": 45,
+      "spe": 118
+    },
+    "abilities": [
+      "Livewire"
+    ],
+    "evolvesFrom": "Sparkit",
+    "evolvesTo": [
+      "Thundril"
+    ]
+  },
+  {
+    "dexNo": 15,
+    "name": "Thundril",
+    "types": [
+      "electric"
+    ],
+    "family": 5,
+    "stage": 3,
+    "rarity": "ordinary",
+    "bst": 533,
+    "stats": {
+      "hp": 65,
+      "atk": 94,
+      "def": 58,
+      "spa": 99,
+      "spd": 60,
+      "spe": 157
+    },
+    "abilities": [
+      "Livewire",
+      "Fleetfoot"
+    ],
+    "evolvesFrom": "Voltnip",
+    "evolvesTo": []
+  },
+  {
+    "dexNo": 16,
+    "name": "Pebblug",
+    "types": [
+      "rock",
+      "bug"
+    ],
+    "family": 6,
+    "stage": 1,
+    "rarity": "ordinary",
+    "bst": 310,
+    "stats": {
+      "hp": 66,
+      "atk": 47,
+      "def": 72,
+      "spa": 32,
+      "spd": 64,
+      "spe": 29
+    },
+    "abilities": [
+      "Granite Hide"
+    ],
+    "evolvesFrom": null,
+    "evolvesTo": [
+      "Gravelcarl"
+    ]
+  },
+  {
+    "dexNo": 17,
+    "name": "Gravelcarl",
+    "types": [
+      "rock",
+      "bug"
+    ],
+    "family": 6,
+    "stage": 2,
+    "rarity": "ordinary",
+    "bst": 420,
+    "stats": {
+      "hp": 94,
+      "atk": 66,
+      "def": 85,
+      "spa": 49,
+      "spd": 87,
+      "spe": 39
+    },
+    "abilities": [
+      "Granite Hide",
+      "Keen Eye"
+    ],
+    "evolvesFrom": "Pebblug",
+    "evolvesTo": [
+      "Boulderon"
+    ]
+  },
+  {
+    "dexNo": 18,
+    "name": "Boulderon",
+    "types": [
+      "rock",
+      "ground"
+    ],
+    "family": 6,
+    "stage": 3,
+    "rarity": "ordinary",
+    "bst": 504,
+    "stats": {
+      "hp": 109,
+      "atk": 75,
+      "def": 111,
+      "spa": 55,
+      "spd": 104,
+      "spe": 50
+    },
+    "abilities": [
+      "Sandcaller",
+      "Dampen"
+    ],
+    "evolvesFrom": "Gravelcarl",
+    "evolvesTo": []
+  },
+  {
+    "dexNo": 19,
+    "name": "Mothlet",
+    "types": [
+      "bug"
+    ],
+    "family": 7,
+    "stage": 1,
+    "rarity": "ordinary",
+    "bst": 324,
+    "stats": {
+      "hp": 56,
+      "atk": 25,
+      "def": 43,
+      "spa": 81,
+      "spd": 58,
+      "spe": 61
+    },
+    "abilities": [
+      "Barbed Hide"
+    ],
+    "evolvesFrom": null,
+    "evolvesTo": [
+      "Dustwing"
+    ]
+  },
+  {
+    "dexNo": 20,
+    "name": "Dustwing",
+    "types": [
+      "bug",
+      "flying"
+    ],
+    "family": 7,
+    "stage": 2,
+    "rarity": "ordinary",
+    "bst": 386,
+    "stats": {
+      "hp": 64,
+      "atk": 29,
+      "def": 48,
+      "spa": 101,
+      "spd": 65,
+      "spe": 79
+    },
+    "abilities": [
+      "Barbed Hide"
+    ],
+    "evolvesFrom": "Mothlet",
+    "evolvesTo": [
+      "Lumothra"
+    ]
+  },
+  {
+    "dexNo": 21,
+    "name": "Lumothra",
+    "types": [
+      "bug",
+      "flying"
+    ],
+    "family": 7,
+    "stage": 3,
+    "rarity": "ordinary",
+    "bst": 543,
+    "stats": {
+      "hp": 96,
+      "atk": 35,
+      "def": 72,
+      "spa": 138,
+      "spd": 94,
+      "spe": 108
+    },
+    "abilities": [
+      "Hivemind",
+      "Finesse"
+    ],
+    "evolvesFrom": "Dustwing",
+    "evolvesTo": []
+  },
+  {
+    "dexNo": 22,
+    "name": "Kitsol",
+    "types": [
+      "psychic"
+    ],
+    "family": 8,
+    "stage": 1,
+    "rarity": "ordinary",
+    "bst": 299,
+    "stats": {
+      "hp": 49,
+      "atk": 25,
+      "def": 40,
+      "spa": 76,
+      "spd": 51,
+      "spe": 58
+    },
+    "abilities": [
+      "Finesse",
+      "Charmward"
+    ],
+    "evolvesFrom": null,
+    "evolvesTo": [
+      "Mystifox"
+    ]
+  },
+  {
+    "dexNo": 23,
+    "name": "Mystifox",
+    "types": [
+      "psychic"
+    ],
+    "family": 8,
+    "stage": 2,
+    "rarity": "ordinary",
+    "bst": 390,
+    "stats": {
+      "hp": 67,
+      "atk": 26,
+      "def": 50,
+      "spa": 100,
+      "spd": 72,
+      "spe": 75
+    },
+    "abilities": [
+      "Reflection",
+      "Skyborne"
+    ],
+    "evolvesFrom": "Kitsol",
+    "evolvesTo": [
+      "Orakitsu"
+    ]
+  },
+  {
+    "dexNo": 24,
+    "name": "Orakitsu",
+    "types": [
+      "psychic",
+      "ghost"
+    ],
+    "family": 8,
+    "stage": 3,
+    "rarity": "ordinary",
+    "bst": 525,
+    "stats": {
+      "hp": 86,
+      "atk": 36,
+      "def": 68,
+      "spa": 141,
+      "spd": 84,
+      "spe": 110
+    },
+    "abilities": [
+      "Zealot"
+    ],
+    "evolvesFrom": "Mystifox",
+    "evolvesTo": []
+  },
+  {
+    "dexNo": 25,
+    "name": "Wyrmlet",
+    "types": [
+      "dragon"
+    ],
+    "family": 9,
+    "stage": 1,
+    "rarity": "ordinary",
+    "bst": 315,
+    "stats": {
+      "hp": 53,
+      "atk": 81,
+      "def": 54,
+      "spa": 25,
+      "spd": 41,
+      "spe": 61
+    },
+    "abilities": [
+      "Tenacity"
+    ],
+    "evolvesFrom": null,
+    "evolvesTo": [
+      "Drakoil"
+    ]
+  },
+  {
+    "dexNo": 26,
+    "name": "Drakoil",
+    "types": [
+      "dragon"
+    ],
+    "family": 9,
+    "stage": 2,
+    "rarity": "ordinary",
+    "bst": 411,
+    "stats": {
+      "hp": 69,
+      "atk": 112,
+      "def": 71,
+      "spa": 28,
+      "spd": 53,
+      "spe": 78
+    },
+    "abilities": [
+      "Titan Grip",
+      "Scaleguard"
+    ],
+    "evolvesFrom": "Wyrmlet",
+    "evolvesTo": [
+      "Sauranox"
+    ]
+  },
+  {
+    "dexNo": 27,
+    "name": "Sauranox",
+    "types": [
+      "dragon"
+    ],
+    "family": 9,
+    "stage": 3,
+    "rarity": "ordinary",
+    "bst": 519,
+    "stats": {
+      "hp": 90,
+      "atk": 140,
+      "def": 83,
+      "spa": 39,
+      "spd": 70,
+      "spe": 97
+    },
+    "abilities": [
+      "Breaker",
+      "Heavy Hands"
+    ],
+    "evolvesFrom": "Drakoil",
+    "evolvesTo": []
+  },
+  {
+    "dexNo": 28,
+    "name": "Wisplit",
+    "types": [
+      "ghost"
+    ],
+    "family": 10,
+    "stage": 1,
+    "rarity": "ordinary",
+    "bst": 317,
+    "stats": {
+      "hp": 55,
+      "atk": 25,
+      "def": 44,
+      "spa": 78,
+      "spd": 54,
+      "spe": 61
+    },
+    "abilities": [
+      "Zealot",
+      "Charmward"
+    ],
+    "evolvesFrom": null,
+    "evolvesTo": [
+      "Lanternox"
+    ]
+  },
+  {
+    "dexNo": 29,
+    "name": "Lanternox",
+    "types": [
+      "ghost",
+      "fire"
+    ],
+    "family": 10,
+    "stage": 2,
+    "rarity": "ordinary",
+    "bst": 414,
+    "stats": {
+      "hp": 66,
+      "atk": 29,
+      "def": 55,
+      "spa": 109,
+      "spd": 70,
+      "spe": 85
+    },
+    "abilities": [
+      "Zealot"
+    ],
+    "evolvesFrom": "Wisplit",
+    "evolvesTo": [
+      "Pyreveil"
+    ]
+  },
+  {
+    "dexNo": 30,
+    "name": "Pyreveil",
+    "types": [
+      "ghost",
+      "fire"
+    ],
+    "family": 10,
+    "stage": 3,
+    "rarity": "ordinary",
+    "bst": 525,
+    "stats": {
+      "hp": 86,
+      "atk": 34,
+      "def": 69,
+      "spa": 144,
+      "spd": 83,
+      "spe": 109
+    },
+    "abilities": [
+      "Skyborne",
+      "Charmward"
+    ],
+    "evolvesFrom": "Lanternox",
+    "evolvesTo": []
+  },
+  {
+    "dexNo": 31,
+    "name": "Scrapup",
+    "types": [
+      "fighting"
+    ],
+    "family": 11,
+    "stage": 1,
+    "rarity": "ordinary",
+    "bst": 321,
+    "stats": {
+      "hp": 57,
+      "atk": 81,
+      "def": 52,
+      "spa": 25,
+      "spd": 39,
+      "spe": 67
+    },
+    "abilities": [
+      "Deadeye"
+    ],
+    "evolvesFrom": null,
+    "evolvesTo": [
+      "Brawlmonk"
+    ]
+  },
+  {
+    "dexNo": 32,
+    "name": "Brawlmonk",
+    "types": [
+      "fighting"
+    ],
+    "family": 11,
+    "stage": 2,
+    "rarity": "ordinary",
+    "bst": 412,
+    "stats": {
+      "hp": 73,
+      "atk": 104,
+      "def": 74,
+      "spa": 29,
+      "spd": 51,
+      "spe": 81
+    },
+    "abilities": [
+      "Heavy Hands"
+    ],
+    "evolvesFrom": "Scrapup",
+    "evolvesTo": [
+      "Kombruiser"
+    ]
+  },
+  {
+    "dexNo": 33,
+    "name": "Kombruiser",
+    "types": [
+      "fighting",
+      "steel"
+    ],
+    "family": 11,
+    "stage": 3,
+    "rarity": "ordinary",
+    "bst": 525,
+    "stats": {
+      "hp": 96,
+      "atk": 129,
+      "def": 92,
+      "spa": 37,
+      "spd": 66,
+      "spe": 105
+    },
+    "abilities": [
+      "Heavy Hands",
+      "Bedrock"
+    ],
+    "evolvesFrom": "Brawlmonk",
+    "evolvesTo": []
+  },
+  {
+    "dexNo": 34,
+    "name": "Floepup",
+    "types": [
+      "ice"
+    ],
+    "family": 12,
+    "stage": 1,
+    "rarity": "ordinary",
+    "bst": 300,
+    "stats": {
+      "hp": 64,
+      "atk": 46,
+      "def": 64,
+      "spa": 32,
+      "spd": 65,
+      "spe": 29
+    },
+    "abilities": [
+      "Bedrock",
+      "Frostveil"
+    ],
+    "evolvesFrom": null,
+    "evolvesTo": [
+      "Glaciff"
+    ]
+  },
+  {
+    "dexNo": 35,
+    "name": "Glaciff",
+    "types": [
+      "ice"
+    ],
+    "family": 12,
+    "stage": 2,
+    "rarity": "ordinary",
+    "bst": 422,
+    "stats": {
+      "hp": 95,
+      "atk": 62,
+      "def": 96,
+      "spa": 44,
+      "spd": 84,
+      "spe": 41
+    },
+    "abilities": [
+      "Bedrock"
+    ],
+    "evolvesFrom": "Floepup",
+    "evolvesTo": [
+      "Permabrim"
+    ]
+  },
+  {
+    "dexNo": 36,
+    "name": "Permabrim",
+    "types": [
+      "ice",
+      "water"
+    ],
+    "family": 12,
+    "stage": 3,
+    "rarity": "ordinary",
+    "bst": 499,
+    "stats": {
+      "hp": 109,
+      "atk": 80,
+      "def": 107,
+      "spa": 56,
+      "spd": 97,
+      "spe": 50
+    },
+    "abilities": [
+      "Scaleguard",
+      "Frostveil"
+    ],
+    "evolvesFrom": "Glaciff",
+    "evolvesTo": []
+  },
+  {
+    "dexNo": 37,
+    "name": "Shadepup",
+    "types": [
+      "dark"
+    ],
+    "family": 13,
+    "stage": 1,
+    "rarity": "ordinary",
+    "bst": 327,
+    "stats": {
+      "hp": 42,
+      "atk": 61,
+      "def": 37,
+      "spa": 57,
+      "spd": 40,
+      "spe": 90
+    },
+    "abilities": [
+      "Quickening",
+      "Overclock"
+    ],
+    "evolvesFrom": null,
+    "evolvesTo": [
+      "Nightfang"
+    ]
+  },
+  {
+    "dexNo": 38,
+    "name": "Nightfang",
+    "types": [
+      "dark"
+    ],
+    "family": 13,
+    "stage": 2,
+    "rarity": "ordinary",
+    "bst": 417,
+    "stats": {
+      "hp": 55,
+      "atk": 70,
+      "def": 47,
+      "spa": 75,
+      "spd": 52,
+      "spe": 118
+    },
+    "abilities": [
+      "Dreadroar",
+      "Quickening"
+    ],
+    "evolvesFrom": "Shadepup",
+    "evolvesTo": [
+      "Umbrawulf"
+    ]
+  },
+  {
+    "dexNo": 39,
+    "name": "Umbrawulf",
+    "types": [
+      "dark",
+      "ghost"
+    ],
+    "family": 13,
+    "stage": 3,
+    "rarity": "ordinary",
+    "bst": 516,
+    "stats": {
+      "hp": 63,
+      "atk": 93,
+      "def": 56,
+      "spa": 100,
+      "spd": 66,
+      "spe": 138
+    },
+    "abilities": [
+      "Quickening"
+    ],
+    "evolvesFrom": "Nightfang",
+    "evolvesTo": []
+  },
+  {
+    "dexNo": 40,
+    "name": "Moldig",
+    "types": [
+      "ground"
+    ],
+    "family": 14,
+    "stage": 1,
+    "rarity": "ordinary",
+    "bst": 322,
+    "stats": {
+      "hp": 69,
+      "atk": 49,
+      "def": 71,
+      "spa": 35,
+      "spd": 66,
+      "spe": 32
+    },
+    "abilities": [
+      "Dampen"
+    ],
+    "evolvesFrom": null,
+    "evolvesTo": [
+      "Burrodon"
+    ]
+  },
+  {
+    "dexNo": 41,
+    "name": "Burrodon",
+    "types": [
+      "ground"
+    ],
+    "family": 14,
+    "stage": 2,
+    "rarity": "ordinary",
+    "bst": 419,
+    "stats": {
+      "hp": 87,
+      "atk": 63,
+      "def": 94,
+      "spa": 49,
+      "spd": 87,
+      "spe": 39
+    },
+    "abilities": [
+      "Granite Hide"
+    ],
+    "evolvesFrom": "Moldig",
+    "evolvesTo": [
+      "Terravore"
+    ]
+  },
+  {
+    "dexNo": 42,
+    "name": "Terravore",
+    "types": [
+      "ground",
+      "steel"
+    ],
+    "family": 14,
+    "stage": 3,
+    "rarity": "ordinary",
+    "bst": 543,
+    "stats": {
+      "hp": 113,
+      "atk": 85,
+      "def": 124,
+      "spa": 59,
+      "spd": 109,
+      "spe": 53
+    },
+    "abilities": [
+      "Composure",
+      "Scaleguard"
+    ],
+    "evolvesFrom": "Burrodon",
+    "evolvesTo": []
+  },
+  {
+    "dexNo": 43,
+    "name": "Coggle",
+    "types": [
+      "steel"
+    ],
+    "family": 15,
+    "stage": 1,
+    "rarity": "ordinary",
+    "bst": 296,
+    "stats": {
+      "hp": 65,
+      "atk": 46,
+      "def": 64,
+      "spa": 33,
+      "spd": 58,
+      "spe": 30
+    },
+    "abilities": [
+      "Scaleguard"
+    ],
+    "evolvesFrom": null,
+    "evolvesTo": [
+      "Ironclad"
+    ]
+  },
+  {
+    "dexNo": 44,
+    "name": "Ironclad",
+    "types": [
+      "steel"
+    ],
+    "family": 15,
+    "stage": 2,
+    "rarity": "ordinary",
+    "bst": 419,
+    "stats": {
+      "hp": 88,
+      "atk": 65,
+      "def": 95,
+      "spa": 45,
+      "spd": 85,
+      "spe": 41
+    },
+    "abilities": [
+      "Dampen",
+      "Composure"
+    ],
+    "evolvesFrom": "Coggle",
+    "evolvesTo": [
+      "Magnaform"
+    ]
+  },
+  {
+    "dexNo": 45,
+    "name": "Magnaform",
+    "types": [
+      "steel",
+      "electric"
+    ],
+    "family": 15,
+    "stage": 3,
+    "rarity": "ordinary",
+    "bst": 544,
+    "stats": {
+      "hp": 123,
+      "atk": 79,
+      "def": 124,
+      "spa": 62,
+      "spd": 100,
+      "spe": 56
+    },
+    "abilities": [
+      "Composure",
+      "Bedrock"
+    ],
+    "evolvesFrom": "Ironclad",
+    "evolvesTo": []
+  },
+  {
+    "dexNo": 46,
+    "name": "Sludgle",
+    "types": [
+      "poison"
+    ],
+    "family": 16,
+    "stage": 1,
+    "rarity": "ordinary",
+    "bst": 299,
+    "stats": {
+      "hp": 55,
+      "atk": 48,
+      "def": 49,
+      "spa": 51,
+      "spd": 49,
+      "spe": 47
+    },
+    "abilities": [
+      "Finesse",
+      "Reflection"
+    ],
+    "evolvesFrom": null,
+    "evolvesTo": [
+      "Toxiserp"
+    ]
+  },
+  {
+    "dexNo": 47,
+    "name": "Toxiserp",
+    "types": [
+      "poison"
+    ],
+    "family": 16,
+    "stage": 2,
+    "rarity": "ordinary",
+    "bst": 405,
+    "stats": {
+      "hp": 64,
+      "atk": 68,
+      "def": 70,
+      "spa": 69,
+      "spd": 68,
+      "spe": 66
+    },
+    "abilities": [
+      "Molt"
+    ],
+    "evolvesFrom": "Sludgle",
+    "evolvesTo": [
+      "Venomire"
+    ]
+  },
+  {
+    "dexNo": 48,
+    "name": "Venomire",
+    "types": [
+      "poison",
+      "dark"
+    ],
+    "family": 16,
+    "stage": 3,
+    "rarity": "ordinary",
+    "bst": 516,
+    "stats": {
+      "hp": 89,
+      "atk": 87,
+      "def": 91,
+      "spa": 88,
+      "spd": 79,
+      "spe": 82
+    },
+    "abilities": [
+      "Insight"
+    ],
+    "evolvesFrom": "Toxiserp",
+    "evolvesTo": []
+  },
+  {
+    "dexNo": 49,
+    "name": "Tuftkit",
+    "types": [
+      "normal"
+    ],
+    "family": 17,
+    "stage": 1,
+    "rarity": "ordinary",
+    "bst": 325,
+    "stats": {
+      "hp": 52,
+      "atk": 55,
+      "def": 54,
+      "spa": 58,
+      "spd": 52,
+      "spe": 54
+    },
+    "abilities": [
+      "Zealot"
+    ],
+    "evolvesFrom": null,
+    "evolvesTo": [
+      "Fluffox"
+    ]
+  },
+  {
+    "dexNo": 50,
+    "name": "Fluffox",
+    "types": [
+      "normal"
+    ],
+    "family": 17,
+    "stage": 2,
+    "rarity": "ordinary",
+    "bst": 403,
+    "stats": {
+      "hp": 65,
+      "atk": 69,
+      "def": 70,
+      "spa": 69,
+      "spd": 66,
+      "spe": 64
+    },
+    "abilities": [
+      "Tenacity"
+    ],
+    "evolvesFrom": "Tuftkit",
+    "evolvesTo": [
+      "Regalox"
+    ]
+  },
+  {
+    "dexNo": 51,
+    "name": "Regalox",
+    "types": [
+      "normal",
+      "psychic"
+    ],
+    "family": 17,
+    "stage": 3,
+    "rarity": "ordinary",
+    "bst": 511,
+    "stats": {
+      "hp": 89,
+      "atk": 85,
+      "def": 84,
+      "spa": 92,
+      "spd": 76,
+      "spe": 85
+    },
+    "abilities": [
+      "Tenacity"
+    ],
+    "evolvesFrom": "Fluffox",
+    "evolvesTo": []
+  },
+  {
+    "dexNo": 52,
+    "name": "Gustling",
+    "types": [
+      "flying"
+    ],
+    "family": 18,
+    "stage": 1,
+    "rarity": "ordinary",
+    "bst": 313,
+    "stats": {
+      "hp": 56,
+      "atk": 81,
+      "def": 51,
+      "spa": 25,
+      "spd": 39,
+      "spe": 61
+    },
+    "abilities": [
+      "Titan Grip",
+      "Heavy Hands"
+    ],
+    "evolvesFrom": null,
+    "evolvesTo": [
+      "Falcres"
+    ]
+  },
+  {
+    "dexNo": 53,
+    "name": "Falcres",
+    "types": [
+      "flying"
+    ],
+    "family": 18,
+    "stage": 2,
+    "rarity": "ordinary",
+    "bst": 385,
+    "stats": {
+      "hp": 66,
+      "atk": 104,
+      "def": 62,
+      "spa": 29,
+      "spd": 50,
+      "spe": 74
+    },
+    "abilities": [
+      "Titan Grip"
+    ],
+    "evolvesFrom": "Gustling",
+    "evolvesTo": [
+      "Skytalon"
+    ]
+  },
+  {
+    "dexNo": 54,
+    "name": "Skytalon",
+    "types": [
+      "flying",
+      "fighting"
+    ],
+    "family": 18,
+    "stage": 3,
+    "rarity": "ordinary",
+    "bst": 518,
+    "stats": {
+      "hp": 89,
+      "atk": 139,
+      "def": 89,
+      "spa": 34,
+      "spd": 70,
+      "spe": 97
+    },
+    "abilities": [
+      "Heavy Hands"
+    ],
+    "evolvesFrom": "Falcres",
+    "evolvesTo": []
+  },
+  {
+    "dexNo": 55,
+    "name": "Chillkoi",
+    "types": [
+      "water"
+    ],
+    "family": 19,
+    "stage": 1,
+    "rarity": "ordinary",
+    "bst": 315,
+    "stats": {
+      "hp": 53,
+      "atk": 25,
+      "def": 41,
+      "spa": 81,
+      "spd": 52,
+      "spe": 63
+    },
+    "abilities": [
+      "Rinse"
+    ],
+    "evolvesFrom": null,
+    "evolvesTo": [
+      "Frostcarp"
+    ]
+  },
+  {
+    "dexNo": 56,
+    "name": "Frostcarp",
+    "types": [
+      "water",
+      "ice"
+    ],
+    "family": 19,
+    "stage": 2,
+    "rarity": "ordinary",
+    "bst": 401,
+    "stats": {
+      "hp": 73,
+      "atk": 27,
+      "def": 54,
+      "spa": 100,
+      "spd": 69,
+      "spe": 78
+    },
+    "abilities": [
+      "Finesse"
+    ],
+    "evolvesFrom": "Chillkoi",
+    "evolvesTo": [
+      "Glacidon"
+    ]
+  },
+  {
+    "dexNo": 57,
+    "name": "Glacidon",
+    "types": [
+      "water"
+    ],
+    "family": 19,
+    "stage": 3,
+    "rarity": "ordinary",
+    "bst": 516,
+    "stats": {
+      "hp": 95,
+      "atk": 34,
+      "def": 70,
+      "spa": 131,
+      "spd": 84,
+      "spe": 102
+    },
+    "abilities": [
+      "Streamline",
+      "Finesse"
+    ],
+    "evolvesFrom": "Frostcarp",
+    "evolvesTo": []
+  },
+  {
+    "dexNo": 58,
+    "name": "Mousling",
+    "types": [
+      "normal"
+    ],
+    "family": 20,
+    "stage": 1,
+    "rarity": "ordinary",
+    "bst": 308,
+    "stats": {
+      "hp": 54,
+      "atk": 54,
+      "def": 55,
+      "spa": 49,
+      "spd": 49,
+      "spe": 47
+    },
+    "abilities": [
+      "Scaleguard"
+    ],
+    "evolvesFrom": null,
+    "evolvesTo": [
+      "Brindlebeast"
+    ]
+  },
+  {
+    "dexNo": 59,
+    "name": "Brindlebeast",
+    "types": [
+      "normal"
+    ],
+    "family": 20,
+    "stage": 2,
+    "rarity": "ordinary",
+    "bst": 465,
+    "stats": {
+      "hp": 80,
+      "atk": 74,
+      "def": 81,
+      "spa": 80,
+      "spd": 74,
+      "spe": 76
+    },
+    "abilities": [
+      "Scaleguard"
+    ],
+    "evolvesFrom": "Mousling",
+    "evolvesTo": []
+  },
+  {
+    "dexNo": 60,
+    "name": "Pufflet",
+    "types": [
+      "normal"
+    ],
+    "family": 21,
+    "stage": 1,
+    "rarity": "ordinary",
+    "bst": 330,
+    "stats": {
+      "hp": 44,
+      "atk": 61,
+      "def": 37,
+      "spa": 57,
+      "spd": 40,
+      "spe": 91
+    },
+    "abilities": [
+      "Fleetfoot"
+    ],
+    "evolvesFrom": null,
+    "evolvesTo": [
+      "Driftglide"
+    ]
+  },
+  {
+    "dexNo": 61,
+    "name": "Driftglide",
+    "types": [
+      "normal",
+      "flying"
+    ],
+    "family": 21,
+    "stage": 2,
+    "rarity": "ordinary",
+    "bst": 476,
+    "stats": {
+      "hp": 58,
+      "atk": 86,
+      "def": 53,
+      "spa": 87,
+      "spd": 59,
+      "spe": 133
+    },
+    "abilities": [
+      "Overclock",
+      "Tenacity"
+    ],
+    "evolvesFrom": "Pufflet",
+    "evolvesTo": []
+  },
+  {
+    "dexNo": 62,
+    "name": "Nibbit",
+    "types": [
+      "normal"
+    ],
+    "family": 22,
+    "stage": 1,
+    "rarity": "ordinary",
+    "bst": 310,
+    "stats": {
+      "hp": 50,
+      "atk": 82,
+      "def": 53,
+      "spa": 25,
+      "spd": 40,
+      "spe": 60
+    },
+    "abilities": [
+      "Zealot"
+    ],
+    "evolvesFrom": null,
+    "evolvesTo": [
+      "Chompkin"
+    ]
+  },
+  {
+    "dexNo": 63,
+    "name": "Chompkin",
+    "types": [
+      "normal",
+      "ground"
+    ],
+    "family": 22,
+    "stage": 2,
+    "rarity": "ordinary",
+    "bst": 434,
+    "stats": {
+      "hp": 78,
+      "atk": 110,
+      "def": 75,
+      "spa": 31,
+      "spd": 54,
+      "spe": 86
+    },
+    "abilities": [
+      "Sandcaller",
+      "Granite Hide"
+    ],
+    "evolvesFrom": "Nibbit",
+    "evolvesTo": []
+  },
+  {
+    "dexNo": 64,
+    "name": "Dozowl",
+    "types": [
+      "normal"
+    ],
+    "family": 23,
+    "stage": 1,
+    "rarity": "ordinary",
+    "bst": 309,
+    "stats": {
+      "hp": 63,
+      "atk": 36,
+      "def": 55,
+      "spa": 48,
+      "spd": 66,
+      "spe": 41
+    },
+    "abilities": [
+      "Charmward",
+      "Finesse"
+    ],
+    "evolvesFrom": null,
+    "evolvesTo": [
+      "Lullowl"
+    ]
+  },
+  {
+    "dexNo": 65,
+    "name": "Lullowl",
+    "types": [
+      "normal",
+      "psychic"
+    ],
+    "family": 23,
+    "stage": 2,
+    "rarity": "ordinary",
+    "bst": 441,
+    "stats": {
+      "hp": 90,
+      "atk": 53,
+      "def": 82,
+      "spa": 71,
+      "spd": 84,
+      "spe": 61
+    },
+    "abilities": [
+      "Tenacity",
+      "Finesse"
+    ],
+    "evolvesFrom": "Dozowl",
+    "evolvesTo": []
+  },
+  {
+    "dexNo": 66,
+    "name": "Trillark",
+    "types": [
+      "normal",
+      "flying"
+    ],
+    "family": 24,
+    "stage": 1,
+    "rarity": "ordinary",
+    "bst": 306,
+    "stats": {
+      "hp": 40,
+      "atk": 54,
+      "def": 34,
+      "spa": 55,
+      "spd": 36,
+      "spe": 87
+    },
+    "abilities": [
+      "Fleetfoot"
+    ],
+    "evolvesFrom": null,
+    "evolvesTo": [
+      "Carolcrest"
+    ]
+  },
+  {
+    "dexNo": 67,
+    "name": "Carolcrest",
+    "types": [
+      "normal",
+      "flying"
+    ],
+    "family": 24,
+    "stage": 2,
+    "rarity": "ordinary",
+    "bst": 436,
+    "stats": {
+      "hp": 58,
+      "atk": 84,
+      "def": 47,
+      "spa": 77,
+      "spd": 52,
+      "spe": 118
+    },
+    "abilities": [
+      "Zealot",
+      "Overclock"
+    ],
+    "evolvesFrom": "Trillark",
+    "evolvesTo": []
+  },
+  {
+    "dexNo": 68,
+    "name": "Jabibb",
+    "types": [
+      "normal"
+    ],
+    "family": 25,
+    "stage": 1,
+    "rarity": "ordinary",
+    "bst": 317,
+    "stats": {
+      "hp": 52,
+      "atk": 81,
+      "def": 56,
+      "spa": 25,
+      "spd": 41,
+      "spe": 62
+    },
+    "abilities": [
+      "Tenacity",
+      "Dreadroar"
+    ],
+    "evolvesFrom": null,
+    "evolvesTo": [
+      "Thumpkin"
+    ]
+  },
+  {
+    "dexNo": 69,
+    "name": "Thumpkin",
+    "types": [
+      "normal",
+      "fighting"
+    ],
+    "family": 25,
+    "stage": 2,
+    "rarity": "ordinary",
+    "bst": 431,
+    "stats": {
+      "hp": 75,
+      "atk": 107,
+      "def": 71,
+      "spa": 31,
+      "spd": 59,
+      "spe": 88
+    },
+    "abilities": [
+      "Dreadroar",
+      "Titan Grip"
+    ],
+    "evolvesFrom": "Jabibb",
+    "evolvesTo": []
+  },
+  {
+    "dexNo": 70,
+    "name": "Quillmouse",
+    "types": [
+      "normal"
+    ],
+    "family": 26,
+    "stage": 1,
+    "rarity": "ordinary",
+    "bst": 344,
+    "stats": {
+      "hp": 77,
+      "atk": 53,
+      "def": 71,
+      "spa": 38,
+      "spd": 71,
+      "spe": 34
+    },
+    "abilities": [
+      "Dampen",
+      "Tenacity"
+    ],
+    "evolvesFrom": null,
+    "evolvesTo": [
+      "Prickbarr"
+    ]
+  },
+  {
+    "dexNo": 71,
+    "name": "Prickbarr",
+    "types": [
+      "normal",
+      "grass"
+    ],
+    "family": 26,
+    "stage": 2,
+    "rarity": "ordinary",
+    "bst": 464,
+    "stats": {
+      "hp": 95,
+      "atk": 70,
+      "def": 104,
+      "spa": 52,
+      "spd": 96,
+      "spe": 47
+    },
+    "abilities": [
+      "Mend"
+    ],
+    "evolvesFrom": "Quillmouse",
+    "evolvesTo": []
+  },
+  {
+    "dexNo": 72,
+    "name": "Guppet",
+    "types": [
+      "water"
+    ],
+    "family": 27,
+    "stage": 1,
+    "rarity": "ordinary",
+    "bst": 339,
+    "stats": {
+      "hp": 56,
+      "atk": 84,
+      "def": 58,
+      "spa": 25,
+      "spd": 45,
+      "spe": 71
+    },
+    "abilities": [
+      "Heavy Hands",
+      "Raincatch"
+    ],
+    "evolvesFrom": null,
+    "evolvesTo": [
+      "Finfury"
+    ]
+  },
+  {
+    "dexNo": 73,
+    "name": "Finfury",
+    "types": [
+      "water"
+    ],
+    "family": 27,
+    "stage": 2,
+    "rarity": "ordinary",
+    "bst": 444,
+    "stats": {
+      "hp": 71,
+      "atk": 113,
+      "def": 80,
+      "spa": 32,
+      "spd": 57,
+      "spe": 91
+    },
+    "abilities": [
+      "Tenacity"
+    ],
+    "evolvesFrom": "Guppet",
+    "evolvesTo": []
+  },
+  {
+    "dexNo": 74,
+    "name": "Blubble",
+    "types": [
+      "water"
+    ],
+    "family": 28,
+    "stage": 1,
+    "rarity": "ordinary",
+    "bst": 321,
+    "stats": {
+      "hp": 62,
+      "atk": 38,
+      "def": 57,
+      "spa": 54,
+      "spd": 62,
+      "spe": 48
+    },
+    "abilities": [
+      "Charmward",
+      "Streamline"
+    ],
+    "evolvesFrom": null,
+    "evolvesTo": [
+      "Medujelly"
+    ]
+  },
+  {
+    "dexNo": 75,
+    "name": "Medujelly",
+    "types": [
+      "water",
+      "poison"
+    ],
+    "family": 28,
+    "stage": 2,
+    "rarity": "ordinary",
+    "bst": 446,
+    "stats": {
+      "hp": 88,
+      "atk": 52,
+      "def": 76,
+      "spa": 76,
+      "spd": 91,
+      "spe": 63
+    },
+    "abilities": [
+      "Rinse"
+    ],
+    "evolvesFrom": "Blubble",
+    "evolvesTo": []
+  },
+  {
+    "dexNo": 76,
+    "name": "Splashru",
+    "types": [
+      "water"
+    ],
+    "family": 29,
+    "stage": 1,
+    "rarity": "ordinary",
+    "bst": 318,
+    "stats": {
+      "hp": 40,
+      "atk": 57,
+      "def": 34,
+      "spa": 57,
+      "spd": 40,
+      "spe": 90
+    },
+    "abilities": [
+      "Overclock",
+      "Quickening"
+    ],
+    "evolvesFrom": null,
+    "evolvesTo": [
+      "Gullfin"
+    ]
+  },
+  {
+    "dexNo": 77,
+    "name": "Gullfin",
+    "types": [
+      "water",
+      "flying"
+    ],
+    "family": 29,
+    "stage": 2,
+    "rarity": "ordinary",
+    "bst": 449,
+    "stats": {
+      "hp": 56,
+      "atk": 81,
+      "def": 45,
+      "spa": 84,
+      "spd": 54,
+      "spe": 129
+    },
+    "abilities": [
+      "Streamline"
+    ],
+    "evolvesFrom": "Splashru",
+    "evolvesTo": []
+  },
+  {
+    "dexNo": 78,
+    "name": "Tadmuck",
+    "types": [
+      "water"
+    ],
+    "family": 30,
+    "stage": 1,
+    "rarity": "ordinary",
+    "bst": 320,
+    "stats": {
+      "hp": 73,
+      "atk": 49,
+      "def": 65,
+      "spa": 37,
+      "spd": 66,
+      "spe": 30
+    },
+    "abilities": [
+      "Streamline"
+    ],
+    "evolvesFrom": null,
+    "evolvesTo": [
+      "Marshog"
+    ]
+  },
+  {
+    "dexNo": 79,
+    "name": "Marshog",
+    "types": [
+      "water",
+      "ground"
+    ],
+    "family": 30,
+    "stage": 2,
+    "rarity": "ordinary",
+    "bst": 448,
+    "stats": {
+      "hp": 103,
+      "atk": 64,
+      "def": 102,
+      "spa": 49,
+      "spd": 86,
+      "spe": 44
+    },
+    "abilities": [
+      "Raincatch",
+      "Dampen"
+    ],
+    "evolvesFrom": "Tadmuck",
+    "evolvesTo": []
+  },
+  {
+    "dexNo": 80,
+    "name": "Nipclaw",
+    "types": [
+      "water"
+    ],
+    "family": 31,
+    "stage": 1,
+    "rarity": "ordinary",
+    "bst": 337,
+    "stats": {
+      "hp": 60,
+      "atk": 85,
+      "def": 60,
+      "spa": 25,
+      "spd": 43,
+      "spe": 64
+    },
+    "abilities": [
+      "Rinse"
+    ],
+    "evolvesFrom": null,
+    "evolvesTo": [
+      "Crushtide"
+    ]
+  },
+  {
+    "dexNo": 81,
+    "name": "Crushtide",
+    "types": [
+      "water",
+      "bug"
+    ],
+    "family": 31,
+    "stage": 2,
+    "rarity": "ordinary",
+    "bst": 463,
+    "stats": {
+      "hp": 78,
+      "atk": 124,
+      "def": 71,
+      "spa": 33,
+      "spd": 61,
+      "spe": 96
+    },
+    "abilities": [
+      "Heavy Hands",
+      "Thirst"
+    ],
+    "evolvesFrom": "Nipclaw",
+    "evolvesTo": []
+  },
+  {
+    "dexNo": 82,
+    "name": "Sproutle",
+    "types": [
+      "grass"
+    ],
+    "family": 32,
+    "stage": 1,
+    "rarity": "ordinary",
+    "bst": 319,
+    "stats": {
+      "hp": 55,
+      "atk": 83,
+      "def": 51,
+      "spa": 25,
+      "spd": 39,
+      "spe": 66
+    },
+    "abilities": [
+      "Sunward"
+    ],
+    "evolvesFrom": null,
+    "evolvesTo": [
+      "Cabblade"
+    ]
+  },
+  {
+    "dexNo": 83,
+    "name": "Cabblade",
+    "types": [
+      "grass",
+      "fighting"
+    ],
+    "family": 32,
+    "stage": 2,
+    "rarity": "ordinary",
+    "bst": 449,
+    "stats": {
+      "hp": 76,
+      "atk": 116,
+      "def": 75,
+      "spa": 32,
+      "spd": 60,
+      "spe": 90
+    },
+    "abilities": [
+      "Dreadroar",
+      "Heavy Hands"
+    ],
+    "evolvesFrom": "Sproutle",
+    "evolvesTo": []
+  },
+  {
+    "dexNo": 84,
+    "name": "Vineling",
+    "types": [
+      "grass"
+    ],
+    "family": 33,
+    "stage": 1,
+    "rarity": "ordinary",
+    "bst": 324,
+    "stats": {
+      "hp": 56,
+      "atk": 55,
+      "def": 54,
+      "spa": 55,
+      "spd": 53,
+      "spe": 51
+    },
+    "abilities": [
+      "Scaleguard",
+      "Sunward"
+    ],
+    "evolvesFrom": null,
+    "evolvesTo": [
+      "Thornweed"
+    ]
+  },
+  {
+    "dexNo": 85,
+    "name": "Thornweed",
+    "types": [
+      "grass",
+      "poison"
+    ],
+    "family": 33,
+    "stage": 2,
+    "rarity": "ordinary",
+    "bst": 438,
+    "stats": {
+      "hp": 78,
+      "atk": 78,
+      "def": 72,
+      "spa": 73,
+      "spd": 70,
+      "spe": 67
+    },
+    "abilities": [
+      "Sunchaser"
+    ],
+    "evolvesFrom": "Vineling",
+    "evolvesTo": []
+  },
+  {
+    "dexNo": 86,
+    "name": "Seedwing",
+    "types": [
+      "grass"
+    ],
+    "family": 34,
+    "stage": 1,
+    "rarity": "ordinary",
+    "bst": 321,
+    "stats": {
+      "hp": 40,
+      "atk": 59,
+      "def": 33,
+      "spa": 55,
+      "spd": 37,
+      "spe": 97
+    },
+    "abilities": [
+      "Sunward",
+      "Verdant Fury"
+    ],
+    "evolvesFrom": null,
+    "evolvesTo": [
+      "Glideleaf"
+    ]
+  },
+  {
+    "dexNo": 87,
+    "name": "Glideleaf",
+    "types": [
+      "grass",
+      "flying"
+    ],
+    "family": 34,
+    "stage": 2,
+    "rarity": "ordinary",
+    "bst": 453,
+    "stats": {
+      "hp": 60,
+      "atk": 87,
+      "def": 52,
+      "spa": 80,
+      "spd": 51,
+      "spe": 123
+    },
+    "abilities": [
+      "Sunward"
+    ],
+    "evolvesFrom": "Seedwing",
+    "evolvesTo": []
+  },
+  {
+    "dexNo": 88,
+    "name": "Mossmit",
+    "types": [
+      "grass"
+    ],
+    "family": 35,
+    "stage": 1,
+    "rarity": "ordinary",
+    "bst": 304,
+    "stats": {
+      "hp": 63,
+      "atk": 46,
+      "def": 63,
+      "spa": 35,
+      "spd": 65,
+      "spe": 32
+    },
+    "abilities": [
+      "Dampen",
+      "Bedrock"
+    ],
+    "evolvesFrom": null,
+    "evolvesTo": [
+      "Loamoss"
+    ]
+  },
+  {
+    "dexNo": 89,
+    "name": "Loamoss",
+    "types": [
+      "grass",
+      "ground"
+    ],
+    "family": 35,
+    "stage": 2,
+    "rarity": "ordinary",
+    "bst": 441,
+    "stats": {
+      "hp": 94,
+      "atk": 68,
+      "def": 100,
+      "spa": 47,
+      "spd": 89,
+      "spe": 43
+    },
+    "abilities": [
+      "Blubber"
+    ],
+    "evolvesFrom": "Mossmit",
+    "evolvesTo": []
+  },
+  {
+    "dexNo": 90,
+    "name": "Budox",
+    "types": [
+      "grass"
+    ],
+    "family": 36,
+    "stage": 1,
+    "rarity": "ordinary",
+    "bst": 328,
+    "stats": {
+      "hp": 70,
+      "atk": 38,
+      "def": 56,
+      "spa": 54,
+      "spd": 62,
+      "spe": 48
+    },
+    "abilities": [
+      "Molt",
+      "Sunchaser"
+    ],
+    "evolvesFrom": null,
+    "evolvesTo": [
+      "Bloomox"
+    ]
+  },
+  {
+    "dexNo": 91,
+    "name": "Bloomox",
+    "types": [
+      "grass"
+    ],
+    "family": 36,
+    "stage": 2,
+    "rarity": "ordinary",
+    "bst": 452,
+    "stats": {
+      "hp": 96,
+      "atk": 53,
+      "def": 81,
+      "spa": 76,
+      "spd": 87,
+      "spe": 59
+    },
+    "abilities": [
+      "Sunward",
+      "Mend"
+    ],
+    "evolvesFrom": "Budox",
+    "evolvesTo": []
+  },
+  {
+    "dexNo": 92,
+    "name": "Grublet",
+    "types": [
+      "bug"
+    ],
+    "family": 37,
+    "stage": 1,
+    "rarity": "ordinary",
+    "bst": 336,
+    "stats": {
+      "hp": 46,
+      "atk": 61,
+      "def": 39,
+      "spa": 60,
+      "spd": 38,
+      "spe": 92
+    },
+    "abilities": [
+      "Hivemind"
+    ],
+    "evolvesFrom": null,
+    "evolvesTo": [
+      "Beewing"
+    ]
+  },
+  {
+    "dexNo": 93,
+    "name": "Beewing",
+    "types": [
+      "bug",
+      "flying"
+    ],
+    "family": 37,
+    "stage": 2,
+    "rarity": "ordinary",
+    "bst": 464,
+    "stats": {
+      "hp": 62,
+      "atk": 80,
+      "def": 50,
+      "spa": 84,
+      "spd": 55,
+      "spe": 133
+    },
+    "abilities": [
+      "Quickening",
+      "Barbed Hide"
+    ],
+    "evolvesFrom": "Grublet",
+    "evolvesTo": []
+  },
+  {
+    "dexNo": 94,
+    "name": "Crawlit",
+    "types": [
+      "bug"
+    ],
+    "family": 38,
+    "stage": 1,
+    "rarity": "ordinary",
+    "bst": 321,
+    "stats": {
+      "hp": 55,
+      "atk": 51,
+      "def": 54,
+      "spa": 56,
+      "spd": 53,
+      "spe": 52
+    },
+    "abilities": [
+      "Barbed Hide",
+      "Finesse"
+    ],
+    "evolvesFrom": null,
+    "evolvesTo": [
+      "Venbug"
+    ]
+  },
+  {
+    "dexNo": 95,
+    "name": "Venbug",
+    "types": [
+      "bug",
+      "poison"
+    ],
+    "family": 38,
+    "stage": 2,
+    "rarity": "ordinary",
+    "bst": 447,
+    "stats": {
+      "hp": 82,
+      "atk": 74,
+      "def": 77,
+      "spa": 76,
+      "spd": 68,
+      "spe": 70
+    },
+    "abilities": [
+      "Finesse",
+      "Reflection"
+    ],
+    "evolvesFrom": "Crawlit",
+    "evolvesTo": []
+  },
+  {
+    "dexNo": 96,
+    "name": "Pincher",
+    "types": [
+      "bug"
+    ],
+    "family": 39,
+    "stage": 1,
+    "rarity": "ordinary",
+    "bst": 336,
+    "stats": {
+      "hp": 59,
+      "atk": 90,
+      "def": 53,
+      "spa": 25,
+      "spd": 42,
+      "spe": 67
+    },
+    "abilities": [
+      "Dreadroar",
+      "Titan Grip"
+    ],
+    "evolvesFrom": null,
+    "evolvesTo": [
+      "Mandibex"
+    ]
+  },
+  {
+    "dexNo": 97,
+    "name": "Mandibex",
+    "types": [
+      "bug"
+    ],
+    "family": 39,
+    "stage": 2,
+    "rarity": "ordinary",
+    "bst": 455,
+    "stats": {
+      "hp": 81,
+      "atk": 114,
+      "def": 77,
+      "spa": 33,
+      "spd": 55,
+      "spe": 95
+    },
+    "abilities": [
+      "Hivemind",
+      "Heavy Hands"
+    ],
+    "evolvesFrom": "Pincher",
+    "evolvesTo": []
+  },
+  {
+    "dexNo": 98,
+    "name": "Talonet",
+    "types": [
+      "flying"
+    ],
+    "family": 40,
+    "stage": 1,
+    "rarity": "ordinary",
+    "bst": 311,
+    "stats": {
+      "hp": 39,
+      "atk": 57,
+      "def": 33,
+      "spa": 52,
+      "spd": 38,
+      "spe": 92
+    },
+    "abilities": [
+      "Overclock"
+    ],
+    "evolvesFrom": null,
+    "evolvesTo": [
+      "Ravenwing"
+    ]
+  },
+  {
+    "dexNo": 99,
+    "name": "Ravenwing",
+    "types": [
+      "flying"
+    ],
+    "family": 40,
+    "stage": 2,
+    "rarity": "ordinary",
+    "bst": 441,
+    "stats": {
+      "hp": 59,
+      "atk": 77,
+      "def": 46,
+      "spa": 80,
+      "spd": 53,
+      "spe": 126
+    },
+    "abilities": [
+      "Overclock",
+      "Fleetfoot"
+    ],
+    "evolvesFrom": "Talonet",
+    "evolvesTo": []
+  },
+  {
+    "dexNo": 100,
+    "name": "Rubble",
+    "types": [
+      "rock"
+    ],
+    "family": 41,
+    "stage": 1,
+    "rarity": "ordinary",
+    "bst": 318,
+    "stats": {
+      "hp": 72,
+      "atk": 48,
+      "def": 72,
+      "spa": 34,
+      "spd": 62,
+      "spe": 30
+    },
+    "abilities": [
+      "Bedrock"
+    ],
+    "evolvesFrom": null,
+    "evolvesTo": [
+      "Stoneroc"
+    ]
+  },
+  {
+    "dexNo": 101,
+    "name": "Stoneroc",
+    "types": [
+      "rock",
+      "ground"
+    ],
+    "family": 41,
+    "stage": 2,
+    "rarity": "ordinary",
+    "bst": 447,
+    "stats": {
+      "hp": 97,
+      "atk": 68,
+      "def": 100,
+      "spa": 49,
+      "spd": 88,
+      "spe": 45
+    },
+    "abilities": [
+      "Dampen"
+    ],
+    "evolvesFrom": "Rubble",
+    "evolvesTo": []
+  },
+  {
+    "dexNo": 102,
+    "name": "Orbling",
+    "types": [
+      "psychic"
+    ],
+    "family": 42,
+    "stage": 1,
+    "rarity": "ordinary",
+    "bst": 339,
+    "stats": {
+      "hp": 60,
+      "atk": 25,
+      "def": 45,
+      "spa": 88,
+      "spd": 55,
+      "spe": 66
+    },
+    "abilities": [
+      "Charmward",
+      "Twin Fate"
+    ],
+    "evolvesFrom": null,
+    "evolvesTo": [
+      "Psygaze"
+    ]
+  },
+  {
+    "dexNo": 103,
+    "name": "Psygaze",
+    "types": [
+      "psychic"
+    ],
+    "family": 42,
+    "stage": 2,
+    "rarity": "ordinary",
+    "bst": 441,
+    "stats": {
+      "hp": 79,
+      "atk": 30,
+      "def": 54,
+      "spa": 115,
+      "spd": 74,
+      "spe": 89
+    },
+    "abilities": [
+      "Finesse",
+      "Charmward"
+    ],
+    "evolvesFrom": "Orbling",
+    "evolvesTo": []
+  },
+  {
+    "dexNo": 104,
+    "name": "Mystling",
+    "types": [
+      "psychic"
+    ],
+    "family": 43,
+    "stage": 1,
+    "rarity": "ordinary",
+    "bst": 306,
+    "stats": {
+      "hp": 52,
+      "atk": 25,
+      "def": 40,
+      "spa": 78,
+      "spd": 50,
+      "spe": 61
+    },
+    "abilities": [
+      "Skyborne"
+    ],
+    "evolvesFrom": null,
+    "evolvesTo": [
+      "Astralyn"
+    ]
+  },
+  {
+    "dexNo": 105,
+    "name": "Astralyn",
+    "types": [
+      "psychic",
+      "normal"
+    ],
+    "family": 43,
+    "stage": 2,
+    "rarity": "ordinary",
+    "bst": 468,
+    "stats": {
+      "hp": 84,
+      "atk": 32,
+      "def": 60,
+      "spa": 128,
+      "spd": 77,
+      "spe": 87
+    },
+    "abilities": [
+      "Charmward",
+      "Tenacity"
+    ],
+    "evolvesFrom": "Mystling",
+    "evolvesTo": []
+  },
+  {
+    "dexNo": 106,
+    "name": "Monkai",
+    "types": [
+      "psychic"
+    ],
+    "family": 44,
+    "stage": 1,
+    "rarity": "ordinary",
+    "bst": 332,
+    "stats": {
+      "hp": 57,
+      "atk": 86,
+      "def": 53,
+      "spa": 25,
+      "spd": 43,
+      "spe": 68
+    },
+    "abilities": [
+      "Skyborne",
+      "Titan Grip"
+    ],
+    "evolvesFrom": null,
+    "evolvesTo": [
+      "Zenchi"
+    ]
+  },
+  {
+    "dexNo": 107,
+    "name": "Zenchi",
+    "types": [
+      "psychic",
+      "fighting"
+    ],
+    "family": 44,
+    "stage": 2,
+    "rarity": "ordinary",
+    "bst": 447,
+    "stats": {
+      "hp": 80,
+      "atk": 109,
+      "def": 76,
+      "spa": 32,
+      "spd": 58,
+      "spe": 92
+    },
+    "abilities": [
+      "Tenacity",
+      "Deadeye"
+    ],
+    "evolvesFrom": "Monkai",
+    "evolvesTo": []
+  },
+  {
+    "dexNo": 108,
+    "name": "Shadeye",
+    "types": [
+      "psychic"
+    ],
+    "family": 45,
+    "stage": 1,
+    "rarity": "ordinary",
+    "bst": 336,
+    "stats": {
+      "hp": 60,
+      "atk": 25,
+      "def": 41,
+      "spa": 81,
+      "spd": 58,
+      "spe": 71
+    },
+    "abilities": [
+      "Finesse",
+      "Reflection"
+    ],
+    "evolvesFrom": null,
+    "evolvesTo": [
+      "Hexeer"
+    ]
+  },
+  {
+    "dexNo": 109,
+    "name": "Hexeer",
+    "types": [
+      "psychic"
+    ],
+    "family": 45,
+    "stage": 2,
+    "rarity": "ordinary",
+    "bst": 465,
+    "stats": {
+      "hp": 80,
+      "atk": 31,
+      "def": 56,
+      "spa": 125,
+      "spd": 78,
+      "spe": 95
+    },
+    "abilities": [
+      "Charmward"
+    ],
+    "evolvesFrom": "Shadeye",
+    "evolvesTo": []
+  },
+  {
+    "dexNo": 110,
+    "name": "Gaslug",
+    "types": [
+      "poison"
+    ],
+    "family": 46,
+    "stage": 1,
+    "rarity": "ordinary",
+    "bst": 326,
+    "stats": {
+      "hp": 73,
+      "atk": 47,
+      "def": 74,
+      "spa": 36,
+      "spd": 63,
+      "spe": 33
+    },
+    "abilities": [
+      "Dampen"
+    ],
+    "evolvesFrom": null,
+    "evolvesTo": [
+      "Smogoyle"
+    ]
+  },
+  {
+    "dexNo": 111,
+    "name": "Smogoyle",
+    "types": [
+      "poison"
+    ],
+    "family": 46,
+    "stage": 2,
+    "rarity": "ordinary",
+    "bst": 440,
+    "stats": {
+      "hp": 94,
+      "atk": 68,
+      "def": 100,
+      "spa": 49,
+      "spd": 85,
+      "spe": 44
+    },
+    "abilities": [
+      "Spore Cloud",
+      "Scaleguard"
+    ],
+    "evolvesFrom": "Gaslug",
+    "evolvesTo": []
+  },
+  {
+    "dexNo": 112,
+    "name": "Mirelash",
+    "types": [
+      "poison"
+    ],
+    "family": 47,
+    "stage": 1,
+    "rarity": "ordinary",
+    "bst": 301,
+    "stats": {
+      "hp": 50,
+      "atk": 50,
+      "def": 55,
+      "spa": 51,
+      "spd": 47,
+      "spe": 48
+    },
+    "abilities": [
+      "Molt",
+      "Reflection"
+    ],
+    "evolvesFrom": null,
+    "evolvesTo": [
+      "Toxisaur"
+    ]
+  },
+  {
+    "dexNo": 113,
+    "name": "Toxisaur",
+    "types": [
+      "poison",
+      "water"
+    ],
+    "family": 47,
+    "stage": 2,
+    "rarity": "ordinary",
+    "bst": 433,
+    "stats": {
+      "hp": 74,
+      "atk": 77,
+      "def": 72,
+      "spa": 71,
+      "spd": 73,
+      "spe": 66
+    },
+    "abilities": [
+      "Rinse",
+      "Spore Cloud"
+    ],
+    "evolvesFrom": "Mirelash",
+    "evolvesTo": []
+  },
+  {
+    "dexNo": 114,
+    "name": "Eelet",
+    "types": [
+      "poison"
+    ],
+    "family": 48,
+    "stage": 1,
+    "rarity": "ordinary",
+    "bst": 333,
+    "stats": {
+      "hp": 44,
+      "atk": 60,
+      "def": 39,
+      "spa": 57,
+      "spd": 43,
+      "spe": 90
+    },
+    "abilities": [
+      "Molt"
+    ],
+    "evolvesFrom": null,
+    "evolvesTo": [
+      "Zapeel"
+    ]
+  },
+  {
+    "dexNo": 115,
+    "name": "Zapeel",
+    "types": [
+      "poison",
+      "water"
+    ],
+    "family": 48,
+    "stage": 2,
+    "rarity": "ordinary",
+    "bst": 460,
+    "stats": {
+      "hp": 59,
+      "atk": 86,
+      "def": 53,
+      "spa": 81,
+      "spd": 53,
+      "spe": 128
+    },
+    "abilities": [
+      "Thirst",
+      "Rinse"
+    ],
+    "evolvesFrom": "Eelet",
+    "evolvesTo": []
+  },
+  {
+    "dexNo": 116,
+    "name": "Fangoo",
+    "types": [
+      "poison"
+    ],
+    "family": 49,
+    "stage": 1,
+    "rarity": "ordinary",
+    "bst": 329,
+    "stats": {
+      "hp": 57,
+      "atk": 80,
+      "def": 59,
+      "spa": 25,
+      "spd": 43,
+      "spe": 65
+    },
+    "abilities": [
+      "Dreadroar",
+      "Spore Cloud"
+    ],
+    "evolvesFrom": null,
+    "evolvesTo": [
+      "Direvex"
+    ]
+  },
+  {
+    "dexNo": 117,
+    "name": "Direvex",
+    "types": [
+      "poison"
+    ],
+    "family": 49,
+    "stage": 2,
+    "rarity": "ordinary",
+    "bst": 461,
+    "stats": {
+      "hp": 74,
+      "atk": 123,
+      "def": 82,
+      "spa": 30,
+      "spd": 64,
+      "spe": 88
+    },
+    "abilities": [
+      "Titan Grip"
+    ],
+    "evolvesFrom": "Fangoo",
+    "evolvesTo": []
+  },
+  {
+    "dexNo": 118,
+    "name": "Dustkit",
+    "types": [
+      "ground"
+    ],
+    "family": 50,
+    "stage": 1,
+    "rarity": "ordinary",
+    "bst": 323,
+    "stats": {
+      "hp": 54,
+      "atk": 82,
+      "def": 53,
+      "spa": 25,
+      "spd": 44,
+      "spe": 65
+    },
+    "abilities": [
+      "Tenacity",
+      "Sandcaller"
+    ],
+    "evolvesFrom": null,
+    "evolvesTo": [
+      "Terrapaw"
+    ]
+  },
+  {
+    "dexNo": 119,
+    "name": "Terrapaw",
+    "types": [
+      "ground",
+      "normal"
+    ],
+    "family": 50,
+    "stage": 2,
+    "rarity": "ordinary",
+    "bst": 459,
+    "stats": {
+      "hp": 80,
+      "atk": 121,
+      "def": 82,
+      "spa": 31,
+      "spd": 58,
+      "spe": 87
+    },
+    "abilities": [
+      "Titan Grip",
+      "Dreadroar"
+    ],
+    "evolvesFrom": "Dustkit",
+    "evolvesTo": []
+  },
+  {
+    "dexNo": 120,
+    "name": "Rockpup",
+    "types": [
+      "rock"
+    ],
+    "family": 51,
+    "stage": 1,
+    "rarity": "ordinary",
+    "bst": 338,
+    "stats": {
+      "hp": 75,
+      "atk": 52,
+      "def": 70,
+      "spa": 37,
+      "spd": 70,
+      "spe": 34
+    },
+    "abilities": [
+      "Dustveil",
+      "Bedrock"
+    ],
+    "evolvesFrom": null,
+    "evolvesTo": [
+      "Craggol"
+    ]
+  },
+  {
+    "dexNo": 121,
+    "name": "Craggol",
+    "types": [
+      "rock",
+      "steel"
+    ],
+    "family": 51,
+    "stage": 2,
+    "rarity": "ordinary",
+    "bst": 442,
+    "stats": {
+      "hp": 101,
+      "atk": 66,
+      "def": 94,
+      "spa": 49,
+      "spd": 87,
+      "spe": 45
+    },
+    "abilities": [
+      "Dustveil",
+      "Bedrock"
+    ],
+    "evolvesFrom": "Rockpup",
+    "evolvesTo": []
+  },
+  {
+    "dexNo": 122,
+    "name": "Flarepup",
+    "types": [
+      "fire"
+    ],
+    "family": 52,
+    "stage": 1,
+    "rarity": "ordinary",
+    "bst": 331,
+    "stats": {
+      "hp": 54,
+      "atk": 83,
+      "def": 60,
+      "spa": 25,
+      "spd": 42,
+      "spe": 67
+    },
+    "abilities": [
+      "Tenacity"
+    ],
+    "evolvesFrom": null,
+    "evolvesTo": [
+      "Cindhound"
+    ]
+  },
+  {
+    "dexNo": 123,
+    "name": "Cindhound",
+    "types": [
+      "fire",
+      "dark"
+    ],
+    "family": 52,
+    "stage": 2,
+    "rarity": "ordinary",
+    "bst": 432,
+    "stats": {
+      "hp": 75,
+      "atk": 116,
+      "def": 73,
+      "spa": 29,
+      "spd": 56,
+      "spe": 83
+    },
+    "abilities": [
+      "Titan Grip",
+      "Insight"
+    ],
+    "evolvesFrom": "Flarepup",
+    "evolvesTo": []
+  },
+  {
+    "dexNo": 124,
+    "name": "Emberfowl",
+    "types": [
+      "fire"
+    ],
+    "family": 53,
+    "stage": 1,
+    "rarity": "ordinary",
+    "bst": 302,
+    "stats": {
+      "hp": 55,
+      "atk": 25,
+      "def": 40,
+      "spa": 75,
+      "spd": 48,
+      "spe": 59
+    },
+    "abilities": [
+      "Finesse",
+      "Cinderskin"
+    ],
+    "evolvesFrom": null,
+    "evolvesTo": [
+      "Blazerooster"
+    ]
+  },
+  {
+    "dexNo": 125,
+    "name": "Blazerooster",
+    "types": [
+      "fire",
+      "flying"
+    ],
+    "family": 53,
+    "stage": 2,
+    "rarity": "ordinary",
+    "bst": 457,
+    "stats": {
+      "hp": 76,
+      "atk": 33,
+      "def": 64,
+      "spa": 115,
+      "spd": 79,
+      "spe": 90
+    },
+    "abilities": [
+      "Quickening",
+      "Sunflare"
+    ],
+    "evolvesFrom": "Emberfowl",
+    "evolvesTo": []
+  },
+  {
+    "dexNo": 126,
+    "name": "Voltbird",
+    "types": [
+      "electric"
+    ],
+    "family": 54,
+    "stage": 1,
+    "rarity": "ordinary",
+    "bst": 333,
+    "stats": {
+      "hp": 43,
+      "atk": 59,
+      "def": 38,
+      "spa": 60,
+      "spd": 41,
+      "spe": 92
+    },
+    "abilities": [
+      "Livewire"
+    ],
+    "evolvesFrom": null,
+    "evolvesTo": [
+      "Zapcrest"
+    ]
+  },
+  {
+    "dexNo": 127,
+    "name": "Zapcrest",
+    "types": [
+      "electric",
+      "flying"
+    ],
+    "family": 54,
+    "stage": 2,
+    "rarity": "ordinary",
+    "bst": 458,
+    "stats": {
+      "hp": 62,
+      "atk": 81,
+      "def": 53,
+      "spa": 82,
+      "spd": 55,
+      "spe": 125
+    },
+    "abilities": [
+      "Livewire",
+      "Conduct"
+    ],
+    "evolvesFrom": "Voltbird",
+    "evolvesTo": []
+  },
+  {
+    "dexNo": 128,
+    "name": "Frostcub",
+    "types": [
+      "ice"
+    ],
+    "family": 55,
+    "stage": 1,
+    "rarity": "ordinary",
+    "bst": 330,
+    "stats": {
+      "hp": 73,
+      "atk": 52,
+      "def": 74,
+      "spa": 35,
+      "spd": 65,
+      "spe": 31
+    },
+    "abilities": [
+      "Scaleguard"
+    ],
+    "evolvesFrom": null,
+    "evolvesTo": [
+      "Snowmaw"
+    ]
+  },
+  {
+    "dexNo": 129,
+    "name": "Snowmaw",
+    "types": [
+      "ice"
+    ],
+    "family": 55,
+    "stage": 2,
+    "rarity": "ordinary",
+    "bst": 434,
+    "stats": {
+      "hp": 92,
+      "atk": 70,
+      "def": 93,
+      "spa": 50,
+      "spd": 83,
+      "spe": 46
+    },
+    "abilities": [
+      "Permafrost",
+      "Bedrock"
+    ],
+    "evolvesFrom": "Frostcub",
+    "evolvesTo": []
+  },
+  {
+    "dexNo": 130,
+    "name": "Drakit",
+    "types": [
+      "dragon"
+    ],
+    "family": 56,
+    "stage": 1,
+    "rarity": "ordinary",
+    "bst": 329,
+    "stats": {
+      "hp": 54,
+      "atk": 84,
+      "def": 54,
+      "spa": 25,
+      "spd": 43,
+      "spe": 69
+    },
+    "abilities": [
+      "Breaker"
+    ],
+    "evolvesFrom": null,
+    "evolvesTo": [
+      "Wyverng"
+    ]
+  },
+  {
+    "dexNo": 131,
+    "name": "Wyverng",
+    "types": [
+      "dragon"
+    ],
+    "family": 56,
+    "stage": 2,
+    "rarity": "ordinary",
+    "bst": 448,
+    "stats": {
+      "hp": 75,
+      "atk": 119,
+      "def": 72,
+      "spa": 31,
+      "spd": 61,
+      "spe": 90
+    },
+    "abilities": [
+      "Titan Grip",
+      "Dreadroar"
+    ],
+    "evolvesFrom": "Drakit",
+    "evolvesTo": []
+  },
+  {
+    "dexNo": 132,
+    "name": "Pelibeak",
+    "types": [
+      "water",
+      "normal"
+    ],
+    "family": 57,
+    "stage": 1,
+    "rarity": "ordinary",
+    "bst": 447,
+    "stats": {
+      "hp": 75,
+      "atk": 78,
+      "def": 77,
+      "spa": 75,
+      "spd": 70,
+      "spe": 72
+    },
+    "abilities": [
+      "Rinse"
+    ],
+    "evolvesFrom": null,
+    "evolvesTo": []
+  },
+  {
+    "dexNo": 133,
+    "name": "Lumifish",
+    "types": [
+      "water"
+    ],
+    "family": 58,
+    "stage": 1,
+    "rarity": "ordinary",
+    "bst": 465,
+    "stats": {
+      "hp": 80,
+      "atk": 33,
+      "def": 62,
+      "spa": 122,
+      "spd": 76,
+      "spe": 92
+    },
+    "abilities": [
+      "Thirst",
+      "Rinse"
+    ],
+    "evolvesFrom": null,
+    "evolvesTo": []
+  },
+  {
+    "dexNo": 134,
+    "name": "Mirecroak",
+    "types": [
+      "poison",
+      "water"
+    ],
+    "family": 59,
+    "stage": 1,
+    "rarity": "ordinary",
+    "bst": 451,
+    "stats": {
+      "hp": 102,
+      "atk": 66,
+      "def": 101,
+      "spa": 50,
+      "spd": 87,
+      "spe": 45
+    },
+    "abilities": [
+      "Thirst",
+      "Scaleguard"
+    ],
+    "evolvesFrom": null,
+    "evolvesTo": []
+  },
+  {
+    "dexNo": 135,
+    "name": "Cervandra",
+    "types": [
+      "grass",
+      "normal"
+    ],
+    "family": 60,
+    "stage": 1,
+    "rarity": "ordinary",
+    "bst": 457,
+    "stats": {
+      "hp": 75,
+      "atk": 81,
+      "def": 79,
+      "spa": 76,
+      "spd": 74,
+      "spe": 72
+    },
+    "abilities": [
+      "Tenacity"
+    ],
+    "evolvesFrom": null,
+    "evolvesTo": []
+  },
+  {
+    "dexNo": 136,
+    "name": "Sabrewind",
+    "types": [
+      "normal",
+      "ice"
+    ],
+    "family": 61,
+    "stage": 1,
+    "rarity": "ordinary",
+    "bst": 430,
+    "stats": {
+      "hp": 56,
+      "atk": 77,
+      "def": 46,
+      "spa": 75,
+      "spd": 57,
+      "spe": 119
+    },
+    "abilities": [
+      "Frostveil",
+      "Fleetfoot"
+    ],
+    "evolvesFrom": null,
+    "evolvesTo": []
+  },
+  {
+    "dexNo": 137,
+    "name": "Golmite",
+    "types": [
+      "ground",
+      "rock"
+    ],
+    "family": 62,
+    "stage": 1,
+    "rarity": "ordinary",
+    "bst": 463,
+    "stats": {
+      "hp": 106,
+      "atk": 67,
+      "def": 97,
+      "spa": 52,
+      "spd": 93,
+      "spe": 48
+    },
+    "abilities": [
+      "Dampen",
+      "Dustveil"
+    ],
+    "evolvesFrom": null,
+    "evolvesTo": []
+  },
+  {
+    "dexNo": 138,
+    "name": "Voltmoth",
+    "types": [
+      "bug",
+      "electric"
+    ],
+    "family": 63,
+    "stage": 1,
+    "rarity": "ordinary",
+    "bst": 434,
+    "stats": {
+      "hp": 75,
+      "atk": 30,
+      "def": 57,
+      "spa": 112,
+      "spd": 72,
+      "spe": 88
+    },
+    "abilities": [
+      "Hivemind"
+    ],
+    "evolvesFrom": null,
+    "evolvesTo": []
+  },
+  {
+    "dexNo": 139,
+    "name": "Cryptbat",
+    "types": [
+      "dark",
+      "flying"
+    ],
+    "family": 64,
+    "stage": 1,
+    "rarity": "ordinary",
+    "bst": 469,
+    "stats": {
+      "hp": 57,
+      "atk": 82,
+      "def": 51,
+      "spa": 86,
+      "spd": 57,
+      "spe": 136
+    },
+    "abilities": [
+      "Keen Eye",
+      "Overclock"
+    ],
+    "evolvesFrom": null,
+    "evolvesTo": []
+  },
+  {
+    "dexNo": 140,
+    "name": "Aegisteel",
+    "types": [
+      "steel",
+      "psychic"
+    ],
+    "family": 65,
+    "stage": 1,
+    "rarity": "legendary",
+    "bst": 608,
+    "stats": {
+      "hp": 128,
+      "atk": 97,
+      "def": 139,
+      "spa": 67,
+      "spd": 117,
+      "spe": 60
+    },
+    "abilities": [
+      "Bedrock",
+      "Composure"
+    ],
+    "evolvesFrom": null,
+    "evolvesTo": []
+  },
+  {
+    "dexNo": 141,
+    "name": "Magmaroth",
+    "types": [
+      "fire",
+      "rock"
+    ],
+    "family": 66,
+    "stage": 1,
+    "rarity": "legendary",
+    "bst": 638,
+    "stats": {
+      "hp": 103,
+      "atk": 166,
+      "def": 110,
+      "spa": 45,
+      "spd": 86,
+      "spe": 128
+    },
+    "abilities": [
+      "Tenacity",
+      "Kindle"
+    ],
+    "evolvesFrom": null,
+    "evolvesTo": []
+  },
+  {
+    "dexNo": 142,
+    "name": "Leviacoil",
+    "types": [
+      "water",
+      "dragon"
+    ],
+    "family": 67,
+    "stage": 1,
+    "rarity": "legendary",
+    "bst": 631,
+    "stats": {
+      "hp": 102,
+      "atk": 45,
+      "def": 84,
+      "spa": 176,
+      "spd": 105,
+      "spe": 119
+    },
+    "abilities": [
+      "Zealot"
+    ],
+    "evolvesFrom": null,
+    "evolvesTo": []
+  },
+  {
+    "dexNo": 143,
+    "name": "Voltraptor",
+    "types": [
+      "electric",
+      "flying"
+    ],
+    "family": 68,
+    "stage": 1,
+    "rarity": "legendary",
+    "bst": 634,
+    "stats": {
+      "hp": 84,
+      "atk": 114,
+      "def": 72,
+      "spa": 115,
+      "spd": 73,
+      "spe": 176
+    },
+    "abilities": [
+      "Overclock"
+    ],
+    "evolvesFrom": null,
+    "evolvesTo": []
+  },
+  {
+    "dexNo": 144,
+    "name": "Colossand",
+    "types": [
+      "ground",
+      "rock"
+    ],
+    "family": 69,
+    "stage": 1,
+    "rarity": "legendary",
+    "bst": 638,
+    "stats": {
+      "hp": 139,
+      "atk": 98,
+      "def": 144,
+      "spa": 72,
+      "spd": 119,
+      "spe": 66
+    },
+    "abilities": [
+      "Dustveil"
+    ],
+    "evolvesFrom": null,
+    "evolvesTo": []
+  },
+  {
+    "dexNo": 145,
+    "name": "Borealis",
+    "types": [
+      "water",
+      "ice"
+    ],
+    "family": 70,
+    "stage": 1,
+    "rarity": "legendary",
+    "bst": 637,
+    "stats": {
+      "hp": 105,
+      "atk": 45,
+      "def": 84,
+      "spa": 166,
+      "spd": 107,
+      "spe": 130
+    },
+    "abilities": [
+      "Twin Fate"
+    ],
+    "evolvesFrom": null,
+    "evolvesTo": []
+  },
+  {
+    "dexNo": 146,
+    "name": "Nocturnyx",
+    "types": [
+      "dark",
+      "dragon"
+    ],
+    "family": 71,
+    "stage": 1,
+    "rarity": "legendary",
+    "bst": 615,
+    "stats": {
+      "hp": 101,
+      "atk": 169,
+      "def": 99,
+      "spa": 44,
+      "spd": 74,
+      "spe": 128
+    },
+    "abilities": [
+      "Breaker",
+      "Titan Grip"
+    ],
+    "evolvesFrom": null,
+    "evolvesTo": []
+  },
+  {
+    "dexNo": 147,
+    "name": "Oraceleste",
+    "types": [
+      "psychic",
+      "dragon"
+    ],
+    "family": 72,
+    "stage": 1,
+    "rarity": "legendary",
+    "bst": 636,
+    "stats": {
+      "hp": 105,
+      "atk": 45,
+      "def": 76,
+      "spa": 172,
+      "spd": 108,
+      "spe": 130
+    },
+    "abilities": [
+      "Finesse"
+    ],
+    "evolvesFrom": null,
+    "evolvesTo": []
+  },
+  {
+    "dexNo": 148,
+    "name": "Sylphage",
+    "types": [
+      "grass",
+      "psychic"
+    ],
+    "family": 73,
+    "stage": 1,
+    "rarity": "mythical",
+    "bst": 592,
+    "stats": {
+      "hp": 120,
+      "atk": 70,
+      "def": 103,
+      "spa": 89,
+      "spd": 122,
+      "spe": 88
+    },
+    "abilities": [
+      "Charmward",
+      "Mend"
+    ],
+    "evolvesFrom": null,
+    "evolvesTo": []
+  },
+  {
+    "dexNo": 149,
+    "name": "Relictar",
+    "types": [
+      "bug",
+      "steel"
+    ],
+    "family": 74,
+    "stage": 1,
+    "rarity": "mythical",
+    "bst": 604,
+    "stats": {
+      "hp": 140,
+      "atk": 87,
+      "def": 128,
+      "spa": 65,
+      "spd": 124,
+      "spe": 60
+    },
+    "abilities": [
+      "Blubber"
+    ],
+    "evolvesFrom": null,
+    "evolvesTo": []
+  },
+  {
+    "dexNo": 150,
+    "name": "Wanderae",
+    "types": [
+      "normal",
+      "psychic"
+    ],
+    "family": 75,
+    "stage": 1,
+    "rarity": "mythical",
+    "bst": 617,
+    "stats": {
+      "hp": 102,
+      "atk": 105,
+      "def": 105,
+      "spa": 108,
+      "spd": 97,
+      "spe": 100
+    },
+    "abilities": [
+      "Tenacity"
+    ],
+    "evolvesFrom": null,
+    "evolvesTo": []
+  }
+]

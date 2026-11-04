@@ -30,7 +30,7 @@ export async function buildMovesets(creatures, overrides = {}, log = []) {
   });
 }
 
-export async function prepareBattle({ creatures, unlockedIds, playerIds, terrainId, seed, movesetOverrides = {}, npcMovesetOverrides = {}, autoPick = false, archetypeId = null, npcIds = null, slot = null, rivalLevel = null, totalWins = 0, initialHp = null, replayInputs = null, playerHasLegendary = false, trace = false, onProgress = () => {}, decodeSprites = true, abilityPicks = {}, playerAbilityIds = null, npcAbilityIds = null, abilitiesEnabled = true, initialWeather }) {
+export async function prepareBattle({ creatures, unlockedIds, playerIds, terrainId, seed, movesetOverrides = {}, npcMovesetOverrides = {}, autoPick = false, archetypeId = null, npcIds = null, slot = null, rivalLevel = null, totalWins = 0, initialHp = null, replayInputs = null, playerHasLegendary = false, trace = false, onProgress = () => {}, decodeSprites = true, abilityPicks = {}, playerAbilityIds = null, npcAbilityIds = null, abilitiesEnabled = true, initialWeather, roster = "pokemon", contentVersion = null }) {
   const log = [];
   const rng = makeRng((seed ^ 0x9e3779b9) >>> 0);
   const archetype = archetypeConfig.archetypes[archetypeId || rng.pick(archetypeConfig.quickBattlePool)];
@@ -86,6 +86,6 @@ export async function prepareBattle({ creatures, unlockedIds, playerIds, terrain
   });
   if (replayInputs) state.replayInputs = replayInputs.map((x) => ({ ...x })).sort((a, b) => a.tick - b.tick);
   state.battleId = `${seed}-${Date.now().toString(36)}`;
-  state.meta = { archetype: archetype.id, slot: difficultySlot, rival: plan, initialHp, mapping, log, spriteStats, damageScale: engine.DAMAGE_SCALE, weather, abilities: { player: playerAbilities, npc: npcAbilities, enabled: abilitiesEnabled } };
+  state.meta = { archetype: archetype.id, slot: difficultySlot, rival: plan, initialHp, mapping, log, spriteStats, damageScale: engine.DAMAGE_SCALE, weather, roster, contentVersion, abilities: { player: playerAbilities, npc: npcAbilities, enabled: abilitiesEnabled } };
   return state;
 }

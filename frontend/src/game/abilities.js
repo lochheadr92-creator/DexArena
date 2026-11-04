@@ -9,7 +9,13 @@ export const WEATHER = CFG.weather;
 
 export const titleCase = (s = "") => s.split("-").map((w) => (w ? w[0].toUpperCase() + w.slice(1) : w)).join(" ");
 export const abilityDef = (id) => (id ? DEFS[id] || null : null);
-export const abilityName = (id) => abilityDef(id)?.name || titleCase(id || "");
+
+// Per-roster display overrides (slug -> { name, desc }). Lets the Original roster
+// show its own ability names while reusing the implemented mechanic underneath.
+let displayOverrides = {};
+export const setAbilityDisplay = (map) => { displayOverrides = map || {}; };
+export const abilityName = (id) => displayOverrides[id]?.name || abilityDef(id)?.name || titleCase(id || "");
+export const abilityDescription = (id) => displayOverrides[id]?.desc || abilityDef(id)?.desc || "";
 export const isImplemented = (id) => !!abilityDef(id);
 export const has = (u, id) => !!u && u.ability === id;
 const statused = (u) => !!(u.burn || u.paralysis);
@@ -47,7 +53,7 @@ export function randomAbility(creature, rng) {
 
 export function announce(state, u, text, extra = {}) {
   const def = abilityDef(u.ability);
-  const ev = { kind: "ability", unitId: u.id, side: u.side, ability: u.ability, name: def?.name || titleCase(u.ability), text, fx: def?.fx || "aura", color: def?.color || "#e2e8f0", x: u.pos.x, y: u.pos.y, ...extra };
+  const ev = { kind: "ability", unitId: u.id, side: u.side, ability: u.ability, name: abilityName(u.ability), text, fx: def?.fx || "aura", color: def?.color || "#e2e8f0", x: u.pos.x, y: u.pos.y, ...extra };
   pushEvent(state, ev);
   state.abilityLog.push({ tick: state.tick, unitId: u.id, side: u.side, ability: u.ability, text });
   logLine(state, `${u.name}'s ${ev.name}: ${text}`);
@@ -469,7 +475,7 @@ export function passiveVisual(state, u) {
 export function abilityStatus(state, u) {
   if (!u.ability) return null;
   const d = abilityDef(u.ability);
-  const name = d?.name || titleCase(u.ability);
+  const name = abilityName(u.ability);
   if (!d) return { id: u.ability, name, active: false, label: "no effect" };
   const s = u.abilityState || {};
   const w = weatherActive(state);

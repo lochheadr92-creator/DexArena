@@ -99,6 +99,7 @@ export async function ensureSprite(creature, facing) {
   entry.key = key;
   entry.ms = performance.now() - t0;
   entry.source = source;
+  entry.smooth = !!(staticUrl && staticUrl.includes("/original/"));
   cache.set(key, entry);
   spriteReport.decoded.push({ id: creature.id, name: creature.name, facing, frames: entry.frames.length, ms: +entry.ms.toFixed(1), source, size: `${entry.width}x${entry.height}` });
   return entry;

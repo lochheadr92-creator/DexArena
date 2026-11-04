@@ -30,6 +30,10 @@ const median = (arr) => {
 };
 
 async function fixedBattle({ seed, autoPick = true, trace = false, terrainId = "pitch", playerIds = FIXED_PLAYER, npcIds = FIXED_NPC, archetypeId = "tactician" }) {
+  // Fall back to the active dex when the hardcoded Pokémon ids aren't present (e.g. Original roster).
+  const fallback = Object.values(dex.creatures).map((c) => c.id);
+  if (!playerIds.every((id) => dex.creatures[id])) playerIds = fallback.slice(0, 6);
+  if (!npcIds.every((id) => dex.creatures[id])) npcIds = fallback.slice(6, 12);
   return prepareBattle({ creatures: dex.creatures, unlockedIds: dex.unlockedIds, playerIds, npcIds, archetypeId, terrainId, seed, autoPick, trace, decodeSprites: false });
 }
 

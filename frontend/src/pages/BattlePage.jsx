@@ -24,7 +24,7 @@ function pickSeed() {
 }
 
 export default function BattlePage() {
-  const { creatures, unlockedIds, save, progress, movesetOverrides, creditResult, finishGauntletStage, catalog, applyEvolutionItem, daily, recordDailyResult, saveReplay } = useGame();
+  const { creatures, unlockedIds, save, progress, movesetOverrides, creditResult, finishGauntletStage, catalog, applyEvolutionItem, daily, recordDailyResult, saveReplay, rosterId, roster, setRoster } = useGame();
   const navigate = useNavigate();
   const location = useLocation();
   const [params] = useSearchParams();
@@ -78,7 +78,7 @@ export default function BattlePage() {
       setBagOpen(false);
       setError(null);
       try {
-        const state = await prepareBattle({ movesetOverrides, abilityPicks: save.abilities, ...setup, creatures, unlockedIds, playerHasLegendary: playerHasLegendary(unlockedIds, creatures), onProgress: setStatus });
+        const state = await prepareBattle({ movesetOverrides, abilityPicks: save.abilities, ...setup, creatures, unlockedIds, playerHasLegendary: playerHasLegendary(unlockedIds, creatures), roster: rosterId, contentVersion: roster.contentVersion, onProgress: setStatus });
         state.mode = mode;
         stateRef.current = state;
         window.__battle = state;
@@ -91,7 +91,7 @@ export default function BattlePage() {
         setPhase("error");
       }
     },
-    [creatures, unlockedIds, movesetOverrides, mode, save.abilities],
+    [creatures, unlockedIds, movesetOverrides, mode, save.abilities, rosterId, roster.contentVersion],
   );
 
   const startedRef = useRef(false);
@@ -104,6 +104,10 @@ export default function BattlePage() {
       } catch (e) {
         setError(e.message);
         setPhase("error");
+        return;
+      }
+      if (setup.roster && setup.roster !== rosterId) {
+        setRoster(setup.roster);
         return;
       }
     } else if (mode === "gauntlet") {
@@ -133,7 +137,7 @@ export default function BattlePage() {
     }
     startedRef.current = true;
     start(setup);
-  }, [phase, progress.status, save, creatures, start, navigate, mode, location.hash, daily]);
+  }, [phase, progress.status, save, creatures, start, navigate, mode, location.hash, daily, rosterId, setRoster]);
 
   const onSnapshot = useCallback((s) => {
     setSnap(s);

@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils";
 import { useGame } from "@/context/GameContext";
 import { DEX } from "@/constants/testIds/dex";
 import { LoadingBar } from "@/components/LoadingBar";
+import { RosterToggle } from "@/components/RosterToggle";
 
 const TABS = [
   { to: "/", label: "Roster", icon: Grid3x3, testId: DEX.tabRoster },
@@ -44,6 +45,9 @@ export const AppShell = () => (
           </div>
         </div>
         <SyncChip />
+      </div>
+      <div className="mx-auto flex max-w-md items-center justify-center px-4 pb-2 md:max-w-2xl lg:max-w-4xl">
+        <RosterToggle />
       </div>
       <LoadingBar />
     </header>
