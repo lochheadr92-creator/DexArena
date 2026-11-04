@@ -96,7 +96,9 @@
     "aggressionMin": 0.3,
     "aggressionMax": 0.9,
     "switchHpFraction": 0.2,
-    "shieldHorizonSec": 1
+    "shieldHorizonSec": 1,
+    "patienceSec": 10,
+    "impatientRangeFraction": 0.6
   },
   "switchWillingness": {
     "low": 0.2,

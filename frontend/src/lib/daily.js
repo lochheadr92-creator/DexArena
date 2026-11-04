@@ -4,6 +4,7 @@ import { TERRAINS } from "@/lib/terrains";
 import { generateNpcTeam } from "@/game/teamgen";
 import { randomAbility } from "@/game/abilities";
 import { legendWeather } from "@/lib/rival";
+import { DAILY_HISTORY_MAX } from "@/lib/save";
 
 export const DAILY = difficulty.daily;
 
@@ -37,6 +38,29 @@ export async function buildDaily(creatures, key = dailyKey()) {
 
 export const todaysDaily = (save, key) => (save.daily?.key === key ? save.daily : { key, attempts: 0, best: null });
 
+export const shiftDay = (key, days) => {
+  const [y, m, d] = key.split("-").map(Number);
+  return new Date(Date.UTC(y, m - 1, d + days)).toISOString().slice(0, 10);
+};
+
+const upsertDay = (history, entry) => [entry, ...history.filter((e) => e.key !== entry.key)].sort((a, b) => (a.key < b.key ? 1 : -1)).slice(0, DAILY_HISTORY_MAX);
+
+export function dailyStats(history, today) {
+  const played = new Set(history.map((e) => e.key));
+  let streak = 0;
+  for (let k = played.has(today) ? today : shiftDay(today, -1); played.has(k); k = shiftDay(k, -1)) streak++;
+  let bestStreak = 0;
+  let run = 0;
+  let prev = null;
+  for (const k of [...played].sort()) {
+    run = prev && shiftDay(prev, 1) === k ? run + 1 : 1;
+    bestStreak = Math.max(bestStreak, run);
+    prev = k;
+  }
+  const month = history.filter((e) => e.key.slice(0, 7) === today.slice(0, 7));
+  return { streak, bestStreak, monthPlayed: month.length, monthWins: month.filter((e) => e.best.win).length, monthBest: month.reduce((m, e) => Math.max(m, e.best.score), 0) };
+}
+
 export function dailySetup(daily, save) {
   const attempts = todaysDaily(save, daily.key).attempts;
   return { playerIds: save.team, terrainId: daily.terrainId, seed: attemptSeed(daily.seed, attempts), archetypeId: daily.archetypeId, npcIds: daily.npcIds, npcAbilityIds: daily.npcAbilityIds, rivalLevel: DAILY.level, totalWins: save.totalWins, initialWeather: daily.weather };
@@ -54,7 +78,9 @@ export function dailyResult(state) {
 export function recordDaily(save, key, result) {
   const cur = todaysDaily(save, key);
   const isBest = !cur.best || result.score > cur.best.score;
-  return { save: { ...save, daily: { key, attempts: cur.attempts + 1, best: isBest ? result : cur.best } }, isBest };
+  const attempts = cur.attempts + 1;
+  const best = isBest ? result : cur.best;
+  return { save: { ...save, daily: { key, attempts, best, history: upsertDay(save.daily?.history || [], { key, attempts, best }) } }, isBest };
 }
 
 export const fmtTime = (s) => `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, "0")}`;

@@ -11,6 +11,8 @@ import { SpriteImg } from "@/components/SpriteImg";
 import { SaveTransfer } from "@/components/SaveTransfer";
 import { BagPanel } from "@/components/BagPanel";
 import { GraphicsSettings } from "@/components/GraphicsSettings";
+import { ReplayGallery } from "@/components/ReplayGallery";
+import { PresetsButton } from "@/components/PresetsDialog";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -70,15 +72,19 @@ export default function SavePage() {
       </div>
 
       <BagPanel />
+      <ReplayGallery />
       <GraphicsSettings />
       <SaveTransfer />
 
       <section className="rounded-xl border border-slate-800 bg-slate-900/70 p-4">
         <div className="flex items-center justify-between">
           <h3 className="font-mono text-[10px] uppercase tracking-widest text-slate-500">Current loadout</h3>
-          <span className="rounded-full border px-2 py-0.5 font-mono text-[9px] uppercase tracking-wider" style={{ color: terrain.accent, borderColor: `${terrain.accent}55` }}>
-            {terrain.name}
-          </span>
+          <div className="flex items-center gap-2">
+            <PresetsButton compact />
+            <span className="rounded-full border px-2 py-0.5 font-mono text-[9px] uppercase tracking-wider" style={{ color: terrain.accent, borderColor: `${terrain.accent}55` }}>
+              {terrain.name}
+            </span>
+          </div>
         </div>
         <div className="mt-3 flex gap-1.5">
           {Array.from({ length: 6 }, (_, i) => {

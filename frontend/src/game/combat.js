@@ -132,6 +132,7 @@ export function applyHit(state, attacker, target, move, source) {
   target.hp = Math.max(0, target.hp - damage);
   attacker.damageDealt += damage;
   if (damage > 0) {
+    attacker.lastDealtTick = state.tick;
     target.lastHitBy = attacker.id;
     target.lastHitIndirect = false;
     target.lastHitSource = source;

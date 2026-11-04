@@ -52,13 +52,30 @@ function incomingThreat(state, unit, enemy) {
   return false;
 }
 
+const engageDistance = (state, unit, enemy, move) => {
+  const f = engine.ai.impatientRangeFraction;
+  switch (move.shape) {
+    case "projectile":
+      return engine.shapes.projectile.range * f;
+    case "area":
+      return engine.shapes.area.range * f;
+    case "dash":
+      return (dashDistance(unit, state) + unit.radius + enemy.radius) * f;
+    default:
+      return engine.shapes.melee.reach + enemy.radius;
+  }
+};
+
 export function aiThink(state, unit, enemy, team) {
   const ranked = unit.moves
     .map((m, i) => ({ m, i, v: expectedDamage(unit, enemy, m, terrainMultFor(state, enemy, m), state) }))
     .sort((a, b) => b.v - a.v || a.i - b.i);
   const top = ranked[0];
+  const canHurt = ranked.some((r) => r.v > 0);
   unit.kite = !!top && (top.m.shape === "projectile" || top.m.shape === "area");
   unit.preferred = (unit.kite ? engine.ai.kiteDistance : engine.ai.closeDistance) / unit.aggression;
+  unit.impatient = canHurt && state.tick - Math.max(unit.lastDealtTick, unit.enteredTick) >= secToTicks(engine.ai.patienceSec);
+  if (unit.impatient) unit.preferred = Math.min(unit.preferred, engageDistance(state, unit, enemy, top.m));
 
   const d = dist(unit.pos, enemy.pos);
   const ready = ranked.filter((r) => state.tick >= r.m.cdUntil);
@@ -76,9 +93,10 @@ export function aiThink(state, unit, enemy, team) {
     const fav = findFavourableTile(state, unit);
     const mustClose = damaging.length && !usable.length;
     if (fav && !(mustClose && dist(fav, enemy.pos) > d)) unit.intent = { mode: "waypoint", x: fav.x, y: fav.y };
+    else if (!canHurt) unit.intent = { mode: "hold" };
     else if (mustClose) unit.intent = { mode: "approach" };
     else if (d > unit.preferred + engine.movement.holdBand) unit.intent = { mode: "approach" };
-    else if (d < unit.preferred - engine.movement.holdBand) unit.intent = { mode: "retreat" };
+    else if (d < unit.preferred - engine.movement.holdBand && !unit.impatient) unit.intent = { mode: "retreat" };
     else unit.intent = { mode: "hold" };
   }
   unit.nextThinkTick = state.tick + team.reactionTicks;

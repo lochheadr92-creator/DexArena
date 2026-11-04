@@ -125,6 +125,7 @@ export function beginSwitch(state, team, inIndex, reason) {
   inUnit.vel = { x: 0, y: 0 };
   inUnit.revealed = true;
   inUnit.entries++;
+  inUnit.enteredTick = state.tick;
   inUnit.nextThinkTick = inUnit.entryUntil;
   team.activeIndex = inIndex;
   team.pendingPick = false;

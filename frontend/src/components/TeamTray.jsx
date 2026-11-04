@@ -5,6 +5,7 @@ import { useGame } from "@/context/GameContext";
 import { TEAM_SIZE } from "@/lib/save";
 import { DEX } from "@/constants/testIds/dex";
 import { SpriteImg } from "@/components/SpriteImg";
+import { PresetsButton } from "@/components/PresetsDialog";
 
 export const TeamTray = () => {
   const { creatures, save, toggleTeam, clearTeam } = useGame();
@@ -59,6 +60,7 @@ export const TeamTray = () => {
             Team <span className={full ? "text-emerald-400" : "text-cyan-300"}>{save.team.length}</span>/{TEAM_SIZE}
           </span>
           <div className="flex items-center gap-1.5">
+            <PresetsButton compact />
             <button
               type="button"
               data-testid={DEX.clearTeam}

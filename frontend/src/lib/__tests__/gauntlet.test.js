@@ -51,9 +51,9 @@ describe("gauntlet run history", () => {
     const s = normalizeSave({ ...defaultSave(), gauntlet: { runs: 2, history: [null, { team: "x" }, { outcome: "lost", team: [1], items: [] }] }, daily: { key: 5 } });
     expect(s.gauntlet.history).toEqual([{ outcome: "lost", team: [1], items: [] }]);
     expect(s.gauntlet.active).toBeNull();
-    expect(s.daily).toEqual({ key: null, attempts: 0, best: null });
+    expect(s.daily).toEqual({ key: null, attempts: 0, best: null, history: [] });
     const s2 = normalizeSave({ ...defaultSave(), daily: { key: "2026-06-14", attempts: 3, best: { score: 900 } } });
-    expect(s2.daily).toEqual({ key: "2026-06-14", attempts: 3, best: { score: 900 } });
+    expect(s2.daily).toEqual({ key: "2026-06-14", attempts: 3, best: { score: 900 }, history: [{ key: "2026-06-14", attempts: 3, best: { score: 900 } }] });
   });
 });
 

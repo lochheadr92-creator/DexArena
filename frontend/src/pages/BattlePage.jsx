@@ -24,7 +24,7 @@ function pickSeed() {
 }
 
 export default function BattlePage() {
-  const { creatures, unlockedIds, save, progress, movesetOverrides, creditResult, finishGauntletStage, catalog, applyEvolutionItem, daily, recordDailyResult } = useGame();
+  const { creatures, unlockedIds, save, progress, movesetOverrides, creditResult, finishGauntletStage, catalog, applyEvolutionItem, daily, recordDailyResult, saveReplay } = useGame();
   const navigate = useNavigate();
   const location = useLocation();
   const [params] = useSearchParams();
@@ -44,6 +44,7 @@ export default function BattlePage() {
   const [bagOpen, setBagOpen] = useState(false);
   const [ended, setEnded] = useState(false);
   const [outcome, setOutcome] = useState(null);
+  const [replaySaved, setReplaySaved] = useState(false);
   const lastSetup = useRef(null);
 
   const setSpeed = (s) => {
@@ -72,6 +73,7 @@ export default function BattlePage() {
       setPhase("loading");
       setEnded(false);
       setOutcome(null);
+      setReplaySaved(false);
       setStripOpen(false);
       setBagOpen(false);
       setError(null);
@@ -206,6 +208,12 @@ export default function BattlePage() {
   };
   const share = () => copyOrShare("Arena Dex replay", null, replayUrl(stateRef.current));
   const shareDaily = () => copyOrShare("Arena Dex Daily", shareText(outcome.daily.key, outcome.daily.result), `${window.location.origin}/arena`);
+  const onSaveReplay = (name) => {
+    const status = saveReplay(stateRef.current, name, mode);
+    setReplaySaved(true);
+    if (status === "duplicate") toast.info("This replay is already in your gallery");
+    else toast.success(`Saved "${name}" to your replay gallery`, { description: status === "trimmed" ? "The oldest replay was removed to make room." : "Find it on the Save tab." });
+  };
   const back = () => navigate(mode === "gauntlet" ? "/gauntlet" : mode === "daily" ? "/arena" : "/");
 
   if (phase === "error") {
@@ -230,7 +238,7 @@ export default function BattlePage() {
         <TeamStrip bench={snap.player.bench} forced={pendingPick} onPick={pick} onClose={() => setStripOpen(false)} onAuto={() => setAutoPick(true)} />
       )}
       {phase === "battle" && ended && stateRef.current && (mode === "replay" || outcome) && (
-        <ResultScreen state={stateRef.current} mode={mode} outcome={outcome} creatures={creatures} onRematch={rematch} onNext={nextTrainer} onShare={share} onShareDaily={shareDaily} onBack={back} />
+        <ResultScreen state={stateRef.current} mode={mode} outcome={outcome} creatures={creatures} onRematch={rematch} onNext={nextTrainer} onShare={share} onShareDaily={shareDaily} onBack={back} onSaveReplay={onSaveReplay} replaySaved={replaySaved} />
       )}
       {phase === "loading" && (
         <div className="flex h-full flex-col items-center justify-center gap-4" data-testid="battle-loading">

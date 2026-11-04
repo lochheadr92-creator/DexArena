@@ -1,8 +1,10 @@
-import { Trophy, Skull, RotateCcw, Grid3x3, Share2, ChevronRight, Sparkles, KeyRound, Flag, CalendarDays, Swords } from "lucide-react";
+import { useState } from "react";
+import { Trophy, Skull, RotateCcw, Grid3x3, Share2, ChevronRight, Sparkles, KeyRound, Flag, CalendarDays, Swords, Bookmark, Check } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { TICK_RATE } from "@/game/config";
 import { GAUNTLET_STAGES } from "@/lib/gauntlet";
 import { fmtTime } from "@/lib/daily";
+import { NAME_MAX } from "@/lib/presets";
 import { KO_BONUS, STANDING_BONUS } from "@/lib/progression";
 import { itemInfo } from "@/lib/items";
 import { ItemIcon } from "@/components/ItemIcon";
@@ -114,6 +116,43 @@ const DailyNote = ({ d }) => {
   );
 };
 
+const SaveReplay = ({ saved, onSave, defaultName }) => {
+  const [open, setOpen] = useState(false);
+  const [name, setName] = useState(defaultName);
+  if (saved) {
+    return (
+      <div className="flex items-center justify-center gap-1.5 rounded-xl border border-emerald-800/60 bg-emerald-950/30 px-3 py-2 font-mono text-[10px] uppercase tracking-wider text-emerald-300" data-testid="replay-saved-badge">
+        <Check className="h-3.5 w-3.5" /> Saved to gallery
+      </div>
+    );
+  }
+  if (!open) {
+    return (
+      <Btn testId="save-replay-button" onClick={() => setOpen(true)} icon={Bookmark}>
+        Save replay
+      </Btn>
+    );
+  }
+  const submit = () => onSave(name.trim() || defaultName);
+  return (
+    <div className="col-span-2 flex items-center gap-2" data-testid="save-replay-panel">
+      <input
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+        onKeyDown={(e) => e.key === "Enter" && submit()}
+        maxLength={NAME_MAX}
+        autoFocus
+        placeholder="Replay name"
+        data-testid="save-replay-name"
+        className="h-10 min-w-0 flex-1 rounded-xl border border-slate-700 bg-slate-950 px-3 text-sm text-slate-100 placeholder:text-slate-600 focus:border-cyan-500 focus:outline-none"
+      />
+      <button type="button" data-testid="save-replay-confirm" onClick={submit} className="flex h-10 items-center gap-1.5 rounded-xl bg-cyan-500 px-3 font-display text-xs font-bold uppercase tracking-wider text-slate-950 hover:bg-cyan-400">
+        <Bookmark className="h-3.5 w-3.5" /> Save
+      </button>
+    </div>
+  );
+};
+
 const Btn = ({ primary, testId, onClick, icon: Icon, children }) => (
   <button
     type="button"
@@ -128,7 +167,7 @@ const Btn = ({ primary, testId, onClick, icon: Icon, children }) => (
   </button>
 );
 
-export const ResultScreen = ({ state, mode = "quick", outcome, creatures = {}, onRematch, onNext, onShare, onShareDaily, onBack }) => {
+export const ResultScreen = ({ state, mode = "quick", outcome, creatures = {}, onRematch, onNext, onShare, onShareDaily, onBack, onSaveReplay, replaySaved = false }) => {
   const win = state.winner === "player";
   const remaining = (side) => state.teams[side].units.filter((u) => u.hp > 0).length;
   const seconds = (state.endTick / TICK_RATE).toFixed(1);
@@ -197,6 +236,7 @@ export const ResultScreen = ({ state, mode = "quick", outcome, creatures = {}, o
               {mode === "gauntlet" ? "Leave" : mode === "daily" ? "Arena" : "Roster"}
             </Btn>
           )}
+          <SaveReplay saved={replaySaved} onSave={onSaveReplay} defaultName={`${win ? "Win" : "Loss"} vs ${state.teams.npc.name}`} />
         </div>
       </div>
     </div>

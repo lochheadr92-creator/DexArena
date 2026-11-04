@@ -6,6 +6,9 @@ import { computeStarterIds, isSealed } from "@/lib/unlocks";
 import { creditBattle, battleBonuses, sealKeys } from "@/lib/progression";
 import { applyRunToSave, newRun, runAfterBattle, abandonRun } from "@/lib/gauntlet";
 import { buildDaily, dailyKey, dailyResult, recordDaily } from "@/lib/daily";
+import { addPreset, overwritePreset, renamePreset, deletePreset, loadPreset } from "@/lib/presets";
+import { addReplay, renameReplay, deleteReplay, replayMeta } from "@/lib/replays";
+import { encodeReplay } from "@/lib/replay";
 import { clampLevel } from "@/lib/rival";
 import { buildCatalog, applyEvolutionItem as applyItemToSave } from "@/lib/items";
 import { registerDex, installHarness } from "@/game/tests/harness";
@@ -244,6 +247,42 @@ export function GameProvider({ children }) {
     return { key, result, isBest: res.isBest, best: res.save.daily.best, attempts: res.save.daily.attempts };
   }, []);
 
+  const presets = useMemo(
+    () => ({
+      add: (name) => updateSave((prev) => addPreset(prev, name)),
+      overwrite: (id) => updateSave((prev) => overwritePreset(prev, id)),
+      rename: (id, name) => updateSave((prev) => renamePreset(prev, id, name)),
+      remove: (id) => updateSave((prev) => deletePreset(prev, id)),
+      load: (preset) => updateSave((prev) => loadPreset(prev, preset)),
+    }),
+    [updateSave],
+  );
+
+  const saveReplay = useCallback((state, name, mode) => {
+    const res = addReplay(saveRef.current, { name, code: encodeReplay(state), meta: replayMeta(state, mode) });
+    if (res.status !== "duplicate") {
+      setSave(persistSave(res.save));
+      saveRef.current = res.save;
+    }
+    return res.status;
+  }, []);
+
+  const replays = useMemo(
+    () => ({
+      add: (entry) => {
+        const res = addReplay(saveRef.current, entry);
+        if (res.status !== "duplicate") {
+          setSave(persistSave(res.save));
+          saveRef.current = res.save;
+        }
+        return res.status;
+      },
+      rename: (id, name) => updateSave((prev) => renameReplay(prev, id, name)),
+      remove: (id) => updateSave((prev) => deleteReplay(prev, id)),
+    }),
+    [updateSave],
+  );
+
   const value = useMemo(
     () => ({
       creatures,
@@ -274,8 +313,11 @@ export function GameProvider({ children }) {
       abandonGauntlet,
       daily,
       recordDailyResult,
+      presets,
+      saveReplay,
+      replays,
     }),
-    [creatures, list, progress, save, starterIds, unlockedIds, toggleTeam, clearTeam, setTerrain, setRivalLevel, setAbility, resetSave, retryFailed, resyncDex, movesetOverrides, setMovesetOverride, importSave, creditResult, catalog, applyEvolutionItem, spendSealKey, startGauntlet, finishGauntletStage, abandonGauntlet, daily, recordDailyResult],
+    [creatures, list, progress, save, starterIds, unlockedIds, toggleTeam, clearTeam, setTerrain, setRivalLevel, setAbility, resetSave, retryFailed, resyncDex, movesetOverrides, setMovesetOverride, importSave, creditResult, catalog, applyEvolutionItem, spendSealKey, startGauntlet, finishGauntletStage, abandonGauntlet, daily, recordDailyResult, presets, saveReplay, replays],
   );
 
   return <GameContext.Provider value={value}>{children}</GameContext.Provider>;

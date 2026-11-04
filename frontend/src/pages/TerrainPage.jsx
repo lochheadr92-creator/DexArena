@@ -10,6 +10,8 @@ import { TerrainCard } from "@/components/TerrainCard";
 import { SpriteImg } from "@/components/SpriteImg";
 import { RivalLevelPicker } from "@/components/RivalLevelPicker";
 import { DailyCard } from "@/components/DailyCard";
+import { DailyBoard } from "@/components/DailyBoard";
+import { PresetsButton } from "@/components/PresetsDialog";
 
 const WEATHER_ICON = { rain: CloudRain, hail: Snowflake };
 
@@ -60,9 +62,12 @@ export default function TerrainPage() {
       <section className="mt-6">
         <div className="mb-2 flex items-center justify-between">
           <h3 className="font-mono text-[10px] uppercase tracking-widest text-slate-500">Your team</h3>
-          <Link to="/" className="font-mono text-[10px] uppercase tracking-wider text-cyan-400 hover:text-cyan-300" data-testid="edit-team-link">
-            Edit roster
-          </Link>
+          <div className="flex items-center gap-3">
+            <PresetsButton compact className="!p-1" />
+            <Link to="/" className="font-mono text-[10px] uppercase tracking-wider text-cyan-400 hover:text-cyan-300" data-testid="edit-team-link">
+              Edit roster
+            </Link>
+          </div>
         </div>
         <div className="grid grid-cols-6 gap-1.5">
           {Array.from({ length: TEAM_SIZE }, (_, i) => {
@@ -98,6 +103,7 @@ export default function TerrainPage() {
       </button>
 
       <DailyCard />
+      <DailyBoard />
     </div>
   );
 }

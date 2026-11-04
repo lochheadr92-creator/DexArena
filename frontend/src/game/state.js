@@ -111,6 +111,9 @@ function makeUnit(creature, moves, side, index, params, spawn, ability = null) {
     entryDamage: 0,
     preferred: 3,
     kite: false,
+    impatient: false,
+    lastDealtTick: 0,
+    enteredTick: 0,
   };
 }
 
