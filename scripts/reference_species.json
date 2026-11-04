@@ -1,0 +1,6634 @@
+[
+  {
+    "id": 1,
+    "name": "bulbasaur",
+    "types": [
+      "grass",
+      "poison"
+    ],
+    "bst": 318,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 2,
+    "name": "ivysaur",
+    "types": [
+      "grass",
+      "poison"
+    ],
+    "bst": 405,
+    "stage": 2,
+    "evolvesFrom": 1,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 3,
+    "name": "venusaur",
+    "types": [
+      "grass",
+      "poison"
+    ],
+    "bst": 525,
+    "stage": 3,
+    "evolvesFrom": 2,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 4,
+    "name": "charmander",
+    "types": [
+      "fire"
+    ],
+    "bst": 309,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 5,
+    "name": "charmeleon",
+    "types": [
+      "fire"
+    ],
+    "bst": 405,
+    "stage": 2,
+    "evolvesFrom": 4,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 6,
+    "name": "charizard",
+    "types": [
+      "fire",
+      "flying"
+    ],
+    "bst": 534,
+    "stage": 3,
+    "evolvesFrom": 5,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 7,
+    "name": "squirtle",
+    "types": [
+      "water"
+    ],
+    "bst": 314,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 8,
+    "name": "wartortle",
+    "types": [
+      "water"
+    ],
+    "bst": 405,
+    "stage": 2,
+    "evolvesFrom": 7,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 9,
+    "name": "blastoise",
+    "types": [
+      "water"
+    ],
+    "bst": 530,
+    "stage": 3,
+    "evolvesFrom": 8,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 10,
+    "name": "caterpie",
+    "types": [
+      "bug"
+    ],
+    "bst": 195,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 11,
+    "name": "metapod",
+    "types": [
+      "bug"
+    ],
+    "bst": 205,
+    "stage": 2,
+    "evolvesFrom": 10,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 12,
+    "name": "butterfree",
+    "types": [
+      "bug",
+      "flying"
+    ],
+    "bst": 395,
+    "stage": 3,
+    "evolvesFrom": 11,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 13,
+    "name": "weedle",
+    "types": [
+      "bug",
+      "poison"
+    ],
+    "bst": 195,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 14,
+    "name": "kakuna",
+    "types": [
+      "bug",
+      "poison"
+    ],
+    "bst": 205,
+    "stage": 2,
+    "evolvesFrom": 13,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 15,
+    "name": "beedrill",
+    "types": [
+      "bug",
+      "poison"
+    ],
+    "bst": 395,
+    "stage": 3,
+    "evolvesFrom": 14,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 16,
+    "name": "pidgey",
+    "types": [
+      "normal",
+      "flying"
+    ],
+    "bst": 251,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 17,
+    "name": "pidgeotto",
+    "types": [
+      "normal",
+      "flying"
+    ],
+    "bst": 349,
+    "stage": 2,
+    "evolvesFrom": 16,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 18,
+    "name": "pidgeot",
+    "types": [
+      "normal",
+      "flying"
+    ],
+    "bst": 479,
+    "stage": 3,
+    "evolvesFrom": 17,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 19,
+    "name": "rattata",
+    "types": [
+      "normal"
+    ],
+    "bst": 253,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 20,
+    "name": "raticate",
+    "types": [
+      "normal"
+    ],
+    "bst": 413,
+    "stage": 2,
+    "evolvesFrom": 19,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 21,
+    "name": "spearow",
+    "types": [
+      "normal",
+      "flying"
+    ],
+    "bst": 262,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 22,
+    "name": "fearow",
+    "types": [
+      "normal",
+      "flying"
+    ],
+    "bst": 442,
+    "stage": 2,
+    "evolvesFrom": 21,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 23,
+    "name": "ekans",
+    "types": [
+      "poison"
+    ],
+    "bst": 288,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 24,
+    "name": "arbok",
+    "types": [
+      "poison"
+    ],
+    "bst": 448,
+    "stage": 2,
+    "evolvesFrom": 23,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 25,
+    "name": "pikachu",
+    "types": [
+      "electric"
+    ],
+    "bst": 320,
+    "stage": 2,
+    "evolvesFrom": 172,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 26,
+    "name": "raichu",
+    "types": [
+      "electric"
+    ],
+    "bst": 485,
+    "stage": 3,
+    "evolvesFrom": 25,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 27,
+    "name": "sandshrew",
+    "types": [
+      "ground"
+    ],
+    "bst": 300,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 28,
+    "name": "sandslash",
+    "types": [
+      "ground"
+    ],
+    "bst": 450,
+    "stage": 2,
+    "evolvesFrom": 27,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 29,
+    "name": "nidoran-f",
+    "types": [
+      "poison"
+    ],
+    "bst": 275,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 30,
+    "name": "nidorina",
+    "types": [
+      "poison"
+    ],
+    "bst": 365,
+    "stage": 2,
+    "evolvesFrom": 29,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 31,
+    "name": "nidoqueen",
+    "types": [
+      "poison",
+      "ground"
+    ],
+    "bst": 505,
+    "stage": 3,
+    "evolvesFrom": 30,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 32,
+    "name": "nidoran-m",
+    "types": [
+      "poison"
+    ],
+    "bst": 273,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 33,
+    "name": "nidorino",
+    "types": [
+      "poison"
+    ],
+    "bst": 365,
+    "stage": 2,
+    "evolvesFrom": 32,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 34,
+    "name": "nidoking",
+    "types": [
+      "poison",
+      "ground"
+    ],
+    "bst": 505,
+    "stage": 3,
+    "evolvesFrom": 33,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 35,
+    "name": "clefairy",
+    "types": [
+      "normal"
+    ],
+    "bst": 323,
+    "stage": 2,
+    "evolvesFrom": 173,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 36,
+    "name": "clefable",
+    "types": [
+      "normal"
+    ],
+    "bst": 483,
+    "stage": 3,
+    "evolvesFrom": 35,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 37,
+    "name": "vulpix",
+    "types": [
+      "fire"
+    ],
+    "bst": 299,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 38,
+    "name": "ninetales",
+    "types": [
+      "fire"
+    ],
+    "bst": 505,
+    "stage": 2,
+    "evolvesFrom": 37,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 39,
+    "name": "jigglypuff",
+    "types": [
+      "normal"
+    ],
+    "bst": 270,
+    "stage": 2,
+    "evolvesFrom": 174,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 40,
+    "name": "wigglytuff",
+    "types": [
+      "normal"
+    ],
+    "bst": 435,
+    "stage": 3,
+    "evolvesFrom": 39,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 41,
+    "name": "zubat",
+    "types": [
+      "poison",
+      "flying"
+    ],
+    "bst": 245,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 42,
+    "name": "golbat",
+    "types": [
+      "poison",
+      "flying"
+    ],
+    "bst": 455,
+    "stage": 2,
+    "evolvesFrom": 41,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 43,
+    "name": "oddish",
+    "types": [
+      "grass",
+      "poison"
+    ],
+    "bst": 320,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 44,
+    "name": "gloom",
+    "types": [
+      "grass",
+      "poison"
+    ],
+    "bst": 395,
+    "stage": 2,
+    "evolvesFrom": 43,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 45,
+    "name": "vileplume",
+    "types": [
+      "grass",
+      "poison"
+    ],
+    "bst": 490,
+    "stage": 3,
+    "evolvesFrom": 44,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 46,
+    "name": "paras",
+    "types": [
+      "bug",
+      "grass"
+    ],
+    "bst": 285,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 47,
+    "name": "parasect",
+    "types": [
+      "bug",
+      "grass"
+    ],
+    "bst": 405,
+    "stage": 2,
+    "evolvesFrom": 46,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 48,
+    "name": "venonat",
+    "types": [
+      "bug",
+      "poison"
+    ],
+    "bst": 305,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 49,
+    "name": "venomoth",
+    "types": [
+      "bug",
+      "poison"
+    ],
+    "bst": 450,
+    "stage": 2,
+    "evolvesFrom": 48,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 50,
+    "name": "diglett",
+    "types": [
+      "ground"
+    ],
+    "bst": 265,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 51,
+    "name": "dugtrio",
+    "types": [
+      "ground"
+    ],
+    "bst": 425,
+    "stage": 2,
+    "evolvesFrom": 50,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 52,
+    "name": "meowth",
+    "types": [
+      "normal"
+    ],
+    "bst": 290,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 53,
+    "name": "persian",
+    "types": [
+      "normal"
+    ],
+    "bst": 440,
+    "stage": 2,
+    "evolvesFrom": 52,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 54,
+    "name": "psyduck",
+    "types": [
+      "water"
+    ],
+    "bst": 320,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 55,
+    "name": "golduck",
+    "types": [
+      "water"
+    ],
+    "bst": 500,
+    "stage": 2,
+    "evolvesFrom": 54,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 56,
+    "name": "mankey",
+    "types": [
+      "fighting"
+    ],
+    "bst": 305,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 57,
+    "name": "primeape",
+    "types": [
+      "fighting"
+    ],
+    "bst": 455,
+    "stage": 2,
+    "evolvesFrom": 56,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 58,
+    "name": "growlithe",
+    "types": [
+      "fire"
+    ],
+    "bst": 350,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 59,
+    "name": "arcanine",
+    "types": [
+      "fire"
+    ],
+    "bst": 555,
+    "stage": 2,
+    "evolvesFrom": 58,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 60,
+    "name": "poliwag",
+    "types": [
+      "water"
+    ],
+    "bst": 300,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 61,
+    "name": "poliwhirl",
+    "types": [
+      "water"
+    ],
+    "bst": 385,
+    "stage": 2,
+    "evolvesFrom": 60,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 62,
+    "name": "poliwrath",
+    "types": [
+      "water",
+      "fighting"
+    ],
+    "bst": 510,
+    "stage": 3,
+    "evolvesFrom": 61,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 63,
+    "name": "abra",
+    "types": [
+      "psychic"
+    ],
+    "bst": 310,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 64,
+    "name": "kadabra",
+    "types": [
+      "psychic"
+    ],
+    "bst": 400,
+    "stage": 2,
+    "evolvesFrom": 63,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 65,
+    "name": "alakazam",
+    "types": [
+      "psychic"
+    ],
+    "bst": 500,
+    "stage": 3,
+    "evolvesFrom": 64,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 66,
+    "name": "machop",
+    "types": [
+      "fighting"
+    ],
+    "bst": 305,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 67,
+    "name": "machoke",
+    "types": [
+      "fighting"
+    ],
+    "bst": 405,
+    "stage": 2,
+    "evolvesFrom": 66,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 68,
+    "name": "machamp",
+    "types": [
+      "fighting"
+    ],
+    "bst": 505,
+    "stage": 3,
+    "evolvesFrom": 67,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 69,
+    "name": "bellsprout",
+    "types": [
+      "grass",
+      "poison"
+    ],
+    "bst": 300,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 70,
+    "name": "weepinbell",
+    "types": [
+      "grass",
+      "poison"
+    ],
+    "bst": 390,
+    "stage": 2,
+    "evolvesFrom": 69,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 71,
+    "name": "victreebel",
+    "types": [
+      "grass",
+      "poison"
+    ],
+    "bst": 490,
+    "stage": 3,
+    "evolvesFrom": 70,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 72,
+    "name": "tentacool",
+    "types": [
+      "water",
+      "poison"
+    ],
+    "bst": 335,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 73,
+    "name": "tentacruel",
+    "types": [
+      "water",
+      "poison"
+    ],
+    "bst": 515,
+    "stage": 2,
+    "evolvesFrom": 72,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 74,
+    "name": "geodude",
+    "types": [
+      "rock",
+      "ground"
+    ],
+    "bst": 300,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 75,
+    "name": "graveler",
+    "types": [
+      "rock",
+      "ground"
+    ],
+    "bst": 390,
+    "stage": 2,
+    "evolvesFrom": 74,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 76,
+    "name": "golem",
+    "types": [
+      "rock",
+      "ground"
+    ],
+    "bst": 495,
+    "stage": 3,
+    "evolvesFrom": 75,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 77,
+    "name": "ponyta",
+    "types": [
+      "fire"
+    ],
+    "bst": 410,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 78,
+    "name": "rapidash",
+    "types": [
+      "fire"
+    ],
+    "bst": 500,
+    "stage": 2,
+    "evolvesFrom": 77,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 79,
+    "name": "slowpoke",
+    "types": [
+      "water",
+      "psychic"
+    ],
+    "bst": 315,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 80,
+    "name": "slowbro",
+    "types": [
+      "water",
+      "psychic"
+    ],
+    "bst": 490,
+    "stage": 2,
+    "evolvesFrom": 79,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 81,
+    "name": "magnemite",
+    "types": [
+      "electric",
+      "steel"
+    ],
+    "bst": 325,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 82,
+    "name": "magneton",
+    "types": [
+      "electric",
+      "steel"
+    ],
+    "bst": 465,
+    "stage": 2,
+    "evolvesFrom": 81,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 83,
+    "name": "farfetchd",
+    "types": [
+      "normal",
+      "flying"
+    ],
+    "bst": 377,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 84,
+    "name": "doduo",
+    "types": [
+      "normal",
+      "flying"
+    ],
+    "bst": 310,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 85,
+    "name": "dodrio",
+    "types": [
+      "normal",
+      "flying"
+    ],
+    "bst": 470,
+    "stage": 2,
+    "evolvesFrom": 84,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 86,
+    "name": "seel",
+    "types": [
+      "water"
+    ],
+    "bst": 325,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 87,
+    "name": "dewgong",
+    "types": [
+      "water",
+      "ice"
+    ],
+    "bst": 475,
+    "stage": 2,
+    "evolvesFrom": 86,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 88,
+    "name": "grimer",
+    "types": [
+      "poison"
+    ],
+    "bst": 325,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 89,
+    "name": "muk",
+    "types": [
+      "poison"
+    ],
+    "bst": 500,
+    "stage": 2,
+    "evolvesFrom": 88,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 90,
+    "name": "shellder",
+    "types": [
+      "water"
+    ],
+    "bst": 305,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 91,
+    "name": "cloyster",
+    "types": [
+      "water",
+      "ice"
+    ],
+    "bst": 525,
+    "stage": 2,
+    "evolvesFrom": 90,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 92,
+    "name": "gastly",
+    "types": [
+      "ghost",
+      "poison"
+    ],
+    "bst": 310,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 93,
+    "name": "haunter",
+    "types": [
+      "ghost",
+      "poison"
+    ],
+    "bst": 405,
+    "stage": 2,
+    "evolvesFrom": 92,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 94,
+    "name": "gengar",
+    "types": [
+      "ghost",
+      "poison"
+    ],
+    "bst": 500,
+    "stage": 3,
+    "evolvesFrom": 93,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 95,
+    "name": "onix",
+    "types": [
+      "rock",
+      "ground"
+    ],
+    "bst": 385,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 96,
+    "name": "drowzee",
+    "types": [
+      "psychic"
+    ],
+    "bst": 328,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 97,
+    "name": "hypno",
+    "types": [
+      "psychic"
+    ],
+    "bst": 483,
+    "stage": 2,
+    "evolvesFrom": 96,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 98,
+    "name": "krabby",
+    "types": [
+      "water"
+    ],
+    "bst": 325,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 99,
+    "name": "kingler",
+    "types": [
+      "water"
+    ],
+    "bst": 475,
+    "stage": 2,
+    "evolvesFrom": 98,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 100,
+    "name": "voltorb",
+    "types": [
+      "electric"
+    ],
+    "bst": 330,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 101,
+    "name": "electrode",
+    "types": [
+      "electric"
+    ],
+    "bst": 490,
+    "stage": 2,
+    "evolvesFrom": 100,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 102,
+    "name": "exeggcute",
+    "types": [
+      "grass",
+      "psychic"
+    ],
+    "bst": 325,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 103,
+    "name": "exeggutor",
+    "types": [
+      "grass",
+      "psychic"
+    ],
+    "bst": 530,
+    "stage": 2,
+    "evolvesFrom": 102,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 104,
+    "name": "cubone",
+    "types": [
+      "ground"
+    ],
+    "bst": 320,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 105,
+    "name": "marowak",
+    "types": [
+      "ground"
+    ],
+    "bst": 425,
+    "stage": 2,
+    "evolvesFrom": 104,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 106,
+    "name": "hitmonlee",
+    "types": [
+      "fighting"
+    ],
+    "bst": 455,
+    "stage": 2,
+    "evolvesFrom": 236,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 107,
+    "name": "hitmonchan",
+    "types": [
+      "fighting"
+    ],
+    "bst": 455,
+    "stage": 2,
+    "evolvesFrom": 236,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 108,
+    "name": "lickitung",
+    "types": [
+      "normal"
+    ],
+    "bst": 385,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 109,
+    "name": "koffing",
+    "types": [
+      "poison"
+    ],
+    "bst": 340,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 110,
+    "name": "weezing",
+    "types": [
+      "poison"
+    ],
+    "bst": 490,
+    "stage": 2,
+    "evolvesFrom": 109,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 111,
+    "name": "rhyhorn",
+    "types": [
+      "ground",
+      "rock"
+    ],
+    "bst": 345,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 112,
+    "name": "rhydon",
+    "types": [
+      "ground",
+      "rock"
+    ],
+    "bst": 485,
+    "stage": 2,
+    "evolvesFrom": 111,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 113,
+    "name": "chansey",
+    "types": [
+      "normal"
+    ],
+    "bst": 450,
+    "stage": 2,
+    "evolvesFrom": 440,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 114,
+    "name": "tangela",
+    "types": [
+      "grass"
+    ],
+    "bst": 435,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 115,
+    "name": "kangaskhan",
+    "types": [
+      "normal"
+    ],
+    "bst": 490,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 116,
+    "name": "horsea",
+    "types": [
+      "water"
+    ],
+    "bst": 295,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 117,
+    "name": "seadra",
+    "types": [
+      "water"
+    ],
+    "bst": 440,
+    "stage": 2,
+    "evolvesFrom": 116,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 118,
+    "name": "goldeen",
+    "types": [
+      "water"
+    ],
+    "bst": 320,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 119,
+    "name": "seaking",
+    "types": [
+      "water"
+    ],
+    "bst": 450,
+    "stage": 2,
+    "evolvesFrom": 118,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 120,
+    "name": "staryu",
+    "types": [
+      "water"
+    ],
+    "bst": 340,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 121,
+    "name": "starmie",
+    "types": [
+      "water",
+      "psychic"
+    ],
+    "bst": 520,
+    "stage": 2,
+    "evolvesFrom": 120,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 122,
+    "name": "mr-mime",
+    "types": [
+      "psychic"
+    ],
+    "bst": 460,
+    "stage": 2,
+    "evolvesFrom": 439,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 123,
+    "name": "scyther",
+    "types": [
+      "bug",
+      "flying"
+    ],
+    "bst": 500,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 124,
+    "name": "jynx",
+    "types": [
+      "ice",
+      "psychic"
+    ],
+    "bst": 455,
+    "stage": 2,
+    "evolvesFrom": 238,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 125,
+    "name": "electabuzz",
+    "types": [
+      "electric"
+    ],
+    "bst": 490,
+    "stage": 2,
+    "evolvesFrom": 239,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 126,
+    "name": "magmar",
+    "types": [
+      "fire"
+    ],
+    "bst": 495,
+    "stage": 2,
+    "evolvesFrom": 240,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 127,
+    "name": "pinsir",
+    "types": [
+      "bug"
+    ],
+    "bst": 500,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 128,
+    "name": "tauros",
+    "types": [
+      "normal"
+    ],
+    "bst": 490,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 129,
+    "name": "magikarp",
+    "types": [
+      "water"
+    ],
+    "bst": 200,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 130,
+    "name": "gyarados",
+    "types": [
+      "water",
+      "flying"
+    ],
+    "bst": 540,
+    "stage": 2,
+    "evolvesFrom": 129,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 131,
+    "name": "lapras",
+    "types": [
+      "water",
+      "ice"
+    ],
+    "bst": 535,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 132,
+    "name": "ditto",
+    "types": [
+      "normal"
+    ],
+    "bst": 288,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 133,
+    "name": "eevee",
+    "types": [
+      "normal"
+    ],
+    "bst": 325,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 134,
+    "name": "vaporeon",
+    "types": [
+      "water"
+    ],
+    "bst": 525,
+    "stage": 2,
+    "evolvesFrom": 133,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 135,
+    "name": "jolteon",
+    "types": [
+      "electric"
+    ],
+    "bst": 525,
+    "stage": 2,
+    "evolvesFrom": 133,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 136,
+    "name": "flareon",
+    "types": [
+      "fire"
+    ],
+    "bst": 525,
+    "stage": 2,
+    "evolvesFrom": 133,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 137,
+    "name": "porygon",
+    "types": [
+      "normal"
+    ],
+    "bst": 395,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 138,
+    "name": "omanyte",
+    "types": [
+      "rock",
+      "water"
+    ],
+    "bst": 355,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 139,
+    "name": "omastar",
+    "types": [
+      "rock",
+      "water"
+    ],
+    "bst": 495,
+    "stage": 2,
+    "evolvesFrom": 138,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 140,
+    "name": "kabuto",
+    "types": [
+      "rock",
+      "water"
+    ],
+    "bst": 355,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 141,
+    "name": "kabutops",
+    "types": [
+      "rock",
+      "water"
+    ],
+    "bst": 495,
+    "stage": 2,
+    "evolvesFrom": 140,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 142,
+    "name": "aerodactyl",
+    "types": [
+      "rock",
+      "flying"
+    ],
+    "bst": 515,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 143,
+    "name": "snorlax",
+    "types": [
+      "normal"
+    ],
+    "bst": 540,
+    "stage": 2,
+    "evolvesFrom": 446,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 144,
+    "name": "articuno",
+    "types": [
+      "ice",
+      "flying"
+    ],
+    "bst": 580,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": true,
+    "isMythical": false
+  },
+  {
+    "id": 145,
+    "name": "zapdos",
+    "types": [
+      "electric",
+      "flying"
+    ],
+    "bst": 580,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": true,
+    "isMythical": false
+  },
+  {
+    "id": 146,
+    "name": "moltres",
+    "types": [
+      "fire",
+      "flying"
+    ],
+    "bst": 580,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": true,
+    "isMythical": false
+  },
+  {
+    "id": 147,
+    "name": "dratini",
+    "types": [
+      "dragon"
+    ],
+    "bst": 300,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 148,
+    "name": "dragonair",
+    "types": [
+      "dragon"
+    ],
+    "bst": 420,
+    "stage": 2,
+    "evolvesFrom": 147,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 149,
+    "name": "dragonite",
+    "types": [
+      "dragon",
+      "flying"
+    ],
+    "bst": 600,
+    "stage": 3,
+    "evolvesFrom": 148,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 150,
+    "name": "mewtwo",
+    "types": [
+      "psychic"
+    ],
+    "bst": 680,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": true,
+    "isMythical": false
+  },
+  {
+    "id": 151,
+    "name": "mew",
+    "types": [
+      "psychic"
+    ],
+    "bst": 600,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": true
+  },
+  {
+    "id": 152,
+    "name": "chikorita",
+    "types": [
+      "grass"
+    ],
+    "bst": 318,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 153,
+    "name": "bayleef",
+    "types": [
+      "grass"
+    ],
+    "bst": 405,
+    "stage": 2,
+    "evolvesFrom": 152,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 154,
+    "name": "meganium",
+    "types": [
+      "grass"
+    ],
+    "bst": 525,
+    "stage": 3,
+    "evolvesFrom": 153,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 155,
+    "name": "cyndaquil",
+    "types": [
+      "fire"
+    ],
+    "bst": 309,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 156,
+    "name": "quilava",
+    "types": [
+      "fire"
+    ],
+    "bst": 405,
+    "stage": 2,
+    "evolvesFrom": 155,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 157,
+    "name": "typhlosion",
+    "types": [
+      "fire"
+    ],
+    "bst": 534,
+    "stage": 3,
+    "evolvesFrom": 156,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 158,
+    "name": "totodile",
+    "types": [
+      "water"
+    ],
+    "bst": 314,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 159,
+    "name": "croconaw",
+    "types": [
+      "water"
+    ],
+    "bst": 405,
+    "stage": 2,
+    "evolvesFrom": 158,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 160,
+    "name": "feraligatr",
+    "types": [
+      "water"
+    ],
+    "bst": 530,
+    "stage": 3,
+    "evolvesFrom": 159,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 161,
+    "name": "sentret",
+    "types": [
+      "normal"
+    ],
+    "bst": 215,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 162,
+    "name": "furret",
+    "types": [
+      "normal"
+    ],
+    "bst": 415,
+    "stage": 2,
+    "evolvesFrom": 161,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 163,
+    "name": "hoothoot",
+    "types": [
+      "normal",
+      "flying"
+    ],
+    "bst": 262,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 164,
+    "name": "noctowl",
+    "types": [
+      "normal",
+      "flying"
+    ],
+    "bst": 452,
+    "stage": 2,
+    "evolvesFrom": 163,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 165,
+    "name": "ledyba",
+    "types": [
+      "bug",
+      "flying"
+    ],
+    "bst": 265,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 166,
+    "name": "ledian",
+    "types": [
+      "bug",
+      "flying"
+    ],
+    "bst": 390,
+    "stage": 2,
+    "evolvesFrom": 165,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 167,
+    "name": "spinarak",
+    "types": [
+      "bug",
+      "poison"
+    ],
+    "bst": 250,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 168,
+    "name": "ariados",
+    "types": [
+      "bug",
+      "poison"
+    ],
+    "bst": 400,
+    "stage": 2,
+    "evolvesFrom": 167,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 169,
+    "name": "crobat",
+    "types": [
+      "poison",
+      "flying"
+    ],
+    "bst": 535,
+    "stage": 3,
+    "evolvesFrom": 42,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 170,
+    "name": "chinchou",
+    "types": [
+      "water",
+      "electric"
+    ],
+    "bst": 330,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 171,
+    "name": "lanturn",
+    "types": [
+      "water",
+      "electric"
+    ],
+    "bst": 460,
+    "stage": 2,
+    "evolvesFrom": 170,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 172,
+    "name": "pichu",
+    "types": [
+      "electric"
+    ],
+    "bst": 205,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": true,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 173,
+    "name": "cleffa",
+    "types": [
+      "normal"
+    ],
+    "bst": 218,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": true,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 174,
+    "name": "igglybuff",
+    "types": [
+      "normal"
+    ],
+    "bst": 210,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": true,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 175,
+    "name": "togepi",
+    "types": [
+      "normal"
+    ],
+    "bst": 245,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": true,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 176,
+    "name": "togetic",
+    "types": [
+      "normal",
+      "flying"
+    ],
+    "bst": 405,
+    "stage": 2,
+    "evolvesFrom": 175,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 177,
+    "name": "natu",
+    "types": [
+      "psychic",
+      "flying"
+    ],
+    "bst": 320,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 178,
+    "name": "xatu",
+    "types": [
+      "psychic",
+      "flying"
+    ],
+    "bst": 470,
+    "stage": 2,
+    "evolvesFrom": 177,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 179,
+    "name": "mareep",
+    "types": [
+      "electric"
+    ],
+    "bst": 280,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 180,
+    "name": "flaaffy",
+    "types": [
+      "electric"
+    ],
+    "bst": 365,
+    "stage": 2,
+    "evolvesFrom": 179,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 181,
+    "name": "ampharos",
+    "types": [
+      "electric"
+    ],
+    "bst": 510,
+    "stage": 3,
+    "evolvesFrom": 180,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 182,
+    "name": "bellossom",
+    "types": [
+      "grass"
+    ],
+    "bst": 490,
+    "stage": 3,
+    "evolvesFrom": 44,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 183,
+    "name": "marill",
+    "types": [
+      "water"
+    ],
+    "bst": 250,
+    "stage": 2,
+    "evolvesFrom": 298,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 184,
+    "name": "azumarill",
+    "types": [
+      "water"
+    ],
+    "bst": 420,
+    "stage": 3,
+    "evolvesFrom": 183,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 185,
+    "name": "sudowoodo",
+    "types": [
+      "rock"
+    ],
+    "bst": 410,
+    "stage": 2,
+    "evolvesFrom": 438,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 186,
+    "name": "politoed",
+    "types": [
+      "water"
+    ],
+    "bst": 500,
+    "stage": 3,
+    "evolvesFrom": 61,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 187,
+    "name": "hoppip",
+    "types": [
+      "grass",
+      "flying"
+    ],
+    "bst": 250,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 188,
+    "name": "skiploom",
+    "types": [
+      "grass",
+      "flying"
+    ],
+    "bst": 340,
+    "stage": 2,
+    "evolvesFrom": 187,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 189,
+    "name": "jumpluff",
+    "types": [
+      "grass",
+      "flying"
+    ],
+    "bst": 460,
+    "stage": 3,
+    "evolvesFrom": 188,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 190,
+    "name": "aipom",
+    "types": [
+      "normal"
+    ],
+    "bst": 360,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 191,
+    "name": "sunkern",
+    "types": [
+      "grass"
+    ],
+    "bst": 180,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 192,
+    "name": "sunflora",
+    "types": [
+      "grass"
+    ],
+    "bst": 425,
+    "stage": 2,
+    "evolvesFrom": 191,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 193,
+    "name": "yanma",
+    "types": [
+      "bug",
+      "flying"
+    ],
+    "bst": 390,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 194,
+    "name": "wooper",
+    "types": [
+      "water",
+      "ground"
+    ],
+    "bst": 210,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 195,
+    "name": "quagsire",
+    "types": [
+      "water",
+      "ground"
+    ],
+    "bst": 430,
+    "stage": 2,
+    "evolvesFrom": 194,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 196,
+    "name": "espeon",
+    "types": [
+      "psychic"
+    ],
+    "bst": 525,
+    "stage": 2,
+    "evolvesFrom": 133,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 197,
+    "name": "umbreon",
+    "types": [
+      "dark"
+    ],
+    "bst": 525,
+    "stage": 2,
+    "evolvesFrom": 133,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 198,
+    "name": "murkrow",
+    "types": [
+      "dark",
+      "flying"
+    ],
+    "bst": 405,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 199,
+    "name": "slowking",
+    "types": [
+      "water",
+      "psychic"
+    ],
+    "bst": 490,
+    "stage": 2,
+    "evolvesFrom": 79,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 200,
+    "name": "misdreavus",
+    "types": [
+      "ghost"
+    ],
+    "bst": 435,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 201,
+    "name": "unown",
+    "types": [
+      "psychic"
+    ],
+    "bst": 336,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 202,
+    "name": "wobbuffet",
+    "types": [
+      "psychic"
+    ],
+    "bst": 405,
+    "stage": 2,
+    "evolvesFrom": 360,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 203,
+    "name": "girafarig",
+    "types": [
+      "normal",
+      "psychic"
+    ],
+    "bst": 455,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 204,
+    "name": "pineco",
+    "types": [
+      "bug"
+    ],
+    "bst": 290,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 205,
+    "name": "forretress",
+    "types": [
+      "bug",
+      "steel"
+    ],
+    "bst": 465,
+    "stage": 2,
+    "evolvesFrom": 204,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 206,
+    "name": "dunsparce",
+    "types": [
+      "normal"
+    ],
+    "bst": 415,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 207,
+    "name": "gligar",
+    "types": [
+      "ground",
+      "flying"
+    ],
+    "bst": 430,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 208,
+    "name": "steelix",
+    "types": [
+      "steel",
+      "ground"
+    ],
+    "bst": 510,
+    "stage": 2,
+    "evolvesFrom": 95,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 209,
+    "name": "snubbull",
+    "types": [
+      "normal"
+    ],
+    "bst": 300,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 210,
+    "name": "granbull",
+    "types": [
+      "normal"
+    ],
+    "bst": 450,
+    "stage": 2,
+    "evolvesFrom": 209,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 211,
+    "name": "qwilfish",
+    "types": [
+      "water",
+      "poison"
+    ],
+    "bst": 440,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 212,
+    "name": "scizor",
+    "types": [
+      "bug",
+      "steel"
+    ],
+    "bst": 500,
+    "stage": 2,
+    "evolvesFrom": 123,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 213,
+    "name": "shuckle",
+    "types": [
+      "bug",
+      "rock"
+    ],
+    "bst": 505,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 214,
+    "name": "heracross",
+    "types": [
+      "bug",
+      "fighting"
+    ],
+    "bst": 500,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 215,
+    "name": "sneasel",
+    "types": [
+      "dark",
+      "ice"
+    ],
+    "bst": 430,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 216,
+    "name": "teddiursa",
+    "types": [
+      "normal"
+    ],
+    "bst": 330,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 217,
+    "name": "ursaring",
+    "types": [
+      "normal"
+    ],
+    "bst": 500,
+    "stage": 2,
+    "evolvesFrom": 216,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 218,
+    "name": "slugma",
+    "types": [
+      "fire"
+    ],
+    "bst": 250,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 219,
+    "name": "magcargo",
+    "types": [
+      "fire",
+      "rock"
+    ],
+    "bst": 430,
+    "stage": 2,
+    "evolvesFrom": 218,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 220,
+    "name": "swinub",
+    "types": [
+      "ice",
+      "ground"
+    ],
+    "bst": 250,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 221,
+    "name": "piloswine",
+    "types": [
+      "ice",
+      "ground"
+    ],
+    "bst": 450,
+    "stage": 2,
+    "evolvesFrom": 220,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 222,
+    "name": "corsola",
+    "types": [
+      "water",
+      "rock"
+    ],
+    "bst": 410,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 223,
+    "name": "remoraid",
+    "types": [
+      "water"
+    ],
+    "bst": 300,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 224,
+    "name": "octillery",
+    "types": [
+      "water"
+    ],
+    "bst": 480,
+    "stage": 2,
+    "evolvesFrom": 223,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 225,
+    "name": "delibird",
+    "types": [
+      "ice",
+      "flying"
+    ],
+    "bst": 330,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 226,
+    "name": "mantine",
+    "types": [
+      "water",
+      "flying"
+    ],
+    "bst": 485,
+    "stage": 2,
+    "evolvesFrom": 458,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 227,
+    "name": "skarmory",
+    "types": [
+      "steel",
+      "flying"
+    ],
+    "bst": 465,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 228,
+    "name": "houndour",
+    "types": [
+      "dark",
+      "fire"
+    ],
+    "bst": 330,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 229,
+    "name": "houndoom",
+    "types": [
+      "dark",
+      "fire"
+    ],
+    "bst": 500,
+    "stage": 2,
+    "evolvesFrom": 228,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 230,
+    "name": "kingdra",
+    "types": [
+      "water",
+      "dragon"
+    ],
+    "bst": 540,
+    "stage": 3,
+    "evolvesFrom": 117,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 231,
+    "name": "phanpy",
+    "types": [
+      "ground"
+    ],
+    "bst": 330,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 232,
+    "name": "donphan",
+    "types": [
+      "ground"
+    ],
+    "bst": 500,
+    "stage": 2,
+    "evolvesFrom": 231,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 233,
+    "name": "porygon2",
+    "types": [
+      "normal"
+    ],
+    "bst": 515,
+    "stage": 2,
+    "evolvesFrom": 137,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 234,
+    "name": "stantler",
+    "types": [
+      "normal"
+    ],
+    "bst": 465,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 235,
+    "name": "smeargle",
+    "types": [
+      "normal"
+    ],
+    "bst": 250,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 236,
+    "name": "tyrogue",
+    "types": [
+      "fighting"
+    ],
+    "bst": 210,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": true,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 237,
+    "name": "hitmontop",
+    "types": [
+      "fighting"
+    ],
+    "bst": 455,
+    "stage": 2,
+    "evolvesFrom": 236,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 238,
+    "name": "smoochum",
+    "types": [
+      "ice",
+      "psychic"
+    ],
+    "bst": 305,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": true,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 239,
+    "name": "elekid",
+    "types": [
+      "electric"
+    ],
+    "bst": 360,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": true,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 240,
+    "name": "magby",
+    "types": [
+      "fire"
+    ],
+    "bst": 365,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": true,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 241,
+    "name": "miltank",
+    "types": [
+      "normal"
+    ],
+    "bst": 490,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 242,
+    "name": "blissey",
+    "types": [
+      "normal"
+    ],
+    "bst": 540,
+    "stage": 3,
+    "evolvesFrom": 113,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 243,
+    "name": "raikou",
+    "types": [
+      "electric"
+    ],
+    "bst": 580,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": true,
+    "isMythical": false
+  },
+  {
+    "id": 244,
+    "name": "entei",
+    "types": [
+      "fire"
+    ],
+    "bst": 580,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": true,
+    "isMythical": false
+  },
+  {
+    "id": 245,
+    "name": "suicune",
+    "types": [
+      "water"
+    ],
+    "bst": 580,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": true,
+    "isMythical": false
+  },
+  {
+    "id": 246,
+    "name": "larvitar",
+    "types": [
+      "rock",
+      "ground"
+    ],
+    "bst": 300,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 247,
+    "name": "pupitar",
+    "types": [
+      "rock",
+      "ground"
+    ],
+    "bst": 410,
+    "stage": 2,
+    "evolvesFrom": 246,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 248,
+    "name": "tyranitar",
+    "types": [
+      "rock",
+      "dark"
+    ],
+    "bst": 600,
+    "stage": 3,
+    "evolvesFrom": 247,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 249,
+    "name": "lugia",
+    "types": [
+      "psychic",
+      "flying"
+    ],
+    "bst": 680,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": true,
+    "isMythical": false
+  },
+  {
+    "id": 250,
+    "name": "ho-oh",
+    "types": [
+      "fire",
+      "flying"
+    ],
+    "bst": 680,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": true,
+    "isMythical": false
+  },
+  {
+    "id": 251,
+    "name": "celebi",
+    "types": [
+      "psychic",
+      "grass"
+    ],
+    "bst": 600,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": true
+  },
+  {
+    "id": 252,
+    "name": "treecko",
+    "types": [
+      "grass"
+    ],
+    "bst": 310,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 253,
+    "name": "grovyle",
+    "types": [
+      "grass"
+    ],
+    "bst": 405,
+    "stage": 2,
+    "evolvesFrom": 252,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 254,
+    "name": "sceptile",
+    "types": [
+      "grass"
+    ],
+    "bst": 530,
+    "stage": 3,
+    "evolvesFrom": 253,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 255,
+    "name": "torchic",
+    "types": [
+      "fire"
+    ],
+    "bst": 310,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 256,
+    "name": "combusken",
+    "types": [
+      "fire",
+      "fighting"
+    ],
+    "bst": 405,
+    "stage": 2,
+    "evolvesFrom": 255,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 257,
+    "name": "blaziken",
+    "types": [
+      "fire",
+      "fighting"
+    ],
+    "bst": 530,
+    "stage": 3,
+    "evolvesFrom": 256,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 258,
+    "name": "mudkip",
+    "types": [
+      "water"
+    ],
+    "bst": 310,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 259,
+    "name": "marshtomp",
+    "types": [
+      "water",
+      "ground"
+    ],
+    "bst": 405,
+    "stage": 2,
+    "evolvesFrom": 258,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 260,
+    "name": "swampert",
+    "types": [
+      "water",
+      "ground"
+    ],
+    "bst": 535,
+    "stage": 3,
+    "evolvesFrom": 259,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 261,
+    "name": "poochyena",
+    "types": [
+      "dark"
+    ],
+    "bst": 220,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 262,
+    "name": "mightyena",
+    "types": [
+      "dark"
+    ],
+    "bst": 420,
+    "stage": 2,
+    "evolvesFrom": 261,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 263,
+    "name": "zigzagoon",
+    "types": [
+      "normal"
+    ],
+    "bst": 240,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 264,
+    "name": "linoone",
+    "types": [
+      "normal"
+    ],
+    "bst": 420,
+    "stage": 2,
+    "evolvesFrom": 263,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 265,
+    "name": "wurmple",
+    "types": [
+      "bug"
+    ],
+    "bst": 195,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 266,
+    "name": "silcoon",
+    "types": [
+      "bug"
+    ],
+    "bst": 205,
+    "stage": 2,
+    "evolvesFrom": 265,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 267,
+    "name": "beautifly",
+    "types": [
+      "bug",
+      "flying"
+    ],
+    "bst": 395,
+    "stage": 3,
+    "evolvesFrom": 266,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 268,
+    "name": "cascoon",
+    "types": [
+      "bug"
+    ],
+    "bst": 205,
+    "stage": 2,
+    "evolvesFrom": 265,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 269,
+    "name": "dustox",
+    "types": [
+      "bug",
+      "poison"
+    ],
+    "bst": 385,
+    "stage": 3,
+    "evolvesFrom": 268,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 270,
+    "name": "lotad",
+    "types": [
+      "water",
+      "grass"
+    ],
+    "bst": 220,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 271,
+    "name": "lombre",
+    "types": [
+      "water",
+      "grass"
+    ],
+    "bst": 340,
+    "stage": 2,
+    "evolvesFrom": 270,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 272,
+    "name": "ludicolo",
+    "types": [
+      "water",
+      "grass"
+    ],
+    "bst": 480,
+    "stage": 3,
+    "evolvesFrom": 271,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 273,
+    "name": "seedot",
+    "types": [
+      "grass"
+    ],
+    "bst": 220,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 274,
+    "name": "nuzleaf",
+    "types": [
+      "grass",
+      "dark"
+    ],
+    "bst": 340,
+    "stage": 2,
+    "evolvesFrom": 273,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 275,
+    "name": "shiftry",
+    "types": [
+      "grass",
+      "dark"
+    ],
+    "bst": 480,
+    "stage": 3,
+    "evolvesFrom": 274,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 276,
+    "name": "taillow",
+    "types": [
+      "normal",
+      "flying"
+    ],
+    "bst": 270,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 277,
+    "name": "swellow",
+    "types": [
+      "normal",
+      "flying"
+    ],
+    "bst": 455,
+    "stage": 2,
+    "evolvesFrom": 276,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 278,
+    "name": "wingull",
+    "types": [
+      "water",
+      "flying"
+    ],
+    "bst": 270,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 279,
+    "name": "pelipper",
+    "types": [
+      "water",
+      "flying"
+    ],
+    "bst": 440,
+    "stage": 2,
+    "evolvesFrom": 278,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 280,
+    "name": "ralts",
+    "types": [
+      "psychic"
+    ],
+    "bst": 198,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 281,
+    "name": "kirlia",
+    "types": [
+      "psychic"
+    ],
+    "bst": 278,
+    "stage": 2,
+    "evolvesFrom": 280,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 282,
+    "name": "gardevoir",
+    "types": [
+      "psychic"
+    ],
+    "bst": 518,
+    "stage": 3,
+    "evolvesFrom": 281,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 283,
+    "name": "surskit",
+    "types": [
+      "bug",
+      "water"
+    ],
+    "bst": 269,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 284,
+    "name": "masquerain",
+    "types": [
+      "bug",
+      "flying"
+    ],
+    "bst": 454,
+    "stage": 2,
+    "evolvesFrom": 283,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 285,
+    "name": "shroomish",
+    "types": [
+      "grass"
+    ],
+    "bst": 295,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 286,
+    "name": "breloom",
+    "types": [
+      "grass",
+      "fighting"
+    ],
+    "bst": 460,
+    "stage": 2,
+    "evolvesFrom": 285,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 287,
+    "name": "slakoth",
+    "types": [
+      "normal"
+    ],
+    "bst": 280,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 288,
+    "name": "vigoroth",
+    "types": [
+      "normal"
+    ],
+    "bst": 440,
+    "stage": 2,
+    "evolvesFrom": 287,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 289,
+    "name": "slaking",
+    "types": [
+      "normal"
+    ],
+    "bst": 670,
+    "stage": 3,
+    "evolvesFrom": 288,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 290,
+    "name": "nincada",
+    "types": [
+      "bug",
+      "ground"
+    ],
+    "bst": 266,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 291,
+    "name": "ninjask",
+    "types": [
+      "bug",
+      "flying"
+    ],
+    "bst": 456,
+    "stage": 2,
+    "evolvesFrom": 290,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 292,
+    "name": "shedinja",
+    "types": [
+      "bug",
+      "ghost"
+    ],
+    "bst": 236,
+    "stage": 2,
+    "evolvesFrom": 290,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 293,
+    "name": "whismur",
+    "types": [
+      "normal"
+    ],
+    "bst": 240,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 294,
+    "name": "loudred",
+    "types": [
+      "normal"
+    ],
+    "bst": 360,
+    "stage": 2,
+    "evolvesFrom": 293,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 295,
+    "name": "exploud",
+    "types": [
+      "normal"
+    ],
+    "bst": 490,
+    "stage": 3,
+    "evolvesFrom": 294,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 296,
+    "name": "makuhita",
+    "types": [
+      "fighting"
+    ],
+    "bst": 237,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 297,
+    "name": "hariyama",
+    "types": [
+      "fighting"
+    ],
+    "bst": 474,
+    "stage": 2,
+    "evolvesFrom": 296,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 298,
+    "name": "azurill",
+    "types": [
+      "normal"
+    ],
+    "bst": 190,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": true,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 299,
+    "name": "nosepass",
+    "types": [
+      "rock"
+    ],
+    "bst": 375,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 300,
+    "name": "skitty",
+    "types": [
+      "normal"
+    ],
+    "bst": 260,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 301,
+    "name": "delcatty",
+    "types": [
+      "normal"
+    ],
+    "bst": 400,
+    "stage": 2,
+    "evolvesFrom": 300,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 302,
+    "name": "sableye",
+    "types": [
+      "dark",
+      "ghost"
+    ],
+    "bst": 380,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 303,
+    "name": "mawile",
+    "types": [
+      "steel"
+    ],
+    "bst": 380,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 304,
+    "name": "aron",
+    "types": [
+      "steel",
+      "rock"
+    ],
+    "bst": 330,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 305,
+    "name": "lairon",
+    "types": [
+      "steel",
+      "rock"
+    ],
+    "bst": 430,
+    "stage": 2,
+    "evolvesFrom": 304,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 306,
+    "name": "aggron",
+    "types": [
+      "steel",
+      "rock"
+    ],
+    "bst": 530,
+    "stage": 3,
+    "evolvesFrom": 305,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 307,
+    "name": "meditite",
+    "types": [
+      "fighting",
+      "psychic"
+    ],
+    "bst": 280,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 308,
+    "name": "medicham",
+    "types": [
+      "fighting",
+      "psychic"
+    ],
+    "bst": 410,
+    "stage": 2,
+    "evolvesFrom": 307,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 309,
+    "name": "electrike",
+    "types": [
+      "electric"
+    ],
+    "bst": 295,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 310,
+    "name": "manectric",
+    "types": [
+      "electric"
+    ],
+    "bst": 475,
+    "stage": 2,
+    "evolvesFrom": 309,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 311,
+    "name": "plusle",
+    "types": [
+      "electric"
+    ],
+    "bst": 405,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 312,
+    "name": "minun",
+    "types": [
+      "electric"
+    ],
+    "bst": 405,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 313,
+    "name": "volbeat",
+    "types": [
+      "bug"
+    ],
+    "bst": 430,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 314,
+    "name": "illumise",
+    "types": [
+      "bug"
+    ],
+    "bst": 430,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 315,
+    "name": "roselia",
+    "types": [
+      "grass",
+      "poison"
+    ],
+    "bst": 400,
+    "stage": 2,
+    "evolvesFrom": 406,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 316,
+    "name": "gulpin",
+    "types": [
+      "poison"
+    ],
+    "bst": 302,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 317,
+    "name": "swalot",
+    "types": [
+      "poison"
+    ],
+    "bst": 467,
+    "stage": 2,
+    "evolvesFrom": 316,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 318,
+    "name": "carvanha",
+    "types": [
+      "water",
+      "dark"
+    ],
+    "bst": 305,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 319,
+    "name": "sharpedo",
+    "types": [
+      "water",
+      "dark"
+    ],
+    "bst": 460,
+    "stage": 2,
+    "evolvesFrom": 318,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 320,
+    "name": "wailmer",
+    "types": [
+      "water"
+    ],
+    "bst": 400,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 321,
+    "name": "wailord",
+    "types": [
+      "water"
+    ],
+    "bst": 500,
+    "stage": 2,
+    "evolvesFrom": 320,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 322,
+    "name": "numel",
+    "types": [
+      "fire",
+      "ground"
+    ],
+    "bst": 305,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 323,
+    "name": "camerupt",
+    "types": [
+      "fire",
+      "ground"
+    ],
+    "bst": 460,
+    "stage": 2,
+    "evolvesFrom": 322,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 324,
+    "name": "torkoal",
+    "types": [
+      "fire"
+    ],
+    "bst": 470,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 325,
+    "name": "spoink",
+    "types": [
+      "psychic"
+    ],
+    "bst": 330,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 326,
+    "name": "grumpig",
+    "types": [
+      "psychic"
+    ],
+    "bst": 470,
+    "stage": 2,
+    "evolvesFrom": 325,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 327,
+    "name": "spinda",
+    "types": [
+      "normal"
+    ],
+    "bst": 360,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 328,
+    "name": "trapinch",
+    "types": [
+      "ground"
+    ],
+    "bst": 290,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 329,
+    "name": "vibrava",
+    "types": [
+      "ground",
+      "dragon"
+    ],
+    "bst": 340,
+    "stage": 2,
+    "evolvesFrom": 328,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 330,
+    "name": "flygon",
+    "types": [
+      "ground",
+      "dragon"
+    ],
+    "bst": 520,
+    "stage": 3,
+    "evolvesFrom": 329,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 331,
+    "name": "cacnea",
+    "types": [
+      "grass"
+    ],
+    "bst": 335,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 332,
+    "name": "cacturne",
+    "types": [
+      "grass",
+      "dark"
+    ],
+    "bst": 475,
+    "stage": 2,
+    "evolvesFrom": 331,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 333,
+    "name": "swablu",
+    "types": [
+      "normal",
+      "flying"
+    ],
+    "bst": 310,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 334,
+    "name": "altaria",
+    "types": [
+      "dragon",
+      "flying"
+    ],
+    "bst": 490,
+    "stage": 2,
+    "evolvesFrom": 333,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 335,
+    "name": "zangoose",
+    "types": [
+      "normal"
+    ],
+    "bst": 458,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 336,
+    "name": "seviper",
+    "types": [
+      "poison"
+    ],
+    "bst": 458,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 337,
+    "name": "lunatone",
+    "types": [
+      "rock",
+      "psychic"
+    ],
+    "bst": 460,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 338,
+    "name": "solrock",
+    "types": [
+      "rock",
+      "psychic"
+    ],
+    "bst": 460,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 339,
+    "name": "barboach",
+    "types": [
+      "water",
+      "ground"
+    ],
+    "bst": 288,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 340,
+    "name": "whiscash",
+    "types": [
+      "water",
+      "ground"
+    ],
+    "bst": 468,
+    "stage": 2,
+    "evolvesFrom": 339,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 341,
+    "name": "corphish",
+    "types": [
+      "water"
+    ],
+    "bst": 308,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 342,
+    "name": "crawdaunt",
+    "types": [
+      "water",
+      "dark"
+    ],
+    "bst": 468,
+    "stage": 2,
+    "evolvesFrom": 341,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 343,
+    "name": "baltoy",
+    "types": [
+      "ground",
+      "psychic"
+    ],
+    "bst": 300,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 344,
+    "name": "claydol",
+    "types": [
+      "ground",
+      "psychic"
+    ],
+    "bst": 500,
+    "stage": 2,
+    "evolvesFrom": 343,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 345,
+    "name": "lileep",
+    "types": [
+      "rock",
+      "grass"
+    ],
+    "bst": 355,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 346,
+    "name": "cradily",
+    "types": [
+      "rock",
+      "grass"
+    ],
+    "bst": 495,
+    "stage": 2,
+    "evolvesFrom": 345,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 347,
+    "name": "anorith",
+    "types": [
+      "rock",
+      "bug"
+    ],
+    "bst": 355,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 348,
+    "name": "armaldo",
+    "types": [
+      "rock",
+      "bug"
+    ],
+    "bst": 495,
+    "stage": 2,
+    "evolvesFrom": 347,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 349,
+    "name": "feebas",
+    "types": [
+      "water"
+    ],
+    "bst": 200,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 350,
+    "name": "milotic",
+    "types": [
+      "water"
+    ],
+    "bst": 540,
+    "stage": 2,
+    "evolvesFrom": 349,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 351,
+    "name": "castform",
+    "types": [
+      "normal"
+    ],
+    "bst": 420,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 352,
+    "name": "kecleon",
+    "types": [
+      "normal"
+    ],
+    "bst": 440,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 353,
+    "name": "shuppet",
+    "types": [
+      "ghost"
+    ],
+    "bst": 295,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 354,
+    "name": "banette",
+    "types": [
+      "ghost"
+    ],
+    "bst": 455,
+    "stage": 2,
+    "evolvesFrom": 353,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 355,
+    "name": "duskull",
+    "types": [
+      "ghost"
+    ],
+    "bst": 295,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 356,
+    "name": "dusclops",
+    "types": [
+      "ghost"
+    ],
+    "bst": 455,
+    "stage": 2,
+    "evolvesFrom": 355,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 357,
+    "name": "tropius",
+    "types": [
+      "grass",
+      "flying"
+    ],
+    "bst": 460,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 358,
+    "name": "chimecho",
+    "types": [
+      "psychic"
+    ],
+    "bst": 455,
+    "stage": 2,
+    "evolvesFrom": 433,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 359,
+    "name": "absol",
+    "types": [
+      "dark"
+    ],
+    "bst": 465,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 360,
+    "name": "wynaut",
+    "types": [
+      "psychic"
+    ],
+    "bst": 260,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": true,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 361,
+    "name": "snorunt",
+    "types": [
+      "ice"
+    ],
+    "bst": 300,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 362,
+    "name": "glalie",
+    "types": [
+      "ice"
+    ],
+    "bst": 480,
+    "stage": 2,
+    "evolvesFrom": 361,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 363,
+    "name": "spheal",
+    "types": [
+      "ice",
+      "water"
+    ],
+    "bst": 290,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 364,
+    "name": "sealeo",
+    "types": [
+      "ice",
+      "water"
+    ],
+    "bst": 410,
+    "stage": 2,
+    "evolvesFrom": 363,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 365,
+    "name": "walrein",
+    "types": [
+      "ice",
+      "water"
+    ],
+    "bst": 530,
+    "stage": 3,
+    "evolvesFrom": 364,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 366,
+    "name": "clamperl",
+    "types": [
+      "water"
+    ],
+    "bst": 345,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 367,
+    "name": "huntail",
+    "types": [
+      "water"
+    ],
+    "bst": 485,
+    "stage": 2,
+    "evolvesFrom": 366,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 368,
+    "name": "gorebyss",
+    "types": [
+      "water"
+    ],
+    "bst": 485,
+    "stage": 2,
+    "evolvesFrom": 366,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 369,
+    "name": "relicanth",
+    "types": [
+      "water",
+      "rock"
+    ],
+    "bst": 485,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 370,
+    "name": "luvdisc",
+    "types": [
+      "water"
+    ],
+    "bst": 330,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 371,
+    "name": "bagon",
+    "types": [
+      "dragon"
+    ],
+    "bst": 300,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 372,
+    "name": "shelgon",
+    "types": [
+      "dragon"
+    ],
+    "bst": 420,
+    "stage": 2,
+    "evolvesFrom": 371,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 373,
+    "name": "salamence",
+    "types": [
+      "dragon",
+      "flying"
+    ],
+    "bst": 600,
+    "stage": 3,
+    "evolvesFrom": 372,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 374,
+    "name": "beldum",
+    "types": [
+      "steel",
+      "psychic"
+    ],
+    "bst": 300,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 375,
+    "name": "metang",
+    "types": [
+      "steel",
+      "psychic"
+    ],
+    "bst": 420,
+    "stage": 2,
+    "evolvesFrom": 374,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 376,
+    "name": "metagross",
+    "types": [
+      "steel",
+      "psychic"
+    ],
+    "bst": 600,
+    "stage": 3,
+    "evolvesFrom": 375,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 377,
+    "name": "regirock",
+    "types": [
+      "rock"
+    ],
+    "bst": 580,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": true,
+    "isMythical": false
+  },
+  {
+    "id": 378,
+    "name": "regice",
+    "types": [
+      "ice"
+    ],
+    "bst": 580,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": true,
+    "isMythical": false
+  },
+  {
+    "id": 379,
+    "name": "registeel",
+    "types": [
+      "steel"
+    ],
+    "bst": 580,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": true,
+    "isMythical": false
+  },
+  {
+    "id": 380,
+    "name": "latias",
+    "types": [
+      "dragon",
+      "psychic"
+    ],
+    "bst": 600,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": true,
+    "isMythical": false
+  },
+  {
+    "id": 381,
+    "name": "latios",
+    "types": [
+      "dragon",
+      "psychic"
+    ],
+    "bst": 600,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": true,
+    "isMythical": false
+  },
+  {
+    "id": 382,
+    "name": "kyogre",
+    "types": [
+      "water"
+    ],
+    "bst": 670,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": true,
+    "isMythical": false
+  },
+  {
+    "id": 383,
+    "name": "groudon",
+    "types": [
+      "ground"
+    ],
+    "bst": 670,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": true,
+    "isMythical": false
+  },
+  {
+    "id": 384,
+    "name": "rayquaza",
+    "types": [
+      "dragon",
+      "flying"
+    ],
+    "bst": 680,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": true,
+    "isMythical": false
+  },
+  {
+    "id": 385,
+    "name": "jirachi",
+    "types": [
+      "steel",
+      "psychic"
+    ],
+    "bst": 600,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": true
+  },
+  {
+    "id": 386,
+    "name": "deoxys-normal",
+    "types": [
+      "psychic"
+    ],
+    "bst": 600,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": true
+  },
+  {
+    "id": 387,
+    "name": "turtwig",
+    "types": [
+      "grass"
+    ],
+    "bst": 318,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 388,
+    "name": "grotle",
+    "types": [
+      "grass"
+    ],
+    "bst": 405,
+    "stage": 2,
+    "evolvesFrom": 387,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 389,
+    "name": "torterra",
+    "types": [
+      "grass",
+      "ground"
+    ],
+    "bst": 525,
+    "stage": 3,
+    "evolvesFrom": 388,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 390,
+    "name": "chimchar",
+    "types": [
+      "fire"
+    ],
+    "bst": 309,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 391,
+    "name": "monferno",
+    "types": [
+      "fire",
+      "fighting"
+    ],
+    "bst": 405,
+    "stage": 2,
+    "evolvesFrom": 390,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 392,
+    "name": "infernape",
+    "types": [
+      "fire",
+      "fighting"
+    ],
+    "bst": 534,
+    "stage": 3,
+    "evolvesFrom": 391,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 393,
+    "name": "piplup",
+    "types": [
+      "water"
+    ],
+    "bst": 314,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 394,
+    "name": "prinplup",
+    "types": [
+      "water"
+    ],
+    "bst": 405,
+    "stage": 2,
+    "evolvesFrom": 393,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 395,
+    "name": "empoleon",
+    "types": [
+      "water",
+      "steel"
+    ],
+    "bst": 530,
+    "stage": 3,
+    "evolvesFrom": 394,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 396,
+    "name": "starly",
+    "types": [
+      "normal",
+      "flying"
+    ],
+    "bst": 245,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 397,
+    "name": "staravia",
+    "types": [
+      "normal",
+      "flying"
+    ],
+    "bst": 340,
+    "stage": 2,
+    "evolvesFrom": 396,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 398,
+    "name": "staraptor",
+    "types": [
+      "normal",
+      "flying"
+    ],
+    "bst": 485,
+    "stage": 3,
+    "evolvesFrom": 397,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 399,
+    "name": "bidoof",
+    "types": [
+      "normal"
+    ],
+    "bst": 250,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 400,
+    "name": "bibarel",
+    "types": [
+      "normal",
+      "water"
+    ],
+    "bst": 410,
+    "stage": 2,
+    "evolvesFrom": 399,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 401,
+    "name": "kricketot",
+    "types": [
+      "bug"
+    ],
+    "bst": 194,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 402,
+    "name": "kricketune",
+    "types": [
+      "bug"
+    ],
+    "bst": 384,
+    "stage": 2,
+    "evolvesFrom": 401,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 403,
+    "name": "shinx",
+    "types": [
+      "electric"
+    ],
+    "bst": 263,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 404,
+    "name": "luxio",
+    "types": [
+      "electric"
+    ],
+    "bst": 363,
+    "stage": 2,
+    "evolvesFrom": 403,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 405,
+    "name": "luxray",
+    "types": [
+      "electric"
+    ],
+    "bst": 523,
+    "stage": 3,
+    "evolvesFrom": 404,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 406,
+    "name": "budew",
+    "types": [
+      "grass",
+      "poison"
+    ],
+    "bst": 280,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": true,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 407,
+    "name": "roserade",
+    "types": [
+      "grass",
+      "poison"
+    ],
+    "bst": 515,
+    "stage": 3,
+    "evolvesFrom": 315,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 408,
+    "name": "cranidos",
+    "types": [
+      "rock"
+    ],
+    "bst": 350,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 409,
+    "name": "rampardos",
+    "types": [
+      "rock"
+    ],
+    "bst": 495,
+    "stage": 2,
+    "evolvesFrom": 408,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 410,
+    "name": "shieldon",
+    "types": [
+      "rock",
+      "steel"
+    ],
+    "bst": 350,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 411,
+    "name": "bastiodon",
+    "types": [
+      "rock",
+      "steel"
+    ],
+    "bst": 495,
+    "stage": 2,
+    "evolvesFrom": 410,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 412,
+    "name": "burmy",
+    "types": [
+      "bug"
+    ],
+    "bst": 224,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 413,
+    "name": "wormadam-plant",
+    "types": [
+      "bug",
+      "grass"
+    ],
+    "bst": 424,
+    "stage": 2,
+    "evolvesFrom": 412,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 414,
+    "name": "mothim",
+    "types": [
+      "bug",
+      "flying"
+    ],
+    "bst": 424,
+    "stage": 2,
+    "evolvesFrom": 412,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 415,
+    "name": "combee",
+    "types": [
+      "bug",
+      "flying"
+    ],
+    "bst": 244,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 416,
+    "name": "vespiquen",
+    "types": [
+      "bug",
+      "flying"
+    ],
+    "bst": 474,
+    "stage": 2,
+    "evolvesFrom": 415,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 417,
+    "name": "pachirisu",
+    "types": [
+      "electric"
+    ],
+    "bst": 405,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 418,
+    "name": "buizel",
+    "types": [
+      "water"
+    ],
+    "bst": 330,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 419,
+    "name": "floatzel",
+    "types": [
+      "water"
+    ],
+    "bst": 495,
+    "stage": 2,
+    "evolvesFrom": 418,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 420,
+    "name": "cherubi",
+    "types": [
+      "grass"
+    ],
+    "bst": 275,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 421,
+    "name": "cherrim",
+    "types": [
+      "grass"
+    ],
+    "bst": 450,
+    "stage": 2,
+    "evolvesFrom": 420,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 422,
+    "name": "shellos",
+    "types": [
+      "water"
+    ],
+    "bst": 325,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 423,
+    "name": "gastrodon",
+    "types": [
+      "water",
+      "ground"
+    ],
+    "bst": 475,
+    "stage": 2,
+    "evolvesFrom": 422,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 424,
+    "name": "ambipom",
+    "types": [
+      "normal"
+    ],
+    "bst": 482,
+    "stage": 2,
+    "evolvesFrom": 190,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 425,
+    "name": "drifloon",
+    "types": [
+      "ghost",
+      "flying"
+    ],
+    "bst": 348,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 426,
+    "name": "drifblim",
+    "types": [
+      "ghost",
+      "flying"
+    ],
+    "bst": 498,
+    "stage": 2,
+    "evolvesFrom": 425,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 427,
+    "name": "buneary",
+    "types": [
+      "normal"
+    ],
+    "bst": 350,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 428,
+    "name": "lopunny",
+    "types": [
+      "normal"
+    ],
+    "bst": 480,
+    "stage": 2,
+    "evolvesFrom": 427,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 429,
+    "name": "mismagius",
+    "types": [
+      "ghost"
+    ],
+    "bst": 495,
+    "stage": 2,
+    "evolvesFrom": 200,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 430,
+    "name": "honchkrow",
+    "types": [
+      "dark",
+      "flying"
+    ],
+    "bst": 505,
+    "stage": 2,
+    "evolvesFrom": 198,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 431,
+    "name": "glameow",
+    "types": [
+      "normal"
+    ],
+    "bst": 310,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 432,
+    "name": "purugly",
+    "types": [
+      "normal"
+    ],
+    "bst": 452,
+    "stage": 2,
+    "evolvesFrom": 431,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 433,
+    "name": "chingling",
+    "types": [
+      "psychic"
+    ],
+    "bst": 285,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": true,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 434,
+    "name": "stunky",
+    "types": [
+      "poison",
+      "dark"
+    ],
+    "bst": 329,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 435,
+    "name": "skuntank",
+    "types": [
+      "poison",
+      "dark"
+    ],
+    "bst": 479,
+    "stage": 2,
+    "evolvesFrom": 434,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 436,
+    "name": "bronzor",
+    "types": [
+      "steel",
+      "psychic"
+    ],
+    "bst": 300,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 437,
+    "name": "bronzong",
+    "types": [
+      "steel",
+      "psychic"
+    ],
+    "bst": 500,
+    "stage": 2,
+    "evolvesFrom": 436,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 438,
+    "name": "bonsly",
+    "types": [
+      "rock"
+    ],
+    "bst": 290,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": true,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 439,
+    "name": "mime-jr",
+    "types": [
+      "psychic"
+    ],
+    "bst": 310,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": true,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 440,
+    "name": "happiny",
+    "types": [
+      "normal"
+    ],
+    "bst": 220,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": true,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 441,
+    "name": "chatot",
+    "types": [
+      "normal",
+      "flying"
+    ],
+    "bst": 411,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 442,
+    "name": "spiritomb",
+    "types": [
+      "ghost",
+      "dark"
+    ],
+    "bst": 485,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 443,
+    "name": "gible",
+    "types": [
+      "dragon",
+      "ground"
+    ],
+    "bst": 300,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 444,
+    "name": "gabite",
+    "types": [
+      "dragon",
+      "ground"
+    ],
+    "bst": 410,
+    "stage": 2,
+    "evolvesFrom": 443,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 445,
+    "name": "garchomp",
+    "types": [
+      "dragon",
+      "ground"
+    ],
+    "bst": 600,
+    "stage": 3,
+    "evolvesFrom": 444,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 446,
+    "name": "munchlax",
+    "types": [
+      "normal"
+    ],
+    "bst": 390,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": true,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 447,
+    "name": "riolu",
+    "types": [
+      "fighting"
+    ],
+    "bst": 285,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": true,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 448,
+    "name": "lucario",
+    "types": [
+      "fighting",
+      "steel"
+    ],
+    "bst": 525,
+    "stage": 2,
+    "evolvesFrom": 447,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 449,
+    "name": "hippopotas",
+    "types": [
+      "ground"
+    ],
+    "bst": 330,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 450,
+    "name": "hippowdon",
+    "types": [
+      "ground"
+    ],
+    "bst": 525,
+    "stage": 2,
+    "evolvesFrom": 449,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 451,
+    "name": "skorupi",
+    "types": [
+      "poison",
+      "bug"
+    ],
+    "bst": 330,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 452,
+    "name": "drapion",
+    "types": [
+      "poison",
+      "dark"
+    ],
+    "bst": 500,
+    "stage": 2,
+    "evolvesFrom": 451,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 453,
+    "name": "croagunk",
+    "types": [
+      "poison",
+      "fighting"
+    ],
+    "bst": 300,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 454,
+    "name": "toxicroak",
+    "types": [
+      "poison",
+      "fighting"
+    ],
+    "bst": 490,
+    "stage": 2,
+    "evolvesFrom": 453,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 455,
+    "name": "carnivine",
+    "types": [
+      "grass"
+    ],
+    "bst": 454,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 456,
+    "name": "finneon",
+    "types": [
+      "water"
+    ],
+    "bst": 330,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 457,
+    "name": "lumineon",
+    "types": [
+      "water"
+    ],
+    "bst": 460,
+    "stage": 2,
+    "evolvesFrom": 456,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 458,
+    "name": "mantyke",
+    "types": [
+      "water",
+      "flying"
+    ],
+    "bst": 345,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": true,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 459,
+    "name": "snover",
+    "types": [
+      "grass",
+      "ice"
+    ],
+    "bst": 334,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 460,
+    "name": "abomasnow",
+    "types": [
+      "grass",
+      "ice"
+    ],
+    "bst": 494,
+    "stage": 2,
+    "evolvesFrom": 459,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 461,
+    "name": "weavile",
+    "types": [
+      "dark",
+      "ice"
+    ],
+    "bst": 510,
+    "stage": 2,
+    "evolvesFrom": 215,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 462,
+    "name": "magnezone",
+    "types": [
+      "electric",
+      "steel"
+    ],
+    "bst": 535,
+    "stage": 3,
+    "evolvesFrom": 82,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 463,
+    "name": "lickilicky",
+    "types": [
+      "normal"
+    ],
+    "bst": 515,
+    "stage": 2,
+    "evolvesFrom": 108,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 464,
+    "name": "rhyperior",
+    "types": [
+      "ground",
+      "rock"
+    ],
+    "bst": 535,
+    "stage": 3,
+    "evolvesFrom": 112,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 465,
+    "name": "tangrowth",
+    "types": [
+      "grass"
+    ],
+    "bst": 535,
+    "stage": 2,
+    "evolvesFrom": 114,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 466,
+    "name": "electivire",
+    "types": [
+      "electric"
+    ],
+    "bst": 540,
+    "stage": 3,
+    "evolvesFrom": 125,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 467,
+    "name": "magmortar",
+    "types": [
+      "fire"
+    ],
+    "bst": 540,
+    "stage": 3,
+    "evolvesFrom": 126,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 468,
+    "name": "togekiss",
+    "types": [
+      "normal",
+      "flying"
+    ],
+    "bst": 545,
+    "stage": 3,
+    "evolvesFrom": 176,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 469,
+    "name": "yanmega",
+    "types": [
+      "bug",
+      "flying"
+    ],
+    "bst": 515,
+    "stage": 2,
+    "evolvesFrom": 193,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 470,
+    "name": "leafeon",
+    "types": [
+      "grass"
+    ],
+    "bst": 525,
+    "stage": 2,
+    "evolvesFrom": 133,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 471,
+    "name": "glaceon",
+    "types": [
+      "ice"
+    ],
+    "bst": 525,
+    "stage": 2,
+    "evolvesFrom": 133,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 472,
+    "name": "gliscor",
+    "types": [
+      "ground",
+      "flying"
+    ],
+    "bst": 510,
+    "stage": 2,
+    "evolvesFrom": 207,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 473,
+    "name": "mamoswine",
+    "types": [
+      "ice",
+      "ground"
+    ],
+    "bst": 530,
+    "stage": 3,
+    "evolvesFrom": 221,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 474,
+    "name": "porygon-z",
+    "types": [
+      "normal"
+    ],
+    "bst": 535,
+    "stage": 3,
+    "evolvesFrom": 233,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 475,
+    "name": "gallade",
+    "types": [
+      "psychic",
+      "fighting"
+    ],
+    "bst": 518,
+    "stage": 3,
+    "evolvesFrom": 281,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 476,
+    "name": "probopass",
+    "types": [
+      "rock",
+      "steel"
+    ],
+    "bst": 525,
+    "stage": 2,
+    "evolvesFrom": 299,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 477,
+    "name": "dusknoir",
+    "types": [
+      "ghost"
+    ],
+    "bst": 525,
+    "stage": 3,
+    "evolvesFrom": 356,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 478,
+    "name": "froslass",
+    "types": [
+      "ice",
+      "ghost"
+    ],
+    "bst": 480,
+    "stage": 2,
+    "evolvesFrom": 361,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 479,
+    "name": "rotom",
+    "types": [
+      "electric",
+      "ghost"
+    ],
+    "bst": 440,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false
+  },
+  {
+    "id": 480,
+    "name": "uxie",
+    "types": [
+      "psychic"
+    ],
+    "bst": 580,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": true,
+    "isMythical": false
+  },
+  {
+    "id": 481,
+    "name": "mesprit",
+    "types": [
+      "psychic"
+    ],
+    "bst": 580,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": true,
+    "isMythical": false
+  },
+  {
+    "id": 482,
+    "name": "azelf",
+    "types": [
+      "psychic"
+    ],
+    "bst": 580,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": true,
+    "isMythical": false
+  },
+  {
+    "id": 483,
+    "name": "dialga",
+    "types": [
+      "steel",
+      "dragon"
+    ],
+    "bst": 680,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": true,
+    "isMythical": false
+  },
+  {
+    "id": 484,
+    "name": "palkia",
+    "types": [
+      "water",
+      "dragon"
+    ],
+    "bst": 680,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": true,
+    "isMythical": false
+  },
+  {
+    "id": 485,
+    "name": "heatran",
+    "types": [
+      "fire",
+      "steel"
+    ],
+    "bst": 600,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": true,
+    "isMythical": false
+  },
+  {
+    "id": 486,
+    "name": "regigigas",
+    "types": [
+      "normal"
+    ],
+    "bst": 670,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": true,
+    "isMythical": false
+  },
+  {
+    "id": 487,
+    "name": "giratina-altered",
+    "types": [
+      "ghost",
+      "dragon"
+    ],
+    "bst": 680,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": true,
+    "isMythical": false
+  },
+  {
+    "id": 488,
+    "name": "cresselia",
+    "types": [
+      "psychic"
+    ],
+    "bst": 580,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": true,
+    "isMythical": false
+  },
+  {
+    "id": 489,
+    "name": "phione",
+    "types": [
+      "water"
+    ],
+    "bst": 480,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": true
+  },
+  {
+    "id": 490,
+    "name": "manaphy",
+    "types": [
+      "water"
+    ],
+    "bst": 600,
+    "stage": 2,
+    "evolvesFrom": 489,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": true
+  },
+  {
+    "id": 491,
+    "name": "darkrai",
+    "types": [
+      "dark"
+    ],
+    "bst": 600,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": true
+  },
+  {
+    "id": 492,
+    "name": "shaymin-land",
+    "types": [
+      "grass"
+    ],
+    "bst": 600,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": true
+  },
+  {
+    "id": 493,
+    "name": "arceus",
+    "types": [
+      "normal"
+    ],
+    "bst": 720,
+    "stage": 1,
+    "evolvesFrom": null,
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": true
+  }
+]

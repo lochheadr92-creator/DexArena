@@ -1,0 +1,167 @@
+{
+  "reference": {
+    "species": 493,
+    "single": 270,
+    "dual": 223,
+    "singlePct": 54.8,
+    "dualPct": 45.2,
+    "legendary": 26,
+    "mythical": 9,
+    "sealed": 35,
+    "sealedPct": 7.1,
+    "stageCount": {
+      "1": 246,
+      "2": 185,
+      "3": 62
+    },
+    "standalone": 75,
+    "baseNonSealed": 212
+  },
+  "scaledTargets": {
+    "species": 150,
+    "single": 82,
+    "dual": 68,
+    "sealed": 11,
+    "legendary": 8,
+    "mythical": 3,
+    "stageCount": {
+      "1": 75,
+      "2": 56,
+      "3": 19
+    }
+  },
+  "typeTable": [
+    {
+      "type": "water",
+      "refCount": 92,
+      "refPct": 18.7,
+      "target150": 28
+    },
+    {
+      "type": "normal",
+      "refCount": 80,
+      "refPct": 16.2,
+      "target150": 24
+    },
+    {
+      "type": "flying",
+      "refCount": 64,
+      "refPct": 13,
+      "target150": 19
+    },
+    {
+      "type": "grass",
+      "refCount": 55,
+      "refPct": 11.2,
+      "target150": 17
+    },
+    {
+      "type": "psychic",
+      "refCount": 53,
+      "refPct": 10.8,
+      "target150": 16
+    },
+    {
+      "type": "poison",
+      "refCount": 50,
+      "refPct": 10.1,
+      "target150": 15
+    },
+    {
+      "type": "ground",
+      "refCount": 47,
+      "refPct": 9.5,
+      "target150": 14
+    },
+    {
+      "type": "bug",
+      "refCount": 45,
+      "refPct": 9.1,
+      "target150": 14
+    },
+    {
+      "type": "rock",
+      "refCount": 37,
+      "refPct": 7.5,
+      "target150": 11
+    },
+    {
+      "type": "fire",
+      "refCount": 33,
+      "refPct": 6.7,
+      "target150": 10
+    },
+    {
+      "type": "electric",
+      "refCount": 28,
+      "refPct": 5.7,
+      "target150": 9
+    },
+    {
+      "type": "fighting",
+      "refCount": 25,
+      "refPct": 5.1,
+      "target150": 8
+    },
+    {
+      "type": "steel",
+      "refCount": 25,
+      "refPct": 5.1,
+      "target150": 8
+    },
+    {
+      "type": "dark",
+      "refCount": 23,
+      "refPct": 4.7,
+      "target150": 7
+    },
+    {
+      "type": "ice",
+      "refCount": 22,
+      "refPct": 4.5,
+      "target150": 7
+    },
+    {
+      "type": "dragon",
+      "refCount": 19,
+      "refPct": 3.9,
+      "target150": 6
+    },
+    {
+      "type": "ghost",
+      "refCount": 18,
+      "refPct": 3.7,
+      "target150": 5
+    }
+  ],
+  "bstByTier": {
+    "stage1": {
+      "n": 212,
+      "min": 180,
+      "max": 535,
+      "median": 314,
+      "mean": 327
+    },
+    "stage2": {
+      "n": 184,
+      "min": 205,
+      "max": 555,
+      "median": 455,
+      "mean": 445
+    },
+    "stage3": {
+      "n": 62,
+      "min": 385,
+      "max": 670,
+      "median": 525,
+      "mean": 514
+    },
+    "rare": {
+      "n": 35,
+      "min": 480,
+      "max": 720,
+      "median": 600,
+      "mean": 615
+    }
+  }
+}
