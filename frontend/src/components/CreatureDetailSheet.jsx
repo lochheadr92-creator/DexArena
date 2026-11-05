@@ -6,6 +6,7 @@ import { useGame } from "@/context/GameContext";
 import { typeColor } from "@/lib/types";
 import { dexNo, GEN_LABELS, titleCase } from "@/lib/format";
 import { isSealed } from "@/lib/unlocks";
+import { isShiny } from "@/lib/shiny";
 import { DEX } from "@/constants/testIds/dex";
 import { TypeBadge } from "@/components/TypeBadge";
 import { SpriteImg } from "@/components/SpriteImg";
@@ -56,6 +57,7 @@ export const CreatureDetailSheet = ({ creatureId, onClose, onPick, onToggleTeam 
   }, [creature, onClose]);
 
   const locked = creature ? !unlockedIds.has(creature.id) : false;
+  const shiny = creature ? !locked && isShiny(creature, save.shinySeed) : false;
   const inTeam = creature ? save.team.includes(creature.id) : false;
   const accent = creature ? typeColor(creature.types[0]) : "#3B82F6";
 
@@ -98,7 +100,7 @@ export const CreatureDetailSheet = ({ creatureId, onClose, onPick, onToggleTeam 
             <div className="relative p-5 pb-6 sm:p-6">
               <div className="flex items-start gap-4">
                 <div className="relative flex h-28 w-28 shrink-0 items-center justify-center rounded-2xl border border-slate-800 bg-slate-950/60">
-                  <SpriteImg src={creature.artwork} alt={creature.displayName} locked={locked} pixelated={false} className="h-24 w-24" />
+                  <SpriteImg src={creature.artwork} alt={creature.displayName} locked={locked} pixelated={false} shiny={shiny} className="h-24 w-24" />
                   {locked && (
                     <span className="absolute -bottom-2 left-1/2 flex -translate-x-1/2 items-center gap-1 rounded-full border border-slate-700 bg-slate-900 px-2 py-0.5 font-mono text-[9px] uppercase tracking-wider text-slate-300">
                       {isSealed(creature) ? <Sparkles className="h-3 w-3 text-purple-400" /> : <Lock className="h-3 w-3" />}
@@ -112,6 +114,11 @@ export const CreatureDetailSheet = ({ creatureId, onClose, onPick, onToggleTeam 
                     <span className="rounded border border-slate-800 px-1.5 py-0.5 font-mono text-[9px] uppercase tracking-wider text-slate-400">
                       Gen {GEN_LABELS[creature.generation]}
                     </span>
+                    {shiny && (
+                      <span className="inline-flex items-center gap-1 rounded border border-amber-500/40 bg-amber-500/10 px-1.5 py-0.5 font-mono text-[9px] uppercase tracking-wider text-amber-300" data-testid="creature-detail-shiny">
+                        <Sparkles className="h-3 w-3" /> Shiny
+                      </span>
+                    )}
                   </div>
                   <h2 className="mt-1 truncate font-display text-2xl font-bold tracking-tight text-slate-50" data-testid="creature-detail-name">
                     {creature.displayName}

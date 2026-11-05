@@ -10,6 +10,7 @@ export function defaultSave() {
     updatedAt: now,
     totalWins: 0,
     totalBattles: 0,
+    shinySeed: now,
     unlocked: [],
     team: [],
     terrain: "pitch",
@@ -84,6 +85,7 @@ export function normalizeSave(parsed) {
   return {
     ...d,
     ...parsed,
+    shinySeed: Number.isFinite(parsed.shinySeed) ? parsed.shinySeed : Number.isFinite(parsed.createdAt) ? parsed.createdAt : d.shinySeed,
     rivalLevel: Number.isFinite(lvl) ? Math.min(6, Math.max(1, lvl)) : d.rivalLevel,
     items: cleanItems(parsed.items),
     abilities: cleanAbilities(parsed.abilities),

@@ -1,6 +1,7 @@
 import { ChevronRight, Lock } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useGame } from "@/context/GameContext";
+import { isShiny } from "@/lib/shiny";
 import { DEX } from "@/constants/testIds/dex";
 import { SpriteImg } from "@/components/SpriteImg";
 
@@ -23,7 +24,7 @@ function buildStages(creature, creatures) {
 }
 
 export const EvolutionLine = ({ creature, onPick }) => {
-  const { creatures, unlockedIds } = useGame();
+  const { creatures, unlockedIds, save } = useGame();
   const stages = buildStages(creature, creatures);
   if (stages.length === 1 && stages[0].length === 1) {
     return <p className="text-xs text-slate-500">Does not evolve.</p>;
@@ -50,7 +51,7 @@ export const EvolutionLine = ({ creature, onPick }) => {
                   )}
                 >
                   {c ? (
-                    <SpriteImg src={c.sprite} alt={c.displayName} locked={locked} className="h-10 w-10" />
+                    <SpriteImg src={c.sprite} alt={c.displayName} locked={locked} shiny={!locked && isShiny(c, save.shinySeed)} className="h-10 w-10" />
                   ) : (
                     <span className="font-accent text-[7px] text-slate-500">#{id}</span>
                   )}

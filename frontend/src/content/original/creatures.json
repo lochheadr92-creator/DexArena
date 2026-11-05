@@ -24,23 +24,23 @@
     ],
     "moves": [
       {
-        "id": 20017,
-        "name": "Thorn Ray",
+        "id": 20010,
+        "name": "Tidal Flood",
         "level": 8
       },
       {
-        "id": 20018,
-        "name": "Thorn Bloom",
+        "id": 20012,
+        "name": "Tidal Rush",
         "level": 14
       },
       {
-        "id": 20033,
-        "name": "Terra Cannon",
+        "id": 20011,
+        "name": "Tidal Jab",
         "level": 20
       },
       {
-        "id": 20050,
-        "name": "Boulder Fracture",
+        "id": 20009,
+        "name": "Tidal Cannon",
         "level": 26
       }
     ],
@@ -91,23 +91,23 @@
     ],
     "moves": [
       {
-        "id": 20017,
-        "name": "Thorn Ray",
+        "id": 20010,
+        "name": "Tidal Flood",
         "level": 8
       },
       {
-        "id": 20018,
-        "name": "Thorn Bloom",
+        "id": 20012,
+        "name": "Tidal Rush",
         "level": 14
       },
       {
-        "id": 20033,
-        "name": "Terra Cannon",
+        "id": 20011,
+        "name": "Tidal Jab",
         "level": 20
       },
       {
-        "id": 20050,
-        "name": "Boulder Fracture",
+        "id": 20009,
+        "name": "Tidal Cannon",
         "level": 26
       }
     ],
@@ -160,23 +160,23 @@
     ],
     "moves": [
       {
-        "id": 20017,
-        "name": "Thorn Ray",
+        "id": 20010,
+        "name": "Tidal Flood",
         "level": 8
       },
       {
-        "id": 20018,
-        "name": "Thorn Bloom",
+        "id": 20067,
+        "name": "Iron Chop",
         "level": 14
       },
       {
-        "id": 20049,
-        "name": "Boulder Cannon",
+        "id": 20009,
+        "name": "Tidal Cannon",
         "level": 20
       },
       {
-        "id": 20033,
-        "name": "Terra Cannon",
+        "id": 20065,
+        "name": "Iron Cannon",
         "level": 26
       }
     ],

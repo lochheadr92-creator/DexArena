@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { HelpCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { SHINY_FILTER } from "@/lib/shiny";
 
-export const SpriteImg = ({ src, alt, className, locked = false, pixelated }) => {
+export const SpriteImg = ({ src, alt, className, locked = false, pixelated, shiny = false }) => {
   const [failed, setFailed] = useState(false);
   const smooth = src && src.includes("/original/");
   const px = pixelated ?? !smooth;
@@ -21,6 +22,7 @@ export const SpriteImg = ({ src, alt, className, locked = false, pixelated }) =>
       decoding="async"
       draggable={false}
       onError={() => setFailed(true)}
+      style={shiny ? { filter: SHINY_FILTER } : undefined}
       className={cn("select-none object-contain", px && "pixelated", locked && "silhouette", className)}
     />
   );

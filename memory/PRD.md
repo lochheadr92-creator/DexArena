@@ -105,8 +105,15 @@ Constraints
 - Render: original sprites render smoothed (not pixelated) — `SpriteImg` auto-detects `/original/` src; `game/render/sprites.js` sets `entry.smooth`; renderer gates `imageSmoothingEnabled` on it (3 sites). Pokémon sprites stay pixelated.
 - KNOWN minor inconsistency: Mossplod-line retyped to Water/Steel but still carries its originally-generated grass/rock-themed move ids (thematic only; engine uses move types independently). verify warns grass −4 type deviation (expected from the swap).
 
+### Shiny variants + Species Spotlight + themed movesets + mobile shell — DONE (2026-06) — self-tested (roster, spotlight, shiny badges/counter, Mossplod moveset detail, mobile WebView loads game)
+- **Themed movesets**: Mossplod/Mosshull reskinned to 4 Water moves (Tidal Flood/Rush/Jab/Cannon); Bathyward to Water+Steel (Tidal Flood, Iron Chop, Tidal Cannon, Iron Cannon). Data edit in `content/original/creatures.json`; resolves the earlier type/move mismatch.
+- **Shiny variants**: `lib/shiny.js` — deterministic `isShiny(creature, seed)` keyed by evolution family (`chainId`), rate ~1/14, stable per save via new `shinySeed` (defaults to `createdAt` for old saves) in `lib/save.js`. Recolor via CSS `SHINY_FILTER` (hue-rotate) in `SpriteImg` (new `shiny` prop). Revealed only once a creature is unlocked (discover mechanic). Surfaces: CreatureCard sparkle badge, CreatureDetailSheet "Shiny" pill, EvolutionLine nodes, RosterPage header "✨ N shiny" counter, Species Spotlight. Works on BOTH rosters (per-roster save key → own seed).
+- **Species Spotlight**: `components/SpeciesSpotlight.jsx` — rotating (3.8s) showcase banner at top of RosterPage, shuffled order, framer-motion slide, type-color accent, click opens the creature's detail. Shows full art (not silhouette) as a showcase.
+- **Mobile app = WebView shell** (`/app/mobile`): `app/index.tsx` loads the web game via `react-native-webview` on native (Android hardware-back → webview back, loading spinner, SafeArea, StatusBar) and a real `<iframe>` on the Expo web preview (react-native-webview is native-only on web). URL from new `EXPO_PUBLIC_WEB_URL` (falls back to `EXPO_PUBLIC_BACKEND_URL`). Added `SafeAreaProvider` to `app/_layout.tsx`. No backend changes; the shell renders the full existing game.
+  - NOTE: on a published build the WebView points at the deployed web URL (currently the preview URL in `mobile/.env`); update `EXPO_PUBLIC_WEB_URL` to the production web URL before/after Publish.
+
 ### Next (not started)
-- Resume paused "mobile app (Expo)" task — add the mobile surface for the Original roster.
+- Point mobile `EXPO_PUBLIC_WEB_URL` at the production web URL once deployed.
 
 ## Backlog
 ### Phase 2/3 follow-ups (only if user asks)

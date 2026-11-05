@@ -7,8 +7,10 @@ import { DEX } from "@/constants/testIds/dex";
 import { RosterFilters, EMPTY_FILTERS } from "@/components/RosterFilters";
 import { AbilityFilterNote } from "@/components/AbilityFilter";
 import { CreatureCard } from "@/components/CreatureCard";
+import { SpeciesSpotlight } from "@/components/SpeciesSpotlight";
 import { TeamTray } from "@/components/TeamTray";
 import { CreatureDetailSheet } from "@/components/CreatureDetailSheet";
+import { isShiny } from "@/lib/shiny";
 
 const ALL_IDS = Array.from({ length: MAX_ID }, (_, i) => i + 1);
 
@@ -43,6 +45,11 @@ export default function RosterPage() {
   const abilityCount = useMemo(() => (filters.ability ? list.filter((c) => (c.abilities || []).includes(filters.ability)).length : 0), [list, filters.ability]);
 
   const slotOf = useMemo(() => new Map(save.team.map((id, i) => [id, i])), [save.team]);
+  const shinyCount = useMemo(
+    () => list.reduce((n, c) => n + (unlockedIds.has(c.id) && isShiny(c, save.shinySeed) ? 1 : 0), 0),
+    [list, unlockedIds, save.shinySeed],
+  );
+  const isShinyCard = useCallback((c) => unlockedIds.has(c.id) && isShiny(c, save.shinySeed), [unlockedIds, save.shinySeed]);
 
   const handleSelect = useCallback(
     (id) => {
@@ -59,6 +66,7 @@ export default function RosterPage() {
   return (
     <div className="pb-48">
       <RosterFilters filters={filters} setFilters={setFilters} hasFilters={hasFilters} list={list} showGen={roster.hasGenerations} />
+      {!hasFilters && list.length > 0 && <div className="mt-3"><SpeciesSpotlight onPick={setDetailId} /></div>}
       {filters.ability && (
         <div className="mt-2.5">
           <AbilityFilterNote value={filters.ability} count={abilityCount} />
@@ -71,6 +79,9 @@ export default function RosterPage() {
         </span>
         <span>
           <span className="text-emerald-400">{unlockedIds.size}</span> unlocked
+          {shinyCount > 0 && (
+            <span className="ml-2 text-amber-300" data-testid="roster-shiny-count">✨ {shinyCount} shiny</span>
+          )}
         </span>
       </div>
 
@@ -91,13 +102,13 @@ export default function RosterPage() {
           {showPlaceholders
             ? ALL_IDS.map((id) =>
                 creatures[id] ? (
-                  <CreatureCard key={id} creature={creatures[id]} locked={!unlockedIds.has(id)} slot={slotOf.get(id)} onSelect={handleSelect} onDetails={setDetailId} />
+                  <CreatureCard key={id} creature={creatures[id]} locked={!unlockedIds.has(id)} shiny={isShinyCard(creatures[id])} slot={slotOf.get(id)} onSelect={handleSelect} onDetails={setDetailId} />
                 ) : (
                   <Placeholder key={id} id={id} />
                 ),
               )
             : filtered.map((c) => (
-                <CreatureCard key={c.id} creature={c} locked={!unlockedIds.has(c.id)} slot={slotOf.get(c.id)} onSelect={handleSelect} onDetails={setDetailId} />
+                <CreatureCard key={c.id} creature={c} locked={!unlockedIds.has(c.id)} shiny={isShinyCard(c)} slot={slotOf.get(c.id)} onSelect={handleSelect} onDetails={setDetailId} />
               ))}
         </div>
       )}

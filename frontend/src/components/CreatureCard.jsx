@@ -9,7 +9,7 @@ import { SpriteImg } from "@/components/SpriteImg";
 
 const LONG_PRESS_MS = 450;
 
-export const CreatureCard = memo(function CreatureCard({ creature, locked, slot, onSelect, onDetails }) {
+export const CreatureCard = memo(function CreatureCard({ creature, locked, slot, onSelect, onDetails, shiny }) {
   const timer = useRef(null);
   const longPressed = useRef(false);
   const selected = slot != null;
@@ -70,7 +70,12 @@ export const CreatureCard = memo(function CreatureCard({ creature, locked, slot,
       </div>
 
       <div className="relative flex h-14 w-14 items-center justify-center">
-        <SpriteImg src={creature.sprite} alt={creature.displayName} locked={locked} className="h-14 w-14" />
+        <SpriteImg src={creature.sprite} alt={creature.displayName} locked={locked} shiny={shiny} className="h-14 w-14" />
+        {shiny && (
+          <span className="absolute -right-1 -top-1 rounded-full bg-amber-400/90 p-0.5 text-slate-900 shadow" data-testid={`creature-shiny-${creature.id}`}>
+            <Sparkles className="h-3 w-3" />
+          </span>
+        )}
         {locked && (
           <span className="absolute -bottom-1 -right-1 rounded-full border border-slate-700 bg-slate-900 p-1 text-slate-400">
             {isSealed(creature) ? <Sparkles className="h-3 w-3 text-purple-400" /> : <Lock className="h-3 w-3" />}
