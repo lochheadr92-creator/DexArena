@@ -110,12 +110,16 @@ Constraints
 - **Shiny variants**: `lib/shiny.js` — deterministic `isShiny(creature, seed)` keyed by evolution family (`chainId`), rate ~1/14, stable per save via new `shinySeed` (defaults to `createdAt` for old saves) in `lib/save.js`. Recolor via CSS `SHINY_FILTER` (hue-rotate) in `SpriteImg` (new `shiny` prop). Revealed only once a creature is unlocked (discover mechanic). Surfaces: CreatureCard sparkle badge, CreatureDetailSheet "Shiny" pill, EvolutionLine nodes, RosterPage header "✨ N shiny" counter, Species Spotlight. Works on BOTH rosters (per-roster save key → own seed).
 - **Species Spotlight**: `components/SpeciesSpotlight.jsx` — rotating (3.8s) showcase banner at top of RosterPage, shuffled order, framer-motion slide, type-color accent, click opens the creature's detail. Shows full art (not silhouette) as a showcase.
 - **Mobile app = WebView shell** (`/app/mobile`): `app/index.tsx` loads the web game via `react-native-webview` on native (Android hardware-back → webview back, loading spinner, SafeArea, StatusBar) and a real `<iframe>` on the Expo web preview (react-native-webview is native-only on web). URL from new `EXPO_PUBLIC_WEB_URL` (falls back to `EXPO_PUBLIC_BACKEND_URL`). Added `SafeAreaProvider` to `app/_layout.tsx`. No backend changes; the shell renders the full existing game.
-  - NOTE: on a published build the WebView points at the deployed web URL (currently the preview URL in `mobile/.env`); update `EXPO_PUBLIC_WEB_URL` to the production web URL before/after Publish.
+  - NOTE: WebView URL = `EXPO_PUBLIC_WEB_URL || EXPO_PUBLIC_BACKEND_URL`. The hardcoded `EXPO_PUBLIC_WEB_URL` was REMOVED from `mobile/.env` so it falls back to the platform-managed `EXPO_PUBLIC_BACKEND_URL` — correct in preview and auto-points to the deployed web origin after Publish.
+
+### Shiny odds + battle shinies + Creature of the Day + prod URL — DONE (2026-06) — self-tested (Save-page odds UI, live original battle shows recolored player sprite w/ no render errors, daily spotlight shows original "Creature of the Day" + blurb)
+- **Shiny Odds Tuning**: `components/ShinySettings.jsx` on SavePage; presets Off/Rare(30)/Normal(14)/Common(6)/Very common(3) in `lib/shiny.js` `SHINY_PRESETS`. `isShiny(creature, seed, rate)` (rate≤0 = off). New `save.shinyRate` (+ `setShinyRate` in GameContext). All shiny callers thread `save.shinyRate`.
+- **Battle Shinies**: `prepareBattle` computes `state.shinyIds` (player creatures + evo targets that pass isShiny with `shinySeed`/`shinyRate` passed from BattlePage); `renderer.js` sets `ctx.filter = SHINY_FILTER` on the main sprite draw for player-side shiny units (inside save/restore). Opponents stay normal.
+- **Creature of the Day**: `SpeciesSpotlight.jsx` now pins slide 0 to a date+roster deterministic pick (FNV hash of `dailyKey():rosterId`) with a ★ label + generated stat-flavor blurb, then rotates the shuffled rest. Added a roster-match guard to avoid a cross-roster flash during the toggle.
+- **Production Web URL**: removed hardcoded `EXPO_PUBLIC_WEB_URL` from `mobile/.env` (see mobile note above).
 
 ### Next (not started)
-- Point mobile `EXPO_PUBLIC_WEB_URL` at the production web URL once deployed.
-
-## Backlog
+- After Publish, confirm the mobile WebView loads the deployed web origin (via managed `EXPO_PUBLIC_BACKEND_URL`); set `EXPO_PUBLIC_WEB_URL` only if the web app lives on a different host than the backend.
 ### Phase 2/3 follow-ups (only if user asks)
 - Status moves rarely appear (most creatures have ≥4 damaging level-up moves) → shield/buff shapes mostly seen on Metapod/Abra-like creatures
 - Right-side control column still overlays arena cols 13–15 (translucent); could move into HUD on request

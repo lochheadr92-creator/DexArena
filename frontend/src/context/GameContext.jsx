@@ -189,6 +189,7 @@ export function GameProvider({ children }) {
   const clearTeam = useCallback(() => updateSave((prev) => ({ ...prev, team: [] })), [updateSave]);
   const setTerrain = useCallback((terrain) => updateSave((prev) => ({ ...prev, terrain })), [updateSave]);
   const setRivalLevel = useCallback((rivalLevel) => updateSave((prev) => ({ ...prev, rivalLevel: clampLevel(rivalLevel) })), [updateSave]);
+  const setShinyRate = useCallback((rate) => updateSave((prev) => ({ ...prev, shinyRate: Number.isInteger(rate) && rate >= 0 ? rate : prev.shinyRate })), [updateSave]);
   const setAbility = useCallback((creatureId, slot) => updateSave((prev) => ({ ...prev, abilities: { ...prev.abilities, [creatureId]: slot === 1 ? 1 : 0 } })), [updateSave]);
   const resetSave = useCallback(() => {
     clearSave(saveKeyRef.current);
@@ -353,6 +354,7 @@ export function GameProvider({ children }) {
       clearTeam,
       setTerrain,
       setRivalLevel,
+      setShinyRate,
       setAbility,
       resetSave,
       retryFailed,
@@ -373,7 +375,7 @@ export function GameProvider({ children }) {
       saveReplay,
       replays,
     }),
-    [creatures, list, roster, rosterId, setRoster, progress, save, starterIds, unlockedIds, toggleTeam, clearTeam, setTerrain, setRivalLevel, setAbility, resetSave, retryFailed, resyncDex, movesetOverrides, setMovesetOverride, importSave, creditResult, catalog, applyEvolutionItem, spendSealKey, startGauntlet, finishGauntletStage, abandonGauntlet, daily, recordDailyResult, presets, saveReplay, replays],
+    [creatures, list, roster, rosterId, setRoster, progress, save, starterIds, unlockedIds, toggleTeam, clearTeam, setTerrain, setRivalLevel, setShinyRate, setAbility, resetSave, retryFailed, resyncDex, movesetOverrides, setMovesetOverride, importSave, creditResult, catalog, applyEvolutionItem, spendSealKey, startGauntlet, finishGauntletStage, abandonGauntlet, daily, recordDailyResult, presets, saveReplay, replays],
   );
 
   return <GameContext.Provider value={value}>{children}</GameContext.Provider>;

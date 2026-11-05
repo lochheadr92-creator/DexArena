@@ -46,10 +46,10 @@ export default function RosterPage() {
 
   const slotOf = useMemo(() => new Map(save.team.map((id, i) => [id, i])), [save.team]);
   const shinyCount = useMemo(
-    () => list.reduce((n, c) => n + (unlockedIds.has(c.id) && isShiny(c, save.shinySeed) ? 1 : 0), 0),
-    [list, unlockedIds, save.shinySeed],
+    () => list.reduce((n, c) => n + (unlockedIds.has(c.id) && isShiny(c, save.shinySeed, save.shinyRate) ? 1 : 0), 0),
+    [list, unlockedIds, save.shinySeed, save.shinyRate],
   );
-  const isShinyCard = useCallback((c) => unlockedIds.has(c.id) && isShiny(c, save.shinySeed), [unlockedIds, save.shinySeed]);
+  const isShinyCard = useCallback((c) => unlockedIds.has(c.id) && isShiny(c, save.shinySeed, save.shinyRate), [unlockedIds, save.shinySeed, save.shinyRate]);
 
   const handleSelect = useCallback(
     (id) => {

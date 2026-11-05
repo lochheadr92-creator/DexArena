@@ -9,6 +9,7 @@ import { typeBurst, typeTrail } from "@/game/render/typeFx";
 import { drawArchetypeEffect, drawCone, drawBeam, drawOrb, makeFallChunks, GROUND_EFFECTS, DECAL_SEC } from "@/game/render/archetypeFx";
 import { ABILITY_DRAWERS, WeatherFx, drawTrapRing, drawHoverShadow, drawPassiveAura } from "@/game/render/abilityFx";
 import { passiveVisual, isTrapped, weatherActive, WEATHER } from "@/game/abilities";
+import { SHINY_FILTER } from "@/lib/shiny";
 
 const tcolor = (t) => typeColors[t]?.bg || "#94a3b8";
 const ease = (t) => Math.min(1, Math.max(0, t));
@@ -266,11 +267,13 @@ export class BattleRenderer {
       const w = entry.width * scale;
       const h = entry.height * scale;
       const flip = u.side === "player" ? u.facingX < 0 : u.facingX > 0;
+      const shiny = u.side === "player" && state.shinyIds && state.shinyIds.has(u.creatureId);
       ctx.save();
       ctx.globalAlpha = alpha;
       ctx.translate(x + dx, y + dy + this.px(u.radius) * 0.5);
       ctx.scale(flip ? -sx : sx, sy);
       ctx.imageSmoothingEnabled = !!entry.smooth;
+      if (shiny) ctx.filter = SHINY_FILTER;
       if (tint && anim) this.drawTinted(frame, -w / 2, -h, w, h, tint.color, tint.alpha);
       else ctx.drawImage(frame, -w / 2, -h, w, h);
       ctx.restore();

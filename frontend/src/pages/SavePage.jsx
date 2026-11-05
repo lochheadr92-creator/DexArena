@@ -11,6 +11,7 @@ import { SpriteImg } from "@/components/SpriteImg";
 import { SaveTransfer } from "@/components/SaveTransfer";
 import { BagPanel } from "@/components/BagPanel";
 import { GraphicsSettings } from "@/components/GraphicsSettings";
+import { ShinySettings } from "@/components/ShinySettings";
 import { ReplayGallery } from "@/components/ReplayGallery";
 import { PresetsButton } from "@/components/PresetsDialog";
 import {
@@ -74,6 +75,7 @@ export default function SavePage() {
       <BagPanel />
       <ReplayGallery />
       <GraphicsSettings />
+      <ShinySettings />
       <SaveTransfer />
 
       <section className="rounded-xl border border-slate-800 bg-slate-900/70 p-4">

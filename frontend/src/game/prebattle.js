@@ -8,6 +8,7 @@ import { ensureSprite, spriteReport } from "@/game/render/sprites";
 import { rivalPlan, legendWeather } from "@/lib/rival";
 import { buildCatalog, optionsFor } from "@/lib/items";
 import { abilityFor, abilityName, randomAbility, isImplemented, WEATHER } from "@/game/abilities";
+import { isShiny } from "@/lib/shiny";
 
 export const mappingLines = (creature, moves) =>
   moves.map((m) => `${creature.displayName}: ${m.name} [${m.type}/${m.damageClass} pow ${m.power}${m.accuracy != null ? ` acc ${m.accuracy}` : ""}] → ${m.shape}, cd ${m.cooldownSec.toFixed(1)}s${m.status ? `, ${m.status.kind} ${m.status.chance}%${m.status.attaches ? "" : " (not attached)"}` : ""}`);
@@ -30,7 +31,7 @@ export async function buildMovesets(creatures, overrides = {}, log = []) {
   });
 }
 
-export async function prepareBattle({ creatures, unlockedIds, playerIds, terrainId, seed, movesetOverrides = {}, npcMovesetOverrides = {}, autoPick = false, archetypeId = null, npcIds = null, slot = null, rivalLevel = null, totalWins = 0, initialHp = null, replayInputs = null, playerHasLegendary = false, trace = false, onProgress = () => {}, decodeSprites = true, abilityPicks = {}, playerAbilityIds = null, npcAbilityIds = null, abilitiesEnabled = true, initialWeather, roster = "pokemon", contentVersion = null }) {
+export async function prepareBattle({ creatures, unlockedIds, playerIds, terrainId, seed, movesetOverrides = {}, npcMovesetOverrides = {}, autoPick = false, archetypeId = null, npcIds = null, slot = null, rivalLevel = null, totalWins = 0, initialHp = null, replayInputs = null, playerHasLegendary = false, trace = false, onProgress = () => {}, decodeSprites = true, abilityPicks = {}, playerAbilityIds = null, npcAbilityIds = null, abilitiesEnabled = true, initialWeather, roster = "pokemon", contentVersion = null, shinySeed = null, shinyRate = 0 }) {
   const log = [];
   const rng = makeRng((seed ^ 0x9e3779b9) >>> 0);
   const archetype = archetypeConfig.archetypes[archetypeId || rng.pick(archetypeConfig.quickBattlePool)];
@@ -85,6 +86,12 @@ export async function prepareBattle({ creatures, unlockedIds, playerIds, terrain
     npc: { creatures: npcCreatures, movesets: npcMovesets, params: difficultyParams(archetype, difficultySlot), archetypeId: archetype.id, name: archetype.name, abilities: npcAbilities },
   });
   if (replayInputs) state.replayInputs = replayInputs.map((x) => ({ ...x })).sort((a, b) => a.tick - b.tick);
+  state.shinyIds = new Set();
+  if (shinySeed != null && shinyRate > 0) {
+    [...playerCreatures, ...evoPairs.map((o) => o.creature)].forEach((c) => {
+      if (c && isShiny(c, shinySeed, shinyRate)) state.shinyIds.add(c.id);
+    });
+  }
   state.battleId = `${seed}-${Date.now().toString(36)}`;
   state.meta = { archetype: archetype.id, slot: difficultySlot, rival: plan, initialHp, mapping, log, spriteStats, damageScale: engine.DAMAGE_SCALE, weather, roster, contentVersion, abilities: { player: playerAbilities, npc: npcAbilities, enabled: abilitiesEnabled } };
   return state;

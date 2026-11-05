@@ -51,7 +51,7 @@ export const EvolutionLine = ({ creature, onPick }) => {
                   )}
                 >
                   {c ? (
-                    <SpriteImg src={c.sprite} alt={c.displayName} locked={locked} shiny={!locked && isShiny(c, save.shinySeed)} className="h-10 w-10" />
+                    <SpriteImg src={c.sprite} alt={c.displayName} locked={locked} shiny={!locked && isShiny(c, save.shinySeed, save.shinyRate)} className="h-10 w-10" />
                   ) : (
                     <span className="font-accent text-[7px] text-slate-500">#{id}</span>
                   )}

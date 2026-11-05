@@ -57,7 +57,7 @@ export const CreatureDetailSheet = ({ creatureId, onClose, onPick, onToggleTeam 
   }, [creature, onClose]);
 
   const locked = creature ? !unlockedIds.has(creature.id) : false;
-  const shiny = creature ? !locked && isShiny(creature, save.shinySeed) : false;
+  const shiny = creature ? !locked && isShiny(creature, save.shinySeed, save.shinyRate) : false;
   const inTeam = creature ? save.team.includes(creature.id) : false;
   const accent = creature ? typeColor(creature.types[0]) : "#3B82F6";
 
