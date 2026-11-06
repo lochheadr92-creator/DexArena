@@ -1,0 +1,1681 @@
+[
+  {
+    "id": 100001,
+    "dexNo": 151,
+    "name": "reedlet",
+    "displayName": "Reedlet",
+    "genus": "harvest mouse",
+    "types": [
+      "grass"
+    ],
+    "role": "speed",
+    "stats": {
+      "hp": 38,
+      "atk": 62,
+      "def": 38,
+      "spa": 61,
+      "spd": 26,
+      "spe": 70
+    },
+    "bst": 295,
+    "abilities": [
+      "overgrow",
+      "chlorophyll"
+    ],
+    "moves": [
+      {
+        "id": 200041,
+        "name": "briar-flick",
+        "level": 1
+      },
+      {
+        "id": 200042,
+        "name": "briar-rush",
+        "level": 9
+      },
+      {
+        "id": 200001,
+        "name": "hearth-flick",
+        "level": 17
+      },
+      {
+        "id": 200006,
+        "name": "hearth-cleave",
+        "level": 25
+      },
+      {
+        "id": 200901,
+        "name": "woven-bastion",
+        "level": 33
+      },
+      {
+        "id": 200902,
+        "name": "wild-resolve",
+        "level": 41
+      }
+    ],
+    "tmMoves": [],
+    "isBaby": true,
+    "isLegendary": false,
+    "isMythical": false,
+    "captureRate": 45,
+    "chainId": 100000,
+    "evolvesFrom": null,
+    "evolvesTo": [
+      100002
+    ],
+    "evolution": null,
+    "generation": 0,
+    "height": 2,
+    "weight": 8,
+    "sprite": "/originals/v1/reedlet/front.png?v=a519b275f06c8126",
+    "spriteBack": "/originals/v1/reedlet/back.png?v=a519b275f06c8126",
+    "animFront": "/originals/v1/reedlet/front.gif?v=a519b275f06c8126",
+    "animBack": "/originals/v1/reedlet/back.gif?v=a519b275f06c8126",
+    "artwork": "/originals/v1/reedlet/front.png?v=a519b275f06c8126",
+    "roster": "original",
+    "contentVersion": 1,
+    "displayOrder": 151,
+    "framesFront": null,
+    "framesBack": null,
+    "lot": 2,
+    "designNumber": 1,
+    "habitat": "reed marsh",
+    "description": "A tiny russet mouse balances on a curled reed tail, while two seed-husk ears frame its bright eyes.",
+    "awaitingForms": []
+  },
+  {
+    "id": 100002,
+    "dexNo": 152,
+    "name": "thimblereed",
+    "displayName": "Thimblereed",
+    "genus": "harvest mouse",
+    "types": [
+      "grass"
+    ],
+    "role": "speed",
+    "stats": {
+      "hp": 67,
+      "atk": 75,
+      "def": 46,
+      "spa": 82,
+      "spd": 37,
+      "spe": 103
+    },
+    "bst": 410,
+    "abilities": [
+      "overgrow",
+      "chlorophyll"
+    ],
+    "moves": [
+      {
+        "id": 200046,
+        "name": "briar-cleave",
+        "level": 1
+      },
+      {
+        "id": 200042,
+        "name": "briar-rush",
+        "level": 9
+      },
+      {
+        "id": 200001,
+        "name": "hearth-flick",
+        "level": 17
+      },
+      {
+        "id": 200006,
+        "name": "hearth-cleave",
+        "level": 25
+      },
+      {
+        "id": 200901,
+        "name": "woven-bastion",
+        "level": 33
+      },
+      {
+        "id": 200902,
+        "name": "wild-resolve",
+        "level": 41
+      }
+    ],
+    "tmMoves": [],
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false,
+    "captureRate": 45,
+    "chainId": 100000,
+    "evolvesFrom": 100001,
+    "evolvesTo": [
+      100003
+    ],
+    "evolution": null,
+    "generation": 0,
+    "height": 5,
+    "weight": 32,
+    "sprite": "/originals/v1/thimblereed/front.png?v=baf96d9079d33527",
+    "spriteBack": "/originals/v1/thimblereed/back.png?v=baf96d9079d33527",
+    "animFront": "/originals/v1/thimblereed/front.gif?v=baf96d9079d33527",
+    "animBack": "/originals/v1/thimblereed/back.gif?v=baf96d9079d33527",
+    "artwork": "/originals/v1/thimblereed/front.png?v=baf96d9079d33527",
+    "roster": "original",
+    "contentVersion": 1,
+    "displayOrder": 152,
+    "framesFront": null,
+    "framesBack": null,
+    "lot": 2,
+    "designNumber": 2,
+    "habitat": "reed marsh",
+    "description": "A long-legged mouse weaves green reed blades into a hollow collar and carries seed pouches at its hips.",
+    "awaitingForms": [
+      100125
+    ]
+  },
+  {
+    "id": 100003,
+    "dexNo": 153,
+    "name": "sedgewarden",
+    "displayName": "Sedgewarden",
+    "genus": "harvest mouse",
+    "types": [
+      "grass",
+      "ground"
+    ],
+    "role": "speed",
+    "stats": {
+      "hp": 54,
+      "atk": 98,
+      "def": 40,
+      "spa": 84,
+      "spd": 39,
+      "spe": 115
+    },
+    "bst": 430,
+    "abilities": [
+      "overgrow",
+      "rough-skin"
+    ],
+    "moves": [
+      {
+        "id": 200046,
+        "name": "briar-cleave",
+        "level": 1
+      },
+      {
+        "id": 200042,
+        "name": "briar-rush",
+        "level": 9
+      },
+      {
+        "id": 200081,
+        "name": "loam-flick",
+        "level": 17
+      },
+      {
+        "id": 200006,
+        "name": "hearth-cleave",
+        "level": 25
+      },
+      {
+        "id": 200901,
+        "name": "woven-bastion",
+        "level": 33
+      },
+      {
+        "id": 200902,
+        "name": "wild-resolve",
+        "level": 41
+      }
+    ],
+    "tmMoves": [],
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false,
+    "captureRate": 45,
+    "chainId": 100000,
+    "evolvesFrom": 100002,
+    "evolvesTo": [],
+    "evolution": null,
+    "generation": 0,
+    "height": 9,
+    "weight": 140,
+    "sprite": "/originals/v1/sedgewarden/front.png?v=c454b27de4150640",
+    "spriteBack": "/originals/v1/sedgewarden/back.png?v=c454b27de4150640",
+    "animFront": "/originals/v1/sedgewarden/front.gif?v=c454b27de4150640",
+    "animBack": "/originals/v1/sedgewarden/back.gif?v=c454b27de4150640",
+    "artwork": "/originals/v1/sedgewarden/front.png?v=c454b27de4150640",
+    "roster": "original",
+    "contentVersion": 1,
+    "displayOrder": 153,
+    "framesFront": null,
+    "framesBack": null,
+    "lot": 2,
+    "designNumber": 3,
+    "habitat": "reed marsh",
+    "description": "A broad-shouldered marsh mouse plants root-like hind claws, its woven collar opening into a fan of flowering sedges.",
+    "awaitingForms": []
+  },
+  {
+    "id": 100004,
+    "dexNo": 154,
+    "name": "cindrick",
+    "displayName": "Cindrick",
+    "genus": "tenrec",
+    "types": [
+      "fire"
+    ],
+    "role": "physical",
+    "stats": {
+      "hp": 56,
+      "atk": 71,
+      "def": 62,
+      "spa": 30,
+      "spd": 29,
+      "spe": 52
+    },
+    "bst": 300,
+    "abilities": [
+      "blaze",
+      "clear-body"
+    ],
+    "moves": [
+      {
+        "id": 200011,
+        "name": "cinder-flick",
+        "level": 1
+      },
+      {
+        "id": 200012,
+        "name": "cinder-rush",
+        "level": 9
+      },
+      {
+        "id": 200001,
+        "name": "hearth-flick",
+        "level": 17
+      },
+      {
+        "id": 200006,
+        "name": "hearth-cleave",
+        "level": 25
+      },
+      {
+        "id": 200901,
+        "name": "woven-bastion",
+        "level": 33
+      },
+      {
+        "id": 200902,
+        "name": "wild-resolve",
+        "level": 41
+      }
+    ],
+    "tmMoves": [],
+    "isBaby": true,
+    "isLegendary": false,
+    "isMythical": false,
+    "captureRate": 45,
+    "chainId": 100003,
+    "evolvesFrom": null,
+    "evolvesTo": [
+      100005
+    ],
+    "evolution": null,
+    "generation": 0,
+    "height": 3,
+    "weight": 25,
+    "sprite": "/originals/v1/cindrick/front.png?v=0cf90f1a5a7ccbeb",
+    "spriteBack": "/originals/v1/cindrick/back.png?v=0cf90f1a5a7ccbeb",
+    "animFront": "/originals/v1/cindrick/front.gif?v=0cf90f1a5a7ccbeb",
+    "animBack": "/originals/v1/cindrick/back.gif?v=0cf90f1a5a7ccbeb",
+    "artwork": "/originals/v1/cindrick/front.png?v=0cf90f1a5a7ccbeb",
+    "roster": "original",
+    "contentVersion": 1,
+    "displayOrder": 154,
+    "framesFront": null,
+    "framesBack": null,
+    "lot": 2,
+    "designNumber": 4,
+    "habitat": "volcanic scrub",
+    "description": "A squat soot-brown tenrec with five glowing amber quills and an oversized wet charcoal nose.",
+    "awaitingForms": []
+  },
+  {
+    "id": 100005,
+    "dexNo": 155,
+    "name": "scorchant",
+    "displayName": "Scorchant",
+    "genus": "tenrec",
+    "types": [
+      "fire"
+    ],
+    "role": "physical",
+    "stats": {
+      "hp": 67,
+      "atk": 124,
+      "def": 83,
+      "spa": 39,
+      "spd": 44,
+      "spe": 83
+    },
+    "bst": 440,
+    "abilities": [
+      "blaze",
+      "clear-body"
+    ],
+    "moves": [
+      {
+        "id": 200016,
+        "name": "cinder-cleave",
+        "level": 1
+      },
+      {
+        "id": 200012,
+        "name": "cinder-rush",
+        "level": 9
+      },
+      {
+        "id": 200001,
+        "name": "hearth-flick",
+        "level": 17
+      },
+      {
+        "id": 200006,
+        "name": "hearth-cleave",
+        "level": 25
+      },
+      {
+        "id": 200901,
+        "name": "woven-bastion",
+        "level": 33
+      },
+      {
+        "id": 200902,
+        "name": "wild-resolve",
+        "level": 41
+      }
+    ],
+    "tmMoves": [],
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false,
+    "captureRate": 45,
+    "chainId": 100003,
+    "evolvesFrom": 100004,
+    "evolvesTo": [
+      100006
+    ],
+    "evolution": null,
+    "generation": 0,
+    "height": 6,
+    "weight": 120,
+    "sprite": "/originals/v1/scorchant/front.png?v=aaee81da5b3e0850",
+    "spriteBack": "/originals/v1/scorchant/back.png?v=aaee81da5b3e0850",
+    "animFront": "/originals/v1/scorchant/front.gif?v=aaee81da5b3e0850",
+    "animBack": "/originals/v1/scorchant/back.gif?v=aaee81da5b3e0850",
+    "artwork": "/originals/v1/scorchant/front.png?v=aaee81da5b3e0850",
+    "roster": "original",
+    "contentVersion": 1,
+    "displayOrder": 155,
+    "framesFront": null,
+    "framesBack": null,
+    "lot": 2,
+    "designNumber": 5,
+    "habitat": "volcanic scrub",
+    "description": "A lean tenrec braces on copper claws, longer heat-darkened quills arranged in a swept-back comb.",
+    "awaitingForms": [
+      100123
+    ]
+  },
+  {
+    "id": 100006,
+    "dexNo": 156,
+    "name": "hearthorn",
+    "displayName": "Hearthorn",
+    "genus": "tenrec",
+    "types": [
+      "fire",
+      "steel"
+    ],
+    "role": "physical",
+    "stats": {
+      "hp": 85,
+      "atk": 118,
+      "def": 80,
+      "spa": 38,
+      "spd": 46,
+      "spe": 93
+    },
+    "bst": 460,
+    "abilities": [
+      "blaze",
+      "sturdy"
+    ],
+    "moves": [
+      {
+        "id": 200016,
+        "name": "cinder-cleave",
+        "level": 1
+      },
+      {
+        "id": 200012,
+        "name": "cinder-rush",
+        "level": 9
+      },
+      {
+        "id": 200161,
+        "name": "rivet-flick",
+        "level": 17
+      },
+      {
+        "id": 200006,
+        "name": "hearth-cleave",
+        "level": 25
+      },
+      {
+        "id": 200901,
+        "name": "woven-bastion",
+        "level": 33
+      },
+      {
+        "id": 200902,
+        "name": "wild-resolve",
+        "level": 41
+      }
+    ],
+    "tmMoves": [],
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false,
+    "captureRate": 45,
+    "chainId": 100003,
+    "evolvesFrom": 100005,
+    "evolvesTo": [],
+    "evolution": null,
+    "generation": 0,
+    "height": 10,
+    "weight": 420,
+    "sprite": "/originals/v1/hearthorn/front.png?v=0a4ff88316f96b14",
+    "spriteBack": "/originals/v1/hearthorn/back.png?v=0a4ff88316f96b14",
+    "animFront": "/originals/v1/hearthorn/front.gif?v=0a4ff88316f96b14",
+    "animBack": "/originals/v1/hearthorn/back.gif?v=0a4ff88316f96b14",
+    "artwork": "/originals/v1/hearthorn/front.png?v=0a4ff88316f96b14",
+    "roster": "original",
+    "contentVersion": 1,
+    "displayOrder": 156,
+    "framesFront": null,
+    "framesBack": null,
+    "lot": 2,
+    "designNumber": 6,
+    "habitat": "volcanic scrub",
+    "description": "A low iron-quilled tenrec has a furnace-orange throat, interlocking dorsal plates and a forked digging snout.",
+    "awaitingForms": []
+  },
+  {
+    "id": 100007,
+    "dexNo": 157,
+    "name": "rillip",
+    "displayName": "Rillip",
+    "genus": "desman",
+    "types": [
+      "water"
+    ],
+    "role": "special",
+    "stats": {
+      "hp": 50,
+      "atk": 27,
+      "def": 38,
+      "spa": 86,
+      "spd": 60,
+      "spe": 49
+    },
+    "bst": 310,
+    "abilities": [
+      "torrent",
+      "swift-swim"
+    ],
+    "moves": [
+      {
+        "id": 200023,
+        "name": "rill-shot",
+        "level": 1
+      },
+      {
+        "id": 200024,
+        "name": "rill-bloom",
+        "level": 9
+      },
+      {
+        "id": 200003,
+        "name": "hearth-shot",
+        "level": 17
+      },
+      {
+        "id": 200005,
+        "name": "hearth-beam",
+        "level": 25
+      },
+      {
+        "id": 200901,
+        "name": "woven-bastion",
+        "level": 33
+      },
+      {
+        "id": 200902,
+        "name": "wild-resolve",
+        "level": 41
+      }
+    ],
+    "tmMoves": [],
+    "isBaby": true,
+    "isLegendary": false,
+    "isMythical": false,
+    "captureRate": 45,
+    "chainId": 100006,
+    "evolvesFrom": null,
+    "evolvesTo": [
+      100008
+    ],
+    "evolution": null,
+    "generation": 0,
+    "height": 3,
+    "weight": 30,
+    "sprite": "/originals/v1/rillip/front.png?v=1b7b8ca7dc646aa0",
+    "spriteBack": "/originals/v1/rillip/back.png?v=1b7b8ca7dc646aa0",
+    "animFront": "/originals/v1/rillip/front.gif?v=1b7b8ca7dc646aa0",
+    "animBack": "/originals/v1/rillip/back.gif?v=1b7b8ca7dc646aa0",
+    "artwork": "/originals/v1/rillip/front.png?v=1b7b8ca7dc646aa0",
+    "roster": "original",
+    "contentVersion": 1,
+    "displayOrder": 157,
+    "framesFront": null,
+    "framesBack": null,
+    "lot": 2,
+    "designNumber": 7,
+    "habitat": "mountain stream",
+    "description": "A round silver desman with webbed pink toes and a pale blue ribbon of water held between long whiskers.",
+    "awaitingForms": []
+  },
+  {
+    "id": 100008,
+    "dexNo": 158,
+    "name": "spindriftel",
+    "displayName": "Spindriftel",
+    "genus": "desman",
+    "types": [
+      "water"
+    ],
+    "role": "special",
+    "stats": {
+      "hp": 77,
+      "atk": 53,
+      "def": 73,
+      "spa": 139,
+      "spd": 76,
+      "spe": 67
+    },
+    "bst": 485,
+    "abilities": [
+      "torrent",
+      "swift-swim"
+    ],
+    "moves": [
+      {
+        "id": 200025,
+        "name": "rill-beam",
+        "level": 1
+      },
+      {
+        "id": 200024,
+        "name": "rill-bloom",
+        "level": 9
+      },
+      {
+        "id": 200003,
+        "name": "hearth-shot",
+        "level": 17
+      },
+      {
+        "id": 200005,
+        "name": "hearth-beam",
+        "level": 25
+      },
+      {
+        "id": 200901,
+        "name": "woven-bastion",
+        "level": 33
+      },
+      {
+        "id": 200902,
+        "name": "wild-resolve",
+        "level": 41
+      }
+    ],
+    "tmMoves": [],
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false,
+    "captureRate": 45,
+    "chainId": 100006,
+    "evolvesFrom": 100007,
+    "evolvesTo": [
+      100009
+    ],
+    "evolution": null,
+    "generation": 0,
+    "height": 7,
+    "weight": 150,
+    "sprite": "/originals/v1/spindriftel/front.png?v=e7123717a93ab7b7",
+    "spriteBack": "/originals/v1/spindriftel/back.png?v=e7123717a93ab7b7",
+    "animFront": "/originals/v1/spindriftel/front.gif?v=e7123717a93ab7b7",
+    "animBack": "/originals/v1/spindriftel/back.gif?v=e7123717a93ab7b7",
+    "artwork": "/originals/v1/spindriftel/front.png?v=e7123717a93ab7b7",
+    "roster": "original",
+    "contentVersion": 1,
+    "displayOrder": 158,
+    "framesFront": null,
+    "framesBack": null,
+    "lot": 2,
+    "designNumber": 8,
+    "habitat": "mountain stream",
+    "description": "A sleek desman stands upright on broad hind feet, its split whiskers forming two looping water wheels.",
+    "awaitingForms": [
+      100124
+    ]
+  },
+  {
+    "id": 100009,
+    "dexNo": 159,
+    "name": "weirwhisk",
+    "displayName": "Weirwhisk",
+    "genus": "desman",
+    "types": [
+      "water",
+      "ground"
+    ],
+    "role": "special",
+    "stats": {
+      "hp": 97,
+      "atk": 41,
+      "def": 67,
+      "spa": 143,
+      "spd": 81,
+      "spe": 76
+    },
+    "bst": 505,
+    "abilities": [
+      "torrent",
+      "rough-skin"
+    ],
+    "moves": [
+      {
+        "id": 200025,
+        "name": "rill-beam",
+        "level": 1
+      },
+      {
+        "id": 200024,
+        "name": "rill-bloom",
+        "level": 9
+      },
+      {
+        "id": 200083,
+        "name": "loam-shot",
+        "level": 17
+      },
+      {
+        "id": 200005,
+        "name": "hearth-beam",
+        "level": 25
+      },
+      {
+        "id": 200901,
+        "name": "woven-bastion",
+        "level": 33
+      },
+      {
+        "id": 200902,
+        "name": "wild-resolve",
+        "level": 41
+      }
+    ],
+    "tmMoves": [],
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false,
+    "captureRate": 45,
+    "chainId": 100006,
+    "evolvesFrom": 100008,
+    "evolvesTo": [],
+    "evolution": null,
+    "generation": 0,
+    "height": 11,
+    "weight": 480,
+    "sprite": "/originals/v1/weirwhisk/front.png?v=01089b4356d273d7",
+    "spriteBack": "/originals/v1/weirwhisk/back.png?v=01089b4356d273d7",
+    "animFront": "/originals/v1/weirwhisk/front.gif?v=01089b4356d273d7",
+    "animBack": "/originals/v1/weirwhisk/back.gif?v=01089b4356d273d7",
+    "artwork": "/originals/v1/weirwhisk/front.png?v=01089b4356d273d7",
+    "roster": "original",
+    "contentVersion": 1,
+    "displayOrder": 159,
+    "framesFront": null,
+    "framesBack": null,
+    "lot": 2,
+    "designNumber": 9,
+    "habitat": "mountain stream",
+    "description": "A heavy river engineer has shovel forepaws, a clay-brown flank dam and whisker arches that funnel water over its shoulders.",
+    "awaitingForms": []
+  },
+  {
+    "id": 100010,
+    "dexNo": 160,
+    "name": "dewlume",
+    "displayName": "Dewlume",
+    "genus": "lacewing",
+    "types": [
+      "bug"
+    ],
+    "role": "speed",
+    "stats": {
+      "hp": 40,
+      "atk": 73,
+      "def": 30,
+      "spa": 63,
+      "spd": 29,
+      "spe": 85
+    },
+    "bst": 320,
+    "abilities": [
+      "swarm",
+      "compound-eyes"
+    ],
+    "moves": [
+      {
+        "id": 200111,
+        "name": "chitin-flick",
+        "level": 1
+      },
+      {
+        "id": 200112,
+        "name": "chitin-rush",
+        "level": 9
+      },
+      {
+        "id": 200001,
+        "name": "hearth-flick",
+        "level": 17
+      },
+      {
+        "id": 200006,
+        "name": "hearth-cleave",
+        "level": 25
+      },
+      {
+        "id": 200901,
+        "name": "woven-bastion",
+        "level": 33
+      },
+      {
+        "id": 200902,
+        "name": "wild-resolve",
+        "level": 41
+      }
+    ],
+    "tmMoves": [],
+    "isBaby": true,
+    "isLegendary": false,
+    "isMythical": false,
+    "captureRate": 45,
+    "chainId": 100009,
+    "evolvesFrom": null,
+    "evolvesTo": [
+      100011
+    ],
+    "evolution": null,
+    "generation": 0,
+    "height": 2,
+    "weight": 5,
+    "sprite": "/originals/v1/dewlume/front.png?v=f66400dd7b0cb781",
+    "spriteBack": "/originals/v1/dewlume/back.png?v=f66400dd7b0cb781",
+    "animFront": "/originals/v1/dewlume/front.gif?v=f66400dd7b0cb781",
+    "animBack": "/originals/v1/dewlume/back.gif?v=f66400dd7b0cb781",
+    "artwork": "/originals/v1/dewlume/front.png?v=f66400dd7b0cb781",
+    "roster": "original",
+    "contentVersion": 1,
+    "displayOrder": 160,
+    "framesFront": null,
+    "framesBack": null,
+    "lot": 2,
+    "designNumber": 10,
+    "habitat": "mist meadow",
+    "description": "A pale green lacewing larva carries a single oversized dew bead between short curved jaws.",
+    "awaitingForms": []
+  },
+  {
+    "id": 100011,
+    "dexNo": 161,
+    "name": "veilace",
+    "displayName": "Veilace",
+    "genus": "lacewing",
+    "types": [
+      "bug"
+    ],
+    "role": "speed",
+    "stats": {
+      "hp": 51,
+      "atk": 63,
+      "def": 46,
+      "spa": 60,
+      "spd": 30,
+      "spe": 90
+    },
+    "bst": 340,
+    "abilities": [
+      "swarm",
+      "compound-eyes"
+    ],
+    "moves": [
+      {
+        "id": 200116,
+        "name": "chitin-cleave",
+        "level": 1
+      },
+      {
+        "id": 200112,
+        "name": "chitin-rush",
+        "level": 9
+      },
+      {
+        "id": 200001,
+        "name": "hearth-flick",
+        "level": 17
+      },
+      {
+        "id": 200006,
+        "name": "hearth-cleave",
+        "level": 25
+      },
+      {
+        "id": 200901,
+        "name": "woven-bastion",
+        "level": 33
+      },
+      {
+        "id": 200902,
+        "name": "wild-resolve",
+        "level": 41
+      }
+    ],
+    "tmMoves": [],
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false,
+    "captureRate": 45,
+    "chainId": 100009,
+    "evolvesFrom": 100010,
+    "evolvesTo": [
+      100012
+    ],
+    "evolution": null,
+    "generation": 0,
+    "height": 5,
+    "weight": 20,
+    "sprite": "/originals/v1/veilace/front.png?v=42ecd5bd1b53ac7b",
+    "spriteBack": "/originals/v1/veilace/back.png?v=42ecd5bd1b53ac7b",
+    "animFront": "/originals/v1/veilace/front.gif?v=42ecd5bd1b53ac7b",
+    "animBack": "/originals/v1/veilace/back.gif?v=42ecd5bd1b53ac7b",
+    "artwork": "/originals/v1/veilace/front.png?v=42ecd5bd1b53ac7b",
+    "roster": "original",
+    "contentVersion": 1,
+    "displayOrder": 161,
+    "framesFront": null,
+    "framesBack": null,
+    "lot": 2,
+    "designNumber": 11,
+    "habitat": "mist meadow",
+    "description": "A delicate upright nymph has four folded gauze wing cases and a dew-bead necklace.",
+    "awaitingForms": []
+  },
+  {
+    "id": 100012,
+    "dexNo": 162,
+    "name": "prismantis",
+    "displayName": "Prismantis",
+    "genus": "lacewing",
+    "types": [
+      "bug",
+      "flying"
+    ],
+    "role": "speed",
+    "stats": {
+      "hp": 53,
+      "atk": 111,
+      "def": 58,
+      "spa": 81,
+      "spd": 43,
+      "spe": 134
+    },
+    "bst": 480,
+    "abilities": [
+      "swarm",
+      "clear-body"
+    ],
+    "moves": [
+      {
+        "id": 200116,
+        "name": "chitin-cleave",
+        "level": 1
+      },
+      {
+        "id": 200112,
+        "name": "chitin-rush",
+        "level": 9
+      },
+      {
+        "id": 200091,
+        "name": "zephyr-flick",
+        "level": 17
+      },
+      {
+        "id": 200006,
+        "name": "hearth-cleave",
+        "level": 25
+      },
+      {
+        "id": 200901,
+        "name": "woven-bastion",
+        "level": 33
+      },
+      {
+        "id": 200902,
+        "name": "wild-resolve",
+        "level": 41
+      }
+    ],
+    "tmMoves": [],
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false,
+    "captureRate": 45,
+    "chainId": 100009,
+    "evolvesFrom": 100011,
+    "evolvesTo": [],
+    "evolution": null,
+    "generation": 0,
+    "height": 10,
+    "weight": 60,
+    "sprite": "/originals/v1/prismantis/front.png?v=e3ffa363ab2c5305",
+    "spriteBack": "/originals/v1/prismantis/back.png?v=e3ffa363ab2c5305",
+    "animFront": "/originals/v1/prismantis/front.gif?v=e3ffa363ab2c5305",
+    "animBack": "/originals/v1/prismantis/back.gif?v=e3ffa363ab2c5305",
+    "artwork": "/originals/v1/prismantis/front.png?v=e3ffa363ab2c5305",
+    "roster": "original",
+    "contentVersion": 1,
+    "displayOrder": 162,
+    "framesFront": null,
+    "framesBack": null,
+    "lot": 2,
+    "designNumber": 12,
+    "habitat": "mist meadow",
+    "description": "A slender lacewing opens four angular stained-glass wings, with long hooked forelegs and two conspicuous pearly eyes.",
+    "awaitingForms": []
+  },
+  {
+    "id": 100013,
+    "dexNo": 163,
+    "name": "wickit",
+    "displayName": "Wickit",
+    "genus": "click beetle",
+    "types": [
+      "bug"
+    ],
+    "role": "physical",
+    "stats": {
+      "hp": 61,
+      "atk": 85,
+      "def": 58,
+      "spa": 26,
+      "spd": 33,
+      "spe": 67
+    },
+    "bst": 330,
+    "abilities": [
+      "swarm",
+      "compound-eyes"
+    ],
+    "moves": [
+      {
+        "id": 200111,
+        "name": "chitin-flick",
+        "level": 1
+      },
+      {
+        "id": 200112,
+        "name": "chitin-rush",
+        "level": 9
+      },
+      {
+        "id": 200001,
+        "name": "hearth-flick",
+        "level": 17
+      },
+      {
+        "id": 200006,
+        "name": "hearth-cleave",
+        "level": 25
+      },
+      {
+        "id": 200901,
+        "name": "woven-bastion",
+        "level": 33
+      },
+      {
+        "id": 200902,
+        "name": "wild-resolve",
+        "level": 41
+      }
+    ],
+    "tmMoves": [],
+    "isBaby": true,
+    "isLegendary": false,
+    "isMythical": false,
+    "captureRate": 45,
+    "chainId": 100012,
+    "evolvesFrom": null,
+    "evolvesTo": [
+      100014
+    ],
+    "evolution": null,
+    "generation": 0,
+    "height": 2,
+    "weight": 6,
+    "sprite": "/originals/v1/wickit/front.png?v=608002dbfff0bafa",
+    "spriteBack": "/originals/v1/wickit/back.png?v=608002dbfff0bafa",
+    "animFront": "/originals/v1/wickit/front.gif?v=608002dbfff0bafa",
+    "animBack": "/originals/v1/wickit/back.gif?v=608002dbfff0bafa",
+    "artwork": "/originals/v1/wickit/front.png?v=608002dbfff0bafa",
+    "roster": "original",
+    "contentVersion": 1,
+    "displayOrder": 163,
+    "framesFront": null,
+    "framesBack": null,
+    "lot": 2,
+    "designNumber": 13,
+    "habitat": "storm woodland",
+    "description": "A short chestnut beetle larva has a square lantern patch behind its head and six cream feet.",
+    "awaitingForms": []
+  },
+  {
+    "id": 100014,
+    "dexNo": 164,
+    "name": "clackindle",
+    "displayName": "Clackindle",
+    "genus": "click beetle",
+    "types": [
+      "bug"
+    ],
+    "role": "physical",
+    "stats": {
+      "hp": 60,
+      "atk": 94,
+      "def": 65,
+      "spa": 30,
+      "spd": 42,
+      "spe": 59
+    },
+    "bst": 350,
+    "abilities": [
+      "swarm",
+      "compound-eyes"
+    ],
+    "moves": [
+      {
+        "id": 200116,
+        "name": "chitin-cleave",
+        "level": 1
+      },
+      {
+        "id": 200112,
+        "name": "chitin-rush",
+        "level": 9
+      },
+      {
+        "id": 200001,
+        "name": "hearth-flick",
+        "level": 17
+      },
+      {
+        "id": 200006,
+        "name": "hearth-cleave",
+        "level": 25
+      },
+      {
+        "id": 200901,
+        "name": "woven-bastion",
+        "level": 33
+      },
+      {
+        "id": 200902,
+        "name": "wild-resolve",
+        "level": 41
+      }
+    ],
+    "tmMoves": [],
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false,
+    "captureRate": 45,
+    "chainId": 100012,
+    "evolvesFrom": 100013,
+    "evolvesTo": [
+      100015
+    ],
+    "evolution": null,
+    "generation": 0,
+    "height": 5,
+    "weight": 45,
+    "sprite": "/originals/v1/clackindle/front.png?v=a598130d66cf5f1f",
+    "spriteBack": "/originals/v1/clackindle/back.png?v=a598130d66cf5f1f",
+    "animFront": "/originals/v1/clackindle/front.gif?v=a598130d66cf5f1f",
+    "animBack": "/originals/v1/clackindle/back.gif?v=a598130d66cf5f1f",
+    "artwork": "/originals/v1/clackindle/front.png?v=a598130d66cf5f1f",
+    "roster": "original",
+    "contentVersion": 1,
+    "displayOrder": 164,
+    "framesFront": null,
+    "framesBack": null,
+    "lot": 2,
+    "designNumber": 14,
+    "habitat": "storm woodland",
+    "description": "A broad click beetle braces a hinged thorax, amber seams tracing its dark shell.",
+    "awaitingForms": []
+  },
+  {
+    "id": 100015,
+    "dexNo": 165,
+    "name": "voltrivet",
+    "displayName": "Voltrivet",
+    "genus": "click beetle",
+    "types": [
+      "bug",
+      "electric"
+    ],
+    "role": "physical",
+    "stats": {
+      "hp": 83,
+      "atk": 127,
+      "def": 97,
+      "spa": 63,
+      "spd": 48,
+      "spe": 72
+    },
+    "bst": 490,
+    "abilities": [
+      "swarm",
+      "volt-absorb"
+    ],
+    "moves": [
+      {
+        "id": 200116,
+        "name": "chitin-cleave",
+        "level": 1
+      },
+      {
+        "id": 200112,
+        "name": "chitin-rush",
+        "level": 9
+      },
+      {
+        "id": 200031,
+        "name": "arc-flick",
+        "level": 17
+      },
+      {
+        "id": 200006,
+        "name": "hearth-cleave",
+        "level": 25
+      },
+      {
+        "id": 200901,
+        "name": "woven-bastion",
+        "level": 33
+      },
+      {
+        "id": 200902,
+        "name": "wild-resolve",
+        "level": 41
+      }
+    ],
+    "tmMoves": [],
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false,
+    "captureRate": 45,
+    "chainId": 100012,
+    "evolvesFrom": 100014,
+    "evolvesTo": [],
+    "evolution": null,
+    "generation": 0,
+    "height": 9,
+    "weight": 210,
+    "sprite": "/originals/v1/voltrivet/front.png?v=f39bbdd471e27d28",
+    "spriteBack": "/originals/v1/voltrivet/back.png?v=f39bbdd471e27d28",
+    "animFront": "/originals/v1/voltrivet/front.gif?v=f39bbdd471e27d28",
+    "animBack": "/originals/v1/voltrivet/back.gif?v=f39bbdd471e27d28",
+    "artwork": "/originals/v1/voltrivet/front.png?v=f39bbdd471e27d28",
+    "roster": "original",
+    "contentVersion": 1,
+    "displayOrder": 165,
+    "framesFront": null,
+    "framesBack": null,
+    "lot": 2,
+    "designNumber": 15,
+    "habitat": "storm woodland",
+    "description": "A copper beetle towers on splayed legs, twin capacitor organs rising behind its head and zigzag seams crossing split wing covers.",
+    "awaitingForms": []
+  },
+  {
+    "id": 100016,
+    "dexNo": 166,
+    "name": "pipshore",
+    "displayName": "Pipshore",
+    "genus": "sandpiper",
+    "types": [
+      "normal",
+      "flying"
+    ],
+    "role": "speed",
+    "stats": {
+      "hp": 57,
+      "atk": 64,
+      "def": 39,
+      "spa": 71,
+      "spd": 31,
+      "spe": 88
+    },
+    "bst": 350,
+    "abilities": [
+      "guts",
+      "clear-body"
+    ],
+    "moves": [
+      {
+        "id": 200001,
+        "name": "hearth-flick",
+        "level": 1
+      },
+      {
+        "id": 200002,
+        "name": "hearth-rush",
+        "level": 9
+      },
+      {
+        "id": 200091,
+        "name": "zephyr-flick",
+        "level": 17
+      },
+      {
+        "id": 200006,
+        "name": "hearth-cleave",
+        "level": 25
+      },
+      {
+        "id": 200901,
+        "name": "woven-bastion",
+        "level": 33
+      },
+      {
+        "id": 200902,
+        "name": "wild-resolve",
+        "level": 41
+      }
+    ],
+    "tmMoves": [],
+    "isBaby": true,
+    "isLegendary": false,
+    "isMythical": false,
+    "captureRate": 45,
+    "chainId": 100015,
+    "evolvesFrom": null,
+    "evolvesTo": [],
+    "evolution": null,
+    "generation": 0,
+    "height": 3,
+    "weight": 12,
+    "sprite": "/originals/v1/pipshore/front.png?v=65619a0cf9bbbb3f",
+    "spriteBack": "/originals/v1/pipshore/back.png?v=65619a0cf9bbbb3f",
+    "animFront": "/originals/v1/pipshore/front.gif?v=65619a0cf9bbbb3f",
+    "animBack": "/originals/v1/pipshore/back.gif?v=65619a0cf9bbbb3f",
+    "artwork": "/originals/v1/pipshore/front.png?v=65619a0cf9bbbb3f",
+    "roster": "original",
+    "contentVersion": 1,
+    "displayOrder": 166,
+    "framesFront": null,
+    "framesBack": null,
+    "lot": 2,
+    "designNumber": 16,
+    "habitat": "tidal flats",
+    "description": "A sandy shorebird chick has oversized black legs and a small spoon-tipped beak.",
+    "awaitingForms": [
+      100017
+    ]
+  },
+  {
+    "id": 100018,
+    "dexNo": 167,
+    "name": "breakerbill",
+    "displayName": "Breakerbill",
+    "genus": "sandpiper",
+    "types": [
+      "normal",
+      "flying"
+    ],
+    "role": "speed",
+    "stats": {
+      "hp": 74,
+      "atk": 94,
+      "def": 68,
+      "spa": 88,
+      "spd": 44,
+      "spe": 132
+    },
+    "bst": 500,
+    "abilities": [
+      "guts",
+      "clear-body"
+    ],
+    "moves": [
+      {
+        "id": 200006,
+        "name": "hearth-cleave",
+        "level": 1
+      },
+      {
+        "id": 200002,
+        "name": "hearth-rush",
+        "level": 9
+      },
+      {
+        "id": 200091,
+        "name": "zephyr-flick",
+        "level": 17
+      },
+      {
+        "id": 200901,
+        "name": "woven-bastion",
+        "level": 25
+      },
+      {
+        "id": 200902,
+        "name": "wild-resolve",
+        "level": 33
+      }
+    ],
+    "tmMoves": [],
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false,
+    "captureRate": 45,
+    "chainId": 100015,
+    "evolvesFrom": null,
+    "evolvesTo": [],
+    "evolution": null,
+    "generation": 0,
+    "height": 12,
+    "weight": 260,
+    "sprite": "/originals/v1/breakerbill/front.png?v=dac3cda90946f137",
+    "spriteBack": "/originals/v1/breakerbill/back.png?v=dac3cda90946f137",
+    "animFront": "/originals/v1/breakerbill/front.gif?v=dac3cda90946f137",
+    "animBack": "/originals/v1/breakerbill/back.gif?v=dac3cda90946f137",
+    "artwork": "/originals/v1/breakerbill/front.png?v=dac3cda90946f137",
+    "roster": "original",
+    "contentVersion": 1,
+    "displayOrder": 167,
+    "framesFront": null,
+    "framesBack": null,
+    "lot": 2,
+    "designNumber": 18,
+    "habitat": "tidal flats",
+    "description": "A long-billed wader spreads swept crescent wings, with a layered shell breastplate and coral-red stilt legs.",
+    "awaitingForms": [
+      100017
+    ]
+  },
+  {
+    "id": 100024,
+    "dexNo": 168,
+    "name": "bastilimp",
+    "displayName": "Bastilimp",
+    "genus": "limpet",
+    "types": [
+      "rock",
+      "water"
+    ],
+    "role": "defense",
+    "stats": {
+      "hp": 120,
+      "atk": 93,
+      "def": 119,
+      "spa": 59,
+      "spd": 102,
+      "spe": 32
+    },
+    "bst": 525,
+    "abilities": [
+      "solid-rock",
+      "swift-swim"
+    ],
+    "moves": [
+      {
+        "id": 200121,
+        "name": "shale-flick",
+        "level": 1
+      },
+      {
+        "id": 200022,
+        "name": "rill-rush",
+        "level": 9
+      },
+      {
+        "id": 200901,
+        "name": "woven-bastion",
+        "level": 17
+      },
+      {
+        "id": 200902,
+        "name": "wild-resolve",
+        "level": 25
+      }
+    ],
+    "tmMoves": [],
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false,
+    "captureRate": 45,
+    "chainId": 100021,
+    "evolvesFrom": null,
+    "evolvesTo": [],
+    "evolution": null,
+    "generation": 0,
+    "height": 13,
+    "weight": 1200,
+    "sprite": "/originals/v1/bastilimp/front.png?v=13456ba5994b429d",
+    "spriteBack": "/originals/v1/bastilimp/back.png?v=13456ba5994b429d",
+    "animFront": "/originals/v1/bastilimp/front.gif?v=13456ba5994b429d",
+    "animBack": "/originals/v1/bastilimp/back.gif?v=13456ba5994b429d",
+    "artwork": "/originals/v1/bastilimp/front.png?v=13456ba5994b429d",
+    "roster": "original",
+    "contentVersion": 1,
+    "displayOrder": 168,
+    "framesFront": null,
+    "framesBack": null,
+    "lot": 2,
+    "designNumber": 24,
+    "habitat": "wave-cut rocks",
+    "description": "A many-ridged limpet anchors a massive stepped shell, opening three blue siphon gates above its muscular orange foot.",
+    "awaitingForms": [
+      100023
+    ]
+  },
+  {
+    "id": 100048,
+    "dexNo": 169,
+    "name": "drakarn",
+    "displayName": "Drakarn",
+    "genus": "monitor lizard",
+    "types": [
+      "dragon",
+      "rock"
+    ],
+    "role": "physical",
+    "stats": {
+      "hp": 92,
+      "atk": 128,
+      "def": 87,
+      "spa": 40,
+      "spd": 51,
+      "spe": 102
+    },
+    "bst": 500,
+    "abilities": [
+      "pressure",
+      "sturdy"
+    ],
+    "moves": [
+      {
+        "id": 200146,
+        "name": "elder-cleave",
+        "level": 1
+      },
+      {
+        "id": 200142,
+        "name": "elder-rush",
+        "level": 9
+      },
+      {
+        "id": 200121,
+        "name": "shale-flick",
+        "level": 17
+      },
+      {
+        "id": 200006,
+        "name": "hearth-cleave",
+        "level": 25
+      },
+      {
+        "id": 200901,
+        "name": "woven-bastion",
+        "level": 33
+      },
+      {
+        "id": 200902,
+        "name": "wild-resolve",
+        "level": 41
+      }
+    ],
+    "tmMoves": [],
+    "isBaby": false,
+    "isLegendary": false,
+    "isMythical": false,
+    "captureRate": 45,
+    "chainId": 100045,
+    "evolvesFrom": null,
+    "evolvesTo": [],
+    "evolution": null,
+    "generation": 0,
+    "height": 18,
+    "weight": 1450,
+    "sprite": "/originals/v1/drakarn/front.png?v=d394368716ad1359",
+    "spriteBack": "/originals/v1/drakarn/back.png?v=d394368716ad1359",
+    "animFront": "/originals/v1/drakarn/front.gif?v=d394368716ad1359",
+    "animBack": "/originals/v1/drakarn/back.gif?v=d394368716ad1359",
+    "artwork": "/originals/v1/drakarn/front.png?v=d394368716ad1359",
+    "roster": "original",
+    "contentVersion": 1,
+    "displayOrder": 169,
+    "framesFront": null,
+    "framesBack": null,
+    "lot": 2,
+    "designNumber": 48,
+    "habitat": "basalt escarpment",
+    "description": "A towering monitor braces a thick counterweight tail, basalt shoulder spires framing a low angular head and copper throat.",
+    "awaitingForms": [
+      100047
+    ]
+  },
+  {
+    "id": 100141,
+    "dexNo": 170,
+    "name": "bathyridge",
+    "displayName": "Bathyridge",
+    "genus": "leatherback turtle",
+    "types": [
+      "water",
+      "dragon"
+    ],
+    "role": "defense",
+    "stats": {
+      "hp": 152,
+      "atk": 106,
+      "def": 171,
+      "spa": 85,
+      "spd": 124,
+      "spe": 32
+    },
+    "bst": 670,
+    "abilities": [
+      "torrent",
+      "shed-skin"
+    ],
+    "moves": [
+      {
+        "id": 200021,
+        "name": "rill-flick",
+        "level": 1
+      },
+      {
+        "id": 200142,
+        "name": "elder-rush",
+        "level": 9
+      },
+      {
+        "id": 200901,
+        "name": "woven-bastion",
+        "level": 17
+      },
+      {
+        "id": 200902,
+        "name": "wild-resolve",
+        "level": 25
+      }
+    ],
+    "tmMoves": [],
+    "isBaby": false,
+    "isLegendary": true,
+    "isMythical": false,
+    "captureRate": 3,
+    "chainId": 100140,
+    "evolvesFrom": null,
+    "evolvesTo": [],
+    "evolution": null,
+    "generation": 0,
+    "height": 40,
+    "weight": 9500,
+    "sprite": "/originals/v1/bathyridge/front.png?v=8028b8274eb8354b",
+    "spriteBack": "/originals/v1/bathyridge/back.png?v=8028b8274eb8354b",
+    "animFront": "/originals/v1/bathyridge/front.gif?v=8028b8274eb8354b",
+    "animBack": "/originals/v1/bathyridge/back.gif?v=8028b8274eb8354b",
+    "artwork": "/originals/v1/bathyridge/front.png?v=8028b8274eb8354b",
+    "roster": "original",
+    "contentVersion": 1,
+    "displayOrder": 170,
+    "framesFront": null,
+    "framesBack": null,
+    "lot": 2,
+    "designNumber": 141,
+    "habitat": "ocean trenches",
+    "description": "A massive leatherback turtle carries seven luminous blue ridges, long black flippers and a weathered head crowned by short coral horns.",
+    "awaitingForms": []
+  }
+]

@@ -1,0 +1,11 @@
+# Original roster — Lot 2
+
+Lot 2 adds 20 hand-designed pixel-art creatures (#151–#170) to the in-game **Original** roster, after Emergent's 150 flat-vector creatures (Lot 1, unchanged). They come from the `possible-designs` work in `C:\dev\DexArena` (7 November 2026).
+
+- **Members:** the Reedlet, Cindrick, Rillip, Dewlume and Wickit lines (three stages each), plus Pipshore, Breakerbill, Bastilimp, Drakarn and Bathyridge (legendary, sealed).
+- **Data:** `designs/` holds the full 150-design catalogue (roster, moves, abilities, asset manifest). `frontend/scripts/build-original-lot2.cjs` builds `frontend/src/content/original/lot2/{creatures,moves}.json` from it. Membership is an explicit list in that script, so art finished later goes into a later lot. Design IDs (100001+) and move IDs (200001+) are kept.
+- **Art:** `frontend/public/originals/v1/<slug>/`: 96×96 front/back PNGs plus 6-frame, 140 ms GIFs. URLs carry `?v=<assetVersion>`, and a changed URL invalidates the cached GIF. Clackindle and Pipshore were packaged on 7 November with `scripts/assets/package-sprites.cjs --production --slug=…`. The batch-02 structural check passes for 8 species, and Claude checked the frame strips by eye; the owner has not approved the art.
+- **Evolution gaps:** links to designs that have no art yet were removed. Breakerbill, Bastilimp and Drakarn therefore stand alone as starters for now, and their `awaitingForms` field drives a "still being drawn" note in the details sheet. Thimblereed, Scorchant and Spindriftel lose their unpainted branch evolutions.
+- **Not carried over:** the local `/designs` catalogue page, the exhibition arena and the draft v3 replay format. The other docs in this folder describe those as they were on `possible-designs`.
+- **Checks (7 November):** Jest 87/87 (8 new tests in `src/lib/__tests__/original-lot2.test.js`); production build OK. In headless Chrome, the roster filter, details sheet and a full Lot 2 battle ran with no console errors. In a 40-battle headless sample against the same Lot 1 opponents, Lot 2 won 24 and BST-matched Lot 1 teams won 22. That shows rough parity, not tuned balance; the mostly melee/dash move sets do poorly against Kiter rivals.
+- **Provisional:** heights and weights (`SIZE` in the build script). Lot 2's pixel sprites draw somewhat smaller than Lot 1's 512 px art.

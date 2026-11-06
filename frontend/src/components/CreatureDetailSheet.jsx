@@ -132,7 +132,14 @@ export const CreatureDetailSheet = ({ creatureId, onClose, onPick, onToggleTeam 
                   </div>
                   <p className="mt-2 font-mono text-[10px] uppercase tracking-wider text-slate-500">
                     {(creature.height / 10).toFixed(1)} m · {(creature.weight / 10).toFixed(1)} kg · BST {creature.bst}
+                    {creature.lot > 1 && <span data-testid="creature-detail-lot"> · Lot {creature.lot}</span>}
                   </p>
+                  {creature.description && <p className="mt-1.5 text-xs leading-snug text-slate-300">{creature.description}</p>}
+                  {creature.awaitingForms?.length > 0 && (
+                    <p className="mt-1 text-[11px] text-slate-500" data-testid="creature-detail-awaiting">
+                      More of this family is still being drawn and will arrive in a later lot.
+                    </p>
+                  )}
                 </div>
               </div>
 

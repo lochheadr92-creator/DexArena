@@ -1,8 +1,8 @@
 import { useGame } from "@/context/GameContext";
-import { ROSTERS } from "@/lib/rosters";
+import { ROSTERS, ORIGINAL_TOTAL } from "@/lib/rosters";
 import { cn } from "@/lib/utils";
 
-const SUBTITLE = { pokemon: "Gen I–IV · PokéAPI", original: "150 original species" };
+const SUBTITLE = { pokemon: "Gen I–IV · PokéAPI", original: `${ORIGINAL_TOTAL} original species in 2 lots` };
 
 export const RosterToggle = () => {
   const { rosterId, setRoster } = useGame();

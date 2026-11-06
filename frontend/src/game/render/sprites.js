@@ -86,6 +86,8 @@ export async function ensureSprite(creature, facing) {
   if (!entry && animations.animatedSprites && animUrl) {
     try {
       let stored = await idbGet(STORE_SPRITES, key).catch(() => null);
+      // A changed URL (e.g. a new ?v= asset version) means the cached frames are stale.
+      if (stored && stored.url !== animUrl) stored = null;
       if (stored) source = "idb";
       else {
         const res = await fetch(animUrl);

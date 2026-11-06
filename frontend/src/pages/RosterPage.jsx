@@ -53,7 +53,7 @@ export default function RosterPage() {
   const [filters, setFilters] = useState(EMPTY_FILTERS);
   const [detailId, setDetailId] = useState(null);
 
-  const hasFilters = !!(filters.query || filters.gen || filters.type || filters.onlyUnlocked || filters.ability);
+  const hasFilters = !!(filters.query || filters.gen || filters.lot || filters.type || filters.onlyUnlocked || filters.ability);
   const q = filters.query.trim().toLowerCase();
 
   const filtered = useMemo(
@@ -61,12 +61,13 @@ export default function RosterPage() {
       list.filter(
         (c) =>
           (!filters.gen || c.generation === filters.gen) &&
+          (!filters.lot || (c.lot ?? 1) === filters.lot) &&
           (!filters.type || c.types.includes(filters.type)) &&
           (!filters.onlyUnlocked || unlockedIds.has(c.id)) &&
           (!filters.ability || (c.abilities || []).includes(filters.ability)) &&
           (!q || c.displayName.toLowerCase().includes(q) || c.name.includes(q) || String(c.id) === q.replace(/^#0*/, "") || String(c.displayOrder ?? c.dexNo ?? "") === q.replace(/^#0*/, "")),
       ),
-    [list, filters.gen, filters.type, filters.onlyUnlocked, filters.ability, unlockedIds, q],
+    [list, filters.gen, filters.lot, filters.type, filters.onlyUnlocked, filters.ability, unlockedIds, q],
   );
   const abilityCount = useMemo(() => (filters.ability ? list.filter((c) => (c.abilities || []).includes(filters.ability)).length : 0), [list, filters.ability]);
 
@@ -91,7 +92,7 @@ export default function RosterPage() {
 
   return (
     <div className="pb-48">
-      <RosterFilters filters={filters} setFilters={setFilters} hasFilters={hasFilters} list={list} showGen={roster.hasGenerations} />
+      <RosterFilters filters={filters} setFilters={setFilters} hasFilters={hasFilters} list={list} showGen={roster.hasGenerations} lots={roster.lots} />
       {rosterId === "original" && <SortToggle value={dexSort} onChange={setDexSort} />}
       {!hasFilters && list.length > 0 && <div className="mt-3"><SpeciesSpotlight onPick={setDetailId} /></div>}
       {filters.ability && (

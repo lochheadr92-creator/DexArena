@@ -5,7 +5,7 @@ import { GEN_LABELS, titleCase } from "@/lib/format";
 import { DEX } from "@/constants/testIds/dex";
 import { AbilityFilter } from "@/components/AbilityFilter";
 
-export const EMPTY_FILTERS = { query: "", gen: 0, type: null, onlyUnlocked: false, ability: null };
+export const EMPTY_FILTERS = { query: "", gen: 0, lot: 0, type: null, onlyUnlocked: false, ability: null };
 
 const Chip = ({ active, onClick, children, testId, style, className }) => (
   <button
@@ -26,7 +26,7 @@ const Chip = ({ active, onClick, children, testId, style, className }) => (
   </button>
 );
 
-export const RosterFilters = ({ filters, setFilters, hasFilters, list = [], showGen = true }) => {
+export const RosterFilters = ({ filters, setFilters, hasFilters, list = [], showGen = true, lots = null }) => {
   const set = (patch) => setFilters((f) => ({ ...f, ...patch }));
 
   return (
@@ -61,6 +61,19 @@ export const RosterFilters = ({ filters, setFilters, hasFilters, list = [], show
             {[1, 2, 3, 4].map((g) => (
               <Chip key={g} testId={DEX.genFilter(g)} active={filters.gen === g} onClick={() => set({ gen: filters.gen === g ? 0 : g })}>
                 Gen {GEN_LABELS[g]}
+              </Chip>
+            ))}
+            <span className="mx-1 h-4 w-px shrink-0 bg-slate-800" />
+          </>
+        )}
+        {!showGen && lots?.length > 1 && (
+          <>
+            <Chip testId={DEX.lotFilter("all")} active={!filters.lot} onClick={() => set({ lot: 0 })}>
+              All Lots
+            </Chip>
+            {lots.map((l) => (
+              <Chip key={l} testId={DEX.lotFilter(l)} active={filters.lot === l} onClick={() => set({ lot: filters.lot === l ? 0 : l })}>
+                Lot {l}
               </Chip>
             ))}
             <span className="mx-1 h-4 w-px shrink-0 bg-slate-800" />

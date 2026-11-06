@@ -1,0 +1,158 @@
+[
+  {
+    "slug": "reedlet",
+    "id": 100001,
+    "scale": 0.24528301886792453,
+    "sourceSize": [
+      1536,
+      1024
+    ],
+    "sourceSha256": "9373fde0f9c1ca39ed18e23a970ffabd9f48662199c568f29b77d85769ed4f3d",
+    "assetVersion": "a519b275f06c8126",
+    "frames": 12,
+    "colors": 24
+  },
+  {
+    "slug": "thimblereed",
+    "id": 100002,
+    "scale": 0.26449358746364837,
+    "sourceSize": [
+      1536,
+      1024
+    ],
+    "sourceSha256": "eddbd17e24a4b2dba17d2163e5b58be94890a59950b671ba7fc2b5b7b5c1dd85",
+    "assetVersion": "baf96d9079d33527",
+    "frames": 12,
+    "colors": 24
+  },
+  {
+    "slug": "sedgewarden",
+    "id": 100003,
+    "scale": 0.23330575582082494,
+    "sourceSize": [
+      1536,
+      1024
+    ],
+    "sourceSha256": "39b3551511a63e0b839c46d3ae27885a664efe57b948580dbf6c83a0e2470c9a",
+    "assetVersion": "c454b27de4150640",
+    "frames": 12,
+    "colors": 24
+  },
+  {
+    "slug": "cindrick",
+    "id": 100004,
+    "scale": 0.22493102764303877,
+    "sourceSize": [
+      1536,
+      1024
+    ],
+    "sourceSha256": "0776a18288d3b19840c8943d83035f1d5909466bdae0411afe410cc6e6fccedd",
+    "assetVersion": "0cf90f1a5a7ccbeb",
+    "frames": 12,
+    "colors": 24
+  },
+  {
+    "slug": "hearthorn",
+    "id": 100006,
+    "scale": 0.21639053596551525,
+    "sourceSize": [
+      1536,
+      1024
+    ],
+    "sourceSha256": "ae2e19ab7cef1bdefa5e6c274a711cdad2c858c7931af3cb326f633dff4d6117",
+    "assetVersion": "0a4ff88316f96b14",
+    "frames": 12,
+    "colors": 24
+  },
+  {
+    "slug": "rillip",
+    "id": 100007,
+    "scale": 0.20351302241066022,
+    "sourceSize": [
+      1536,
+      1024
+    ],
+    "sourceSha256": "c914518f7222caf3d756aebe46567c04ce7575373bb69365b0b3d94366a99d25",
+    "assetVersion": "1b7b8ca7dc646aa0",
+    "frames": 12,
+    "colors": 24
+  },
+  {
+    "slug": "prismantis",
+    "id": 100012,
+    "scale": 0.26777592038253706,
+    "sourceSize": [
+      1536,
+      1024
+    ],
+    "sourceSha256": "e55b9b7b07cf1ebc347ee783b03cf876095e7cbdc8b9aa8a4c4f7b1dc7e0db33",
+    "assetVersion": "e3ffa363ab2c5305",
+    "frames": 12,
+    "colors": 24
+  },
+  {
+    "slug": "voltrivet",
+    "id": 100015,
+    "scale": 0.23184464665481297,
+    "sourceSize": [
+      1536,
+      1024
+    ],
+    "sourceSha256": "7c6b4d5fa41af1f6c847b9dc22638f9c57858c22959a28516da65b0f0d9decbb",
+    "assetVersion": "f39bbdd471e27d28",
+    "frames": 12,
+    "colors": 24
+  },
+  {
+    "slug": "breakerbill",
+    "id": 100018,
+    "scale": 0.3029765613765998,
+    "sourceSize": [
+      1536,
+      1024
+    ],
+    "sourceSha256": "9054b3b7d30c607a4ad518161858fa70f6ddc2a7057a2ececbbcc9cbd09848ac",
+    "assetVersion": "dac3cda90946f137",
+    "frames": 12,
+    "colors": 24
+  },
+  {
+    "slug": "bastilimp",
+    "id": 100024,
+    "scale": 0.23398961488533102,
+    "sourceSize": [
+      1536,
+      1024
+    ],
+    "sourceSha256": "94c531c9ad14f748dbd99770c23125a6bd59d383a2daf7d39994b62e41a4612d",
+    "assetVersion": "13456ba5994b429d",
+    "frames": 12,
+    "colors": 24
+  },
+  {
+    "slug": "drakarn",
+    "id": 100048,
+    "scale": 0.16501954054860027,
+    "sourceSize": [
+      1536,
+      1024
+    ],
+    "sourceSha256": "d29ecbdfe8441ffff7820772a46ec96b729673b6355509c88d88933dcb8e96cf",
+    "assetVersion": "d394368716ad1359",
+    "frames": 12,
+    "colors": 24
+  },
+  {
+    "slug": "bathyridge",
+    "id": 100141,
+    "scale": 0.15246238857742106,
+    "sourceSize": [
+      1536,
+      1024
+    ],
+    "sourceSha256": "d3b0535b8b6a1c820547040a518463bbdb0d2ceacb8a147e6d666d295619dadb",
+    "assetVersion": "8028b8274eb8354b",
+    "frames": 12,
+    "colors": 24
+  }
+]

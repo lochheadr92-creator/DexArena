@@ -1,0 +1,86 @@
+[
+  {
+    "lead": "Reedlet",
+    "opponent": "Prismantis",
+    "observed": true,
+    "noFallbacks": true,
+    "tick": "8"
+  },
+  {
+    "lead": "Thimblereed",
+    "opponent": "Voltrivet",
+    "observed": true,
+    "noFallbacks": true,
+    "tick": "10"
+  },
+  {
+    "lead": "Sedgewarden",
+    "opponent": "Breakerbill",
+    "observed": true,
+    "noFallbacks": true,
+    "tick": "11"
+  },
+  {
+    "lead": "Cindrick",
+    "opponent": "Bastilimp",
+    "observed": true,
+    "noFallbacks": true,
+    "tick": "11"
+  },
+  {
+    "lead": "Hearthorn",
+    "opponent": "Drakarn",
+    "observed": true,
+    "noFallbacks": true,
+    "tick": "11"
+  },
+  {
+    "lead": "Rillip",
+    "opponent": "Bathyridge",
+    "observed": true,
+    "noFallbacks": true,
+    "tick": "10"
+  },
+  {
+    "lead": "Prismantis",
+    "opponent": "Reedlet",
+    "observed": true,
+    "noFallbacks": true,
+    "tick": "11"
+  },
+  {
+    "lead": "Voltrivet",
+    "opponent": "Thimblereed",
+    "observed": true,
+    "noFallbacks": true,
+    "tick": "8"
+  },
+  {
+    "lead": "Breakerbill",
+    "opponent": "Sedgewarden",
+    "observed": true,
+    "noFallbacks": true,
+    "tick": "10"
+  },
+  {
+    "lead": "Bastilimp",
+    "opponent": "Cindrick",
+    "observed": true,
+    "noFallbacks": true,
+    "tick": "13"
+  },
+  {
+    "lead": "Drakarn",
+    "opponent": "Hearthorn",
+    "observed": true,
+    "noFallbacks": true,
+    "tick": "8"
+  },
+  {
+    "lead": "Bathyridge",
+    "opponent": "Rillip",
+    "observed": true,
+    "noFallbacks": true,
+    "tick": "9"
+  }
+]

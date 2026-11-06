@@ -1,0 +1,1400 @@
+{
+  "scope": "Batch 01 structural checks; visual review is separate",
+  "species": 12,
+  "animations": 24,
+  "frames": 144,
+  "rows": [
+    {
+      "species": "reedlet",
+      "view": "front",
+      "frames": 6,
+      "uniqueDrawings": 6,
+      "loopMs": 840,
+      "sha256": "3867d967752947ae48109683af888f3ada1e91cd6fee2a5fdb3d48c05bc6e494",
+      "bounds": [
+        {
+          "left": 20,
+          "right": 86,
+          "top": 37,
+          "bottom": 86,
+          "opaque": 1932,
+          "colors": 23
+        },
+        {
+          "left": 20,
+          "right": 87,
+          "top": 36,
+          "bottom": 86,
+          "opaque": 2029,
+          "colors": 23
+        },
+        {
+          "left": 21,
+          "right": 89,
+          "top": 35,
+          "bottom": 86,
+          "opaque": 2093,
+          "colors": 23
+        },
+        {
+          "left": 20,
+          "right": 85,
+          "top": 38,
+          "bottom": 86,
+          "opaque": 1894,
+          "colors": 23
+        },
+        {
+          "left": 20,
+          "right": 87,
+          "top": 38,
+          "bottom": 86,
+          "opaque": 1869,
+          "colors": 22
+        },
+        {
+          "left": 21,
+          "right": 88,
+          "top": 38,
+          "bottom": 86,
+          "opaque": 1902,
+          "colors": 23
+        }
+      ]
+    },
+    {
+      "species": "reedlet",
+      "view": "back",
+      "frames": 6,
+      "uniqueDrawings": 6,
+      "loopMs": 840,
+      "sha256": "48303bca70e171e06a17ac149be63001dd3d24a9af955152f2dd571f4aaf77a6",
+      "bounds": [
+        {
+          "left": 16,
+          "right": 81,
+          "top": 37,
+          "bottom": 86,
+          "opaque": 1845,
+          "colors": 22
+        },
+        {
+          "left": 15,
+          "right": 81,
+          "top": 36,
+          "bottom": 86,
+          "opaque": 1897,
+          "colors": 22
+        },
+        {
+          "left": 14,
+          "right": 81,
+          "top": 35,
+          "bottom": 86,
+          "opaque": 2015,
+          "colors": 22
+        },
+        {
+          "left": 14,
+          "right": 79,
+          "top": 39,
+          "bottom": 86,
+          "opaque": 1817,
+          "colors": 22
+        },
+        {
+          "left": 13,
+          "right": 80,
+          "top": 40,
+          "bottom": 86,
+          "opaque": 1743,
+          "colors": 22
+        },
+        {
+          "left": 14,
+          "right": 79,
+          "top": 39,
+          "bottom": 86,
+          "opaque": 1796,
+          "colors": 22
+        }
+      ]
+    },
+    {
+      "species": "thimblereed",
+      "view": "front",
+      "frames": 6,
+      "uniqueDrawings": 6,
+      "loopMs": 840,
+      "sha256": "da8a7555f9cd801e4d1703635a76ffd48fcc72cdcb08c1d1ca521dbb81a21a32",
+      "bounds": [
+        {
+          "left": 14,
+          "right": 83,
+          "top": 28,
+          "bottom": 86,
+          "opaque": 1725,
+          "colors": 23
+        },
+        {
+          "left": 14,
+          "right": 83,
+          "top": 26,
+          "bottom": 86,
+          "opaque": 1780,
+          "colors": 23
+        },
+        {
+          "left": 15,
+          "right": 83,
+          "top": 25,
+          "bottom": 86,
+          "opaque": 1804,
+          "colors": 22
+        },
+        {
+          "left": 14,
+          "right": 84,
+          "top": 28,
+          "bottom": 86,
+          "opaque": 1743,
+          "colors": 23
+        },
+        {
+          "left": 14,
+          "right": 85,
+          "top": 29,
+          "bottom": 86,
+          "opaque": 1699,
+          "colors": 22
+        },
+        {
+          "left": 16,
+          "right": 84,
+          "top": 28,
+          "bottom": 86,
+          "opaque": 1722,
+          "colors": 23
+        }
+      ]
+    },
+    {
+      "species": "thimblereed",
+      "view": "back",
+      "frames": 6,
+      "uniqueDrawings": 6,
+      "loopMs": 840,
+      "sha256": "639abab402f9964e31a714b58cb7a1eeb598f571da2a67e2659c2d808a3e8c73",
+      "bounds": [
+        {
+          "left": 8,
+          "right": 73,
+          "top": 29,
+          "bottom": 86,
+          "opaque": 1635,
+          "colors": 22
+        },
+        {
+          "left": 7,
+          "right": 73,
+          "top": 27,
+          "bottom": 86,
+          "opaque": 1713,
+          "colors": 22
+        },
+        {
+          "left": 7,
+          "right": 71,
+          "top": 26,
+          "bottom": 86,
+          "opaque": 1751,
+          "colors": 22
+        },
+        {
+          "left": 8,
+          "right": 71,
+          "top": 29,
+          "bottom": 86,
+          "opaque": 1643,
+          "colors": 22
+        },
+        {
+          "left": 7,
+          "right": 70,
+          "top": 31,
+          "bottom": 86,
+          "opaque": 1592,
+          "colors": 22
+        },
+        {
+          "left": 8,
+          "right": 70,
+          "top": 29,
+          "bottom": 86,
+          "opaque": 1631,
+          "colors": 22
+        }
+      ]
+    },
+    {
+      "species": "sedgewarden",
+      "view": "front",
+      "frames": 6,
+      "uniqueDrawings": 6,
+      "loopMs": 840,
+      "sha256": "f3f4a5c93027384544d804ba1e9ff2422d4a2d3fc0972a996f5d60cf9436926b",
+      "bounds": [
+        {
+          "left": 19,
+          "right": 87,
+          "top": 34,
+          "bottom": 86,
+          "opaque": 1944,
+          "colors": 23
+        },
+        {
+          "left": 20,
+          "right": 89,
+          "top": 34,
+          "bottom": 86,
+          "opaque": 2029,
+          "colors": 23
+        },
+        {
+          "left": 19,
+          "right": 88,
+          "top": 32,
+          "bottom": 86,
+          "opaque": 2101,
+          "colors": 23
+        },
+        {
+          "left": 18,
+          "right": 87,
+          "top": 34,
+          "bottom": 86,
+          "opaque": 1985,
+          "colors": 23
+        },
+        {
+          "left": 20,
+          "right": 90,
+          "top": 34,
+          "bottom": 86,
+          "opaque": 1992,
+          "colors": 23
+        },
+        {
+          "left": 19,
+          "right": 89,
+          "top": 33,
+          "bottom": 86,
+          "opaque": 2006,
+          "colors": 23
+        }
+      ]
+    },
+    {
+      "species": "sedgewarden",
+      "view": "back",
+      "frames": 6,
+      "uniqueDrawings": 6,
+      "loopMs": 840,
+      "sha256": "1a42cbf69a3a8450de52f5222b95c313df472758960b3fd1e03b775f28400d97",
+      "bounds": [
+        {
+          "left": 14,
+          "right": 85,
+          "top": 34,
+          "bottom": 86,
+          "opaque": 2074,
+          "colors": 23
+        },
+        {
+          "left": 14,
+          "right": 85,
+          "top": 33,
+          "bottom": 86,
+          "opaque": 2149,
+          "colors": 23
+        },
+        {
+          "left": 14,
+          "right": 86,
+          "top": 31,
+          "bottom": 86,
+          "opaque": 2209,
+          "colors": 23
+        },
+        {
+          "left": 9,
+          "right": 80,
+          "top": 34,
+          "bottom": 86,
+          "opaque": 2064,
+          "colors": 23
+        },
+        {
+          "left": 9,
+          "right": 80,
+          "top": 36,
+          "bottom": 86,
+          "opaque": 2015,
+          "colors": 23
+        },
+        {
+          "left": 10,
+          "right": 81,
+          "top": 35,
+          "bottom": 86,
+          "opaque": 2013,
+          "colors": 23
+        }
+      ]
+    },
+    {
+      "species": "cindrick",
+      "view": "front",
+      "frames": 6,
+      "uniqueDrawings": 6,
+      "loopMs": 840,
+      "sha256": "1392333a2955823236cfeafa80e13ae3c37f67aa07cce6c6a4baccfe4f6d1628",
+      "bounds": [
+        {
+          "left": 15,
+          "right": 73,
+          "top": 41,
+          "bottom": 86,
+          "opaque": 1810,
+          "colors": 22
+        },
+        {
+          "left": 14,
+          "right": 74,
+          "top": 41,
+          "bottom": 86,
+          "opaque": 1877,
+          "colors": 23
+        },
+        {
+          "left": 13,
+          "right": 74,
+          "top": 39,
+          "bottom": 86,
+          "opaque": 1965,
+          "colors": 22
+        },
+        {
+          "left": 13,
+          "right": 73,
+          "top": 41,
+          "bottom": 86,
+          "opaque": 1849,
+          "colors": 23
+        },
+        {
+          "left": 15,
+          "right": 73,
+          "top": 42,
+          "bottom": 86,
+          "opaque": 1785,
+          "colors": 22
+        },
+        {
+          "left": 15,
+          "right": 72,
+          "top": 41,
+          "bottom": 86,
+          "opaque": 1774,
+          "colors": 23
+        }
+      ]
+    },
+    {
+      "species": "cindrick",
+      "view": "back",
+      "frames": 6,
+      "uniqueDrawings": 6,
+      "loopMs": 840,
+      "sha256": "28467262f7878d45d0fc77846e89d47f6a45d4b2a47f166396a1f15148178517",
+      "bounds": [
+        {
+          "left": 33,
+          "right": 87,
+          "top": 42,
+          "bottom": 86,
+          "opaque": 1632,
+          "colors": 20
+        },
+        {
+          "left": 33,
+          "right": 87,
+          "top": 41,
+          "bottom": 86,
+          "opaque": 1703,
+          "colors": 21
+        },
+        {
+          "left": 33,
+          "right": 88,
+          "top": 40,
+          "bottom": 86,
+          "opaque": 1760,
+          "colors": 22
+        },
+        {
+          "left": 34,
+          "right": 89,
+          "top": 42,
+          "bottom": 86,
+          "opaque": 1656,
+          "colors": 21
+        },
+        {
+          "left": 35,
+          "right": 90,
+          "top": 43,
+          "bottom": 86,
+          "opaque": 1579,
+          "colors": 21
+        },
+        {
+          "left": 33,
+          "right": 88,
+          "top": 43,
+          "bottom": 86,
+          "opaque": 1613,
+          "colors": 21
+        }
+      ]
+    },
+    {
+      "species": "hearthorn",
+      "view": "front",
+      "frames": 6,
+      "uniqueDrawings": 6,
+      "loopMs": 840,
+      "sha256": "81cafb4903dd8854262485307c0bcc8de1557c7fe95011b623444147da8b4463",
+      "bounds": [
+        {
+          "left": 6,
+          "right": 86,
+          "top": 36,
+          "bottom": 86,
+          "opaque": 2541,
+          "colors": 23
+        },
+        {
+          "left": 7,
+          "right": 88,
+          "top": 36,
+          "bottom": 86,
+          "opaque": 2520,
+          "colors": 23
+        },
+        {
+          "left": 7,
+          "right": 88,
+          "top": 36,
+          "bottom": 86,
+          "opaque": 2530,
+          "colors": 23
+        },
+        {
+          "left": 7,
+          "right": 87,
+          "top": 36,
+          "bottom": 86,
+          "opaque": 2503,
+          "colors": 23
+        },
+        {
+          "left": 9,
+          "right": 87,
+          "top": 38,
+          "bottom": 86,
+          "opaque": 2422,
+          "colors": 22
+        },
+        {
+          "left": 7,
+          "right": 86,
+          "top": 37,
+          "bottom": 86,
+          "opaque": 2477,
+          "colors": 22
+        }
+      ]
+    },
+    {
+      "species": "hearthorn",
+      "view": "back",
+      "frames": 6,
+      "uniqueDrawings": 6,
+      "loopMs": 840,
+      "sha256": "11fa880c1fa0cad0e1f69be9fc47a129634b91a6a4dc41fff82cb1b0d50b08b9",
+      "bounds": [
+        {
+          "left": 13,
+          "right": 86,
+          "top": 36,
+          "bottom": 86,
+          "opaque": 2356,
+          "colors": 21
+        },
+        {
+          "left": 13,
+          "right": 85,
+          "top": 36,
+          "bottom": 86,
+          "opaque": 2324,
+          "colors": 20
+        },
+        {
+          "left": 13,
+          "right": 87,
+          "top": 35,
+          "bottom": 86,
+          "opaque": 2367,
+          "colors": 21
+        },
+        {
+          "left": 13,
+          "right": 85,
+          "top": 37,
+          "bottom": 86,
+          "opaque": 2307,
+          "colors": 21
+        },
+        {
+          "left": 13,
+          "right": 84,
+          "top": 39,
+          "bottom": 86,
+          "opaque": 2232,
+          "colors": 19
+        },
+        {
+          "left": 13,
+          "right": 85,
+          "top": 37,
+          "bottom": 86,
+          "opaque": 2316,
+          "colors": 20
+        }
+      ]
+    },
+    {
+      "species": "rillip",
+      "view": "front",
+      "frames": 6,
+      "uniqueDrawings": 6,
+      "loopMs": 840,
+      "sha256": "27da12f6e0b48c851775de9d68724a092d176d9ef70711f98cf4e3f98f92ed06",
+      "bounds": [
+        {
+          "left": 7,
+          "right": 80,
+          "top": 46,
+          "bottom": 86,
+          "opaque": 1671,
+          "colors": 23
+        },
+        {
+          "left": 7,
+          "right": 81,
+          "top": 46,
+          "bottom": 86,
+          "opaque": 1674,
+          "colors": 23
+        },
+        {
+          "left": 6,
+          "right": 80,
+          "top": 46,
+          "bottom": 86,
+          "opaque": 1726,
+          "colors": 23
+        },
+        {
+          "left": 9,
+          "right": 83,
+          "top": 46,
+          "bottom": 86,
+          "opaque": 1689,
+          "colors": 22
+        },
+        {
+          "left": 10,
+          "right": 83,
+          "top": 47,
+          "bottom": 86,
+          "opaque": 1678,
+          "colors": 23
+        },
+        {
+          "left": 9,
+          "right": 83,
+          "top": 46,
+          "bottom": 86,
+          "opaque": 1690,
+          "colors": 23
+        }
+      ]
+    },
+    {
+      "species": "rillip",
+      "view": "back",
+      "frames": 6,
+      "uniqueDrawings": 6,
+      "loopMs": 840,
+      "sha256": "cab800740f4925ec827b3021b4cd338e1bc8085d7ad0c62d10bd0b235d8683fe",
+      "bounds": [
+        {
+          "left": 12,
+          "right": 80,
+          "top": 47,
+          "bottom": 86,
+          "opaque": 1470,
+          "colors": 22
+        },
+        {
+          "left": 8,
+          "right": 77,
+          "top": 47,
+          "bottom": 86,
+          "opaque": 1506,
+          "colors": 22
+        },
+        {
+          "left": 9,
+          "right": 79,
+          "top": 45,
+          "bottom": 86,
+          "opaque": 1616,
+          "colors": 23
+        },
+        {
+          "left": 11,
+          "right": 79,
+          "top": 47,
+          "bottom": 86,
+          "opaque": 1478,
+          "colors": 23
+        },
+        {
+          "left": 10,
+          "right": 78,
+          "top": 48,
+          "bottom": 86,
+          "opaque": 1414,
+          "colors": 23
+        },
+        {
+          "left": 10,
+          "right": 78,
+          "top": 48,
+          "bottom": 86,
+          "opaque": 1452,
+          "colors": 21
+        }
+      ]
+    },
+    {
+      "species": "prismantis",
+      "view": "front",
+      "frames": 6,
+      "uniqueDrawings": 6,
+      "loopMs": 840,
+      "sha256": "94598cb99ae6ce119f51273c28f4e478a47d365c42cb4f612784fcb870756a61",
+      "bounds": [
+        {
+          "left": 14,
+          "right": 85,
+          "top": 33,
+          "bottom": 86,
+          "opaque": 1628,
+          "colors": 23
+        },
+        {
+          "left": 15,
+          "right": 90,
+          "top": 29,
+          "bottom": 86,
+          "opaque": 1880,
+          "colors": 23
+        },
+        {
+          "left": 12,
+          "right": 90,
+          "top": 27,
+          "bottom": 86,
+          "opaque": 2156,
+          "colors": 23
+        },
+        {
+          "left": 13,
+          "right": 86,
+          "top": 30,
+          "bottom": 86,
+          "opaque": 1945,
+          "colors": 23
+        },
+        {
+          "left": 13,
+          "right": 86,
+          "top": 32,
+          "bottom": 86,
+          "opaque": 1712,
+          "colors": 23
+        },
+        {
+          "left": 12,
+          "right": 84,
+          "top": 34,
+          "bottom": 86,
+          "opaque": 1668,
+          "colors": 23
+        }
+      ]
+    },
+    {
+      "species": "prismantis",
+      "view": "back",
+      "frames": 6,
+      "uniqueDrawings": 6,
+      "loopMs": 840,
+      "sha256": "161005795a6d987a0e340b207acf26357e01af7edd014fda73eea81c828884d4",
+      "bounds": [
+        {
+          "left": 14,
+          "right": 80,
+          "top": 34,
+          "bottom": 86,
+          "opaque": 1499,
+          "colors": 23
+        },
+        {
+          "left": 9,
+          "right": 81,
+          "top": 31,
+          "bottom": 86,
+          "opaque": 1734,
+          "colors": 23
+        },
+        {
+          "left": 7,
+          "right": 85,
+          "top": 29,
+          "bottom": 86,
+          "opaque": 1995,
+          "colors": 23
+        },
+        {
+          "left": 8,
+          "right": 80,
+          "top": 33,
+          "bottom": 86,
+          "opaque": 1761,
+          "colors": 23
+        },
+        {
+          "left": 10,
+          "right": 78,
+          "top": 35,
+          "bottom": 86,
+          "opaque": 1582,
+          "colors": 23
+        },
+        {
+          "left": 9,
+          "right": 79,
+          "top": 35,
+          "bottom": 86,
+          "opaque": 1566,
+          "colors": 23
+        }
+      ]
+    },
+    {
+      "species": "voltrivet",
+      "view": "front",
+      "frames": 6,
+      "uniqueDrawings": 6,
+      "loopMs": 840,
+      "sha256": "cb13fd550ed21d1b09557d0c543371eef3043689def8503e3a830e5947be0409",
+      "bounds": [
+        {
+          "left": 8,
+          "right": 80,
+          "top": 43,
+          "bottom": 86,
+          "opaque": 1829,
+          "colors": 23
+        },
+        {
+          "left": 8,
+          "right": 82,
+          "top": 42,
+          "bottom": 86,
+          "opaque": 1848,
+          "colors": 23
+        },
+        {
+          "left": 6,
+          "right": 82,
+          "top": 40,
+          "bottom": 86,
+          "opaque": 1903,
+          "colors": 23
+        },
+        {
+          "left": 10,
+          "right": 82,
+          "top": 43,
+          "bottom": 86,
+          "opaque": 1790,
+          "colors": 23
+        },
+        {
+          "left": 11,
+          "right": 83,
+          "top": 44,
+          "bottom": 86,
+          "opaque": 1807,
+          "colors": 20
+        },
+        {
+          "left": 11,
+          "right": 84,
+          "top": 43,
+          "bottom": 86,
+          "opaque": 1813,
+          "colors": 23
+        }
+      ]
+    },
+    {
+      "species": "voltrivet",
+      "view": "back",
+      "frames": 6,
+      "uniqueDrawings": 6,
+      "loopMs": 840,
+      "sha256": "175b54c6f77e8a96e63b30275a4d865b645a1aca8d3830d974a034352e291d16",
+      "bounds": [
+        {
+          "left": 11,
+          "right": 84,
+          "top": 42,
+          "bottom": 86,
+          "opaque": 1851,
+          "colors": 19
+        },
+        {
+          "left": 11,
+          "right": 83,
+          "top": 42,
+          "bottom": 86,
+          "opaque": 1845,
+          "colors": 20
+        },
+        {
+          "left": 12,
+          "right": 88,
+          "top": 40,
+          "bottom": 86,
+          "opaque": 1897,
+          "colors": 20
+        },
+        {
+          "left": 11,
+          "right": 84,
+          "top": 42,
+          "bottom": 86,
+          "opaque": 1799,
+          "colors": 20
+        },
+        {
+          "left": 10,
+          "right": 82,
+          "top": 43,
+          "bottom": 86,
+          "opaque": 1750,
+          "colors": 19
+        },
+        {
+          "left": 11,
+          "right": 84,
+          "top": 43,
+          "bottom": 86,
+          "opaque": 1770,
+          "colors": 20
+        }
+      ]
+    },
+    {
+      "species": "breakerbill",
+      "view": "front",
+      "frames": 6,
+      "uniqueDrawings": 6,
+      "loopMs": 840,
+      "sha256": "7e8c8c8896ae684b541521e4b255ed5d6961463104f6919dc30e68a8db0a3d0b",
+      "bounds": [
+        {
+          "left": 6,
+          "right": 80,
+          "top": 19,
+          "bottom": 86,
+          "opaque": 1674,
+          "colors": 23
+        },
+        {
+          "left": 7,
+          "right": 80,
+          "top": 16,
+          "bottom": 86,
+          "opaque": 1698,
+          "colors": 23
+        },
+        {
+          "left": 7,
+          "right": 79,
+          "top": 15,
+          "bottom": 86,
+          "opaque": 1806,
+          "colors": 23
+        },
+        {
+          "left": 7,
+          "right": 80,
+          "top": 17,
+          "bottom": 86,
+          "opaque": 1704,
+          "colors": 23
+        },
+        {
+          "left": 7,
+          "right": 80,
+          "top": 19,
+          "bottom": 86,
+          "opaque": 1685,
+          "colors": 23
+        },
+        {
+          "left": 7,
+          "right": 79,
+          "top": 17,
+          "bottom": 86,
+          "opaque": 1701,
+          "colors": 23
+        }
+      ]
+    },
+    {
+      "species": "breakerbill",
+      "view": "back",
+      "frames": 6,
+      "uniqueDrawings": 6,
+      "loopMs": 840,
+      "sha256": "fda8f7bc35c509421e2715b89c58ba6afbab8f2ee9af58ecd4a166073cfa6223",
+      "bounds": [
+        {
+          "left": 22,
+          "right": 78,
+          "top": 19,
+          "bottom": 86,
+          "opaque": 1567,
+          "colors": 22
+        },
+        {
+          "left": 22,
+          "right": 78,
+          "top": 18,
+          "bottom": 86,
+          "opaque": 1623,
+          "colors": 23
+        },
+        {
+          "left": 22,
+          "right": 78,
+          "top": 17,
+          "bottom": 86,
+          "opaque": 1750,
+          "colors": 21
+        },
+        {
+          "left": 22,
+          "right": 78,
+          "top": 18,
+          "bottom": 86,
+          "opaque": 1626,
+          "colors": 22
+        },
+        {
+          "left": 22,
+          "right": 78,
+          "top": 21,
+          "bottom": 86,
+          "opaque": 1649,
+          "colors": 23
+        },
+        {
+          "left": 22,
+          "right": 77,
+          "top": 19,
+          "bottom": 86,
+          "opaque": 1637,
+          "colors": 22
+        }
+      ]
+    },
+    {
+      "species": "bastilimp",
+      "view": "front",
+      "frames": 6,
+      "uniqueDrawings": 6,
+      "loopMs": 840,
+      "sha256": "e676b931e204ede26e81be2c1cc62548ce45e773ae115163d6f45ceedff9268d",
+      "bounds": [
+        {
+          "left": 9,
+          "right": 87,
+          "top": 29,
+          "bottom": 86,
+          "opaque": 3089,
+          "colors": 23
+        },
+        {
+          "left": 7,
+          "right": 87,
+          "top": 29,
+          "bottom": 86,
+          "opaque": 3131,
+          "colors": 23
+        },
+        {
+          "left": 9,
+          "right": 88,
+          "top": 29,
+          "bottom": 86,
+          "opaque": 3155,
+          "colors": 23
+        },
+        {
+          "left": 9,
+          "right": 88,
+          "top": 30,
+          "bottom": 86,
+          "opaque": 3072,
+          "colors": 23
+        },
+        {
+          "left": 9,
+          "right": 89,
+          "top": 30,
+          "bottom": 86,
+          "opaque": 3050,
+          "colors": 23
+        },
+        {
+          "left": 7,
+          "right": 87,
+          "top": 30,
+          "bottom": 86,
+          "opaque": 3096,
+          "colors": 23
+        }
+      ]
+    },
+    {
+      "species": "bastilimp",
+      "view": "back",
+      "frames": 6,
+      "uniqueDrawings": 6,
+      "loopMs": 840,
+      "sha256": "5c0acc72cccfbe41127ace4b0e8014cb2c61ebcb3e927138b392727024c81026",
+      "bounds": [
+        {
+          "left": 9,
+          "right": 86,
+          "top": 30,
+          "bottom": 86,
+          "opaque": 3068,
+          "colors": 23
+        },
+        {
+          "left": 10,
+          "right": 87,
+          "top": 30,
+          "bottom": 86,
+          "opaque": 3074,
+          "colors": 22
+        },
+        {
+          "left": 9,
+          "right": 88,
+          "top": 30,
+          "bottom": 86,
+          "opaque": 3145,
+          "colors": 22
+        },
+        {
+          "left": 12,
+          "right": 88,
+          "top": 30,
+          "bottom": 86,
+          "opaque": 3040,
+          "colors": 22
+        },
+        {
+          "left": 8,
+          "right": 84,
+          "top": 30,
+          "bottom": 86,
+          "opaque": 2957,
+          "colors": 22
+        },
+        {
+          "left": 12,
+          "right": 90,
+          "top": 30,
+          "bottom": 86,
+          "opaque": 3108,
+          "colors": 22
+        }
+      ]
+    },
+    {
+      "species": "drakarn",
+      "view": "front",
+      "frames": 6,
+      "uniqueDrawings": 6,
+      "loopMs": 840,
+      "sha256": "f2923dfa5ed9ec1e1007630982b33d9d30082cd28fa3dd40eeb4301ce68802fb",
+      "bounds": [
+        {
+          "left": 18,
+          "right": 86,
+          "top": 49,
+          "bottom": 86,
+          "opaque": 1545,
+          "colors": 23
+        },
+        {
+          "left": 19,
+          "right": 88,
+          "top": 49,
+          "bottom": 86,
+          "opaque": 1596,
+          "colors": 22
+        },
+        {
+          "left": 18,
+          "right": 87,
+          "top": 50,
+          "bottom": 86,
+          "opaque": 1595,
+          "colors": 23
+        },
+        {
+          "left": 18,
+          "right": 86,
+          "top": 50,
+          "bottom": 86,
+          "opaque": 1554,
+          "colors": 22
+        },
+        {
+          "left": 18,
+          "right": 87,
+          "top": 49,
+          "bottom": 86,
+          "opaque": 1529,
+          "colors": 21
+        },
+        {
+          "left": 18,
+          "right": 87,
+          "top": 49,
+          "bottom": 86,
+          "opaque": 1528,
+          "colors": 23
+        }
+      ]
+    },
+    {
+      "species": "drakarn",
+      "view": "back",
+      "frames": 6,
+      "uniqueDrawings": 6,
+      "loopMs": 840,
+      "sha256": "f22fed8e9c47bae9321f11e71e342f43627e66957d42798d6dd008b4e901ec86",
+      "bounds": [
+        {
+          "left": 7,
+          "right": 72,
+          "top": 50,
+          "bottom": 86,
+          "opaque": 1439,
+          "colors": 15
+        },
+        {
+          "left": 8,
+          "right": 73,
+          "top": 50,
+          "bottom": 86,
+          "opaque": 1481,
+          "colors": 15
+        },
+        {
+          "left": 9,
+          "right": 75,
+          "top": 49,
+          "bottom": 86,
+          "opaque": 1527,
+          "colors": 14
+        },
+        {
+          "left": 10,
+          "right": 75,
+          "top": 49,
+          "bottom": 86,
+          "opaque": 1450,
+          "colors": 15
+        },
+        {
+          "left": 8,
+          "right": 73,
+          "top": 49,
+          "bottom": 86,
+          "opaque": 1462,
+          "colors": 13
+        },
+        {
+          "left": 6,
+          "right": 73,
+          "top": 49,
+          "bottom": 86,
+          "opaque": 1448,
+          "colors": 12
+        }
+      ]
+    },
+    {
+      "species": "bathyridge",
+      "view": "front",
+      "frames": 6,
+      "uniqueDrawings": 6,
+      "loopMs": 840,
+      "sha256": "bd7314c1583494191829939afda4a8efb8379a241c6e530942f38acba46b81b2",
+      "bounds": [
+        {
+          "left": 9,
+          "right": 76,
+          "top": 55,
+          "bottom": 86,
+          "opaque": 1445,
+          "colors": 23
+        },
+        {
+          "left": 10,
+          "right": 76,
+          "top": 55,
+          "bottom": 86,
+          "opaque": 1438,
+          "colors": 23
+        },
+        {
+          "left": 11,
+          "right": 79,
+          "top": 55,
+          "bottom": 86,
+          "opaque": 1453,
+          "colors": 23
+        },
+        {
+          "left": 9,
+          "right": 77,
+          "top": 55,
+          "bottom": 86,
+          "opaque": 1451,
+          "colors": 23
+        },
+        {
+          "left": 9,
+          "right": 76,
+          "top": 55,
+          "bottom": 86,
+          "opaque": 1410,
+          "colors": 23
+        },
+        {
+          "left": 9,
+          "right": 77,
+          "top": 56,
+          "bottom": 86,
+          "opaque": 1417,
+          "colors": 23
+        }
+      ]
+    },
+    {
+      "species": "bathyridge",
+      "view": "back",
+      "frames": 6,
+      "uniqueDrawings": 6,
+      "loopMs": 840,
+      "sha256": "568bbf0f6827a7d6da33b079c42b5d49dd1408aaeab4bcc4d9d701edf8127902",
+      "bounds": [
+        {
+          "left": 8,
+          "right": 73,
+          "top": 55,
+          "bottom": 86,
+          "opaque": 1267,
+          "colors": 21
+        },
+        {
+          "left": 7,
+          "right": 72,
+          "top": 55,
+          "bottom": 86,
+          "opaque": 1248,
+          "colors": 22
+        },
+        {
+          "left": 6,
+          "right": 73,
+          "top": 55,
+          "bottom": 86,
+          "opaque": 1268,
+          "colors": 22
+        },
+        {
+          "left": 7,
+          "right": 73,
+          "top": 55,
+          "bottom": 86,
+          "opaque": 1269,
+          "colors": 22
+        },
+        {
+          "left": 8,
+          "right": 73,
+          "top": 56,
+          "bottom": 86,
+          "opaque": 1255,
+          "colors": 23
+        },
+        {
+          "left": 8,
+          "right": 73,
+          "top": 56,
+          "bottom": 86,
+          "opaque": 1260,
+          "colors": 23
+        }
+      ]
+    }
+  ]
+}

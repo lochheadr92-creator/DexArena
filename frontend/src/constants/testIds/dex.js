@@ -10,6 +10,7 @@ export const DEX = {
   searchInput: "roster-search-input",
   typeFilter: (t) => `type-filter-${t}`,
   genFilter: (g) => `gen-filter-${g}`,
+  lotFilter: (l) => `lot-filter-${l}`,
   unlockedFilter: "unlocked-filter",
   clearFilters: "clear-filters-button",
   rosterGrid: "roster-grid",

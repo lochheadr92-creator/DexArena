@@ -19,6 +19,8 @@ export const CreatureCard = memo(function CreatureCard({ creature, locked, slot,
   const frames = creature.framesFront;
   const reducedMotion = useMemo(prefersReducedMotion, []);
   const canAnim = !locked && Array.isArray(frames) && frames.length > 1 && !reducedMotion;
+  // Original Lot 2 ships looping GIFs rather than separate frame PNGs.
+  const canGif = !locked && !canAnim && !reducedMotion && creature.roster === "original" && !!creature.animFront;
   const [active, setActive] = useState(false);
   const [frameIdx, setFrameIdx] = useState(0);
 
@@ -61,7 +63,7 @@ export const CreatureCard = memo(function CreatureCard({ creature, locked, slot,
     onSelect(creature.id);
   };
 
-  const spriteSrc = active && canAnim ? frames[frameIdx] : creature.sprite;
+  const spriteSrc = active && canAnim ? frames[frameIdx] : active && canGif ? creature.animFront : creature.sprite;
 
   return (
     <div
@@ -70,7 +72,7 @@ export const CreatureCard = memo(function CreatureCard({ creature, locked, slot,
       data-selected={selected}
       role="button"
       tabIndex={0}
-      onPointerEnter={() => canAnim && setActive(true)}
+      onPointerEnter={() => (canAnim || canGif) && setActive(true)}
       onPointerDown={startPress}
       onPointerUp={cancelPress}
       onPointerLeave={cancelPress}
@@ -78,7 +80,7 @@ export const CreatureCard = memo(function CreatureCard({ creature, locked, slot,
       onContextMenu={(e) => e.preventDefault()}
       onClick={handleClick}
       onKeyDown={(e) => e.key === "Enter" && handleClick()}
-      data-animating={active && canAnim}
+      data-animating={active && (canAnim || canGif)}
       className={cn(
         "group relative flex min-h-[118px] select-none flex-col items-center justify-between rounded-xl border p-2 transition-[transform,border-color,background-color,box-shadow] duration-200 active:scale-95",
         locked

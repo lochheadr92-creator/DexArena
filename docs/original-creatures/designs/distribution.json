@@ -1,0 +1,302 @@
+{
+  "types": [
+    {
+      "label": "normal",
+      "reference": 80,
+      "scaled": 24.34,
+      "target": 24,
+      "actual": 24,
+      "deviation": 0
+    },
+    {
+      "label": "fire",
+      "reference": 33,
+      "scaled": 10.04,
+      "target": 10,
+      "actual": 10,
+      "deviation": 0
+    },
+    {
+      "label": "water",
+      "reference": 92,
+      "scaled": 27.99,
+      "target": 28,
+      "actual": 28,
+      "deviation": 0
+    },
+    {
+      "label": "electric",
+      "reference": 28,
+      "scaled": 8.52,
+      "target": 9,
+      "actual": 9,
+      "deviation": 0
+    },
+    {
+      "label": "grass",
+      "reference": 55,
+      "scaled": 16.73,
+      "target": 17,
+      "actual": 17,
+      "deviation": 0
+    },
+    {
+      "label": "ice",
+      "reference": 22,
+      "scaled": 6.69,
+      "target": 7,
+      "actual": 7,
+      "deviation": 0
+    },
+    {
+      "label": "fighting",
+      "reference": 25,
+      "scaled": 7.61,
+      "target": 8,
+      "actual": 8,
+      "deviation": 0
+    },
+    {
+      "label": "poison",
+      "reference": 50,
+      "scaled": 15.21,
+      "target": 15,
+      "actual": 15,
+      "deviation": 0
+    },
+    {
+      "label": "ground",
+      "reference": 47,
+      "scaled": 14.3,
+      "target": 14,
+      "actual": 14,
+      "deviation": 0
+    },
+    {
+      "label": "flying",
+      "reference": 64,
+      "scaled": 19.47,
+      "target": 19,
+      "actual": 19,
+      "deviation": 0
+    },
+    {
+      "label": "psychic",
+      "reference": 53,
+      "scaled": 16.13,
+      "target": 16,
+      "actual": 16,
+      "deviation": 0
+    },
+    {
+      "label": "bug",
+      "reference": 45,
+      "scaled": 13.69,
+      "target": 14,
+      "actual": 14,
+      "deviation": 0
+    },
+    {
+      "label": "rock",
+      "reference": 37,
+      "scaled": 11.26,
+      "target": 11,
+      "actual": 11,
+      "deviation": 0
+    },
+    {
+      "label": "ghost",
+      "reference": 18,
+      "scaled": 5.48,
+      "target": 5,
+      "actual": 5,
+      "deviation": 0
+    },
+    {
+      "label": "dragon",
+      "reference": 19,
+      "scaled": 5.78,
+      "target": 6,
+      "actual": 6,
+      "deviation": 0
+    },
+    {
+      "label": "dark",
+      "reference": 23,
+      "scaled": 7,
+      "target": 7,
+      "actual": 7,
+      "deviation": 0
+    },
+    {
+      "label": "steel",
+      "reference": 25,
+      "scaled": 7.61,
+      "target": 8,
+      "actual": 8,
+      "deviation": 0
+    }
+  ],
+  "population": [
+    {
+      "label": "single type",
+      "reference": 270,
+      "scaled": 82.15,
+      "target": 82,
+      "actual": 82,
+      "deviation": 0
+    },
+    {
+      "label": "dual type",
+      "reference": 223,
+      "scaled": 67.85,
+      "target": 68,
+      "actual": 68,
+      "deviation": 0
+    },
+    {
+      "label": "starters",
+      "reference": 232,
+      "scaled": 70.59,
+      "target": 71,
+      "actual": 71,
+      "deviation": 0
+    },
+    {
+      "label": "initially locked",
+      "reference": 261,
+      "scaled": 79.41,
+      "target": 79,
+      "actual": 79,
+      "deviation": 0
+    },
+    {
+      "label": "legendary",
+      "reference": 26,
+      "scaled": 7.91,
+      "target": 8,
+      "actual": 8,
+      "deviation": 0
+    },
+    {
+      "label": "mythical",
+      "reference": 9,
+      "scaled": 2.74,
+      "target": 3,
+      "actual": 3,
+      "deviation": 0
+    },
+    {
+      "label": "standalone including rare",
+      "reference": 75,
+      "scaled": 22.82,
+      "target": 23,
+      "actual": 23,
+      "deviation": 0
+    }
+  ],
+  "tiers": [
+    {
+      "tier": "base",
+      "reference": {
+        "count": 170,
+        "min": 180,
+        "median": 305,
+        "max": 500,
+        "mean": 300.9
+      },
+      "actual": {
+        "count": 52,
+        "min": 180,
+        "median": 304,
+        "max": 410,
+        "mean": 299.7
+      }
+    },
+    {
+      "tier": "middle",
+      "reference": {
+        "count": 59,
+        "min": 205,
+        "median": 405,
+        "max": 515,
+        "mean": 383.4
+      },
+      "actual": {
+        "count": 18,
+        "min": 340,
+        "median": 405,
+        "max": 485,
+        "mean": 401.7
+      }
+    },
+    {
+      "tier": "final",
+      "reference": {
+        "count": 187,
+        "min": 236,
+        "median": 490,
+        "max": 670,
+        "mean": 486.7
+      },
+      "actual": {
+        "count": 57,
+        "min": 395,
+        "median": 495,
+        "max": 600,
+        "mean": 492.9
+      }
+    },
+    {
+      "tier": "standalone",
+      "reference": {
+        "count": 42,
+        "min": 250,
+        "median": 447,
+        "max": 535,
+        "mean": 432.1
+      },
+      "actual": {
+        "count": 12,
+        "min": 336,
+        "median": 459,
+        "max": 535,
+        "mean": 449.1
+      }
+    },
+    {
+      "tier": "legendary",
+      "reference": {
+        "count": 26,
+        "min": 580,
+        "median": 590,
+        "max": 680,
+        "mean": 619.6
+      },
+      "actual": {
+        "count": 8,
+        "min": 580,
+        "median": 580,
+        "max": 680,
+        "mean": 616.3
+      }
+    },
+    {
+      "tier": "mythical",
+      "reference": {
+        "count": 9,
+        "min": 480,
+        "median": 600,
+        "max": 720,
+        "mean": 600
+      },
+      "actual": {
+        "count": 3,
+        "min": 600,
+        "median": 600,
+        "max": 680,
+        "mean": 626.7
+      }
+    }
+  ]
+}

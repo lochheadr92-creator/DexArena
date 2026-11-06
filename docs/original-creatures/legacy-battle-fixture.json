@@ -1,0 +1,4660 @@
+{
+  "creatures": [
+    {
+      "id": 1,
+      "name": "bulbasaur",
+      "displayName": "Bulbasaur",
+      "genus": "Seed Pokémon",
+      "types": [
+        "grass",
+        "poison"
+      ],
+      "abilities": [
+        "overgrow"
+      ],
+      "stats": {
+        "hp": 45,
+        "atk": 49,
+        "def": 49,
+        "spa": 65,
+        "spd": 65,
+        "spe": 45
+      },
+      "bst": 318,
+      "height": 7,
+      "weight": 69,
+      "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png",
+      "spriteBack": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/1.png",
+      "animFront": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/1.gif",
+      "animBack": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/1.gif",
+      "artwork": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
+      "moves": [
+        {
+          "id": 33,
+          "name": "tackle",
+          "level": 1
+        },
+        {
+          "id": 45,
+          "name": "growl",
+          "level": 3
+        },
+        {
+          "id": 73,
+          "name": "leech-seed",
+          "level": 7
+        },
+        {
+          "id": 22,
+          "name": "vine-whip",
+          "level": 9
+        },
+        {
+          "id": 77,
+          "name": "poison-powder",
+          "level": 13
+        },
+        {
+          "id": 79,
+          "name": "sleep-powder",
+          "level": 13
+        },
+        {
+          "id": 36,
+          "name": "take-down",
+          "level": 15
+        },
+        {
+          "id": 75,
+          "name": "razor-leaf",
+          "level": 19
+        },
+        {
+          "id": 230,
+          "name": "sweet-scent",
+          "level": 21
+        },
+        {
+          "id": 74,
+          "name": "growth",
+          "level": 25
+        },
+        {
+          "id": 38,
+          "name": "double-edge",
+          "level": 27
+        },
+        {
+          "id": 388,
+          "name": "worry-seed",
+          "level": 31
+        },
+        {
+          "id": 235,
+          "name": "synthesis",
+          "level": 33
+        },
+        {
+          "id": 402,
+          "name": "seed-bomb",
+          "level": 37
+        }
+      ],
+      "tmMoves": [
+        {
+          "id": 14,
+          "name": "swords-dance"
+        },
+        {
+          "id": 15,
+          "name": "cut"
+        },
+        {
+          "id": 70,
+          "name": "strength"
+        },
+        {
+          "id": 76,
+          "name": "solar-beam"
+        },
+        {
+          "id": 92,
+          "name": "toxic"
+        },
+        {
+          "id": 104,
+          "name": "double-team"
+        },
+        {
+          "id": 148,
+          "name": "flash"
+        },
+        {
+          "id": 156,
+          "name": "rest"
+        },
+        {
+          "id": 164,
+          "name": "substitute"
+        },
+        {
+          "id": 182,
+          "name": "protect"
+        },
+        {
+          "id": 188,
+          "name": "sludge-bomb"
+        },
+        {
+          "id": 202,
+          "name": "giga-drain"
+        },
+        {
+          "id": 203,
+          "name": "endure"
+        },
+        {
+          "id": 207,
+          "name": "swagger"
+        },
+        {
+          "id": 213,
+          "name": "attract"
+        },
+        {
+          "id": 214,
+          "name": "sleep-talk"
+        },
+        {
+          "id": 216,
+          "name": "return"
+        },
+        {
+          "id": 218,
+          "name": "frustration"
+        },
+        {
+          "id": 237,
+          "name": "hidden-power"
+        },
+        {
+          "id": 241,
+          "name": "sunny-day"
+        },
+        {
+          "id": 249,
+          "name": "rock-smash"
+        },
+        {
+          "id": 263,
+          "name": "facade"
+        },
+        {
+          "id": 290,
+          "name": "secret-power"
+        },
+        {
+          "id": 331,
+          "name": "bullet-seed"
+        },
+        {
+          "id": 363,
+          "name": "natural-gift"
+        },
+        {
+          "id": 412,
+          "name": "energy-ball"
+        },
+        {
+          "id": 445,
+          "name": "captivate"
+        },
+        {
+          "id": 447,
+          "name": "grass-knot"
+        }
+      ],
+      "generation": 1,
+      "isBaby": false,
+      "isLegendary": false,
+      "isMythical": false,
+      "captureRate": 45,
+      "chainId": 1,
+      "evolvesFrom": null,
+      "evolvesTo": [
+        2
+      ],
+      "evolution": null
+    },
+    {
+      "id": 4,
+      "name": "charmander",
+      "displayName": "Charmander",
+      "genus": "Lizard Pokémon",
+      "types": [
+        "fire"
+      ],
+      "abilities": [
+        "blaze"
+      ],
+      "stats": {
+        "hp": 39,
+        "atk": 52,
+        "def": 43,
+        "spa": 60,
+        "spd": 50,
+        "spe": 65
+      },
+      "bst": 309,
+      "height": 6,
+      "weight": 85,
+      "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png",
+      "spriteBack": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/4.png",
+      "animFront": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/4.gif",
+      "animBack": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/4.gif",
+      "artwork": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/4.png",
+      "moves": [
+        {
+          "id": 45,
+          "name": "growl",
+          "level": 1
+        },
+        {
+          "id": 10,
+          "name": "scratch",
+          "level": 1
+        },
+        {
+          "id": 52,
+          "name": "ember",
+          "level": 7
+        },
+        {
+          "id": 108,
+          "name": "smokescreen",
+          "level": 10
+        },
+        {
+          "id": 82,
+          "name": "dragon-rage",
+          "level": 16
+        },
+        {
+          "id": 184,
+          "name": "scary-face",
+          "level": 19
+        },
+        {
+          "id": 424,
+          "name": "fire-fang",
+          "level": 25
+        },
+        {
+          "id": 163,
+          "name": "slash",
+          "level": 28
+        },
+        {
+          "id": 53,
+          "name": "flamethrower",
+          "level": 34
+        },
+        {
+          "id": 83,
+          "name": "fire-spin",
+          "level": 37
+        }
+      ],
+      "tmMoves": [
+        {
+          "id": 14,
+          "name": "swords-dance"
+        },
+        {
+          "id": 15,
+          "name": "cut"
+        },
+        {
+          "id": 53,
+          "name": "flamethrower"
+        },
+        {
+          "id": 70,
+          "name": "strength"
+        },
+        {
+          "id": 91,
+          "name": "dig"
+        },
+        {
+          "id": 92,
+          "name": "toxic"
+        },
+        {
+          "id": 104,
+          "name": "double-team"
+        },
+        {
+          "id": 126,
+          "name": "fire-blast"
+        },
+        {
+          "id": 156,
+          "name": "rest"
+        },
+        {
+          "id": 157,
+          "name": "rock-slide"
+        },
+        {
+          "id": 164,
+          "name": "substitute"
+        },
+        {
+          "id": 182,
+          "name": "protect"
+        },
+        {
+          "id": 203,
+          "name": "endure"
+        },
+        {
+          "id": 207,
+          "name": "swagger"
+        },
+        {
+          "id": 213,
+          "name": "attract"
+        },
+        {
+          "id": 214,
+          "name": "sleep-talk"
+        },
+        {
+          "id": 216,
+          "name": "return"
+        },
+        {
+          "id": 218,
+          "name": "frustration"
+        },
+        {
+          "id": 231,
+          "name": "iron-tail"
+        },
+        {
+          "id": 237,
+          "name": "hidden-power"
+        },
+        {
+          "id": 241,
+          "name": "sunny-day"
+        },
+        {
+          "id": 249,
+          "name": "rock-smash"
+        },
+        {
+          "id": 261,
+          "name": "will-o-wisp"
+        },
+        {
+          "id": 263,
+          "name": "facade"
+        },
+        {
+          "id": 264,
+          "name": "focus-punch"
+        },
+        {
+          "id": 280,
+          "name": "brick-break"
+        },
+        {
+          "id": 290,
+          "name": "secret-power"
+        },
+        {
+          "id": 315,
+          "name": "overheat"
+        },
+        {
+          "id": 317,
+          "name": "rock-tomb"
+        },
+        {
+          "id": 332,
+          "name": "aerial-ace"
+        },
+        {
+          "id": 337,
+          "name": "dragon-claw"
+        },
+        {
+          "id": 363,
+          "name": "natural-gift"
+        },
+        {
+          "id": 374,
+          "name": "fling"
+        },
+        {
+          "id": 421,
+          "name": "shadow-claw"
+        },
+        {
+          "id": 445,
+          "name": "captivate"
+        }
+      ],
+      "generation": 1,
+      "isBaby": false,
+      "isLegendary": false,
+      "isMythical": false,
+      "captureRate": 45,
+      "chainId": 2,
+      "evolvesFrom": null,
+      "evolvesTo": [
+        5
+      ],
+      "evolution": null
+    },
+    {
+      "id": 7,
+      "name": "squirtle",
+      "displayName": "Squirtle",
+      "genus": "Tiny Turtle Pokémon",
+      "types": [
+        "water"
+      ],
+      "abilities": [
+        "torrent"
+      ],
+      "stats": {
+        "hp": 44,
+        "atk": 48,
+        "def": 65,
+        "spa": 50,
+        "spd": 64,
+        "spe": 43
+      },
+      "bst": 314,
+      "height": 5,
+      "weight": 90,
+      "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png",
+      "spriteBack": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/7.png",
+      "animFront": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/7.gif",
+      "animBack": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/7.gif",
+      "artwork": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/7.png",
+      "moves": [
+        {
+          "id": 33,
+          "name": "tackle",
+          "level": 1
+        },
+        {
+          "id": 39,
+          "name": "tail-whip",
+          "level": 4
+        },
+        {
+          "id": 145,
+          "name": "bubble",
+          "level": 7
+        },
+        {
+          "id": 110,
+          "name": "withdraw",
+          "level": 10
+        },
+        {
+          "id": 55,
+          "name": "water-gun",
+          "level": 13
+        },
+        {
+          "id": 44,
+          "name": "bite",
+          "level": 16
+        },
+        {
+          "id": 229,
+          "name": "rapid-spin",
+          "level": 19
+        },
+        {
+          "id": 182,
+          "name": "protect",
+          "level": 22
+        },
+        {
+          "id": 352,
+          "name": "water-pulse",
+          "level": 25
+        },
+        {
+          "id": 401,
+          "name": "aqua-tail",
+          "level": 28
+        },
+        {
+          "id": 130,
+          "name": "skull-bash",
+          "level": 31
+        },
+        {
+          "id": 334,
+          "name": "iron-defense",
+          "level": 34
+        },
+        {
+          "id": 240,
+          "name": "rain-dance",
+          "level": 37
+        },
+        {
+          "id": 56,
+          "name": "hydro-pump",
+          "level": 40
+        }
+      ],
+      "tmMoves": [
+        {
+          "id": 57,
+          "name": "surf"
+        },
+        {
+          "id": 58,
+          "name": "ice-beam"
+        },
+        {
+          "id": 59,
+          "name": "blizzard"
+        },
+        {
+          "id": 70,
+          "name": "strength"
+        },
+        {
+          "id": 91,
+          "name": "dig"
+        },
+        {
+          "id": 92,
+          "name": "toxic"
+        },
+        {
+          "id": 104,
+          "name": "double-team"
+        },
+        {
+          "id": 127,
+          "name": "waterfall"
+        },
+        {
+          "id": 156,
+          "name": "rest"
+        },
+        {
+          "id": 164,
+          "name": "substitute"
+        },
+        {
+          "id": 182,
+          "name": "protect"
+        },
+        {
+          "id": 203,
+          "name": "endure"
+        },
+        {
+          "id": 207,
+          "name": "swagger"
+        },
+        {
+          "id": 213,
+          "name": "attract"
+        },
+        {
+          "id": 214,
+          "name": "sleep-talk"
+        },
+        {
+          "id": 216,
+          "name": "return"
+        },
+        {
+          "id": 218,
+          "name": "frustration"
+        },
+        {
+          "id": 231,
+          "name": "iron-tail"
+        },
+        {
+          "id": 237,
+          "name": "hidden-power"
+        },
+        {
+          "id": 240,
+          "name": "rain-dance"
+        },
+        {
+          "id": 249,
+          "name": "rock-smash"
+        },
+        {
+          "id": 258,
+          "name": "hail"
+        },
+        {
+          "id": 263,
+          "name": "facade"
+        },
+        {
+          "id": 264,
+          "name": "focus-punch"
+        },
+        {
+          "id": 280,
+          "name": "brick-break"
+        },
+        {
+          "id": 290,
+          "name": "secret-power"
+        },
+        {
+          "id": 317,
+          "name": "rock-tomb"
+        },
+        {
+          "id": 352,
+          "name": "water-pulse"
+        },
+        {
+          "id": 360,
+          "name": "gyro-ball"
+        },
+        {
+          "id": 362,
+          "name": "brine"
+        },
+        {
+          "id": 363,
+          "name": "natural-gift"
+        },
+        {
+          "id": 374,
+          "name": "fling"
+        },
+        {
+          "id": 445,
+          "name": "captivate"
+        }
+      ],
+      "generation": 1,
+      "isBaby": false,
+      "isLegendary": false,
+      "isMythical": false,
+      "captureRate": 45,
+      "chainId": 3,
+      "evolvesFrom": null,
+      "evolvesTo": [
+        8
+      ],
+      "evolution": null
+    },
+    {
+      "id": 25,
+      "name": "pikachu",
+      "displayName": "Pikachu",
+      "genus": "Mouse Pokémon",
+      "types": [
+        "electric"
+      ],
+      "abilities": [
+        "static"
+      ],
+      "stats": {
+        "hp": 35,
+        "atk": 55,
+        "def": 40,
+        "spa": 50,
+        "spd": 50,
+        "spe": 90
+      },
+      "bst": 320,
+      "height": 4,
+      "weight": 60,
+      "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png",
+      "spriteBack": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/25.png",
+      "animFront": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/25.gif",
+      "animBack": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/25.gif",
+      "artwork": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png",
+      "moves": [
+        {
+          "id": 45,
+          "name": "growl",
+          "level": 1
+        },
+        {
+          "id": 84,
+          "name": "thunder-shock",
+          "level": 1
+        },
+        {
+          "id": 39,
+          "name": "tail-whip",
+          "level": 5
+        },
+        {
+          "id": 86,
+          "name": "thunder-wave",
+          "level": 10
+        },
+        {
+          "id": 98,
+          "name": "quick-attack",
+          "level": 13
+        },
+        {
+          "id": 104,
+          "name": "double-team",
+          "level": 18
+        },
+        {
+          "id": 21,
+          "name": "slam",
+          "level": 21
+        },
+        {
+          "id": 85,
+          "name": "thunderbolt",
+          "level": 26
+        },
+        {
+          "id": 364,
+          "name": "feint",
+          "level": 29
+        },
+        {
+          "id": 97,
+          "name": "agility",
+          "level": 34
+        },
+        {
+          "id": 435,
+          "name": "discharge",
+          "level": 37
+        },
+        {
+          "id": 113,
+          "name": "light-screen",
+          "level": 42
+        },
+        {
+          "id": 87,
+          "name": "thunder",
+          "level": 45
+        }
+      ],
+      "tmMoves": [
+        {
+          "id": 70,
+          "name": "strength"
+        },
+        {
+          "id": 85,
+          "name": "thunderbolt"
+        },
+        {
+          "id": 86,
+          "name": "thunder-wave"
+        },
+        {
+          "id": 87,
+          "name": "thunder"
+        },
+        {
+          "id": 91,
+          "name": "dig"
+        },
+        {
+          "id": 92,
+          "name": "toxic"
+        },
+        {
+          "id": 104,
+          "name": "double-team"
+        },
+        {
+          "id": 113,
+          "name": "light-screen"
+        },
+        {
+          "id": 148,
+          "name": "flash"
+        },
+        {
+          "id": 156,
+          "name": "rest"
+        },
+        {
+          "id": 164,
+          "name": "substitute"
+        },
+        {
+          "id": 182,
+          "name": "protect"
+        },
+        {
+          "id": 203,
+          "name": "endure"
+        },
+        {
+          "id": 207,
+          "name": "swagger"
+        },
+        {
+          "id": 213,
+          "name": "attract"
+        },
+        {
+          "id": 214,
+          "name": "sleep-talk"
+        },
+        {
+          "id": 216,
+          "name": "return"
+        },
+        {
+          "id": 218,
+          "name": "frustration"
+        },
+        {
+          "id": 231,
+          "name": "iron-tail"
+        },
+        {
+          "id": 237,
+          "name": "hidden-power"
+        },
+        {
+          "id": 240,
+          "name": "rain-dance"
+        },
+        {
+          "id": 249,
+          "name": "rock-smash"
+        },
+        {
+          "id": 263,
+          "name": "facade"
+        },
+        {
+          "id": 264,
+          "name": "focus-punch"
+        },
+        {
+          "id": 280,
+          "name": "brick-break"
+        },
+        {
+          "id": 290,
+          "name": "secret-power"
+        },
+        {
+          "id": 351,
+          "name": "shock-wave"
+        },
+        {
+          "id": 363,
+          "name": "natural-gift"
+        },
+        {
+          "id": 374,
+          "name": "fling"
+        },
+        {
+          "id": 445,
+          "name": "captivate"
+        },
+        {
+          "id": 447,
+          "name": "grass-knot"
+        },
+        {
+          "id": 451,
+          "name": "charge-beam"
+        }
+      ],
+      "generation": 1,
+      "isBaby": false,
+      "isLegendary": false,
+      "isMythical": false,
+      "captureRate": 190,
+      "chainId": 10,
+      "evolvesFrom": 172,
+      "evolvesTo": [
+        26
+      ],
+      "evolution": {
+        "trigger": "level-up",
+        "item": null,
+        "heldItem": null,
+        "gender": null,
+        "timeOfDay": null,
+        "minLevel": null,
+        "minHappiness": 220,
+        "minBeauty": null,
+        "location": false,
+        "knownMove": null,
+        "knownMoveType": null,
+        "relativePhysicalStats": null,
+        "partySpecies": null
+      }
+    },
+    {
+      "id": 133,
+      "name": "eevee",
+      "displayName": "Eevee",
+      "genus": "Evolution Pokémon",
+      "types": [
+        "normal"
+      ],
+      "abilities": [
+        "run-away",
+        "adaptability"
+      ],
+      "stats": {
+        "hp": 55,
+        "atk": 55,
+        "def": 50,
+        "spa": 45,
+        "spd": 65,
+        "spe": 55
+      },
+      "bst": 325,
+      "height": 3,
+      "weight": 65,
+      "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/133.png",
+      "spriteBack": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/133.png",
+      "animFront": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/133.gif",
+      "animBack": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/133.gif",
+      "artwork": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/133.png",
+      "moves": [
+        {
+          "id": 270,
+          "name": "helping-hand",
+          "level": 1
+        },
+        {
+          "id": 33,
+          "name": "tackle",
+          "level": 1
+        },
+        {
+          "id": 39,
+          "name": "tail-whip",
+          "level": 1
+        },
+        {
+          "id": 28,
+          "name": "sand-attack",
+          "level": 8
+        },
+        {
+          "id": 45,
+          "name": "growl",
+          "level": 15
+        },
+        {
+          "id": 98,
+          "name": "quick-attack",
+          "level": 22
+        },
+        {
+          "id": 44,
+          "name": "bite",
+          "level": 29
+        },
+        {
+          "id": 226,
+          "name": "baton-pass",
+          "level": 36
+        },
+        {
+          "id": 36,
+          "name": "take-down",
+          "level": 43
+        },
+        {
+          "id": 387,
+          "name": "last-resort",
+          "level": 50
+        },
+        {
+          "id": 376,
+          "name": "trump-card",
+          "level": 57
+        }
+      ],
+      "tmMoves": [
+        {
+          "id": 91,
+          "name": "dig"
+        },
+        {
+          "id": 92,
+          "name": "toxic"
+        },
+        {
+          "id": 104,
+          "name": "double-team"
+        },
+        {
+          "id": 156,
+          "name": "rest"
+        },
+        {
+          "id": 164,
+          "name": "substitute"
+        },
+        {
+          "id": 182,
+          "name": "protect"
+        },
+        {
+          "id": 203,
+          "name": "endure"
+        },
+        {
+          "id": 207,
+          "name": "swagger"
+        },
+        {
+          "id": 213,
+          "name": "attract"
+        },
+        {
+          "id": 214,
+          "name": "sleep-talk"
+        },
+        {
+          "id": 216,
+          "name": "return"
+        },
+        {
+          "id": 218,
+          "name": "frustration"
+        },
+        {
+          "id": 231,
+          "name": "iron-tail"
+        },
+        {
+          "id": 237,
+          "name": "hidden-power"
+        },
+        {
+          "id": 240,
+          "name": "rain-dance"
+        },
+        {
+          "id": 241,
+          "name": "sunny-day"
+        },
+        {
+          "id": 247,
+          "name": "shadow-ball"
+        },
+        {
+          "id": 263,
+          "name": "facade"
+        },
+        {
+          "id": 290,
+          "name": "secret-power"
+        },
+        {
+          "id": 363,
+          "name": "natural-gift"
+        },
+        {
+          "id": 445,
+          "name": "captivate"
+        }
+      ],
+      "generation": 1,
+      "isBaby": false,
+      "isLegendary": false,
+      "isMythical": false,
+      "captureRate": 45,
+      "chainId": 67,
+      "evolvesFrom": null,
+      "evolvesTo": [
+        134,
+        135,
+        136,
+        196,
+        197,
+        470,
+        471
+      ],
+      "evolution": null
+    },
+    {
+      "id": 143,
+      "name": "snorlax",
+      "displayName": "Snorlax",
+      "genus": "Sleeping Pokémon",
+      "types": [
+        "normal"
+      ],
+      "abilities": [
+        "immunity",
+        "thick-fat"
+      ],
+      "stats": {
+        "hp": 160,
+        "atk": 110,
+        "def": 65,
+        "spa": 65,
+        "spd": 110,
+        "spe": 30
+      },
+      "bst": 540,
+      "height": 21,
+      "weight": 4600,
+      "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/143.png",
+      "spriteBack": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/143.png",
+      "animFront": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/143.gif",
+      "animBack": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/143.gif",
+      "artwork": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/143.png",
+      "moves": [
+        {
+          "id": 33,
+          "name": "tackle",
+          "level": 1
+        },
+        {
+          "id": 111,
+          "name": "defense-curl",
+          "level": 4
+        },
+        {
+          "id": 133,
+          "name": "amnesia",
+          "level": 9
+        },
+        {
+          "id": 122,
+          "name": "lick",
+          "level": 12
+        },
+        {
+          "id": 187,
+          "name": "belly-drum",
+          "level": 17
+        },
+        {
+          "id": 281,
+          "name": "yawn",
+          "level": 20
+        },
+        {
+          "id": 156,
+          "name": "rest",
+          "level": 25
+        },
+        {
+          "id": 214,
+          "name": "sleep-talk",
+          "level": 28
+        },
+        {
+          "id": 173,
+          "name": "snore",
+          "level": 28
+        },
+        {
+          "id": 34,
+          "name": "body-slam",
+          "level": 33
+        },
+        {
+          "id": 335,
+          "name": "block",
+          "level": 36
+        },
+        {
+          "id": 205,
+          "name": "rollout",
+          "level": 41
+        },
+        {
+          "id": 242,
+          "name": "crunch",
+          "level": 44
+        },
+        {
+          "id": 416,
+          "name": "giga-impact",
+          "level": 49
+        }
+      ],
+      "tmMoves": [
+        {
+          "id": 53,
+          "name": "flamethrower"
+        },
+        {
+          "id": 57,
+          "name": "surf"
+        },
+        {
+          "id": 58,
+          "name": "ice-beam"
+        },
+        {
+          "id": 59,
+          "name": "blizzard"
+        },
+        {
+          "id": 63,
+          "name": "hyper-beam"
+        },
+        {
+          "id": 70,
+          "name": "strength"
+        },
+        {
+          "id": 76,
+          "name": "solar-beam"
+        },
+        {
+          "id": 85,
+          "name": "thunderbolt"
+        },
+        {
+          "id": 87,
+          "name": "thunder"
+        },
+        {
+          "id": 89,
+          "name": "earthquake"
+        },
+        {
+          "id": 92,
+          "name": "toxic"
+        },
+        {
+          "id": 94,
+          "name": "psychic"
+        },
+        {
+          "id": 104,
+          "name": "double-team"
+        },
+        {
+          "id": 126,
+          "name": "fire-blast"
+        },
+        {
+          "id": 156,
+          "name": "rest"
+        },
+        {
+          "id": 157,
+          "name": "rock-slide"
+        },
+        {
+          "id": 164,
+          "name": "substitute"
+        },
+        {
+          "id": 182,
+          "name": "protect"
+        },
+        {
+          "id": 201,
+          "name": "sandstorm"
+        },
+        {
+          "id": 203,
+          "name": "endure"
+        },
+        {
+          "id": 207,
+          "name": "swagger"
+        },
+        {
+          "id": 213,
+          "name": "attract"
+        },
+        {
+          "id": 214,
+          "name": "sleep-talk"
+        },
+        {
+          "id": 216,
+          "name": "return"
+        },
+        {
+          "id": 218,
+          "name": "frustration"
+        },
+        {
+          "id": 237,
+          "name": "hidden-power"
+        },
+        {
+          "id": 240,
+          "name": "rain-dance"
+        },
+        {
+          "id": 241,
+          "name": "sunny-day"
+        },
+        {
+          "id": 247,
+          "name": "shadow-ball"
+        },
+        {
+          "id": 249,
+          "name": "rock-smash"
+        },
+        {
+          "id": 263,
+          "name": "facade"
+        },
+        {
+          "id": 264,
+          "name": "focus-punch"
+        },
+        {
+          "id": 278,
+          "name": "recycle"
+        },
+        {
+          "id": 280,
+          "name": "brick-break"
+        },
+        {
+          "id": 290,
+          "name": "secret-power"
+        },
+        {
+          "id": 317,
+          "name": "rock-tomb"
+        },
+        {
+          "id": 351,
+          "name": "shock-wave"
+        },
+        {
+          "id": 352,
+          "name": "water-pulse"
+        },
+        {
+          "id": 363,
+          "name": "natural-gift"
+        },
+        {
+          "id": 374,
+          "name": "fling"
+        },
+        {
+          "id": 411,
+          "name": "focus-blast"
+        },
+        {
+          "id": 416,
+          "name": "giga-impact"
+        },
+        {
+          "id": 431,
+          "name": "rock-climb"
+        },
+        {
+          "id": 445,
+          "name": "captivate"
+        }
+      ],
+      "generation": 1,
+      "isBaby": false,
+      "isLegendary": false,
+      "isMythical": false,
+      "captureRate": 25,
+      "chainId": 72,
+      "evolvesFrom": 446,
+      "evolvesTo": [],
+      "evolution": {
+        "trigger": "level-up",
+        "item": null,
+        "heldItem": null,
+        "gender": null,
+        "timeOfDay": null,
+        "minLevel": null,
+        "minHappiness": 160,
+        "minBeauty": null,
+        "location": false,
+        "knownMove": null,
+        "knownMoveType": null,
+        "relativePhysicalStats": null,
+        "partySpecies": null
+      }
+    },
+    {
+      "id": 152,
+      "name": "chikorita",
+      "displayName": "Chikorita",
+      "genus": "Leaf Pokémon",
+      "types": [
+        "grass"
+      ],
+      "abilities": [
+        "overgrow"
+      ],
+      "stats": {
+        "hp": 45,
+        "atk": 49,
+        "def": 65,
+        "spa": 49,
+        "spd": 65,
+        "spe": 45
+      },
+      "bst": 318,
+      "height": 9,
+      "weight": 64,
+      "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/152.png",
+      "spriteBack": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/152.png",
+      "animFront": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/152.gif",
+      "animBack": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/152.gif",
+      "artwork": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/152.png",
+      "moves": [
+        {
+          "id": 45,
+          "name": "growl",
+          "level": 1
+        },
+        {
+          "id": 33,
+          "name": "tackle",
+          "level": 1
+        },
+        {
+          "id": 75,
+          "name": "razor-leaf",
+          "level": 6
+        },
+        {
+          "id": 77,
+          "name": "poison-powder",
+          "level": 9
+        },
+        {
+          "id": 235,
+          "name": "synthesis",
+          "level": 12
+        },
+        {
+          "id": 115,
+          "name": "reflect",
+          "level": 17
+        },
+        {
+          "id": 345,
+          "name": "magical-leaf",
+          "level": 20
+        },
+        {
+          "id": 363,
+          "name": "natural-gift",
+          "level": 23
+        },
+        {
+          "id": 230,
+          "name": "sweet-scent",
+          "level": 28
+        },
+        {
+          "id": 113,
+          "name": "light-screen",
+          "level": 31
+        },
+        {
+          "id": 34,
+          "name": "body-slam",
+          "level": 34
+        },
+        {
+          "id": 219,
+          "name": "safeguard",
+          "level": 39
+        },
+        {
+          "id": 312,
+          "name": "aromatherapy",
+          "level": 42
+        },
+        {
+          "id": 76,
+          "name": "solar-beam",
+          "level": 45
+        }
+      ],
+      "tmMoves": [
+        {
+          "id": 14,
+          "name": "swords-dance"
+        },
+        {
+          "id": 15,
+          "name": "cut"
+        },
+        {
+          "id": 76,
+          "name": "solar-beam"
+        },
+        {
+          "id": 92,
+          "name": "toxic"
+        },
+        {
+          "id": 104,
+          "name": "double-team"
+        },
+        {
+          "id": 113,
+          "name": "light-screen"
+        },
+        {
+          "id": 115,
+          "name": "reflect"
+        },
+        {
+          "id": 148,
+          "name": "flash"
+        },
+        {
+          "id": 156,
+          "name": "rest"
+        },
+        {
+          "id": 164,
+          "name": "substitute"
+        },
+        {
+          "id": 182,
+          "name": "protect"
+        },
+        {
+          "id": 202,
+          "name": "giga-drain"
+        },
+        {
+          "id": 203,
+          "name": "endure"
+        },
+        {
+          "id": 207,
+          "name": "swagger"
+        },
+        {
+          "id": 213,
+          "name": "attract"
+        },
+        {
+          "id": 214,
+          "name": "sleep-talk"
+        },
+        {
+          "id": 216,
+          "name": "return"
+        },
+        {
+          "id": 218,
+          "name": "frustration"
+        },
+        {
+          "id": 219,
+          "name": "safeguard"
+        },
+        {
+          "id": 231,
+          "name": "iron-tail"
+        },
+        {
+          "id": 237,
+          "name": "hidden-power"
+        },
+        {
+          "id": 241,
+          "name": "sunny-day"
+        },
+        {
+          "id": 263,
+          "name": "facade"
+        },
+        {
+          "id": 290,
+          "name": "secret-power"
+        },
+        {
+          "id": 331,
+          "name": "bullet-seed"
+        },
+        {
+          "id": 363,
+          "name": "natural-gift"
+        },
+        {
+          "id": 412,
+          "name": "energy-ball"
+        },
+        {
+          "id": 445,
+          "name": "captivate"
+        },
+        {
+          "id": 447,
+          "name": "grass-knot"
+        }
+      ],
+      "generation": 2,
+      "isBaby": false,
+      "isLegendary": false,
+      "isMythical": false,
+      "captureRate": 45,
+      "chainId": 79,
+      "evolvesFrom": null,
+      "evolvesTo": [
+        153
+      ],
+      "evolution": null
+    },
+    {
+      "id": 155,
+      "name": "cyndaquil",
+      "displayName": "Cyndaquil",
+      "genus": "Fire Mouse Pokémon",
+      "types": [
+        "fire"
+      ],
+      "abilities": [
+        "blaze"
+      ],
+      "stats": {
+        "hp": 39,
+        "atk": 52,
+        "def": 43,
+        "spa": 60,
+        "spd": 50,
+        "spe": 65
+      },
+      "bst": 309,
+      "height": 5,
+      "weight": 79,
+      "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/155.png",
+      "spriteBack": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/155.png",
+      "animFront": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/155.gif",
+      "animBack": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/155.gif",
+      "artwork": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/155.png",
+      "moves": [
+        {
+          "id": 43,
+          "name": "leer",
+          "level": 1
+        },
+        {
+          "id": 33,
+          "name": "tackle",
+          "level": 1
+        },
+        {
+          "id": 108,
+          "name": "smokescreen",
+          "level": 4
+        },
+        {
+          "id": 52,
+          "name": "ember",
+          "level": 10
+        },
+        {
+          "id": 98,
+          "name": "quick-attack",
+          "level": 13
+        },
+        {
+          "id": 172,
+          "name": "flame-wheel",
+          "level": 19
+        },
+        {
+          "id": 111,
+          "name": "defense-curl",
+          "level": 22
+        },
+        {
+          "id": 129,
+          "name": "swift",
+          "level": 28
+        },
+        {
+          "id": 436,
+          "name": "lava-plume",
+          "level": 31
+        },
+        {
+          "id": 53,
+          "name": "flamethrower",
+          "level": 37
+        },
+        {
+          "id": 205,
+          "name": "rollout",
+          "level": 40
+        },
+        {
+          "id": 38,
+          "name": "double-edge",
+          "level": 46
+        },
+        {
+          "id": 284,
+          "name": "eruption",
+          "level": 49
+        }
+      ],
+      "tmMoves": [
+        {
+          "id": 15,
+          "name": "cut"
+        },
+        {
+          "id": 53,
+          "name": "flamethrower"
+        },
+        {
+          "id": 91,
+          "name": "dig"
+        },
+        {
+          "id": 92,
+          "name": "toxic"
+        },
+        {
+          "id": 104,
+          "name": "double-team"
+        },
+        {
+          "id": 126,
+          "name": "fire-blast"
+        },
+        {
+          "id": 156,
+          "name": "rest"
+        },
+        {
+          "id": 164,
+          "name": "substitute"
+        },
+        {
+          "id": 182,
+          "name": "protect"
+        },
+        {
+          "id": 203,
+          "name": "endure"
+        },
+        {
+          "id": 207,
+          "name": "swagger"
+        },
+        {
+          "id": 213,
+          "name": "attract"
+        },
+        {
+          "id": 214,
+          "name": "sleep-talk"
+        },
+        {
+          "id": 216,
+          "name": "return"
+        },
+        {
+          "id": 218,
+          "name": "frustration"
+        },
+        {
+          "id": 237,
+          "name": "hidden-power"
+        },
+        {
+          "id": 241,
+          "name": "sunny-day"
+        },
+        {
+          "id": 261,
+          "name": "will-o-wisp"
+        },
+        {
+          "id": 263,
+          "name": "facade"
+        },
+        {
+          "id": 290,
+          "name": "secret-power"
+        },
+        {
+          "id": 315,
+          "name": "overheat"
+        },
+        {
+          "id": 332,
+          "name": "aerial-ace"
+        },
+        {
+          "id": 363,
+          "name": "natural-gift"
+        },
+        {
+          "id": 445,
+          "name": "captivate"
+        }
+      ],
+      "generation": 2,
+      "isBaby": false,
+      "isLegendary": false,
+      "isMythical": false,
+      "captureRate": 45,
+      "chainId": 80,
+      "evolvesFrom": null,
+      "evolvesTo": [
+        156
+      ],
+      "evolution": null
+    },
+    {
+      "id": 158,
+      "name": "totodile",
+      "displayName": "Totodile",
+      "genus": "Big Jaw Pokémon",
+      "types": [
+        "water"
+      ],
+      "abilities": [
+        "torrent"
+      ],
+      "stats": {
+        "hp": 50,
+        "atk": 65,
+        "def": 64,
+        "spa": 44,
+        "spd": 48,
+        "spe": 43
+      },
+      "bst": 314,
+      "height": 6,
+      "weight": 95,
+      "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/158.png",
+      "spriteBack": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/158.png",
+      "animFront": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/158.gif",
+      "animBack": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/158.gif",
+      "artwork": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/158.png",
+      "moves": [
+        {
+          "id": 43,
+          "name": "leer",
+          "level": 1
+        },
+        {
+          "id": 10,
+          "name": "scratch",
+          "level": 1
+        },
+        {
+          "id": 55,
+          "name": "water-gun",
+          "level": 6
+        },
+        {
+          "id": 99,
+          "name": "rage",
+          "level": 8
+        },
+        {
+          "id": 44,
+          "name": "bite",
+          "level": 13
+        },
+        {
+          "id": 184,
+          "name": "scary-face",
+          "level": 15
+        },
+        {
+          "id": 423,
+          "name": "ice-fang",
+          "level": 20
+        },
+        {
+          "id": 175,
+          "name": "flail",
+          "level": 22
+        },
+        {
+          "id": 242,
+          "name": "crunch",
+          "level": 27
+        },
+        {
+          "id": 163,
+          "name": "slash",
+          "level": 29
+        },
+        {
+          "id": 103,
+          "name": "screech",
+          "level": 34
+        },
+        {
+          "id": 37,
+          "name": "thrash",
+          "level": 36
+        },
+        {
+          "id": 401,
+          "name": "aqua-tail",
+          "level": 41
+        },
+        {
+          "id": 276,
+          "name": "superpower",
+          "level": 43
+        },
+        {
+          "id": 56,
+          "name": "hydro-pump",
+          "level": 48
+        }
+      ],
+      "tmMoves": [
+        {
+          "id": 14,
+          "name": "swords-dance"
+        },
+        {
+          "id": 15,
+          "name": "cut"
+        },
+        {
+          "id": 57,
+          "name": "surf"
+        },
+        {
+          "id": 58,
+          "name": "ice-beam"
+        },
+        {
+          "id": 59,
+          "name": "blizzard"
+        },
+        {
+          "id": 91,
+          "name": "dig"
+        },
+        {
+          "id": 92,
+          "name": "toxic"
+        },
+        {
+          "id": 104,
+          "name": "double-team"
+        },
+        {
+          "id": 127,
+          "name": "waterfall"
+        },
+        {
+          "id": 156,
+          "name": "rest"
+        },
+        {
+          "id": 157,
+          "name": "rock-slide"
+        },
+        {
+          "id": 164,
+          "name": "substitute"
+        },
+        {
+          "id": 182,
+          "name": "protect"
+        },
+        {
+          "id": 203,
+          "name": "endure"
+        },
+        {
+          "id": 207,
+          "name": "swagger"
+        },
+        {
+          "id": 213,
+          "name": "attract"
+        },
+        {
+          "id": 214,
+          "name": "sleep-talk"
+        },
+        {
+          "id": 216,
+          "name": "return"
+        },
+        {
+          "id": 218,
+          "name": "frustration"
+        },
+        {
+          "id": 231,
+          "name": "iron-tail"
+        },
+        {
+          "id": 237,
+          "name": "hidden-power"
+        },
+        {
+          "id": 240,
+          "name": "rain-dance"
+        },
+        {
+          "id": 258,
+          "name": "hail"
+        },
+        {
+          "id": 263,
+          "name": "facade"
+        },
+        {
+          "id": 264,
+          "name": "focus-punch"
+        },
+        {
+          "id": 280,
+          "name": "brick-break"
+        },
+        {
+          "id": 290,
+          "name": "secret-power"
+        },
+        {
+          "id": 317,
+          "name": "rock-tomb"
+        },
+        {
+          "id": 332,
+          "name": "aerial-ace"
+        },
+        {
+          "id": 352,
+          "name": "water-pulse"
+        },
+        {
+          "id": 363,
+          "name": "natural-gift"
+        },
+        {
+          "id": 374,
+          "name": "fling"
+        },
+        {
+          "id": 421,
+          "name": "shadow-claw"
+        },
+        {
+          "id": 445,
+          "name": "captivate"
+        }
+      ],
+      "generation": 2,
+      "isBaby": false,
+      "isLegendary": false,
+      "isMythical": false,
+      "captureRate": 45,
+      "chainId": 81,
+      "evolvesFrom": null,
+      "evolvesTo": [
+        159
+      ],
+      "evolution": null
+    },
+    {
+      "id": 163,
+      "name": "hoothoot",
+      "displayName": "Hoothoot",
+      "genus": "Owl Pokémon",
+      "types": [
+        "normal",
+        "flying"
+      ],
+      "abilities": [
+        "insomnia",
+        "keen-eye"
+      ],
+      "stats": {
+        "hp": 60,
+        "atk": 30,
+        "def": 30,
+        "spa": 36,
+        "spd": 56,
+        "spe": 50
+      },
+      "bst": 262,
+      "height": 7,
+      "weight": 212,
+      "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/163.png",
+      "spriteBack": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/163.png",
+      "animFront": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/163.gif",
+      "animBack": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/163.gif",
+      "artwork": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/163.png",
+      "moves": [
+        {
+          "id": 193,
+          "name": "foresight",
+          "level": 1
+        },
+        {
+          "id": 45,
+          "name": "growl",
+          "level": 1
+        },
+        {
+          "id": 33,
+          "name": "tackle",
+          "level": 1
+        },
+        {
+          "id": 95,
+          "name": "hypnosis",
+          "level": 5
+        },
+        {
+          "id": 64,
+          "name": "peck",
+          "level": 9
+        },
+        {
+          "id": 253,
+          "name": "uproar",
+          "level": 13
+        },
+        {
+          "id": 115,
+          "name": "reflect",
+          "level": 17
+        },
+        {
+          "id": 93,
+          "name": "confusion",
+          "level": 21
+        },
+        {
+          "id": 36,
+          "name": "take-down",
+          "level": 25
+        },
+        {
+          "id": 403,
+          "name": "air-slash",
+          "level": 29
+        },
+        {
+          "id": 428,
+          "name": "zen-headbutt",
+          "level": 33
+        },
+        {
+          "id": 326,
+          "name": "extrasensory",
+          "level": 37
+        },
+        {
+          "id": 375,
+          "name": "psycho-shift",
+          "level": 41
+        },
+        {
+          "id": 355,
+          "name": "roost",
+          "level": 45
+        },
+        {
+          "id": 138,
+          "name": "dream-eater",
+          "level": 49
+        }
+      ],
+      "tmMoves": [
+        {
+          "id": 19,
+          "name": "fly"
+        },
+        {
+          "id": 92,
+          "name": "toxic"
+        },
+        {
+          "id": 94,
+          "name": "psychic"
+        },
+        {
+          "id": 104,
+          "name": "double-team"
+        },
+        {
+          "id": 115,
+          "name": "reflect"
+        },
+        {
+          "id": 138,
+          "name": "dream-eater"
+        },
+        {
+          "id": 156,
+          "name": "rest"
+        },
+        {
+          "id": 164,
+          "name": "substitute"
+        },
+        {
+          "id": 168,
+          "name": "thief"
+        },
+        {
+          "id": 182,
+          "name": "protect"
+        },
+        {
+          "id": 203,
+          "name": "endure"
+        },
+        {
+          "id": 207,
+          "name": "swagger"
+        },
+        {
+          "id": 211,
+          "name": "steel-wing"
+        },
+        {
+          "id": 213,
+          "name": "attract"
+        },
+        {
+          "id": 214,
+          "name": "sleep-talk"
+        },
+        {
+          "id": 216,
+          "name": "return"
+        },
+        {
+          "id": 218,
+          "name": "frustration"
+        },
+        {
+          "id": 237,
+          "name": "hidden-power"
+        },
+        {
+          "id": 240,
+          "name": "rain-dance"
+        },
+        {
+          "id": 241,
+          "name": "sunny-day"
+        },
+        {
+          "id": 244,
+          "name": "psych-up"
+        },
+        {
+          "id": 247,
+          "name": "shadow-ball"
+        },
+        {
+          "id": 263,
+          "name": "facade"
+        },
+        {
+          "id": 278,
+          "name": "recycle"
+        },
+        {
+          "id": 290,
+          "name": "secret-power"
+        },
+        {
+          "id": 318,
+          "name": "silver-wind"
+        },
+        {
+          "id": 332,
+          "name": "aerial-ace"
+        },
+        {
+          "id": 355,
+          "name": "roost"
+        },
+        {
+          "id": 363,
+          "name": "natural-gift"
+        },
+        {
+          "id": 365,
+          "name": "pluck"
+        },
+        {
+          "id": 432,
+          "name": "defog"
+        },
+        {
+          "id": 445,
+          "name": "captivate"
+        }
+      ],
+      "generation": 2,
+      "isBaby": false,
+      "isLegendary": false,
+      "isMythical": false,
+      "captureRate": 255,
+      "chainId": 83,
+      "evolvesFrom": null,
+      "evolvesTo": [
+        164
+      ],
+      "evolution": null
+    },
+    {
+      "id": 179,
+      "name": "mareep",
+      "displayName": "Mareep",
+      "genus": "Wool Pokémon",
+      "types": [
+        "electric"
+      ],
+      "abilities": [
+        "static"
+      ],
+      "stats": {
+        "hp": 55,
+        "atk": 40,
+        "def": 40,
+        "spa": 65,
+        "spd": 45,
+        "spe": 35
+      },
+      "bst": 280,
+      "height": 6,
+      "weight": 78,
+      "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/179.png",
+      "spriteBack": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/179.png",
+      "animFront": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/179.gif",
+      "animBack": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/179.gif",
+      "artwork": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/179.png",
+      "moves": [
+        {
+          "id": 33,
+          "name": "tackle",
+          "level": 1
+        },
+        {
+          "id": 45,
+          "name": "growl",
+          "level": 5
+        },
+        {
+          "id": 84,
+          "name": "thunder-shock",
+          "level": 10
+        },
+        {
+          "id": 86,
+          "name": "thunder-wave",
+          "level": 14
+        },
+        {
+          "id": 178,
+          "name": "cotton-spore",
+          "level": 19
+        },
+        {
+          "id": 268,
+          "name": "charge",
+          "level": 23
+        },
+        {
+          "id": 435,
+          "name": "discharge",
+          "level": 28
+        },
+        {
+          "id": 324,
+          "name": "signal-beam",
+          "level": 32
+        },
+        {
+          "id": 113,
+          "name": "light-screen",
+          "level": 37
+        },
+        {
+          "id": 408,
+          "name": "power-gem",
+          "level": 41
+        },
+        {
+          "id": 87,
+          "name": "thunder",
+          "level": 46
+        }
+      ],
+      "tmMoves": [
+        {
+          "id": 85,
+          "name": "thunderbolt"
+        },
+        {
+          "id": 86,
+          "name": "thunder-wave"
+        },
+        {
+          "id": 87,
+          "name": "thunder"
+        },
+        {
+          "id": 92,
+          "name": "toxic"
+        },
+        {
+          "id": 104,
+          "name": "double-team"
+        },
+        {
+          "id": 113,
+          "name": "light-screen"
+        },
+        {
+          "id": 148,
+          "name": "flash"
+        },
+        {
+          "id": 156,
+          "name": "rest"
+        },
+        {
+          "id": 164,
+          "name": "substitute"
+        },
+        {
+          "id": 182,
+          "name": "protect"
+        },
+        {
+          "id": 203,
+          "name": "endure"
+        },
+        {
+          "id": 207,
+          "name": "swagger"
+        },
+        {
+          "id": 213,
+          "name": "attract"
+        },
+        {
+          "id": 214,
+          "name": "sleep-talk"
+        },
+        {
+          "id": 216,
+          "name": "return"
+        },
+        {
+          "id": 218,
+          "name": "frustration"
+        },
+        {
+          "id": 231,
+          "name": "iron-tail"
+        },
+        {
+          "id": 237,
+          "name": "hidden-power"
+        },
+        {
+          "id": 240,
+          "name": "rain-dance"
+        },
+        {
+          "id": 263,
+          "name": "facade"
+        },
+        {
+          "id": 290,
+          "name": "secret-power"
+        },
+        {
+          "id": 351,
+          "name": "shock-wave"
+        },
+        {
+          "id": 363,
+          "name": "natural-gift"
+        },
+        {
+          "id": 445,
+          "name": "captivate"
+        },
+        {
+          "id": 451,
+          "name": "charge-beam"
+        }
+      ],
+      "generation": 2,
+      "isBaby": false,
+      "isLegendary": false,
+      "isMythical": false,
+      "captureRate": 235,
+      "chainId": 89,
+      "evolvesFrom": null,
+      "evolvesTo": [
+        180
+      ],
+      "evolution": null
+    },
+    {
+      "id": 241,
+      "name": "miltank",
+      "displayName": "Miltank",
+      "genus": "Milk Cow Pokémon",
+      "types": [
+        "normal"
+      ],
+      "abilities": [
+        "thick-fat",
+        "scrappy"
+      ],
+      "stats": {
+        "hp": 95,
+        "atk": 80,
+        "def": 105,
+        "spa": 40,
+        "spd": 70,
+        "spe": 100
+      },
+      "bst": 490,
+      "height": 12,
+      "weight": 755,
+      "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/241.png",
+      "spriteBack": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/241.png",
+      "animFront": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/241.gif",
+      "animBack": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/241.gif",
+      "artwork": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/241.png",
+      "moves": [
+        {
+          "id": 33,
+          "name": "tackle",
+          "level": 1
+        },
+        {
+          "id": 45,
+          "name": "growl",
+          "level": 3
+        },
+        {
+          "id": 111,
+          "name": "defense-curl",
+          "level": 5
+        },
+        {
+          "id": 23,
+          "name": "stomp",
+          "level": 8
+        },
+        {
+          "id": 208,
+          "name": "milk-drink",
+          "level": 11
+        },
+        {
+          "id": 117,
+          "name": "bide",
+          "level": 15
+        },
+        {
+          "id": 205,
+          "name": "rollout",
+          "level": 19
+        },
+        {
+          "id": 34,
+          "name": "body-slam",
+          "level": 24
+        },
+        {
+          "id": 428,
+          "name": "zen-headbutt",
+          "level": 29
+        },
+        {
+          "id": 445,
+          "name": "captivate",
+          "level": 35
+        },
+        {
+          "id": 360,
+          "name": "gyro-ball",
+          "level": 41
+        },
+        {
+          "id": 215,
+          "name": "heal-bell",
+          "level": 48
+        },
+        {
+          "id": 358,
+          "name": "wake-up-slap",
+          "level": 55
+        }
+      ],
+      "tmMoves": [
+        {
+          "id": 57,
+          "name": "surf"
+        },
+        {
+          "id": 58,
+          "name": "ice-beam"
+        },
+        {
+          "id": 59,
+          "name": "blizzard"
+        },
+        {
+          "id": 63,
+          "name": "hyper-beam"
+        },
+        {
+          "id": 70,
+          "name": "strength"
+        },
+        {
+          "id": 76,
+          "name": "solar-beam"
+        },
+        {
+          "id": 85,
+          "name": "thunderbolt"
+        },
+        {
+          "id": 86,
+          "name": "thunder-wave"
+        },
+        {
+          "id": 87,
+          "name": "thunder"
+        },
+        {
+          "id": 89,
+          "name": "earthquake"
+        },
+        {
+          "id": 92,
+          "name": "toxic"
+        },
+        {
+          "id": 104,
+          "name": "double-team"
+        },
+        {
+          "id": 156,
+          "name": "rest"
+        },
+        {
+          "id": 157,
+          "name": "rock-slide"
+        },
+        {
+          "id": 164,
+          "name": "substitute"
+        },
+        {
+          "id": 182,
+          "name": "protect"
+        },
+        {
+          "id": 201,
+          "name": "sandstorm"
+        },
+        {
+          "id": 203,
+          "name": "endure"
+        },
+        {
+          "id": 207,
+          "name": "swagger"
+        },
+        {
+          "id": 213,
+          "name": "attract"
+        },
+        {
+          "id": 214,
+          "name": "sleep-talk"
+        },
+        {
+          "id": 216,
+          "name": "return"
+        },
+        {
+          "id": 218,
+          "name": "frustration"
+        },
+        {
+          "id": 231,
+          "name": "iron-tail"
+        },
+        {
+          "id": 237,
+          "name": "hidden-power"
+        },
+        {
+          "id": 240,
+          "name": "rain-dance"
+        },
+        {
+          "id": 241,
+          "name": "sunny-day"
+        },
+        {
+          "id": 244,
+          "name": "psych-up"
+        },
+        {
+          "id": 247,
+          "name": "shadow-ball"
+        },
+        {
+          "id": 249,
+          "name": "rock-smash"
+        },
+        {
+          "id": 263,
+          "name": "facade"
+        },
+        {
+          "id": 264,
+          "name": "focus-punch"
+        },
+        {
+          "id": 280,
+          "name": "brick-break"
+        },
+        {
+          "id": 290,
+          "name": "secret-power"
+        },
+        {
+          "id": 317,
+          "name": "rock-tomb"
+        },
+        {
+          "id": 351,
+          "name": "shock-wave"
+        },
+        {
+          "id": 352,
+          "name": "water-pulse"
+        },
+        {
+          "id": 360,
+          "name": "gyro-ball"
+        },
+        {
+          "id": 363,
+          "name": "natural-gift"
+        },
+        {
+          "id": 374,
+          "name": "fling"
+        },
+        {
+          "id": 411,
+          "name": "focus-blast"
+        },
+        {
+          "id": 416,
+          "name": "giga-impact"
+        },
+        {
+          "id": 445,
+          "name": "captivate"
+        },
+        {
+          "id": 446,
+          "name": "stealth-rock"
+        }
+      ],
+      "generation": 2,
+      "isBaby": false,
+      "isLegendary": false,
+      "isMythical": false,
+      "captureRate": 45,
+      "chainId": 122,
+      "evolvesFrom": null,
+      "evolvesTo": [],
+      "evolution": null
+    }
+  ],
+  "moves": [
+    {
+      "id": 10,
+      "name": "scratch",
+      "type": "normal",
+      "power": 40,
+      "accuracy": 100,
+      "damageClass": "physical",
+      "priority": 0,
+      "effectChance": null,
+      "effectText": "Inflicts regular damage with no additional effect. Inflicts regular damage."
+    },
+    {
+      "id": 14,
+      "name": "swords-dance",
+      "type": "normal",
+      "power": null,
+      "accuracy": null,
+      "damageClass": "status",
+      "priority": 0,
+      "effectChance": null,
+      "effectText": "Raises the user’s Attack by two stages. Raises the user’s Attack by two stages."
+    },
+    {
+      "id": 15,
+      "name": "cut",
+      "type": "normal",
+      "power": 50,
+      "accuracy": 95,
+      "damageClass": "physical",
+      "priority": 0,
+      "effectChance": null,
+      "effectText": "Inflicts regular damage with no additional effect. Inflicts regular damage."
+    },
+    {
+      "id": 19,
+      "name": "fly",
+      "type": "flying",
+      "power": 90,
+      "accuracy": 95,
+      "damageClass": "physical",
+      "priority": 0,
+      "effectChance": null,
+      "effectText": "User flies high into the air, dodging all attacks, and hits next turn. Inflicts regular damage.  User flies high into the air for one turn, becoming immune to attack, and hits on the second turn.\n\nDuring the immune turn, Gust, Hurricane, Sky Uppercut, Smack Down, Thunder, Twister, and Whirlwind still hit the user normally.  Gust and Twister also have double power against the user.\n\nThe damage from Hail and Sandstorm still applies during the immune turn.\n\nThe user may be hit during its immune turn if under the effect of Lock-On, Mind Reader, or No Guard.\n\nThis move cannot be used while Gravity is in effect.\n\nThis move cannot be selected by Sleep Talk."
+    },
+    {
+      "id": 21,
+      "name": "slam",
+      "type": "normal",
+      "power": 80,
+      "accuracy": 75,
+      "damageClass": "physical",
+      "priority": 0,
+      "effectChance": null,
+      "effectText": "Inflicts regular damage with no additional effect. Inflicts regular damage."
+    },
+    {
+      "id": 22,
+      "name": "vine-whip",
+      "type": "grass",
+      "power": 45,
+      "accuracy": 100,
+      "damageClass": "physical",
+      "priority": 0,
+      "effectChance": null,
+      "effectText": "Inflicts regular damage with no additional effect. Inflicts regular damage."
+    },
+    {
+      "id": 23,
+      "name": "stomp",
+      "type": "normal",
+      "power": 65,
+      "accuracy": 100,
+      "damageClass": "physical",
+      "priority": 0,
+      "effectChance": 30,
+      "effectText": "Has a chance to make the target flinch. Inflicts regular damage.  Has a chance to make the target flinch.\n\nPower is doubled against Pokémon that have used Minimize since entering the field."
+    },
+    {
+      "id": 28,
+      "name": "sand-attack",
+      "type": "ground",
+      "power": null,
+      "accuracy": 100,
+      "damageClass": "status",
+      "priority": 0,
+      "effectChance": null,
+      "effectText": "Lowers the target’s accuracy by one stage. Lowers the target’s accuracy by one stage."
+    },
+    {
+      "id": 33,
+      "name": "tackle",
+      "type": "normal",
+      "power": 40,
+      "accuracy": 100,
+      "damageClass": "physical",
+      "priority": 0,
+      "effectChance": null,
+      "effectText": "Inflicts regular damage with no additional effect. Inflicts regular damage."
+    },
+    {
+      "id": 34,
+      "name": "body-slam",
+      "type": "normal",
+      "power": 85,
+      "accuracy": 100,
+      "damageClass": "physical",
+      "priority": 0,
+      "effectChance": 30,
+      "effectText": "Has a chance to paralyze the target. Inflicts regular damage.  Has a chance to paralyze the target."
+    },
+    {
+      "id": 36,
+      "name": "take-down",
+      "type": "normal",
+      "power": 90,
+      "accuracy": 85,
+      "damageClass": "physical",
+      "priority": 0,
+      "effectChance": null,
+      "effectText": "User receives 1/4 the damage it inflicts in recoil. Inflicts regular damage.  User takes 1/4 the damage it inflicts in recoil."
+    },
+    {
+      "id": 37,
+      "name": "thrash",
+      "type": "normal",
+      "power": 120,
+      "accuracy": 100,
+      "damageClass": "physical",
+      "priority": 0,
+      "effectChance": null,
+      "effectText": "Hits every turn for 2-3 turns, then confuses the user. Inflicts regular damage.  User is forced to attack with this move for 2–3 turns,selected at random.  After the last hit, the user becomes confused.\n\nSafeguard does not protect against the confusion from this move."
+    },
+    {
+      "id": 38,
+      "name": "double-edge",
+      "type": "normal",
+      "power": 120,
+      "accuracy": 100,
+      "damageClass": "physical",
+      "priority": 0,
+      "effectChance": null,
+      "effectText": "User receives 1/3 the damage inflicted in recoil. Inflicts regular damage.  User takes 1/3 the damage it inflicts in recoil."
+    },
+    {
+      "id": 39,
+      "name": "tail-whip",
+      "type": "normal",
+      "power": null,
+      "accuracy": 100,
+      "damageClass": "status",
+      "priority": 0,
+      "effectChance": null,
+      "effectText": "Lowers the target’s Defense by one stage. Lowers the target’s Defense by one stage."
+    },
+    {
+      "id": 43,
+      "name": "leer",
+      "type": "normal",
+      "power": null,
+      "accuracy": 100,
+      "damageClass": "status",
+      "priority": 0,
+      "effectChance": 100,
+      "effectText": "Lowers the target’s Defense by one stage. Lowers the target’s Defense by one stage."
+    },
+    {
+      "id": 44,
+      "name": "bite",
+      "type": "dark",
+      "power": 60,
+      "accuracy": 100,
+      "damageClass": "physical",
+      "priority": 0,
+      "effectChance": 30,
+      "effectText": "Has a chance to make the target flinch. Inflicts regular damage.  Has a chance to make the target flinch."
+    },
+    {
+      "id": 45,
+      "name": "growl",
+      "type": "normal",
+      "power": null,
+      "accuracy": 100,
+      "damageClass": "status",
+      "priority": 0,
+      "effectChance": null,
+      "effectText": "Lowers the target’s Attack by one stage. Lowers the target’s Attack by one stage."
+    },
+    {
+      "id": 52,
+      "name": "ember",
+      "type": "fire",
+      "power": 40,
+      "accuracy": 100,
+      "damageClass": "special",
+      "priority": 0,
+      "effectChance": 10,
+      "effectText": "Has a chance to burn the target. Inflicts regular damage.  Has a chance to burn the target."
+    },
+    {
+      "id": 53,
+      "name": "flamethrower",
+      "type": "fire",
+      "power": 90,
+      "accuracy": 100,
+      "damageClass": "special",
+      "priority": 0,
+      "effectChance": 10,
+      "effectText": "Has a chance to burn the target. Inflicts regular damage.  Has a chance to burn the target."
+    },
+    {
+      "id": 55,
+      "name": "water-gun",
+      "type": "water",
+      "power": 40,
+      "accuracy": 100,
+      "damageClass": "special",
+      "priority": 0,
+      "effectChance": null,
+      "effectText": "Inflicts regular damage with no additional effect. Inflicts regular damage."
+    },
+    {
+      "id": 56,
+      "name": "hydro-pump",
+      "type": "water",
+      "power": 110,
+      "accuracy": 80,
+      "damageClass": "special",
+      "priority": 0,
+      "effectChance": null,
+      "effectText": "Inflicts regular damage with no additional effect. Inflicts regular damage."
+    },
+    {
+      "id": 57,
+      "name": "surf",
+      "type": "water",
+      "power": 90,
+      "accuracy": 100,
+      "damageClass": "special",
+      "priority": 0,
+      "effectChance": null,
+      "effectText": "Inflicts regular damage and can hit Dive users. Inflicts regular damage.\n\nIf the target is in the first turn of Dive, this move will hit with double power."
+    },
+    {
+      "id": 58,
+      "name": "ice-beam",
+      "type": "ice",
+      "power": 90,
+      "accuracy": 100,
+      "damageClass": "special",
+      "priority": 0,
+      "effectChance": 10,
+      "effectText": "Has a chance to freeze the target. Inflicts regular damage.  Has a chance to freeze the target."
+    },
+    {
+      "id": 59,
+      "name": "blizzard",
+      "type": "ice",
+      "power": 110,
+      "accuracy": 70,
+      "damageClass": "special",
+      "priority": 0,
+      "effectChance": 10,
+      "effectText": "Has a chance to freeze the target. Inflicts regular damage.  Has a chance to freeze the target.\n\nDuring Hail, this move has 100% accuracy.  It also has a (100 - accuracy)% chance to break through the protection of Protect and Detect."
+    },
+    {
+      "id": 63,
+      "name": "hyper-beam",
+      "type": "normal",
+      "power": 150,
+      "accuracy": 90,
+      "damageClass": "special",
+      "priority": 0,
+      "effectChance": null,
+      "effectText": "User foregoes its next turn to recharge. Inflicts regular damage.  User loses its next turn to \"recharge\", and cannot attack or switch out during that turn."
+    },
+    {
+      "id": 64,
+      "name": "peck",
+      "type": "flying",
+      "power": 35,
+      "accuracy": 100,
+      "damageClass": "physical",
+      "priority": 0,
+      "effectChance": null,
+      "effectText": "Inflicts regular damage with no additional effect. Inflicts regular damage."
+    },
+    {
+      "id": 70,
+      "name": "strength",
+      "type": "normal",
+      "power": 80,
+      "accuracy": 100,
+      "damageClass": "physical",
+      "priority": 0,
+      "effectChance": null,
+      "effectText": "Inflicts regular damage with no additional effect. Inflicts regular damage."
+    },
+    {
+      "id": 73,
+      "name": "leech-seed",
+      "type": "grass",
+      "power": null,
+      "accuracy": 90,
+      "damageClass": "status",
+      "priority": 0,
+      "effectChance": null,
+      "effectText": "Seeds the target, stealing HP from it every turn. Plants a seed on the target that drains 1/8 of its max HP at the end of every turn and heals the user for the amount taken.  Has no effect on Grass Pokémon.  The seed remains until the target leaves the field.\n\nThe user takes damage instead of being healed if the target has Liquid Ooze.\n\nRapid Spin will remove this effect.\n\nThis effect is passed on by Baton Pass."
+    },
+    {
+      "id": 74,
+      "name": "growth",
+      "type": "normal",
+      "power": null,
+      "accuracy": null,
+      "damageClass": "status",
+      "priority": 0,
+      "effectChance": null,
+      "effectText": "Raises the user’s Attack and Special Attack by one stage. Raises the user’s Attack and Special Attack by one stage each.  During Sunny Day, raises both stats by two stages."
+    },
+    {
+      "id": 75,
+      "name": "razor-leaf",
+      "type": "grass",
+      "power": 55,
+      "accuracy": 95,
+      "damageClass": "physical",
+      "priority": 0,
+      "effectChance": null,
+      "effectText": "Has an increased chance for a critical hit. Inflicts regular damage.  User’s critical hit rate is one level higher when using this move."
+    },
+    {
+      "id": 76,
+      "name": "solar-beam",
+      "type": "grass",
+      "power": 120,
+      "accuracy": 100,
+      "damageClass": "special",
+      "priority": 0,
+      "effectChance": null,
+      "effectText": "Requires a turn to charge before attacking. Inflicts regular damage.  User charges for one turn before attacking.\n\nDuring Sunny Day, the charge turn is skipped.\n\nDuring Hail, Rain Dance, or Sandstorm, power is halved.\n\nThis move cannot be selected by Sleep Talk."
+    },
+    {
+      "id": 77,
+      "name": "poison-powder",
+      "type": "poison",
+      "power": null,
+      "accuracy": 75,
+      "damageClass": "status",
+      "priority": 0,
+      "effectChance": null,
+      "effectText": "Poisons the target. Poisons the target."
+    },
+    {
+      "id": 79,
+      "name": "sleep-powder",
+      "type": "grass",
+      "power": null,
+      "accuracy": 75,
+      "damageClass": "status",
+      "priority": 0,
+      "effectChance": null,
+      "effectText": "Puts the target to sleep. Puts the target to sleep."
+    },
+    {
+      "id": 82,
+      "name": "dragon-rage",
+      "type": "dragon",
+      "power": null,
+      "accuracy": 100,
+      "damageClass": "special",
+      "priority": 0,
+      "effectChance": null,
+      "effectText": "Inflicts 40 points of damage. Inflicts exactly 40 damage."
+    },
+    {
+      "id": 83,
+      "name": "fire-spin",
+      "type": "fire",
+      "power": 35,
+      "accuracy": 85,
+      "damageClass": "special",
+      "priority": 0,
+      "effectChance": 100,
+      "effectText": "Prevents the target from fleeing and inflicts damage for 2-5 turns. Inflicts regular damage.  For the next 2–5 turns, the target cannot leave the field and is damaged for 1/16 its max HP at the end of each turn.  The user continues to use other moves during this time.  If the user leaves the field, this effect ends.\n\nHas a 3/8 chance each to hit 2 or 3 times, and a 1/8 chance each to hit 4 or 5 times.  Averages to 3 hits per use.\n\nRapid Spin cancels this effect."
+    },
+    {
+      "id": 84,
+      "name": "thunder-shock",
+      "type": "electric",
+      "power": 40,
+      "accuracy": 100,
+      "damageClass": "special",
+      "priority": 0,
+      "effectChance": 10,
+      "effectText": "Has a chance to paralyze the target. Inflicts regular damage.  Has a chance to paralyze the target."
+    },
+    {
+      "id": 85,
+      "name": "thunderbolt",
+      "type": "electric",
+      "power": 90,
+      "accuracy": 100,
+      "damageClass": "special",
+      "priority": 0,
+      "effectChance": 10,
+      "effectText": "Has a chance to paralyze the target. Inflicts regular damage.  Has a chance to paralyze the target."
+    },
+    {
+      "id": 86,
+      "name": "thunder-wave",
+      "type": "electric",
+      "power": null,
+      "accuracy": 90,
+      "damageClass": "status",
+      "priority": 0,
+      "effectChance": null,
+      "effectText": "Paralyzes the target. Paralyzes the target."
+    },
+    {
+      "id": 87,
+      "name": "thunder",
+      "type": "electric",
+      "power": 110,
+      "accuracy": 70,
+      "damageClass": "special",
+      "priority": 0,
+      "effectChance": 30,
+      "effectText": "Has a chance to paralyze the target. Inflicts regular damage.  Has a chance to paralyze the target.\n\nDuring Rain Dance, this move has 100% accuracy.  It also has a (100 - accuracy)% chance to break through the protection of Protect and Detect.\n\nDuring Sunny Day, this move has 50% accuracy."
+    },
+    {
+      "id": 89,
+      "name": "earthquake",
+      "type": "ground",
+      "power": 100,
+      "accuracy": 100,
+      "damageClass": "physical",
+      "priority": 0,
+      "effectChance": null,
+      "effectText": "Inflicts regular damage and can hit Dig users. Inflicts regular damage.\n\nIf the target is in the first turn of Dig, this move will hit with double power."
+    },
+    {
+      "id": 91,
+      "name": "dig",
+      "type": "ground",
+      "power": 80,
+      "accuracy": 100,
+      "damageClass": "physical",
+      "priority": 0,
+      "effectChance": null,
+      "effectText": "User digs underground, dodging all attacks, and hits next turn. Inflicts regular damage.  User digs underground for one turn, becoming immune to attack, and hits on the second turn.\n\nDuring the immune turn, Earthquake, Fissure, and Magnitude still hit the user normally, and their power is doubled if appropriate.\n\nThe user may be hit during its immune turn if under the effect of Lock-On, Mind Reader, or No Guard.\n\nThis move cannot be selected by Sleep Talk."
+    },
+    {
+      "id": 92,
+      "name": "toxic",
+      "type": "poison",
+      "power": null,
+      "accuracy": 90,
+      "damageClass": "status",
+      "priority": 0,
+      "effectChance": null,
+      "effectText": "Badly poisons the target, inflicting more damage every turn. Badly poisons the target.  Never misses when used by a Poison-type Pokémon."
+    },
+    {
+      "id": 93,
+      "name": "confusion",
+      "type": "psychic",
+      "power": 50,
+      "accuracy": 100,
+      "damageClass": "special",
+      "priority": 0,
+      "effectChance": 10,
+      "effectText": "Has a chance to confuse the target. Inflicts regular damage.  Has a chance to confuse the target."
+    },
+    {
+      "id": 94,
+      "name": "psychic",
+      "type": "psychic",
+      "power": 90,
+      "accuracy": 100,
+      "damageClass": "special",
+      "priority": 0,
+      "effectChance": 10,
+      "effectText": "Has a chance to lower the target’s Special Defense by one stage. Inflicts regular damage.  Has a chance to lower the target’s Special Defense by one stage."
+    },
+    {
+      "id": 95,
+      "name": "hypnosis",
+      "type": "psychic",
+      "power": null,
+      "accuracy": 60,
+      "damageClass": "status",
+      "priority": 0,
+      "effectChance": null,
+      "effectText": "Puts the target to sleep. Puts the target to sleep."
+    },
+    {
+      "id": 97,
+      "name": "agility",
+      "type": "psychic",
+      "power": null,
+      "accuracy": null,
+      "damageClass": "status",
+      "priority": 0,
+      "effectChance": null,
+      "effectText": "Raises the user’s Speed by two stages. Raises the user’s Speed by two stages."
+    },
+    {
+      "id": 98,
+      "name": "quick-attack",
+      "type": "normal",
+      "power": 40,
+      "accuracy": 100,
+      "damageClass": "physical",
+      "priority": 1,
+      "effectChance": null,
+      "effectText": "Inflicts regular damage with no additional effect. Inflicts regular damage."
+    },
+    {
+      "id": 99,
+      "name": "rage",
+      "type": "normal",
+      "power": 20,
+      "accuracy": 100,
+      "damageClass": "physical",
+      "priority": 0,
+      "effectChance": null,
+      "effectText": "If the user is hit after using this move, its Attack rises by one stage. Inflicts regular damage.  Every time the user is hit after it uses this move but before its next action, its Attack raises by one stage."
+    },
+    {
+      "id": 103,
+      "name": "screech",
+      "type": "normal",
+      "power": null,
+      "accuracy": 85,
+      "damageClass": "status",
+      "priority": 0,
+      "effectChance": null,
+      "effectText": "Lowers the target’s Defense by two stages. Lowers the target’s Defense by two stages."
+    },
+    {
+      "id": 104,
+      "name": "double-team",
+      "type": "normal",
+      "power": null,
+      "accuracy": null,
+      "damageClass": "status",
+      "priority": 0,
+      "effectChance": null,
+      "effectText": "Raises the user’s evasion by one stage. Raises the user’s evasion by one stage."
+    },
+    {
+      "id": 108,
+      "name": "smokescreen",
+      "type": "normal",
+      "power": null,
+      "accuracy": 100,
+      "damageClass": "status",
+      "priority": 0,
+      "effectChance": null,
+      "effectText": "Lowers the target’s accuracy by one stage. Lowers the target’s accuracy by one stage."
+    },
+    {
+      "id": 110,
+      "name": "withdraw",
+      "type": "water",
+      "power": null,
+      "accuracy": null,
+      "damageClass": "status",
+      "priority": 0,
+      "effectChance": null,
+      "effectText": "Raises the user’s Defense by one stage. Raises the user’s Defense by one stage."
+    },
+    {
+      "id": 111,
+      "name": "defense-curl",
+      "type": "normal",
+      "power": null,
+      "accuracy": null,
+      "damageClass": "status",
+      "priority": 0,
+      "effectChance": null,
+      "effectText": "Raises user’s Defense by one stage. Raises user’s Defense by one stage.\n\nAfter this move is used, the power of Ice Ball and Rollout are doubled until the user leaves the field."
+    },
+    {
+      "id": 113,
+      "name": "light-screen",
+      "type": "psychic",
+      "power": null,
+      "accuracy": null,
+      "damageClass": "status",
+      "priority": 0,
+      "effectChance": null,
+      "effectText": "Reduces damage from special attacks by 50% for five turns. Erects a barrier around the user’s side of the field that reduces damage from special attacks by half for five turns.  In double battles, the reduction is 1/3.  Critical hits are not affected by the barrier.\n\nIf the user is holding Light Clay, the barrier lasts for eight turns.\n\nBrick Break or Defog used by an opponent will destroy the barrier."
+    },
+    {
+      "id": 115,
+      "name": "reflect",
+      "type": "psychic",
+      "power": null,
+      "accuracy": null,
+      "damageClass": "status",
+      "priority": 0,
+      "effectChance": null,
+      "effectText": "Reduces damage from physical attacks by half. Erects a barrier around the user’s side of the field that reduces damage from physical attacks by half for five turns.  In double battles, the reduction is 1/3.  Critical hits are not affected by the barrier.\n\nIf the user is holding Light Clay, the barrier lasts for eight turns.\n\nBrick Break or Defog used by an opponent will destroy the barrier."
+    },
+    {
+      "id": 117,
+      "name": "bide",
+      "type": "normal",
+      "power": null,
+      "accuracy": null,
+      "damageClass": "physical",
+      "priority": 1,
+      "effectChance": null,
+      "effectText": "User waits for two turns, then hits back for twice the damage it took. User waits for two turns.  On the second turn, the user inflicts twice the damage it accumulated on the last Pokémon to hit it.  Damage inflicted is typeless.\n\nThis move cannot be selected by Sleep Talk."
+    },
+    {
+      "id": 122,
+      "name": "lick",
+      "type": "ghost",
+      "power": 30,
+      "accuracy": 100,
+      "damageClass": "physical",
+      "priority": 0,
+      "effectChance": 30,
+      "effectText": "Has a chance to paralyze the target. Inflicts regular damage.  Has a chance to paralyze the target."
+    },
+    {
+      "id": 126,
+      "name": "fire-blast",
+      "type": "fire",
+      "power": 110,
+      "accuracy": 85,
+      "damageClass": "special",
+      "priority": 0,
+      "effectChance": 10,
+      "effectText": "Has a chance to burn the target. Inflicts regular damage.  Has a chance to burn the target."
+    },
+    {
+      "id": 127,
+      "name": "waterfall",
+      "type": "water",
+      "power": 80,
+      "accuracy": 100,
+      "damageClass": "physical",
+      "priority": 0,
+      "effectChance": 20,
+      "effectText": "Has a chance to make the target flinch. Inflicts regular damage.  Has a chance to make the target flinch."
+    },
+    {
+      "id": 129,
+      "name": "swift",
+      "type": "normal",
+      "power": 60,
+      "accuracy": null,
+      "damageClass": "special",
+      "priority": 0,
+      "effectChance": null,
+      "effectText": "Never misses. Inflicts regular damage.  Ignores accuracy and evasion modifiers."
+    },
+    {
+      "id": 130,
+      "name": "skull-bash",
+      "type": "normal",
+      "power": 130,
+      "accuracy": 100,
+      "damageClass": "physical",
+      "priority": 0,
+      "effectChance": 100,
+      "effectText": "Raises the user’s Defense by one stage.  User charges for one turn before attacking. Inflicts regular damage.  Raises the user’s Defense by one stage.  User then charges for one turn before attacking.\n\nThis move cannot be selected by Sleep Talk."
+    },
+    {
+      "id": 133,
+      "name": "amnesia",
+      "type": "psychic",
+      "power": null,
+      "accuracy": null,
+      "damageClass": "status",
+      "priority": 0,
+      "effectChance": null,
+      "effectText": "Raises the user’s Special Defense by two stages. Raises the user’s Special Defense by two stages."
+    },
+    {
+      "id": 138,
+      "name": "dream-eater",
+      "type": "psychic",
+      "power": 100,
+      "accuracy": 100,
+      "damageClass": "special",
+      "priority": 0,
+      "effectChance": null,
+      "effectText": "Only works on sleeping Pokémon.  Drains half the damage inflicted to heal the user. Fails if not used on a sleeping Pokémon.  Inflicts regular damage.  Drains half the damage inflicted to heal the user."
+    },
+    {
+      "id": 145,
+      "name": "bubble",
+      "type": "water",
+      "power": 40,
+      "accuracy": 100,
+      "damageClass": "special",
+      "priority": 0,
+      "effectChance": 10,
+      "effectText": "Has a chance to lower the target’s Speed by one stage. Inflicts regular damage.  Has a chance to lower the target’s Speed by one stage."
+    },
+    {
+      "id": 148,
+      "name": "flash",
+      "type": "normal",
+      "power": null,
+      "accuracy": 100,
+      "damageClass": "status",
+      "priority": 0,
+      "effectChance": null,
+      "effectText": "Lowers the target’s accuracy by one stage. Lowers the target’s accuracy by one stage."
+    },
+    {
+      "id": 156,
+      "name": "rest",
+      "type": "psychic",
+      "power": null,
+      "accuracy": null,
+      "damageClass": "status",
+      "priority": 0,
+      "effectChance": null,
+      "effectText": "User sleeps for two turns, completely healing itself. User falls to sleep and immediately regains all its HP.  If the user has another major status effect, sleep will replace it.  The user will always wake up after two turns, or one turn with Early Bird.\n\nThis move fails if the Pokémon cannot fall asleep due to Uproar, Insomnia, or Vital Spirit.  It also fails if the Pokémon is at full health or is already asleep."
+    },
+    {
+      "id": 157,
+      "name": "rock-slide",
+      "type": "rock",
+      "power": 75,
+      "accuracy": 90,
+      "damageClass": "physical",
+      "priority": 0,
+      "effectChance": 30,
+      "effectText": "Has a chance to make the target flinch. Inflicts regular damage.  Has a chance to make the target flinch."
+    },
+    {
+      "id": 163,
+      "name": "slash",
+      "type": "normal",
+      "power": 70,
+      "accuracy": 100,
+      "damageClass": "physical",
+      "priority": 0,
+      "effectChance": null,
+      "effectText": "Has an increased chance for a critical hit. Inflicts regular damage.  User’s critical hit rate is one level higher when using this move."
+    },
+    {
+      "id": 164,
+      "name": "substitute",
+      "type": "normal",
+      "power": null,
+      "accuracy": null,
+      "damageClass": "status",
+      "priority": 0,
+      "effectChance": null,
+      "effectText": "Transfers 1/4 of the user’s max HP into a doll, protecting the user from further damage or status changes until it breaks. Transfers 1/4 the user’s max HP into a doll that absorbs damage and causes most negative move effects to fail.  If the user leaves the field, the doll will vanish.  If the user cannot pay the HP cost, this move will fail.\n\nThe doll takes damage as normal, using the user’s stats and types, and will break when its HP reaches zero.  Self-inflicted damage from confusion or recoil is not absorbed.  Healing effects from opponents ignore the doll and heal the user as normal.  Moves that work based on the user’s HP still do so; the doll’s HP does not influence any move.\n\nThe doll will block major status effects, confusion, and flinching.  The effects of Smelling Salts and Wake-Up Slap do not trigger against a doll, even if the Pokémon behind the doll has the appropriate major status effect.  Multi-turn trapping moves like Wrap will hit the doll for their regular damage, but the multi-turn trapping and damage effects will not activate.\n\nMoves blocked or damage absorbed by the doll do not count as hitting the user or inflicting damage for any effects that respond to such, e.g., Avalanche, Counter, or a Rowap Berry.  Magic Coat still works as normal, even against moves the doll would block.  Opposing Pokémon that damage the doll with a leech move like Absorb are healed as normal.\n\nIt will also block Acupressure, Block, the curse effect of Curse, Dream Eater, Embargo, Flatter, Gastro Acid, Grudge, Heal Block, Leech Seed, Lock-On, Mean Look, Mimic, Mind Reader, Nightmare, Pain Split, Psycho Shift, Spider Web, Sketch, Swagger, Switcheroo, Trick, Worry Seed, and Yawn.  A Pokémon affected by Yawn before summoning the doll will still fall to sleep.\n\nThe doll blocks Intimidate, but all other abilities act as though the doll did not exist.  If the user has an ability that absorbs moves of a certain type for HP (such as Volt Absorb absorbing Thunder Wave), such moves will not be blocked.\n\nLife Orb and berries that cause confusion still work as normal, but their respective HP loss and confusion are absorbed/blocked by the doll.\n\nThe user is still vulnerable to damage inflicted when entering or leaving the field, such as by Pursuit or Spikes; however, the doll will block the poison effect of Toxic Spikes.\n\nThe doll is passed on by Baton Pass.  It keeps its existing HP, but uses the replacement Pokémon’s stats and types for damage calculation.\n\nAll other effects work as normal."
+    },
+    {
+      "id": 165,
+      "name": "struggle",
+      "type": "normal",
+      "power": 50,
+      "accuracy": null,
+      "damageClass": "physical",
+      "priority": 0,
+      "effectChance": null,
+      "effectText": "User takes 1/4 its max HP in recoil. Inflicts typeless regular damage.  User takes 1/4 its max HP in recoil.  Ignores accuracy and evasion modifiers.\n\nThis move is used automatically when a Pokémon cannot use any other move legally, e.g., due to having no PP remaining or being under the effect of both Encore and Torment at the same time.\n\nThis move’s recoil is not treated as recoil for the purposes of anything that affects recoil, such as the ability Rock Head.  It also is not prevented by Magic Guard.\n\nThis move cannot be copied by Mimic, Mirror Move, or Sketch, nor selected by Assist or Metronome, nor forced by Encore."
+    },
+    {
+      "id": 168,
+      "name": "thief",
+      "type": "dark",
+      "power": 60,
+      "accuracy": 100,
+      "damageClass": "physical",
+      "priority": 0,
+      "effectChance": null,
+      "effectText": "Takes the target’s item. Inflicts regular damage.  If the target is holding an item and the user is not, the user will permanently take the item.  Damage is still inflicted if an item cannot be taken.\n\nPokémon with Sticky Hold or Multitype are immune to the item theft effect.\n\nThe target cannot recover its item with Recycle.\n\nThis move cannot be selected by Assist or Metronome."
+    },
+    {
+      "id": 172,
+      "name": "flame-wheel",
+      "type": "fire",
+      "power": 60,
+      "accuracy": 100,
+      "damageClass": "physical",
+      "priority": 0,
+      "effectChance": 10,
+      "effectText": "Has a chance to burn the target.  Lets frozen Pokémon thaw themselves. Inflicts regular damage.  Has a chance to burn the target.  Frozen Pokémon may use this move, in which case they will thaw."
+    },
+    {
+      "id": 173,
+      "name": "snore",
+      "type": "normal",
+      "power": 50,
+      "accuracy": 100,
+      "damageClass": "special",
+      "priority": 0,
+      "effectChance": 30,
+      "effectText": "Has a chance to make the target flinch.  Only works if the user is sleeping. Only usable if the user is sleeping.  Inflicts regular damage.  Has a chance to make the target flinch."
+    },
+    {
+      "id": 175,
+      "name": "flail",
+      "type": "normal",
+      "power": null,
+      "accuracy": 100,
+      "damageClass": "physical",
+      "priority": 0,
+      "effectChance": null,
+      "effectText": "Inflicts more damage when the user has less HP remaining, with a maximum of 200 power. Inflicts regular damage.  Power varies inversely with the user’s proportional remaining HP.\n\n64 * current HP / max HP | Power\n-----------------------: | ----:\n 0– 1                    |  200\n 2– 5                    |  150\n 6–12                    |  100\n13–21                    |   80\n22–42                    |   40\n43–64                    |   20"
+    },
+    {
+      "id": 178,
+      "name": "cotton-spore",
+      "type": "grass",
+      "power": null,
+      "accuracy": 100,
+      "damageClass": "status",
+      "priority": 0,
+      "effectChance": null,
+      "effectText": "Lowers the target’s Speed by two stages. Lowers the target’s Speed by two stages."
+    },
+    {
+      "id": 182,
+      "name": "protect",
+      "type": "normal",
+      "power": null,
+      "accuracy": null,
+      "damageClass": "status",
+      "priority": 4,
+      "effectChance": null,
+      "effectText": "Prevents any moves from hitting the user this turn. No moves will hit the user for the remainder of this turn.  If the user is last to act this turn, this move will fail.\n\nIf the user successfully used Detect, Endure, Protect, Quick Guard, or Wide Guard on the last turn, this move has a 50% chance to fail.\n\nLock-On, Mind Reader, and No Guard provide a (100 – accuracy)% chance for moves to break through this move.  This does not apply to one-hit KO moves (Fissure, Guillotine, Horn Drill, and Sheer Cold); those are always blocked by this move.\n\nThunder during Rain Dance and Blizzard during Hail have a 30% chance to break through this move.\n\nThe following effects are not prevented by this move:\n\n* Acupressure from an ally\n* Curse’s curse effect\n* Delayed damage from Doom Desire and Future Sight; however, these moves will be prevented if they are used this turn\n* Feint, which will also end this move’s protection after it hits\n* Imprison\n* Perish Song\n* Shadow Force\n* Moves that merely copy the user, such as Transform or Psych Up\n\nThis move cannot be selected by Assist or Metronome."
+    },
+    {
+      "id": 184,
+      "name": "scary-face",
+      "type": "normal",
+      "power": null,
+      "accuracy": 100,
+      "damageClass": "status",
+      "priority": 0,
+      "effectChance": null,
+      "effectText": "Lowers the target’s Speed by two stages. Lowers the target’s Speed by two stages."
+    },
+    {
+      "id": 187,
+      "name": "belly-drum",
+      "type": "normal",
+      "power": null,
+      "accuracy": null,
+      "damageClass": "status",
+      "priority": 0,
+      "effectChance": null,
+      "effectText": "User pays half its max HP to max out its Attack. User pays half its max HP to raise its Attack to +6 stages.  If the user cannot pay the HP cost, this move will fail."
+    },
+    {
+      "id": 188,
+      "name": "sludge-bomb",
+      "type": "poison",
+      "power": 90,
+      "accuracy": 100,
+      "damageClass": "special",
+      "priority": 0,
+      "effectChance": 30,
+      "effectText": "Has a chance to poison the target. Inflicts regular damage.  Has a chance to poison the target."
+    },
+    {
+      "id": 193,
+      "name": "foresight",
+      "type": "normal",
+      "power": null,
+      "accuracy": null,
+      "damageClass": "status",
+      "priority": 0,
+      "effectChance": null,
+      "effectText": "Forces the target to have no Evade, and allows it to be hit by Normal and Fighting moves even if it’s a Ghost. Resets the target’s evasion to normal and prevents any further boosting until the target leaves the field.  A Ghost under this effect takes normal damage from Normal and Fighting moves.  This move itself ignores accuracy and evasion modifiers."
+    },
+    {
+      "id": 201,
+      "name": "sandstorm",
+      "type": "rock",
+      "power": null,
+      "accuracy": null,
+      "damageClass": "status",
+      "priority": 0,
+      "effectChance": null,
+      "effectText": "Changes the weather to a sandstorm for five turns. Changes the weather to a sandstorm for five turns.  Pokémon that are not Ground, Rock, or Steel take 1/16 their max HP at the end of every turn.  Every Rock Pokémon’s original Special Defense is raised by 50% for the duration of this effect.\n\nSolar Beam’s power is halved.\n\nMoonlight, Morning Sun, and Synthesis only heal 1/4 the user’s max HP."
+    },
+    {
+      "id": 202,
+      "name": "giga-drain",
+      "type": "grass",
+      "power": 75,
+      "accuracy": 100,
+      "damageClass": "special",
+      "priority": 0,
+      "effectChance": null,
+      "effectText": "Drains half the damage inflicted to heal the user. Inflicts regular damage.  Drains half the damage inflicted to heal the user."
+    },
+    {
+      "id": 203,
+      "name": "endure",
+      "type": "normal",
+      "power": null,
+      "accuracy": null,
+      "damageClass": "status",
+      "priority": 4,
+      "effectChance": null,
+      "effectText": "Prevents the user’s HP from lowering below 1 this turn. The user’s HP cannot be lowered below 1 by any means for the remainder of this turn.\n\nIf the user successfully used Detect, Endure, Protect, Quick Guard, or Wide Guard on the last turn, this move has a 50% chance to fail.\n\nThis move cannot be selected by Assist or Metronome."
+    },
+    {
+      "id": 205,
+      "name": "rollout",
+      "type": "rock",
+      "power": 30,
+      "accuracy": 90,
+      "damageClass": "physical",
+      "priority": 0,
+      "effectChance": null,
+      "effectText": "Power doubles every turn this move is used in succession after the first, resetting after five turns. Inflicts regular damage.  User is forced to use this move for five turns.  Power doubles every time this move is used in succession to a maximum of 16x, and resets to normal after the lock-in ends.  If this move misses or becomes unusable, the lock-in ends.\n\nIf the user has used Defense Curl since entering the field, this move has double power."
+    },
+    {
+      "id": 207,
+      "name": "swagger",
+      "type": "normal",
+      "power": null,
+      "accuracy": 85,
+      "damageClass": "status",
+      "priority": 0,
+      "effectChance": null,
+      "effectText": "Raises the target’s Attack by two stages and confuses the target. Raises the target’s Attack by two stages, then confuses it.  If the target’s Attack cannot be raised by two stages, the confusion is not applied."
+    },
+    {
+      "id": 208,
+      "name": "milk-drink",
+      "type": "normal",
+      "power": null,
+      "accuracy": null,
+      "damageClass": "status",
+      "priority": 0,
+      "effectChance": null,
+      "effectText": "Heals the user by half its max HP. Heals the user for half its max HP."
+    },
+    {
+      "id": 211,
+      "name": "steel-wing",
+      "type": "steel",
+      "power": 70,
+      "accuracy": 90,
+      "damageClass": "physical",
+      "priority": 0,
+      "effectChance": 10,
+      "effectText": "Has a chance to raise the user’s Defense by one stage. Inflicts regular damage. Has a chance to raise the user’s Defense one stage."
+    },
+    {
+      "id": 213,
+      "name": "attract",
+      "type": "normal",
+      "power": null,
+      "accuracy": 100,
+      "damageClass": "status",
+      "priority": 0,
+      "effectChance": null,
+      "effectText": "Target falls in love if it has the opposite gender, and has a 50% chance to refuse attacking the user. Causes the target to fall in love with the user, giving it a 50% chance to do nothing each turn.  If the user and target are the same gender, or either is genderless, this move will fail.  If either Pokémon leaves the field, this effect ends."
+    },
+    {
+      "id": 214,
+      "name": "sleep-talk",
+      "type": "normal",
+      "power": null,
+      "accuracy": null,
+      "damageClass": "status",
+      "priority": 0,
+      "effectChance": null,
+      "effectText": "Randomly uses one of the user’s other three moves.  Only works if the user is sleeping. Only usable if the user is sleeping.  Randomly selects and uses one of the user’s other three moves.  Use of the selected move requires and costs 0 PP.\n\nThis move will not select Assist, Bide, Bounce, Chatter, Copycat, Dig, Dive, Fly, Focus Punch, Me First, Metronome, Mirror Move, Shadow Force, Skull Bash, Sky Attack, Sky Drop, Sleep Talk, Solar Beam, Razor Wind, or Uproar.\n\nIf the selected move requires a recharge turn—i.e., one of Blast Burn, Frenzy Plant, Giga Impact, Hydro Cannon, Hyper Beam, Roar of Time, or Rock Wrecker—and the user is still sleeping next turn, then it’s forced to use this move again and pay another PP for the recharge turn.\n\nThis move cannot be copied by Mirror Move, nor selected by Assist, Metronome, or Sleep Talk."
+    },
+    {
+      "id": 215,
+      "name": "heal-bell",
+      "type": "normal",
+      "power": null,
+      "accuracy": null,
+      "damageClass": "status",
+      "priority": 0,
+      "effectChance": null,
+      "effectText": "Cures the entire party of major status effects. Removes major status effects and confusion from every Pokémon in the user’s party."
+    },
+    {
+      "id": 216,
+      "name": "return",
+      "type": "normal",
+      "power": null,
+      "accuracy": 100,
+      "damageClass": "physical",
+      "priority": 0,
+      "effectChance": null,
+      "effectText": "Power increases with happiness, up to a maximum of 102. Inflicts regular damage.  Power increases with happiness, given by `happiness * 2 / 5`, to a maximum of 102.  Power bottoms out at 1."
+    },
+    {
+      "id": 218,
+      "name": "frustration",
+      "type": "normal",
+      "power": null,
+      "accuracy": 100,
+      "damageClass": "physical",
+      "priority": 0,
+      "effectChance": null,
+      "effectText": "Power increases as happiness decreases, up to a maximum of 102. Inflicts regular damage.  Power increases inversely with happiness, given by `(255 - happiness) * 2 / 5`, to a maximum of 102.  Power bottoms out at 1."
+    },
+    {
+      "id": 219,
+      "name": "safeguard",
+      "type": "normal",
+      "power": null,
+      "accuracy": null,
+      "damageClass": "status",
+      "priority": 0,
+      "effectChance": null,
+      "effectText": "Protects the user’s field from major status ailments and confusion for five turns. Protects Pokémon on the user’s side of the field from major status effects and confusion for five turns.  Does not cancel existing ailments.  This effect remains even if the user leaves the field.\n\nIf Yawn is used while this move is in effect, it will immediately fail.\n\nDefog used by an opponent will end this effect.\n\nThis effect does not prevent the confusion caused by Outrage, Petal Dance, or Thrash."
+    },
+    {
+      "id": 226,
+      "name": "baton-pass",
+      "type": "normal",
+      "power": null,
+      "accuracy": null,
+      "damageClass": "status",
+      "priority": 0,
+      "effectChance": null,
+      "effectText": "Allows the trainer to switch out the user and pass effects along to its replacement. User switches out, and the trainer selects a replacement Pokémon from the party.  Stat changes, confusion, and persistent move effects are passed along to the replacement Pokémon.\n\nThe following move effects are passed:\n\n* Aqua Ring\n* both the user’s and target’s effect of Block, Mean Look, and Spider Web\n* the curse effect of Curse\n* Embargo\n* Focus Energy or an activated Lansat Berry\n* Gastro Acid\n* Ingrain\n* being sapped by Leech Seed\n* being targeted by Lock-On or Mind Reader\n* Magnet Rise\n* Perish Song’s counter\n* Power Trick\n* Substitute; the doll’s HP is unchanged\n\nThe replacement Pokémon does not trigger effects that respond to Pokémon switching in."
+    },
+    {
+      "id": 229,
+      "name": "rapid-spin",
+      "type": "normal",
+      "power": 50,
+      "accuracy": 100,
+      "damageClass": "physical",
+      "priority": 0,
+      "effectChance": 100,
+      "effectText": "Frees the user from binding moves, removes Leech Seed, and blows away Spikes. Inflicts regular damage.  Removes Leech Seed from the user, frees the user from Bind, Clamp, Fire Spin, Magma Storm, Sand Tomb, Whirlpool, and Wrap, and clears Spikes, Stealth Rock, and Toxic Spikes from the user’s side of the field.  If this move misses or has no effect, its effect doesn’t activate."
+    },
+    {
+      "id": 230,
+      "name": "sweet-scent",
+      "type": "normal",
+      "power": null,
+      "accuracy": 100,
+      "damageClass": "status",
+      "priority": 0,
+      "effectChance": null,
+      "effectText": "Lowers the target’s evasion by one stage. Lowers the target’s evasion by one stage."
+    },
+    {
+      "id": 231,
+      "name": "iron-tail",
+      "type": "steel",
+      "power": 100,
+      "accuracy": 75,
+      "damageClass": "physical",
+      "priority": 0,
+      "effectChance": 30,
+      "effectText": "Has a chance to lower the target’s Defense by one stage. Inflicts regular damage.  Has a chance to lower the target’s Defense by one stage."
+    },
+    {
+      "id": 235,
+      "name": "synthesis",
+      "type": "grass",
+      "power": null,
+      "accuracy": null,
+      "damageClass": "status",
+      "priority": 0,
+      "effectChance": null,
+      "effectText": "Heals the user by half its max HP.  Affected by weather. Heals the user for half its max HP.\n\nDuring Sunny Day, the healing is increased to 2/3 max HP.\n\nDuring Hail, Rain Dance, or Sandstorm, the healing is decreased to 1/4 max HP."
+    },
+    {
+      "id": 237,
+      "name": "hidden-power",
+      "type": "normal",
+      "power": 60,
+      "accuracy": 100,
+      "damageClass": "special",
+      "priority": 0,
+      "effectChance": null,
+      "effectText": "Power and type depend upon user’s IVs.  Power can range from 30 to 70. Inflicts regular damage.  Power and type are determined by the user’s IVs.\n\nPower is given by `x * 40 / 63 + 30`.  `x` is obtained by arranging bit 1 from the IV for each of Special Defense, Special Attack, Speed, Defense, Attack, and HP in that order.  (Bit 1 is 1 if the IV is of the form `4n + 2` or `4n + 3`.  `x` is then 64 * Special Defense IV bit 1, plus 32 * Special Attack IV bit 1, etc.)\n\nPower is always between 30 and 70, inclusive.  Average power is 49.5.\n\nType is given by `y * 15 / 63`, where `y` is similar to `x` above, except constructed from bit 0.  (Bit 0 is 1 if the IV is odd.)  The result is looked up in the following table.\n\nValue | Type\n----: | --------\n    0 | Fighting\n    1 | Flying\n    2 | Poison\n    3 | Ground\n    4 | Rock\n    5 | Bug\n    6 | Ghost\n    7 | Steel\n    8 | Fire\n    9 | Water\n   10 | Grass\n   11 | Electric\n   12 | Psychic\n   13 | Ice\n   14 | Dragon\n   15 | Dark\n\nThis move thus cannot be Normal.  Most other types have an equal 1/16 chance to be selected, given random IVs.  However, due to the flooring used here, Bug, Fighting, and Grass appear 5/64 of the time, and Dark only 1/64 of the time."
+    },
+    {
+      "id": 240,
+      "name": "rain-dance",
+      "type": "water",
+      "power": null,
+      "accuracy": null,
+      "damageClass": "status",
+      "priority": 0,
+      "effectChance": null,
+      "effectText": "Changes the weather to rain for five turns. Changes the weather to rain for five turns, during which Water moves inflict 50% extra damage, and Fire moves inflict half damage.\n\nIf the user is holding Damp Rock, this effect lasts for eight turns.\n\nThunder has 100% accuracy.  If the target has used Detect or Protect, Thunder has a (100 - accuracy)% chance to break through the protection.\n\nSolar Beam has half power.\n\nMoonlight, Morning Sun, and Synthesis heal only 1/4 of the user’s max HP.\n\nPokémon with Swift Swim have doubled original Speed.\n\nPokémon with Forecast become Water.\n\nPokémon with Dry Skin heal 1/8 max HP, Pokémon with Hydration are cured of major status effects, and Pokémon with Rain Dish heal 1/16 max HP at the end of each turn."
+    },
+    {
+      "id": 241,
+      "name": "sunny-day",
+      "type": "fire",
+      "power": null,
+      "accuracy": null,
+      "damageClass": "status",
+      "priority": 0,
+      "effectChance": null,
+      "effectText": "Changes the weather to sunny for five turns. Changes the weather to sunshine for five turns, during which Fire moves inflict 50% extra damage, and Water moves inflict half damage.\n\nIf the user is holding Heat Rock, this effect lasts for eight turns.\n\nPokémon cannot become frozen.\n\nThunder has 50% accuracy.\n\nSolar Beam skips its charge turn.\n\nMoonlight, Morning Sun, and Synthesis heal 2/3 of the user’s max HP.\n\nPokémon with Chlorophyll have doubled original Speed.\n\nPokémon with Forecast become Fire.\n\nPokémon with Leaf Guard are not affected by major status effects.\n\nPokémon with Flower Gift change form; every Pokémon on their side of the field have their original Attack and Special Attack increased by 50%.\n\nPokémon with Dry Skin lose 1/8 max HP at the end of each turn.\n\nPokémon with Solar Power have their original Special Attack raised by 50% but lose 1/8 their max HP at the end of each turn."
+    },
+    {
+      "id": 242,
+      "name": "crunch",
+      "type": "dark",
+      "power": 80,
+      "accuracy": 100,
+      "damageClass": "physical",
+      "priority": 0,
+      "effectChance": 20,
+      "effectText": "Has a chance to lower the target’s Defense by one stage. Inflicts regular damage.  Has a chance to lower the target’s Defense by one stage."
+    },
+    {
+      "id": 244,
+      "name": "psych-up",
+      "type": "normal",
+      "power": null,
+      "accuracy": null,
+      "damageClass": "status",
+      "priority": 0,
+      "effectChance": null,
+      "effectText": "Discards the user’s stat changes and copies the target’s. Discards the user’s stat changes and copies the target’s.\n\nThis move cannot be copied by Mirror Move."
+    },
+    {
+      "id": 247,
+      "name": "shadow-ball",
+      "type": "ghost",
+      "power": 80,
+      "accuracy": 100,
+      "damageClass": "special",
+      "priority": 0,
+      "effectChance": 20,
+      "effectText": "Has a chance to lower the target’s Special Defense by one stage. Inflicts regular damage.  Has a chance to lower the target’s Special Defense by one stage."
+    },
+    {
+      "id": 249,
+      "name": "rock-smash",
+      "type": "fighting",
+      "power": 40,
+      "accuracy": 100,
+      "damageClass": "physical",
+      "priority": 0,
+      "effectChance": 50,
+      "effectText": "Has a chance to lower the target’s Defense by one stage. Inflicts regular damage.  Has a chance to lower the target’s Defense by one stage."
+    },
+    {
+      "id": 253,
+      "name": "uproar",
+      "type": "normal",
+      "power": 90,
+      "accuracy": 100,
+      "damageClass": "special",
+      "priority": 0,
+      "effectChance": null,
+      "effectText": "Forced to use this move for several turns.  Pokémon cannot fall asleep in that time. Inflicts regular damage.  User is forced to use this move for 2–5 turns, selected at random.  All Pokémon on the field wake up, and none can fall to sleep until the lock-in ends.\n\nPokémon cannot use Rest during this effect.\n\nThis move cannot be selected by Sleep Talk."
+    },
+    {
+      "id": 258,
+      "name": "hail",
+      "type": "ice",
+      "power": null,
+      "accuracy": null,
+      "damageClass": "status",
+      "priority": 0,
+      "effectChance": null,
+      "effectText": "Changes the weather to a hailstorm for five turns. Changes the weather to hail for five turns, during which non-Ice Pokémon are damaged for 1/16 their max HP at the end of every turn.\n\nIf the user is holding Icy Rock, this effect lasts for eight turns.\n\nBlizzard has 100% accuracy.  If the target has used Detect or Protect, Blizzard has a (100 - accuracy)% chance to break through the protection.\n\nMoonlight, Morning Sun, and Synthesis heal only 1/4 of the user’s max HP.\n\nPokémon with Snow Cloak are exempt from this effect’s damage."
+    },
+    {
+      "id": 261,
+      "name": "will-o-wisp",
+      "type": "fire",
+      "power": null,
+      "accuracy": 85,
+      "damageClass": "status",
+      "priority": 0,
+      "effectChance": null,
+      "effectText": "Burns the target. Burns the target."
+    },
+    {
+      "id": 263,
+      "name": "facade",
+      "type": "normal",
+      "power": 70,
+      "accuracy": 100,
+      "damageClass": "physical",
+      "priority": 0,
+      "effectChance": null,
+      "effectText": "Power doubles if user is burned, paralyzed, or poisoned. Inflicts regular damage.  If the user is burned, paralyzed, or poisoned, this move has double power."
+    },
+    {
+      "id": 264,
+      "name": "focus-punch",
+      "type": "fighting",
+      "power": 150,
+      "accuracy": 100,
+      "damageClass": "physical",
+      "priority": -3,
+      "effectChance": null,
+      "effectText": "If the user takes damage before attacking, the attack is canceled. Inflicts regular damage.  If the user takes damage this turn before hitting, this move will fail.\n\nThis move cannot be copied by Mirror Move, nor selected by Assist, Metronome, or Sleep Talk."
+    },
+    {
+      "id": 268,
+      "name": "charge",
+      "type": "electric",
+      "power": null,
+      "accuracy": null,
+      "damageClass": "status",
+      "priority": 0,
+      "effectChance": null,
+      "effectText": "Raises the user’s Special Defense by one stage.  User’s Electric moves have doubled power next turn. Raises the user’s Special Defense by one stage.  If the user uses an Electric move next turn, its power will be doubled."
+    },
+    {
+      "id": 270,
+      "name": "helping-hand",
+      "type": "normal",
+      "power": null,
+      "accuracy": null,
+      "damageClass": "status",
+      "priority": 5,
+      "effectChance": null,
+      "effectText": "Ally’s next move inflicts half more damage. Boosts the power of the target’s moves by 50% until the end of this turn.\n\nThis move cannot be copied by Mirror Move, nor selected by Assist or Metronome."
+    },
+    {
+      "id": 276,
+      "name": "superpower",
+      "type": "fighting",
+      "power": 120,
+      "accuracy": 100,
+      "damageClass": "physical",
+      "priority": 0,
+      "effectChance": 100,
+      "effectText": "Lowers the user’s Attack and Defense by one stage after inflicting damage. Inflicts regular damage, then lowers the user’s Attack and Defense by one stage each."
+    },
+    {
+      "id": 278,
+      "name": "recycle",
+      "type": "normal",
+      "power": null,
+      "accuracy": null,
+      "damageClass": "status",
+      "priority": 0,
+      "effectChance": null,
+      "effectText": "User recovers the item it last used up. User recovers the last item consumed by the user or a Pokémon in its position on the field.  The item must be used again before it can be recovered by this move again.  If the user is holding an item, this move fails.\n\nItems taken or given away by Covet, Knock Off, Switcheroo, Thief, or Trick may not be recovered."
+    },
+    {
+      "id": 280,
+      "name": "brick-break",
+      "type": "fighting",
+      "power": 75,
+      "accuracy": 100,
+      "damageClass": "physical",
+      "priority": 0,
+      "effectChance": null,
+      "effectText": "Destroys Reflect and Light Screen. Destroys any Light Screen or Reflect on the target’s side of the field, then inflicts regular damage."
+    },
+    {
+      "id": 281,
+      "name": "yawn",
+      "type": "normal",
+      "power": null,
+      "accuracy": null,
+      "damageClass": "status",
+      "priority": 0,
+      "effectChance": null,
+      "effectText": "Target sleeps at the end of the next turn. Puts the target to sleep at the end of the next turn.  Ignores accuracy and evasion modifiers.  If the target leaves the field, this effect is canceled.  If the target has a status effect when this move is used, this move will fail.\n\nIf the target is protected by Safeguard when this move is used, this move will fail.\n\nInsomnia and Vital Spirit prevent the sleep if the target has either at the end of the next turn, but will not cause this move to fail on use."
+    },
+    {
+      "id": 284,
+      "name": "eruption",
+      "type": "fire",
+      "power": 150,
+      "accuracy": 100,
+      "damageClass": "special",
+      "priority": 0,
+      "effectChance": null,
+      "effectText": "Inflicts more damage when the user has more HP remaining, with a maximum of 150 power. Inflicts regular damage.  Power increases with the user’s remaining HP and is given by `150 * HP / max HP`, to a maximum of 150 when the user has full HP."
+    },
+    {
+      "id": 290,
+      "name": "secret-power",
+      "type": "normal",
+      "power": 70,
+      "accuracy": 100,
+      "damageClass": "physical",
+      "priority": 0,
+      "effectChance": 30,
+      "effectText": "Has a chance to inflict a status effect which depends upon the terrain. Inflicts regular damage.  Has a chance to inflict an effect chosen according to the terrain.\n\nTerrain        | Effect\n-------------- | -------------------------------------------------------------\nBuilding       | Paralyzes target\nCave           | Makes target flinch\nDeep water     | Lowers target’s Attack by one stage\nDesert         | Lowers target’s accuracy by one stage\nGrass          | Puts target to sleep\nMountain       | Makes target flinch\nRoad           | Lowers target’s accuracy by one stage\nShallow water  | Lowers target’s Attack by one stage\nSnow           | Freezes target\nTall grass     | Puts target to sleep\n\nIn Pokémon Battle Revolution:\n\nTerrain        | Effect\n-------------- | -------------------------------------------------------------\nCourtyard      | Paralyzes target\nCrystal        | Makes target flinch\nGateway        | Lowers target’s Attack by one stage\nMagma          | Makes target flinch\nMain Street    | Paralyzes target\nNeon           | Paralyzes target\nStargazer      | Makes target flinch\nSunny Park     | Puts target to sleep\nSunset         | Lowers target’s accuracy by one stage\nWaterfall      | Puts target to sleep"
+    },
+    {
+      "id": 312,
+      "name": "aromatherapy",
+      "type": "grass",
+      "power": null,
+      "accuracy": null,
+      "damageClass": "status",
+      "priority": 0,
+      "effectChance": null,
+      "effectText": "Cures the entire party of major status effects. Removes major status effects and confusion from every Pokémon in the user’s party."
+    },
+    {
+      "id": 315,
+      "name": "overheat",
+      "type": "fire",
+      "power": 130,
+      "accuracy": 90,
+      "damageClass": "special",
+      "priority": 0,
+      "effectChance": 100,
+      "effectText": "Lowers the user’s Special Attack by two stages after inflicting damage. Inflicts regular damage, then lowers the user’s Special Attack by two stages."
+    },
+    {
+      "id": 317,
+      "name": "rock-tomb",
+      "type": "rock",
+      "power": 60,
+      "accuracy": 95,
+      "damageClass": "physical",
+      "priority": 0,
+      "effectChance": 100,
+      "effectText": "Has a chance to lower the target’s Speed by one stage. Inflicts regular damage.  Has a chance to lower the target’s Speed by one stage."
+    },
+    {
+      "id": 318,
+      "name": "silver-wind",
+      "type": "bug",
+      "power": 60,
+      "accuracy": 100,
+      "damageClass": "special",
+      "priority": 0,
+      "effectChance": 10,
+      "effectText": "Has a chance to raise all of the user’s stats by one stage. Inflicts regular damage. Has a chance to raise all of the user’s stats one stage."
+    },
+    {
+      "id": 324,
+      "name": "signal-beam",
+      "type": "bug",
+      "power": 75,
+      "accuracy": 100,
+      "damageClass": "special",
+      "priority": 0,
+      "effectChance": 10,
+      "effectText": "Has a chance to confuse the target. Inflicts regular damage.  Has a chance to confuse the target."
+    },
+    {
+      "id": 326,
+      "name": "extrasensory",
+      "type": "psychic",
+      "power": 80,
+      "accuracy": 100,
+      "damageClass": "special",
+      "priority": 0,
+      "effectChance": 10,
+      "effectText": "Has a chance to make the target flinch. Inflicts regular damage.  Has a chance to make the target flinch."
+    },
+    {
+      "id": 331,
+      "name": "bullet-seed",
+      "type": "grass",
+      "power": 25,
+      "accuracy": 100,
+      "damageClass": "physical",
+      "priority": 0,
+      "effectChance": null,
+      "effectText": "Hits 2-5 times in one turn. Inflicts regular damage.  Hits 2–5 times in one turn.\n\nHas a 3/8 chance each to hit 2 or 3 times, and a 1/8 chance each to hit 4 or 5 times.  Averages to 3 hits per use."
+    },
+    {
+      "id": 332,
+      "name": "aerial-ace",
+      "type": "flying",
+      "power": 60,
+      "accuracy": null,
+      "damageClass": "physical",
+      "priority": 0,
+      "effectChance": null,
+      "effectText": "Never misses. Inflicts regular damage.  Ignores accuracy and evasion modifiers."
+    },
+    {
+      "id": 334,
+      "name": "iron-defense",
+      "type": "steel",
+      "power": null,
+      "accuracy": null,
+      "damageClass": "status",
+      "priority": 0,
+      "effectChance": null,
+      "effectText": "Raises the user’s Defense by two stages. Raises the user’s Defense by two stages."
+    },
+    {
+      "id": 335,
+      "name": "block",
+      "type": "normal",
+      "power": null,
+      "accuracy": null,
+      "damageClass": "status",
+      "priority": 0,
+      "effectChance": null,
+      "effectText": "Prevents the target from leaving battle. The target cannot switch out normally.  Ignores accuracy and evasion modifiers.  This effect ends when the user leaves the field.\n\nThe target may still escape by using Baton Pass, U-turn, or a Shed Shell.\n\nBoth the user and the target pass on this effect with Baton Pass."
+    },
+    {
+      "id": 337,
+      "name": "dragon-claw",
+      "type": "dragon",
+      "power": 80,
+      "accuracy": 100,
+      "damageClass": "physical",
+      "priority": 0,
+      "effectChance": null,
+      "effectText": "Inflicts regular damage with no additional effect. Inflicts regular damage."
+    },
+    {
+      "id": 345,
+      "name": "magical-leaf",
+      "type": "grass",
+      "power": 60,
+      "accuracy": null,
+      "damageClass": "special",
+      "priority": 0,
+      "effectChance": null,
+      "effectText": "Never misses. Inflicts regular damage.  Ignores accuracy and evasion modifiers."
+    },
+    {
+      "id": 351,
+      "name": "shock-wave",
+      "type": "electric",
+      "power": 60,
+      "accuracy": null,
+      "damageClass": "special",
+      "priority": 0,
+      "effectChance": null,
+      "effectText": "Never misses. Inflicts regular damage.  Ignores accuracy and evasion modifiers."
+    },
+    {
+      "id": 352,
+      "name": "water-pulse",
+      "type": "water",
+      "power": 60,
+      "accuracy": 100,
+      "damageClass": "special",
+      "priority": 0,
+      "effectChance": 20,
+      "effectText": "Has a chance to confuse the target. Inflicts regular damage.  Has a chance to confuse the target."
+    },
+    {
+      "id": 355,
+      "name": "roost",
+      "type": "flying",
+      "power": null,
+      "accuracy": null,
+      "damageClass": "status",
+      "priority": 0,
+      "effectChance": null,
+      "effectText": "Heals the user by half its max HP. Heals the user for half its max HP.  If the user is Flying, its Flying type is ignored until the end of this turn."
+    },
+    {
+      "id": 358,
+      "name": "wake-up-slap",
+      "type": "fighting",
+      "power": 70,
+      "accuracy": 100,
+      "damageClass": "physical",
+      "priority": 0,
+      "effectChance": null,
+      "effectText": "If the target is asleep, has double power and wakes it up. Inflicts regular damage.  If the target is sleeping, this move has double power, and the target wakes up."
+    },
+    {
+      "id": 360,
+      "name": "gyro-ball",
+      "type": "steel",
+      "power": null,
+      "accuracy": 100,
+      "damageClass": "physical",
+      "priority": 0,
+      "effectChance": null,
+      "effectText": "Power raises when the user has lower Speed, up to a maximum of 150. Inflicts regular damage.  Power increases with the target’s current Speed compared to the user, given by `1 + 25 * target Speed / user Speed`, capped at 150."
+    },
+    {
+      "id": 362,
+      "name": "brine",
+      "type": "water",
+      "power": 65,
+      "accuracy": 100,
+      "damageClass": "special",
+      "priority": 0,
+      "effectChance": null,
+      "effectText": "Has double power against Pokémon that have less than half their max HP remaining. Inflicts regular damage.  If the target has less than half its max HP remaining, this move has double power."
+    },
+    {
+      "id": 363,
+      "name": "natural-gift",
+      "type": "normal",
+      "power": null,
+      "accuracy": 100,
+      "damageClass": "physical",
+      "priority": 0,
+      "effectChance": null,
+      "effectText": "Power and type depend on the held berry. Inflicts regular damage.  Power and type are determined by the user’s held berry.  The berry is consumed.  If the user is not holding a berry, this move will fail."
+    },
+    {
+      "id": 364,
+      "name": "feint",
+      "type": "normal",
+      "power": 30,
+      "accuracy": 100,
+      "damageClass": "physical",
+      "priority": 2,
+      "effectChance": null,
+      "effectText": "Hits through Protect and Detect. Inflicts regular damage.  Removes the effects of Detect or Protect from the target before hitting.\n\nThis move cannot be copied by Mirror Move, nor selected by Assist or Metronome."
+    },
+    {
+      "id": 365,
+      "name": "pluck",
+      "type": "flying",
+      "power": 60,
+      "accuracy": 100,
+      "damageClass": "physical",
+      "priority": 0,
+      "effectChance": null,
+      "effectText": "If target has a berry, inflicts double damage and uses the berry. Inflicts regular damage.  If the target is holding a berry, this move has double power, and the user takes the berry and uses it immediately.\n\nIf the target is holding a Jaboca Berry or Rowap Berry, the berry is still removed, but has no effect.\n\nIf this move is super effective and the target is holding a berry that can reduce this move’s damage, it will do so, and will not be stolen."
+    },
+    {
+      "id": 374,
+      "name": "fling",
+      "type": "dark",
+      "power": null,
+      "accuracy": 100,
+      "damageClass": "physical",
+      "priority": 0,
+      "effectChance": null,
+      "effectText": "Throws held item at the target; power depends on the item. Inflicts regular damage.  Power and type are determined by the user’s held item.  The item is consumed.  If the user is not holding an item, or its item has no set type and power, this move will fail.\n\nThis move ignores Sticky Hold.\n\nIf the user is under the effect of Embargo, this move will fail."
+    },
+    {
+      "id": 375,
+      "name": "psycho-shift",
+      "type": "psychic",
+      "power": null,
+      "accuracy": 100,
+      "damageClass": "status",
+      "priority": 0,
+      "effectChance": null,
+      "effectText": "Transfers the user’s major status effect to the target. If the user has a major status effect and the target does not, the user’s status is transferred to the target."
+    },
+    {
+      "id": 376,
+      "name": "trump-card",
+      "type": "normal",
+      "power": null,
+      "accuracy": null,
+      "damageClass": "special",
+      "priority": 0,
+      "effectChance": null,
+      "effectText": "Power increases when this move has less PP, up to a maximum of 200. Inflicts regular damage.  Power is determined by the PP remaining for this move, after its PP cost is deducted.  Ignores accuracy and evasion modifiers.\n\nPP remaining | Power\n------------ | ----:\n4 or more    |    40\n3            |    50\n2            |    60\n1            |    80\n0            |   200\n\nIf this move is activated by another move, the activating move’s PP is used to calculate power."
+    },
+    {
+      "id": 387,
+      "name": "last-resort",
+      "type": "normal",
+      "power": 140,
+      "accuracy": 100,
+      "damageClass": "physical",
+      "priority": 0,
+      "effectChance": null,
+      "effectText": "Can only be used after all of the user’s other moves have been used. Inflicts regular damage.  This move can only be used if each of the user’s other moves has been used at least once since the user entered the field.  If this is the user’s only move, this move will fail."
+    },
+    {
+      "id": 388,
+      "name": "worry-seed",
+      "type": "grass",
+      "power": null,
+      "accuracy": 100,
+      "damageClass": "status",
+      "priority": 0,
+      "effectChance": null,
+      "effectText": "Changes the target’s ability to Insomnia. Changes the target’s ability to Insomnia.\n\nIf the target’s ability is Truant or Multitype, this move will fail."
+    },
+    {
+      "id": 401,
+      "name": "aqua-tail",
+      "type": "water",
+      "power": 90,
+      "accuracy": 90,
+      "damageClass": "physical",
+      "priority": 0,
+      "effectChance": null,
+      "effectText": "Inflicts regular damage with no additional effect. Inflicts regular damage."
+    },
+    {
+      "id": 402,
+      "name": "seed-bomb",
+      "type": "grass",
+      "power": 80,
+      "accuracy": 100,
+      "damageClass": "physical",
+      "priority": 0,
+      "effectChance": null,
+      "effectText": "Inflicts regular damage with no additional effect. Inflicts regular damage."
+    },
+    {
+      "id": 403,
+      "name": "air-slash",
+      "type": "flying",
+      "power": 75,
+      "accuracy": 95,
+      "damageClass": "special",
+      "priority": 0,
+      "effectChance": 30,
+      "effectText": "Has a chance to make the target flinch. Inflicts regular damage.  Has a chance to make the target flinch."
+    },
+    {
+      "id": 408,
+      "name": "power-gem",
+      "type": "rock",
+      "power": 80,
+      "accuracy": 100,
+      "damageClass": "special",
+      "priority": 0,
+      "effectChance": null,
+      "effectText": "Inflicts regular damage with no additional effect. Inflicts regular damage."
+    },
+    {
+      "id": 411,
+      "name": "focus-blast",
+      "type": "fighting",
+      "power": 120,
+      "accuracy": 70,
+      "damageClass": "special",
+      "priority": 0,
+      "effectChance": 10,
+      "effectText": "Has a chance to lower the target’s Special Defense by one stage. Inflicts regular damage.  Has a chance to lower the target’s Special Defense by one stage."
+    },
+    {
+      "id": 412,
+      "name": "energy-ball",
+      "type": "grass",
+      "power": 90,
+      "accuracy": 100,
+      "damageClass": "special",
+      "priority": 0,
+      "effectChance": 10,
+      "effectText": "Has a chance to lower the target’s Special Defense by one stage. Inflicts regular damage.  Has a chance to lower the target’s Special Defense by one stage."
+    },
+    {
+      "id": 416,
+      "name": "giga-impact",
+      "type": "normal",
+      "power": 150,
+      "accuracy": 90,
+      "damageClass": "physical",
+      "priority": 0,
+      "effectChance": null,
+      "effectText": "User foregoes its next turn to recharge. Inflicts regular damage.  User loses its next turn to \"recharge\", and cannot attack or switch out during that turn."
+    },
+    {
+      "id": 421,
+      "name": "shadow-claw",
+      "type": "ghost",
+      "power": 70,
+      "accuracy": 100,
+      "damageClass": "physical",
+      "priority": 0,
+      "effectChance": null,
+      "effectText": "Has an increased chance for a critical hit. Inflicts regular damage.  User’s critical hit rate is one level higher when using this move."
+    },
+    {
+      "id": 423,
+      "name": "ice-fang",
+      "type": "ice",
+      "power": 65,
+      "accuracy": 95,
+      "damageClass": "physical",
+      "priority": 0,
+      "effectChance": 10,
+      "effectText": "Has a chance to freeze the target and a chance to make the target flinch. Inflicts regular damage.  Has a chance to freeze the target and a separate chance to make the target flinch."
+    },
+    {
+      "id": 424,
+      "name": "fire-fang",
+      "type": "fire",
+      "power": 65,
+      "accuracy": 95,
+      "damageClass": "physical",
+      "priority": 0,
+      "effectChance": 10,
+      "effectText": "Has a chance to burn the target and a chance to make the target flinch. Inflicts regular damage.  Has a chance to burn the target and a separate chance to make the target flinch."
+    },
+    {
+      "id": 428,
+      "name": "zen-headbutt",
+      "type": "psychic",
+      "power": 80,
+      "accuracy": 90,
+      "damageClass": "physical",
+      "priority": 0,
+      "effectChance": 20,
+      "effectText": "Has a chance to make the target flinch. Inflicts regular damage.  Has a chance to make the target flinch."
+    },
+    {
+      "id": 431,
+      "name": "rock-climb",
+      "type": "normal",
+      "power": 90,
+      "accuracy": 85,
+      "damageClass": "physical",
+      "priority": 0,
+      "effectChance": 20,
+      "effectText": "Has a chance to confuse the target. Inflicts regular damage.  Has a chance to confuse the target."
+    },
+    {
+      "id": 432,
+      "name": "defog",
+      "type": "flying",
+      "power": null,
+      "accuracy": null,
+      "damageClass": "status",
+      "priority": 0,
+      "effectChance": null,
+      "effectText": "Lowers the target’s evasion by one stage.  Removes field effects from the enemy field. Lowers the target’s evasion by one stage.  Clears away fog.  Removes the effects of Mist, Light Screen, Reflect, Safeguard, Spikes, Stealth Rock, and Toxic Spikes from the target’s side of the field.\n\nIf the target is protected by Mist, it will prevent the evasion change, then be removed by this move."
+    },
+    {
+      "id": 435,
+      "name": "discharge",
+      "type": "electric",
+      "power": 80,
+      "accuracy": 100,
+      "damageClass": "special",
+      "priority": 0,
+      "effectChance": 30,
+      "effectText": "Has a chance to paralyze the target. Inflicts regular damage.  Has a chance to paralyze the target."
+    },
+    {
+      "id": 436,
+      "name": "lava-plume",
+      "type": "fire",
+      "power": 80,
+      "accuracy": 100,
+      "damageClass": "special",
+      "priority": 0,
+      "effectChance": 30,
+      "effectText": "Has a chance to burn the target. Inflicts regular damage.  Has a chance to burn the target."
+    },
+    {
+      "id": 445,
+      "name": "captivate",
+      "type": "normal",
+      "power": null,
+      "accuracy": 100,
+      "damageClass": "status",
+      "priority": 0,
+      "effectChance": null,
+      "effectText": "Lowers the target’s Special Attack by two stages if it’s the opposite gender. Lowers the target’s Special Attack by two stages.  If the user and target are the same gender, or either is genderless, this move will fail."
+    },
+    {
+      "id": 446,
+      "name": "stealth-rock",
+      "type": "rock",
+      "power": null,
+      "accuracy": null,
+      "damageClass": "status",
+      "priority": 0,
+      "effectChance": null,
+      "effectText": "Causes damage when opposing Pokémon switch in. Spreads sharp rocks around the opposing field, damaging any Pokémon that enters the field for 1/8 its max HP.  This damage is affected by the entering Pokémon’s susceptibility to Rock moves.\n\nRapid Spin removes this effect from its user’s side of the field."
+    },
+    {
+      "id": 447,
+      "name": "grass-knot",
+      "type": "grass",
+      "power": null,
+      "accuracy": 100,
+      "damageClass": "special",
+      "priority": 0,
+      "effectChance": null,
+      "effectText": "Inflicts more damage to heavier targets, with a maximum of 120 power. Inflicts regular damage.  Power increases with the target’s weight in kilograms, to a maximum of 120.\n\nTarget’s weight | Power\n--------------- | ----:\nUp to 10kg      |    20\nUp to 25kg      |    40\nUp to 50kg      |    60\nUp to 100kg     |    80\nUp to 200kg     |   100\nAbove 200kg     |   120"
+    },
+    {
+      "id": 451,
+      "name": "charge-beam",
+      "type": "electric",
+      "power": 50,
+      "accuracy": 90,
+      "damageClass": "special",
+      "priority": 0,
+      "effectChance": 70,
+      "effectText": "Has a chance to raise the user’s Special Attack by one stage. Inflicts regular damage.  Has a chance to raise the user’s Special Attack by one stage."
+    }
+  ]
+}

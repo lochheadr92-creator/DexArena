@@ -1,0 +1,4532 @@
+{
+  "scope": "Headless draft-content smoke samples, not final balance or rendered-game acceptance",
+  "ordinarySamples": 72,
+  "ordinarySpeciesSeen": 46,
+  "shapes": [
+    "area",
+    "buff",
+    "dash",
+    "melee",
+    "projectile",
+    "shield"
+  ],
+  "shieldUses": 1017,
+  "buffUses": 453,
+  "shieldBlocks": 888,
+  "timeouts": 0,
+  "allSpeciesFixtures": 25,
+  "allSpeciesTimeouts": 0,
+  "samples": [
+    {
+      "seed": 4101,
+      "terrainId": "pitch",
+      "archetypeId": "brawler",
+      "playerIds": [
+        100022,
+        100049,
+        100073,
+        100137,
+        100135,
+        100028
+      ],
+      "npcIds": [
+        100073,
+        100014,
+        100087,
+        100013,
+        100017,
+        100029
+      ],
+      "winner": "player",
+      "endTick": 13103,
+      "durationSec": 218.38,
+      "remaining": {
+        "player": 1,
+        "npc": 0
+      },
+      "hp": {
+        "player": [
+          0,
+          0,
+          0,
+          0,
+          32,
+          0
+        ],
+        "npc": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "timedOut": false
+    },
+    {
+      "seed": 4101,
+      "terrainId": "pitch",
+      "archetypeId": "wall",
+      "playerIds": [
+        100022,
+        100049,
+        100073,
+        100137,
+        100135,
+        100028
+      ],
+      "npcIds": [
+        100014,
+        100067,
+        100043,
+        100111,
+        100117,
+        100023
+      ],
+      "winner": "npc",
+      "endTick": 21107,
+      "durationSec": 351.78,
+      "remaining": {
+        "player": 0,
+        "npc": 3
+      },
+      "hp": {
+        "player": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "npc": [
+          0,
+          0,
+          25,
+          132,
+          23,
+          0
+        ]
+      },
+      "timedOut": false
+    },
+    {
+      "seed": 4101,
+      "terrainId": "pitch",
+      "archetypeId": "kiter",
+      "playerIds": [
+        100022,
+        100049,
+        100073,
+        100137,
+        100135,
+        100028
+      ],
+      "npcIds": [
+        100073,
+        100103,
+        100057,
+        100040,
+        100007,
+        100026
+      ],
+      "winner": "npc",
+      "endTick": 8430,
+      "durationSec": 140.5,
+      "remaining": {
+        "player": 0,
+        "npc": 5
+      },
+      "hp": {
+        "player": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "npc": [
+          0,
+          107,
+          56,
+          105,
+          110,
+          105
+        ]
+      },
+      "timedOut": false
+    },
+    {
+      "seed": 4101,
+      "terrainId": "pitch",
+      "archetypeId": "tactician",
+      "playerIds": [
+        100022,
+        100049,
+        100073,
+        100137,
+        100135,
+        100028
+      ],
+      "npcIds": [
+        100057,
+        100026,
+        100046,
+        100014,
+        100017,
+        100087
+      ],
+      "winner": "npc",
+      "endTick": 5939,
+      "durationSec": 98.98,
+      "remaining": {
+        "player": 0,
+        "npc": 6
+      },
+      "hp": {
+        "player": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "npc": [
+          15,
+          105,
+          126,
+          120,
+          106,
+          119
+        ]
+      },
+      "timedOut": false
+    },
+    {
+      "seed": 4101,
+      "terrainId": "pitch",
+      "archetypeId": "specialist",
+      "playerIds": [
+        100022,
+        100049,
+        100073,
+        100137,
+        100135,
+        100028
+      ],
+      "npcIds": [
+        100010,
+        100013,
+        100011,
+        100014,
+        100081,
+        100082
+      ],
+      "winner": "player",
+      "endTick": 11066,
+      "durationSec": 184.43,
+      "remaining": {
+        "player": 1,
+        "npc": 0
+      },
+      "hp": {
+        "player": [
+          0,
+          0,
+          0,
+          0,
+          146,
+          0
+        ],
+        "npc": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "timedOut": false
+    },
+    {
+      "seed": 4101,
+      "terrainId": "pitch",
+      "archetypeId": "champion",
+      "playerIds": [
+        100022,
+        100049,
+        100073,
+        100137,
+        100135,
+        100028
+      ],
+      "npcIds": [
+        100011,
+        100057,
+        100017,
+        100014,
+        100087,
+        100026
+      ],
+      "winner": "npc",
+      "endTick": 10179,
+      "durationSec": 169.65,
+      "remaining": {
+        "player": 0,
+        "npc": 5
+      },
+      "hp": {
+        "player": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "npc": [
+          0,
+          117,
+          16,
+          21,
+          20,
+          17
+        ]
+      },
+      "timedOut": false
+    },
+    {
+      "seed": 4101,
+      "terrainId": "shoreline",
+      "archetypeId": "brawler",
+      "playerIds": [
+        100022,
+        100049,
+        100073,
+        100137,
+        100135,
+        100028
+      ],
+      "npcIds": [
+        100073,
+        100014,
+        100087,
+        100013,
+        100017,
+        100029
+      ],
+      "winner": "npc",
+      "endTick": 12905,
+      "durationSec": 215.08,
+      "remaining": {
+        "player": 0,
+        "npc": 1
+      },
+      "hp": {
+        "player": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "npc": [
+          0,
+          0,
+          0,
+          28,
+          0,
+          0
+        ]
+      },
+      "timedOut": false
+    },
+    {
+      "seed": 4101,
+      "terrainId": "shoreline",
+      "archetypeId": "wall",
+      "playerIds": [
+        100022,
+        100049,
+        100073,
+        100137,
+        100135,
+        100028
+      ],
+      "npcIds": [
+        100014,
+        100067,
+        100043,
+        100111,
+        100117,
+        100023
+      ],
+      "winner": "npc",
+      "endTick": 19063,
+      "durationSec": 317.72,
+      "remaining": {
+        "player": 0,
+        "npc": 2
+      },
+      "hp": {
+        "player": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "npc": [
+          0,
+          0,
+          0,
+          50,
+          127,
+          0
+        ]
+      },
+      "timedOut": false
+    },
+    {
+      "seed": 4101,
+      "terrainId": "shoreline",
+      "archetypeId": "kiter",
+      "playerIds": [
+        100022,
+        100049,
+        100073,
+        100137,
+        100135,
+        100028
+      ],
+      "npcIds": [
+        100073,
+        100103,
+        100057,
+        100040,
+        100007,
+        100026
+      ],
+      "winner": "npc",
+      "endTick": 9279,
+      "durationSec": 154.65,
+      "remaining": {
+        "player": 0,
+        "npc": 5
+      },
+      "hp": {
+        "player": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "npc": [
+          0,
+          107,
+          96,
+          105,
+          110,
+          105
+        ]
+      },
+      "timedOut": false
+    },
+    {
+      "seed": 4101,
+      "terrainId": "shoreline",
+      "archetypeId": "tactician",
+      "playerIds": [
+        100022,
+        100049,
+        100073,
+        100137,
+        100135,
+        100028
+      ],
+      "npcIds": [
+        100057,
+        100026,
+        100046,
+        100014,
+        100017,
+        100087
+      ],
+      "winner": "npc",
+      "endTick": 7098,
+      "durationSec": 118.3,
+      "remaining": {
+        "player": 0,
+        "npc": 6
+      },
+      "hp": {
+        "player": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "npc": [
+          73,
+          105,
+          126,
+          120,
+          106,
+          119
+        ]
+      },
+      "timedOut": false
+    },
+    {
+      "seed": 4101,
+      "terrainId": "shoreline",
+      "archetypeId": "specialist",
+      "playerIds": [
+        100022,
+        100049,
+        100073,
+        100137,
+        100135,
+        100028
+      ],
+      "npcIds": [
+        100010,
+        100013,
+        100011,
+        100014,
+        100081,
+        100082
+      ],
+      "winner": "player",
+      "endTick": 13243,
+      "durationSec": 220.72,
+      "remaining": {
+        "player": 1,
+        "npc": 0
+      },
+      "hp": {
+        "player": [
+          0,
+          79,
+          0,
+          0,
+          0,
+          0
+        ],
+        "npc": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "timedOut": false
+    },
+    {
+      "seed": 4101,
+      "terrainId": "shoreline",
+      "archetypeId": "champion",
+      "playerIds": [
+        100022,
+        100049,
+        100073,
+        100137,
+        100135,
+        100028
+      ],
+      "npcIds": [
+        100011,
+        100057,
+        100017,
+        100014,
+        100087,
+        100026
+      ],
+      "winner": "npc",
+      "endTick": 10051,
+      "durationSec": 167.52,
+      "remaining": {
+        "player": 0,
+        "npc": 4
+      },
+      "hp": {
+        "player": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "npc": [
+          0,
+          117,
+          106,
+          19,
+          0,
+          20
+        ]
+      },
+      "timedOut": false
+    },
+    {
+      "seed": 4101,
+      "terrainId": "cavern",
+      "archetypeId": "brawler",
+      "playerIds": [
+        100022,
+        100049,
+        100073,
+        100137,
+        100135,
+        100028
+      ],
+      "npcIds": [
+        100073,
+        100014,
+        100087,
+        100013,
+        100017,
+        100029
+      ],
+      "winner": "npc",
+      "endTick": 13053,
+      "durationSec": 217.55,
+      "remaining": {
+        "player": 0,
+        "npc": 2
+      },
+      "hp": {
+        "player": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "npc": [
+          0,
+          0,
+          9,
+          0,
+          18,
+          0
+        ]
+      },
+      "timedOut": false
+    },
+    {
+      "seed": 4101,
+      "terrainId": "cavern",
+      "archetypeId": "wall",
+      "playerIds": [
+        100022,
+        100049,
+        100073,
+        100137,
+        100135,
+        100028
+      ],
+      "npcIds": [
+        100014,
+        100067,
+        100043,
+        100111,
+        100117,
+        100023
+      ],
+      "winner": "npc",
+      "endTick": 23790,
+      "durationSec": 396.5,
+      "remaining": {
+        "player": 0,
+        "npc": 4
+      },
+      "hp": {
+        "player": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "npc": [
+          0,
+          24,
+          25,
+          132,
+          68,
+          0
+        ]
+      },
+      "timedOut": false
+    },
+    {
+      "seed": 4101,
+      "terrainId": "cavern",
+      "archetypeId": "kiter",
+      "playerIds": [
+        100022,
+        100049,
+        100073,
+        100137,
+        100135,
+        100028
+      ],
+      "npcIds": [
+        100073,
+        100103,
+        100057,
+        100040,
+        100007,
+        100026
+      ],
+      "winner": "npc",
+      "endTick": 11469,
+      "durationSec": 191.15,
+      "remaining": {
+        "player": 0,
+        "npc": 5
+      },
+      "hp": {
+        "player": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "npc": [
+          0,
+          107,
+          23,
+          105,
+          110,
+          105
+        ]
+      },
+      "timedOut": false
+    },
+    {
+      "seed": 4101,
+      "terrainId": "cavern",
+      "archetypeId": "tactician",
+      "playerIds": [
+        100022,
+        100049,
+        100073,
+        100137,
+        100135,
+        100028
+      ],
+      "npcIds": [
+        100057,
+        100026,
+        100046,
+        100014,
+        100017,
+        100087
+      ],
+      "winner": "npc",
+      "endTick": 6505,
+      "durationSec": 108.42,
+      "remaining": {
+        "player": 0,
+        "npc": 6
+      },
+      "hp": {
+        "player": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "npc": [
+          38,
+          105,
+          126,
+          120,
+          106,
+          119
+        ]
+      },
+      "timedOut": false
+    },
+    {
+      "seed": 4101,
+      "terrainId": "cavern",
+      "archetypeId": "specialist",
+      "playerIds": [
+        100022,
+        100049,
+        100073,
+        100137,
+        100135,
+        100028
+      ],
+      "npcIds": [
+        100010,
+        100013,
+        100011,
+        100014,
+        100081,
+        100082
+      ],
+      "winner": "player",
+      "endTick": 13817,
+      "durationSec": 230.28,
+      "remaining": {
+        "player": 2,
+        "npc": 0
+      },
+      "hp": {
+        "player": [
+          0,
+          109,
+          0,
+          0,
+          0,
+          65
+        ],
+        "npc": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "timedOut": false
+    },
+    {
+      "seed": 4101,
+      "terrainId": "cavern",
+      "archetypeId": "champion",
+      "playerIds": [
+        100022,
+        100049,
+        100073,
+        100137,
+        100135,
+        100028
+      ],
+      "npcIds": [
+        100011,
+        100057,
+        100017,
+        100014,
+        100087,
+        100026
+      ],
+      "winner": "npc",
+      "endTick": 8718,
+      "durationSec": 145.3,
+      "remaining": {
+        "player": 0,
+        "npc": 6
+      },
+      "hp": {
+        "player": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "npc": [
+          19,
+          61,
+          106,
+          120,
+          119,
+          105
+        ]
+      },
+      "timedOut": false
+    },
+    {
+      "seed": 4101,
+      "terrainId": "snowfield",
+      "archetypeId": "brawler",
+      "playerIds": [
+        100022,
+        100049,
+        100073,
+        100137,
+        100135,
+        100028
+      ],
+      "npcIds": [
+        100073,
+        100014,
+        100087,
+        100013,
+        100017,
+        100029
+      ],
+      "winner": "player",
+      "endTick": 9284,
+      "durationSec": 154.73,
+      "remaining": {
+        "player": 2,
+        "npc": 0
+      },
+      "hp": {
+        "player": [
+          0,
+          0,
+          0,
+          29,
+          176,
+          0
+        ],
+        "npc": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "timedOut": false
+    },
+    {
+      "seed": 4101,
+      "terrainId": "snowfield",
+      "archetypeId": "wall",
+      "playerIds": [
+        100022,
+        100049,
+        100073,
+        100137,
+        100135,
+        100028
+      ],
+      "npcIds": [
+        100014,
+        100067,
+        100043,
+        100111,
+        100117,
+        100023
+      ],
+      "winner": "npc",
+      "endTick": 19973,
+      "durationSec": 332.88,
+      "remaining": {
+        "player": 0,
+        "npc": 5
+      },
+      "hp": {
+        "player": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "npc": [
+          0,
+          19,
+          22,
+          132,
+          63,
+          27
+        ]
+      },
+      "timedOut": false
+    },
+    {
+      "seed": 4101,
+      "terrainId": "snowfield",
+      "archetypeId": "kiter",
+      "playerIds": [
+        100022,
+        100049,
+        100073,
+        100137,
+        100135,
+        100028
+      ],
+      "npcIds": [
+        100073,
+        100103,
+        100057,
+        100040,
+        100007,
+        100026
+      ],
+      "winner": "npc",
+      "endTick": 8350,
+      "durationSec": 139.17,
+      "remaining": {
+        "player": 0,
+        "npc": 5
+      },
+      "hp": {
+        "player": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "npc": [
+          0,
+          107,
+          48,
+          105,
+          110,
+          105
+        ]
+      },
+      "timedOut": false
+    },
+    {
+      "seed": 4101,
+      "terrainId": "snowfield",
+      "archetypeId": "tactician",
+      "playerIds": [
+        100022,
+        100049,
+        100073,
+        100137,
+        100135,
+        100028
+      ],
+      "npcIds": [
+        100057,
+        100026,
+        100046,
+        100014,
+        100017,
+        100087
+      ],
+      "winner": "npc",
+      "endTick": 5787,
+      "durationSec": 96.45,
+      "remaining": {
+        "player": 0,
+        "npc": 6
+      },
+      "hp": {
+        "player": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "npc": [
+          37,
+          105,
+          126,
+          120,
+          106,
+          119
+        ]
+      },
+      "timedOut": false
+    },
+    {
+      "seed": 4101,
+      "terrainId": "snowfield",
+      "archetypeId": "specialist",
+      "playerIds": [
+        100022,
+        100049,
+        100073,
+        100137,
+        100135,
+        100028
+      ],
+      "npcIds": [
+        100010,
+        100013,
+        100011,
+        100014,
+        100081,
+        100082
+      ],
+      "winner": "player",
+      "endTick": 12245,
+      "durationSec": 204.08,
+      "remaining": {
+        "player": 2,
+        "npc": 0
+      },
+      "hp": {
+        "player": [
+          0,
+          109,
+          0,
+          0,
+          0,
+          28
+        ],
+        "npc": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "timedOut": false
+    },
+    {
+      "seed": 4101,
+      "terrainId": "snowfield",
+      "archetypeId": "champion",
+      "playerIds": [
+        100022,
+        100049,
+        100073,
+        100137,
+        100135,
+        100028
+      ],
+      "npcIds": [
+        100011,
+        100057,
+        100017,
+        100014,
+        100087,
+        100026
+      ],
+      "winner": "npc",
+      "endTick": 9300,
+      "durationSec": 155,
+      "remaining": {
+        "player": 0,
+        "npc": 4
+      },
+      "hp": {
+        "player": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "npc": [
+          0,
+          117,
+          0,
+          23,
+          16,
+          105
+        ]
+      },
+      "timedOut": false
+    },
+    {
+      "seed": 4102,
+      "terrainId": "pitch",
+      "archetypeId": "brawler",
+      "playerIds": [
+        100136,
+        100091,
+        100065,
+        100105,
+        100022,
+        100129
+      ],
+      "npcIds": [
+        100089,
+        100097,
+        100013,
+        100046,
+        100029,
+        100017
+      ],
+      "winner": "player",
+      "endTick": 9093,
+      "durationSec": 151.55,
+      "remaining": {
+        "player": 6,
+        "npc": 0
+      },
+      "hp": {
+        "player": [
+          106,
+          106,
+          115,
+          112,
+          108,
+          144
+        ],
+        "npc": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "timedOut": false
+    },
+    {
+      "seed": 4102,
+      "terrainId": "pitch",
+      "archetypeId": "wall",
+      "playerIds": [
+        100136,
+        100091,
+        100065,
+        100105,
+        100022,
+        100129
+      ],
+      "npcIds": [
+        100037,
+        100046,
+        100111,
+        100095,
+        100023,
+        100117
+      ],
+      "winner": "player",
+      "endTick": 22644,
+      "durationSec": 377.4,
+      "remaining": {
+        "player": 6,
+        "npc": 0
+      },
+      "hp": {
+        "player": [
+          79,
+          106,
+          115,
+          112,
+          108,
+          144
+        ],
+        "npc": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "timedOut": false
+    },
+    {
+      "seed": 4102,
+      "terrainId": "pitch",
+      "archetypeId": "kiter",
+      "playerIds": [
+        100136,
+        100091,
+        100065,
+        100105,
+        100022,
+        100129
+      ],
+      "npcIds": [
+        100016,
+        100065,
+        100040,
+        100017,
+        100026,
+        100007
+      ],
+      "winner": "player",
+      "endTick": 15881,
+      "durationSec": 264.68,
+      "remaining": {
+        "player": 1,
+        "npc": 0
+      },
+      "hp": {
+        "player": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          84
+        ],
+        "npc": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "timedOut": false
+    },
+    {
+      "seed": 4102,
+      "terrainId": "pitch",
+      "archetypeId": "tactician",
+      "playerIds": [
+        100136,
+        100091,
+        100065,
+        100105,
+        100022,
+        100129
+      ],
+      "npcIds": [
+        100017,
+        100026,
+        100087,
+        100057,
+        100046,
+        100014
+      ],
+      "winner": "player",
+      "endTick": 12753,
+      "durationSec": 212.55,
+      "remaining": {
+        "player": 3,
+        "npc": 0
+      },
+      "hp": {
+        "player": [
+          0,
+          16,
+          0,
+          112,
+          0,
+          144
+        ],
+        "npc": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "timedOut": false
+    },
+    {
+      "seed": 4102,
+      "terrainId": "pitch",
+      "archetypeId": "specialist",
+      "playerIds": [
+        100136,
+        100091,
+        100065,
+        100105,
+        100022,
+        100129
+      ],
+      "npcIds": [
+        100017,
+        100117,
+        100037,
+        100095,
+        100053,
+        100016
+      ],
+      "winner": "player",
+      "endTick": 14850,
+      "durationSec": 247.5,
+      "remaining": {
+        "player": 6,
+        "npc": 0
+      },
+      "hp": {
+        "player": [
+          27,
+          106,
+          115,
+          112,
+          108,
+          144
+        ],
+        "npc": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "timedOut": false
+    },
+    {
+      "seed": 4102,
+      "terrainId": "pitch",
+      "archetypeId": "champion",
+      "playerIds": [
+        100136,
+        100091,
+        100065,
+        100105,
+        100022,
+        100129
+      ],
+      "npcIds": [
+        100046,
+        100117,
+        100014,
+        100016,
+        100026,
+        100087
+      ],
+      "winner": "player",
+      "endTick": 20508,
+      "durationSec": 341.8,
+      "remaining": {
+        "player": 4,
+        "npc": 0
+      },
+      "hp": {
+        "player": [
+          0,
+          17,
+          115,
+          112,
+          0,
+          144
+        ],
+        "npc": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "timedOut": false
+    },
+    {
+      "seed": 4102,
+      "terrainId": "shoreline",
+      "archetypeId": "brawler",
+      "playerIds": [
+        100136,
+        100091,
+        100065,
+        100105,
+        100022,
+        100129
+      ],
+      "npcIds": [
+        100089,
+        100097,
+        100013,
+        100046,
+        100029,
+        100017
+      ],
+      "winner": "player",
+      "endTick": 8712,
+      "durationSec": 145.2,
+      "remaining": {
+        "player": 6,
+        "npc": 0
+      },
+      "hp": {
+        "player": [
+          44,
+          106,
+          115,
+          112,
+          108,
+          144
+        ],
+        "npc": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "timedOut": false
+    },
+    {
+      "seed": 4102,
+      "terrainId": "shoreline",
+      "archetypeId": "wall",
+      "playerIds": [
+        100136,
+        100091,
+        100065,
+        100105,
+        100022,
+        100129
+      ],
+      "npcIds": [
+        100037,
+        100046,
+        100111,
+        100095,
+        100023,
+        100117
+      ],
+      "winner": "player",
+      "endTick": 23285,
+      "durationSec": 388.08,
+      "remaining": {
+        "player": 6,
+        "npc": 0
+      },
+      "hp": {
+        "player": [
+          47,
+          106,
+          115,
+          112,
+          108,
+          144
+        ],
+        "npc": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "timedOut": false
+    },
+    {
+      "seed": 4102,
+      "terrainId": "shoreline",
+      "archetypeId": "kiter",
+      "playerIds": [
+        100136,
+        100091,
+        100065,
+        100105,
+        100022,
+        100129
+      ],
+      "npcIds": [
+        100016,
+        100065,
+        100040,
+        100017,
+        100026,
+        100007
+      ],
+      "winner": "npc",
+      "endTick": 10434,
+      "durationSec": 173.9,
+      "remaining": {
+        "player": 0,
+        "npc": 3
+      },
+      "hp": {
+        "player": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "npc": [
+          0,
+          0,
+          6,
+          0,
+          6,
+          110
+        ]
+      },
+      "timedOut": false
+    },
+    {
+      "seed": 4102,
+      "terrainId": "shoreline",
+      "archetypeId": "tactician",
+      "playerIds": [
+        100136,
+        100091,
+        100065,
+        100105,
+        100022,
+        100129
+      ],
+      "npcIds": [
+        100017,
+        100026,
+        100087,
+        100057,
+        100046,
+        100014
+      ],
+      "winner": "player",
+      "endTick": 15075,
+      "durationSec": 251.25,
+      "remaining": {
+        "player": 4,
+        "npc": 0
+      },
+      "hp": {
+        "player": [
+          0,
+          63,
+          115,
+          112,
+          0,
+          144
+        ],
+        "npc": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "timedOut": false
+    },
+    {
+      "seed": 4102,
+      "terrainId": "shoreline",
+      "archetypeId": "specialist",
+      "playerIds": [
+        100136,
+        100091,
+        100065,
+        100105,
+        100022,
+        100129
+      ],
+      "npcIds": [
+        100017,
+        100117,
+        100037,
+        100095,
+        100053,
+        100016
+      ],
+      "winner": "player",
+      "endTick": 17308,
+      "durationSec": 288.47,
+      "remaining": {
+        "player": 4,
+        "npc": 0
+      },
+      "hp": {
+        "player": [
+          0,
+          106,
+          115,
+          112,
+          0,
+          144
+        ],
+        "npc": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "timedOut": false
+    },
+    {
+      "seed": 4102,
+      "terrainId": "shoreline",
+      "archetypeId": "champion",
+      "playerIds": [
+        100136,
+        100091,
+        100065,
+        100105,
+        100022,
+        100129
+      ],
+      "npcIds": [
+        100046,
+        100117,
+        100014,
+        100016,
+        100026,
+        100087
+      ],
+      "winner": "player",
+      "endTick": 19843,
+      "durationSec": 330.72,
+      "remaining": {
+        "player": 4,
+        "npc": 0
+      },
+      "hp": {
+        "player": [
+          0,
+          106,
+          115,
+          112,
+          0,
+          100
+        ],
+        "npc": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "timedOut": false
+    },
+    {
+      "seed": 4102,
+      "terrainId": "cavern",
+      "archetypeId": "brawler",
+      "playerIds": [
+        100136,
+        100091,
+        100065,
+        100105,
+        100022,
+        100129
+      ],
+      "npcIds": [
+        100089,
+        100097,
+        100013,
+        100046,
+        100029,
+        100017
+      ],
+      "winner": "player",
+      "endTick": 8694,
+      "durationSec": 144.9,
+      "remaining": {
+        "player": 6,
+        "npc": 0
+      },
+      "hp": {
+        "player": [
+          108,
+          106,
+          115,
+          112,
+          108,
+          144
+        ],
+        "npc": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "timedOut": false
+    },
+    {
+      "seed": 4102,
+      "terrainId": "cavern",
+      "archetypeId": "wall",
+      "playerIds": [
+        100136,
+        100091,
+        100065,
+        100105,
+        100022,
+        100129
+      ],
+      "npcIds": [
+        100037,
+        100046,
+        100111,
+        100095,
+        100023,
+        100117
+      ],
+      "winner": "player",
+      "endTick": 25308,
+      "durationSec": 421.8,
+      "remaining": {
+        "player": 6,
+        "npc": 0
+      },
+      "hp": {
+        "player": [
+          65,
+          106,
+          115,
+          112,
+          108,
+          144
+        ],
+        "npc": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "timedOut": false
+    },
+    {
+      "seed": 4102,
+      "terrainId": "cavern",
+      "archetypeId": "kiter",
+      "playerIds": [
+        100136,
+        100091,
+        100065,
+        100105,
+        100022,
+        100129
+      ],
+      "npcIds": [
+        100016,
+        100065,
+        100040,
+        100017,
+        100026,
+        100007
+      ],
+      "winner": "player",
+      "endTick": 17321,
+      "durationSec": 288.68,
+      "remaining": {
+        "player": 1,
+        "npc": 0
+      },
+      "hp": {
+        "player": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          50
+        ],
+        "npc": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "timedOut": false
+    },
+    {
+      "seed": 4102,
+      "terrainId": "cavern",
+      "archetypeId": "tactician",
+      "playerIds": [
+        100136,
+        100091,
+        100065,
+        100105,
+        100022,
+        100129
+      ],
+      "npcIds": [
+        100017,
+        100026,
+        100087,
+        100057,
+        100046,
+        100014
+      ],
+      "winner": "player",
+      "endTick": 15023,
+      "durationSec": 250.38,
+      "remaining": {
+        "player": 3,
+        "npc": 0
+      },
+      "hp": {
+        "player": [
+          0,
+          90,
+          0,
+          112,
+          0,
+          144
+        ],
+        "npc": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "timedOut": false
+    },
+    {
+      "seed": 4102,
+      "terrainId": "cavern",
+      "archetypeId": "specialist",
+      "playerIds": [
+        100136,
+        100091,
+        100065,
+        100105,
+        100022,
+        100129
+      ],
+      "npcIds": [
+        100017,
+        100117,
+        100037,
+        100095,
+        100053,
+        100016
+      ],
+      "winner": "player",
+      "endTick": 14839,
+      "durationSec": 247.32,
+      "remaining": {
+        "player": 6,
+        "npc": 0
+      },
+      "hp": {
+        "player": [
+          45,
+          106,
+          115,
+          112,
+          108,
+          144
+        ],
+        "npc": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "timedOut": false
+    },
+    {
+      "seed": 4102,
+      "terrainId": "cavern",
+      "archetypeId": "champion",
+      "playerIds": [
+        100136,
+        100091,
+        100065,
+        100105,
+        100022,
+        100129
+      ],
+      "npcIds": [
+        100046,
+        100117,
+        100014,
+        100016,
+        100026,
+        100087
+      ],
+      "winner": "player",
+      "endTick": 24396,
+      "durationSec": 406.6,
+      "remaining": {
+        "player": 4,
+        "npc": 0
+      },
+      "hp": {
+        "player": [
+          0,
+          2,
+          115,
+          112,
+          0,
+          144
+        ],
+        "npc": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "timedOut": false
+    },
+    {
+      "seed": 4102,
+      "terrainId": "snowfield",
+      "archetypeId": "brawler",
+      "playerIds": [
+        100136,
+        100091,
+        100065,
+        100105,
+        100022,
+        100129
+      ],
+      "npcIds": [
+        100089,
+        100097,
+        100013,
+        100046,
+        100029,
+        100017
+      ],
+      "winner": "player",
+      "endTick": 10260,
+      "durationSec": 171,
+      "remaining": {
+        "player": 6,
+        "npc": 0
+      },
+      "hp": {
+        "player": [
+          162,
+          106,
+          115,
+          112,
+          108,
+          144
+        ],
+        "npc": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "timedOut": false
+    },
+    {
+      "seed": 4102,
+      "terrainId": "snowfield",
+      "archetypeId": "wall",
+      "playerIds": [
+        100136,
+        100091,
+        100065,
+        100105,
+        100022,
+        100129
+      ],
+      "npcIds": [
+        100037,
+        100046,
+        100111,
+        100095,
+        100023,
+        100117
+      ],
+      "winner": "player",
+      "endTick": 24930,
+      "durationSec": 415.5,
+      "remaining": {
+        "player": 6,
+        "npc": 0
+      },
+      "hp": {
+        "player": [
+          41,
+          106,
+          115,
+          112,
+          108,
+          144
+        ],
+        "npc": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "timedOut": false
+    },
+    {
+      "seed": 4102,
+      "terrainId": "snowfield",
+      "archetypeId": "kiter",
+      "playerIds": [
+        100136,
+        100091,
+        100065,
+        100105,
+        100022,
+        100129
+      ],
+      "npcIds": [
+        100016,
+        100065,
+        100040,
+        100017,
+        100026,
+        100007
+      ],
+      "winner": "player",
+      "endTick": 16128,
+      "durationSec": 268.8,
+      "remaining": {
+        "player": 6,
+        "npc": 0
+      },
+      "hp": {
+        "player": [
+          56,
+          106,
+          115,
+          112,
+          108,
+          144
+        ],
+        "npc": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "timedOut": false
+    },
+    {
+      "seed": 4102,
+      "terrainId": "snowfield",
+      "archetypeId": "tactician",
+      "playerIds": [
+        100136,
+        100091,
+        100065,
+        100105,
+        100022,
+        100129
+      ],
+      "npcIds": [
+        100017,
+        100026,
+        100087,
+        100057,
+        100046,
+        100014
+      ],
+      "winner": "player",
+      "endTick": 11996,
+      "durationSec": 199.93,
+      "remaining": {
+        "player": 6,
+        "npc": 0
+      },
+      "hp": {
+        "player": [
+          3,
+          106,
+          115,
+          112,
+          108,
+          144
+        ],
+        "npc": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "timedOut": false
+    },
+    {
+      "seed": 4102,
+      "terrainId": "snowfield",
+      "archetypeId": "specialist",
+      "playerIds": [
+        100136,
+        100091,
+        100065,
+        100105,
+        100022,
+        100129
+      ],
+      "npcIds": [
+        100017,
+        100117,
+        100037,
+        100095,
+        100053,
+        100016
+      ],
+      "winner": "player",
+      "endTick": 18677,
+      "durationSec": 311.28,
+      "remaining": {
+        "player": 4,
+        "npc": 0
+      },
+      "hp": {
+        "player": [
+          0,
+          57,
+          115,
+          112,
+          0,
+          144
+        ],
+        "npc": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "timedOut": false
+    },
+    {
+      "seed": 4102,
+      "terrainId": "snowfield",
+      "archetypeId": "champion",
+      "playerIds": [
+        100136,
+        100091,
+        100065,
+        100105,
+        100022,
+        100129
+      ],
+      "npcIds": [
+        100046,
+        100117,
+        100014,
+        100016,
+        100026,
+        100087
+      ],
+      "winner": "player",
+      "endTick": 19458,
+      "durationSec": 324.3,
+      "remaining": {
+        "player": 6,
+        "npc": 0
+      },
+      "hp": {
+        "player": [
+          3,
+          106,
+          115,
+          112,
+          108,
+          144
+        ],
+        "npc": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "timedOut": false
+    },
+    {
+      "seed": 4103,
+      "terrainId": "pitch",
+      "archetypeId": "brawler",
+      "playerIds": [
+        100129,
+        100119,
+        100067,
+        100135,
+        100132,
+        100069
+      ],
+      "npcIds": [
+        100017,
+        100053,
+        100046,
+        100087,
+        100014,
+        100013
+      ],
+      "winner": "player",
+      "endTick": 9363,
+      "durationSec": 156.05,
+      "remaining": {
+        "player": 6,
+        "npc": 0
+      },
+      "hp": {
+        "player": [
+          31,
+          98,
+          136,
+          176,
+          121,
+          100
+        ],
+        "npc": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "timedOut": false
+    },
+    {
+      "seed": 4103,
+      "terrainId": "pitch",
+      "archetypeId": "wall",
+      "playerIds": [
+        100129,
+        100119,
+        100067,
+        100135,
+        100132,
+        100069
+      ],
+      "npcIds": [
+        100095,
+        100032,
+        100079,
+        100043,
+        100117,
+        100137
+      ],
+      "winner": "npc",
+      "endTick": 27240,
+      "durationSec": 454,
+      "remaining": {
+        "player": 0,
+        "npc": 2
+      },
+      "hp": {
+        "player": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "npc": [
+          0,
+          0,
+          46,
+          0,
+          19,
+          0
+        ]
+      },
+      "timedOut": false
+    },
+    {
+      "seed": 4103,
+      "terrainId": "pitch",
+      "archetypeId": "kiter",
+      "playerIds": [
+        100129,
+        100119,
+        100067,
+        100135,
+        100132,
+        100069
+      ],
+      "npcIds": [
+        100057,
+        100074,
+        100117,
+        100079,
+        100109,
+        100103
+      ],
+      "winner": "npc",
+      "endTick": 11318,
+      "durationSec": 188.63,
+      "remaining": {
+        "player": 0,
+        "npc": 5
+      },
+      "hp": {
+        "player": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "npc": [
+          3,
+          0,
+          127,
+          136,
+          129,
+          107
+        ]
+      },
+      "timedOut": false
+    },
+    {
+      "seed": 4103,
+      "terrainId": "pitch",
+      "archetypeId": "tactician",
+      "playerIds": [
+        100129,
+        100119,
+        100067,
+        100135,
+        100132,
+        100069
+      ],
+      "npcIds": [
+        100079,
+        100137,
+        100109,
+        100087,
+        100050,
+        100017
+      ],
+      "winner": "npc",
+      "endTick": 13912,
+      "durationSec": 231.87,
+      "remaining": {
+        "player": 0,
+        "npc": 3
+      },
+      "hp": {
+        "player": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "npc": [
+          0,
+          0,
+          59,
+          0,
+          22,
+          106
+        ]
+      },
+      "timedOut": false
+    },
+    {
+      "seed": 4103,
+      "terrainId": "pitch",
+      "archetypeId": "specialist",
+      "playerIds": [
+        100129,
+        100119,
+        100067,
+        100135,
+        100132,
+        100069
+      ],
+      "npcIds": [
+        100073,
+        100104,
+        100109,
+        100017,
+        100016,
+        100079
+      ],
+      "winner": "npc",
+      "endTick": 18781,
+      "durationSec": 313.02,
+      "remaining": {
+        "player": 0,
+        "npc": 2
+      },
+      "hp": {
+        "player": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "npc": [
+          0,
+          49,
+          0,
+          0,
+          0,
+          136
+        ]
+      },
+      "timedOut": false
+    },
+    {
+      "seed": 4103,
+      "terrainId": "pitch",
+      "archetypeId": "champion",
+      "playerIds": [
+        100129,
+        100119,
+        100067,
+        100135,
+        100132,
+        100069
+      ],
+      "npcIds": [
+        100137,
+        100050,
+        100057,
+        100079,
+        100109,
+        100017
+      ],
+      "winner": "npc",
+      "endTick": 14591,
+      "durationSec": 243.18,
+      "remaining": {
+        "player": 0,
+        "npc": 4
+      },
+      "hp": {
+        "player": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "npc": [
+          0,
+          0,
+          21,
+          88,
+          129,
+          106
+        ]
+      },
+      "timedOut": false
+    },
+    {
+      "seed": 4103,
+      "terrainId": "shoreline",
+      "archetypeId": "brawler",
+      "playerIds": [
+        100129,
+        100119,
+        100067,
+        100135,
+        100132,
+        100069
+      ],
+      "npcIds": [
+        100017,
+        100053,
+        100046,
+        100087,
+        100014,
+        100013
+      ],
+      "winner": "npc",
+      "endTick": 12170,
+      "durationSec": 202.83,
+      "remaining": {
+        "player": 0,
+        "npc": 2
+      },
+      "hp": {
+        "player": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "npc": [
+          0,
+          0,
+          106,
+          0,
+          0,
+          121
+        ]
+      },
+      "timedOut": false
+    },
+    {
+      "seed": 4103,
+      "terrainId": "shoreline",
+      "archetypeId": "wall",
+      "playerIds": [
+        100129,
+        100119,
+        100067,
+        100135,
+        100132,
+        100069
+      ],
+      "npcIds": [
+        100095,
+        100032,
+        100079,
+        100043,
+        100117,
+        100137
+      ],
+      "winner": "npc",
+      "endTick": 22967,
+      "durationSec": 382.78,
+      "remaining": {
+        "player": 0,
+        "npc": 1
+      },
+      "hp": {
+        "player": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "npc": [
+          0,
+          0,
+          0,
+          0,
+          83,
+          0
+        ]
+      },
+      "timedOut": false
+    },
+    {
+      "seed": 4103,
+      "terrainId": "shoreline",
+      "archetypeId": "kiter",
+      "playerIds": [
+        100129,
+        100119,
+        100067,
+        100135,
+        100132,
+        100069
+      ],
+      "npcIds": [
+        100057,
+        100074,
+        100117,
+        100079,
+        100109,
+        100103
+      ],
+      "winner": "npc",
+      "endTick": 13539,
+      "durationSec": 225.65,
+      "remaining": {
+        "player": 0,
+        "npc": 5
+      },
+      "hp": {
+        "player": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "npc": [
+          9,
+          0,
+          127,
+          136,
+          129,
+          107
+        ]
+      },
+      "timedOut": false
+    },
+    {
+      "seed": 4103,
+      "terrainId": "shoreline",
+      "archetypeId": "tactician",
+      "playerIds": [
+        100129,
+        100119,
+        100067,
+        100135,
+        100132,
+        100069
+      ],
+      "npcIds": [
+        100079,
+        100137,
+        100109,
+        100087,
+        100050,
+        100017
+      ],
+      "winner": "npc",
+      "endTick": 10069,
+      "durationSec": 167.82,
+      "remaining": {
+        "player": 0,
+        "npc": 5
+      },
+      "hp": {
+        "player": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "npc": [
+          0,
+          24,
+          129,
+          70,
+          115,
+          106
+        ]
+      },
+      "timedOut": false
+    },
+    {
+      "seed": 4103,
+      "terrainId": "shoreline",
+      "archetypeId": "specialist",
+      "playerIds": [
+        100129,
+        100119,
+        100067,
+        100135,
+        100132,
+        100069
+      ],
+      "npcIds": [
+        100073,
+        100104,
+        100109,
+        100017,
+        100016,
+        100079
+      ],
+      "winner": "npc",
+      "endTick": 19246,
+      "durationSec": 320.77,
+      "remaining": {
+        "player": 0,
+        "npc": 2
+      },
+      "hp": {
+        "player": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "npc": [
+          0,
+          70,
+          0,
+          0,
+          0,
+          136
+        ]
+      },
+      "timedOut": false
+    },
+    {
+      "seed": 4103,
+      "terrainId": "shoreline",
+      "archetypeId": "champion",
+      "playerIds": [
+        100129,
+        100119,
+        100067,
+        100135,
+        100132,
+        100069
+      ],
+      "npcIds": [
+        100137,
+        100050,
+        100057,
+        100079,
+        100109,
+        100017
+      ],
+      "winner": "npc",
+      "endTick": 10668,
+      "durationSec": 177.8,
+      "remaining": {
+        "player": 0,
+        "npc": 6
+      },
+      "hp": {
+        "player": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "npc": [
+          21,
+          20,
+          117,
+          56,
+          129,
+          106
+        ]
+      },
+      "timedOut": false
+    },
+    {
+      "seed": 4103,
+      "terrainId": "cavern",
+      "archetypeId": "brawler",
+      "playerIds": [
+        100129,
+        100119,
+        100067,
+        100135,
+        100132,
+        100069
+      ],
+      "npcIds": [
+        100017,
+        100053,
+        100046,
+        100087,
+        100014,
+        100013
+      ],
+      "winner": "player",
+      "endTick": 9390,
+      "durationSec": 156.5,
+      "remaining": {
+        "player": 6,
+        "npc": 0
+      },
+      "hp": {
+        "player": [
+          41,
+          98,
+          136,
+          176,
+          121,
+          100
+        ],
+        "npc": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "timedOut": false
+    },
+    {
+      "seed": 4103,
+      "terrainId": "cavern",
+      "archetypeId": "wall",
+      "playerIds": [
+        100129,
+        100119,
+        100067,
+        100135,
+        100132,
+        100069
+      ],
+      "npcIds": [
+        100095,
+        100032,
+        100079,
+        100043,
+        100117,
+        100137
+      ],
+      "winner": "player",
+      "endTick": 23320,
+      "durationSec": 388.67,
+      "remaining": {
+        "player": 3,
+        "npc": 0
+      },
+      "hp": {
+        "player": [
+          0,
+          0,
+          136,
+          0,
+          81,
+          100
+        ],
+        "npc": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "timedOut": false
+    },
+    {
+      "seed": 4103,
+      "terrainId": "cavern",
+      "archetypeId": "kiter",
+      "playerIds": [
+        100129,
+        100119,
+        100067,
+        100135,
+        100132,
+        100069
+      ],
+      "npcIds": [
+        100057,
+        100074,
+        100117,
+        100079,
+        100109,
+        100103
+      ],
+      "winner": "npc",
+      "endTick": 16525,
+      "durationSec": 275.42,
+      "remaining": {
+        "player": 0,
+        "npc": 4
+      },
+      "hp": {
+        "player": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "npc": [
+          0,
+          0,
+          127,
+          136,
+          20,
+          107
+        ]
+      },
+      "timedOut": false
+    },
+    {
+      "seed": 4103,
+      "terrainId": "cavern",
+      "archetypeId": "tactician",
+      "playerIds": [
+        100129,
+        100119,
+        100067,
+        100135,
+        100132,
+        100069
+      ],
+      "npcIds": [
+        100079,
+        100137,
+        100109,
+        100087,
+        100050,
+        100017
+      ],
+      "winner": "npc",
+      "endTick": 11925,
+      "durationSec": 198.75,
+      "remaining": {
+        "player": 0,
+        "npc": 5
+      },
+      "hp": {
+        "player": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "npc": [
+          0,
+          5,
+          129,
+          23,
+          115,
+          106
+        ]
+      },
+      "timedOut": false
+    },
+    {
+      "seed": 4103,
+      "terrainId": "cavern",
+      "archetypeId": "specialist",
+      "playerIds": [
+        100129,
+        100119,
+        100067,
+        100135,
+        100132,
+        100069
+      ],
+      "npcIds": [
+        100073,
+        100104,
+        100109,
+        100017,
+        100016,
+        100079
+      ],
+      "winner": "npc",
+      "endTick": 18409,
+      "durationSec": 306.82,
+      "remaining": {
+        "player": 0,
+        "npc": 2
+      },
+      "hp": {
+        "player": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "npc": [
+          0,
+          134,
+          0,
+          0,
+          0,
+          7
+        ]
+      },
+      "timedOut": false
+    },
+    {
+      "seed": 4103,
+      "terrainId": "cavern",
+      "archetypeId": "champion",
+      "playerIds": [
+        100129,
+        100119,
+        100067,
+        100135,
+        100132,
+        100069
+      ],
+      "npcIds": [
+        100137,
+        100050,
+        100057,
+        100079,
+        100109,
+        100017
+      ],
+      "winner": "npc",
+      "endTick": 12249,
+      "durationSec": 204.15,
+      "remaining": {
+        "player": 0,
+        "npc": 4
+      },
+      "hp": {
+        "player": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "npc": [
+          0,
+          0,
+          117,
+          39,
+          129,
+          106
+        ]
+      },
+      "timedOut": false
+    },
+    {
+      "seed": 4103,
+      "terrainId": "snowfield",
+      "archetypeId": "brawler",
+      "playerIds": [
+        100129,
+        100119,
+        100067,
+        100135,
+        100132,
+        100069
+      ],
+      "npcIds": [
+        100017,
+        100053,
+        100046,
+        100087,
+        100014,
+        100013
+      ],
+      "winner": "npc",
+      "endTick": 17372,
+      "durationSec": 289.53,
+      "remaining": {
+        "player": 0,
+        "npc": 1
+      },
+      "hp": {
+        "player": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "npc": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          22
+        ]
+      },
+      "timedOut": false
+    },
+    {
+      "seed": 4103,
+      "terrainId": "snowfield",
+      "archetypeId": "wall",
+      "playerIds": [
+        100129,
+        100119,
+        100067,
+        100135,
+        100132,
+        100069
+      ],
+      "npcIds": [
+        100095,
+        100032,
+        100079,
+        100043,
+        100117,
+        100137
+      ],
+      "winner": "npc",
+      "endTick": 28907,
+      "durationSec": 481.78,
+      "remaining": {
+        "player": 0,
+        "npc": 1
+      },
+      "hp": {
+        "player": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "npc": [
+          0,
+          0,
+          79,
+          0,
+          0,
+          0
+        ]
+      },
+      "timedOut": false
+    },
+    {
+      "seed": 4103,
+      "terrainId": "snowfield",
+      "archetypeId": "kiter",
+      "playerIds": [
+        100129,
+        100119,
+        100067,
+        100135,
+        100132,
+        100069
+      ],
+      "npcIds": [
+        100057,
+        100074,
+        100117,
+        100079,
+        100109,
+        100103
+      ],
+      "winner": "npc",
+      "endTick": 13537,
+      "durationSec": 225.62,
+      "remaining": {
+        "player": 0,
+        "npc": 5
+      },
+      "hp": {
+        "player": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "npc": [
+          0,
+          21,
+          53,
+          136,
+          129,
+          107
+        ]
+      },
+      "timedOut": false
+    },
+    {
+      "seed": 4103,
+      "terrainId": "snowfield",
+      "archetypeId": "tactician",
+      "playerIds": [
+        100129,
+        100119,
+        100067,
+        100135,
+        100132,
+        100069
+      ],
+      "npcIds": [
+        100079,
+        100137,
+        100109,
+        100087,
+        100050,
+        100017
+      ],
+      "winner": "npc",
+      "endTick": 14665,
+      "durationSec": 244.42,
+      "remaining": {
+        "player": 0,
+        "npc": 3
+      },
+      "hp": {
+        "player": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "npc": [
+          0,
+          0,
+          47,
+          0,
+          20,
+          106
+        ]
+      },
+      "timedOut": false
+    },
+    {
+      "seed": 4103,
+      "terrainId": "snowfield",
+      "archetypeId": "specialist",
+      "playerIds": [
+        100129,
+        100119,
+        100067,
+        100135,
+        100132,
+        100069
+      ],
+      "npcIds": [
+        100073,
+        100104,
+        100109,
+        100017,
+        100016,
+        100079
+      ],
+      "winner": "npc",
+      "endTick": 18990,
+      "durationSec": 316.5,
+      "remaining": {
+        "player": 0,
+        "npc": 2
+      },
+      "hp": {
+        "player": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "npc": [
+          0,
+          71,
+          0,
+          0,
+          0,
+          136
+        ]
+      },
+      "timedOut": false
+    },
+    {
+      "seed": 4103,
+      "terrainId": "snowfield",
+      "archetypeId": "champion",
+      "playerIds": [
+        100129,
+        100119,
+        100067,
+        100135,
+        100132,
+        100069
+      ],
+      "npcIds": [
+        100137,
+        100050,
+        100057,
+        100079,
+        100109,
+        100017
+      ],
+      "winner": "npc",
+      "endTick": 12024,
+      "durationSec": 200.4,
+      "remaining": {
+        "player": 0,
+        "npc": 6
+      },
+      "hp": {
+        "player": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "npc": [
+          24,
+          22,
+          117,
+          60,
+          129,
+          106
+        ]
+      },
+      "timedOut": false
+    }
+  ],
+  "allSpecies": [
+    {
+      "playerIds": [
+        100001,
+        100002,
+        100003,
+        100004,
+        100005,
+        100006
+      ],
+      "npcIds": [
+        100076,
+        100077,
+        100078,
+        100079,
+        100080,
+        100081
+      ],
+      "seed": 5100,
+      "winner": "npc",
+      "endTick": 3469,
+      "durationSec": 57.82,
+      "remaining": {
+        "player": 0,
+        "npc": 6
+      },
+      "hp": {
+        "player": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "npc": [
+          58,
+          105,
+          145,
+          136,
+          133,
+          108
+        ]
+      },
+      "timedOut": false
+    },
+    {
+      "playerIds": [
+        100007,
+        100008,
+        100009,
+        100010,
+        100011,
+        100012
+      ],
+      "npcIds": [
+        100082,
+        100083,
+        100084,
+        100085,
+        100086,
+        100087
+      ],
+      "seed": 5106,
+      "winner": "player",
+      "endTick": 11844,
+      "durationSec": 197.4,
+      "remaining": {
+        "player": 2,
+        "npc": 0
+      },
+      "hp": {
+        "player": [
+          0,
+          0,
+          146,
+          0,
+          111,
+          0
+        ],
+        "npc": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "timedOut": false
+    },
+    {
+      "playerIds": [
+        100013,
+        100014,
+        100015,
+        100016,
+        100017,
+        100018
+      ],
+      "npcIds": [
+        100088,
+        100089,
+        100090,
+        100091,
+        100092,
+        100093
+      ],
+      "seed": 5112,
+      "winner": "npc",
+      "endTick": 7639,
+      "durationSec": 127.32,
+      "remaining": {
+        "player": 0,
+        "npc": 6
+      },
+      "hp": {
+        "player": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "npc": [
+          27,
+          107,
+          62,
+          106,
+          142,
+          111
+        ]
+      },
+      "timedOut": false
+    },
+    {
+      "playerIds": [
+        100019,
+        100020,
+        100021,
+        100022,
+        100023,
+        100024
+      ],
+      "npcIds": [
+        100094,
+        100095,
+        100096,
+        100097,
+        100098,
+        100099
+      ],
+      "seed": 5118,
+      "winner": "player",
+      "endTick": 13806,
+      "durationSec": 230.1,
+      "remaining": {
+        "player": 6,
+        "npc": 0
+      },
+      "hp": {
+        "player": [
+          18,
+          135,
+          142,
+          108,
+          166,
+          180
+        ],
+        "npc": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "timedOut": false
+    },
+    {
+      "playerIds": [
+        100025,
+        100026,
+        100027,
+        100028,
+        100029,
+        100030
+      ],
+      "npcIds": [
+        100100,
+        100101,
+        100102,
+        100103,
+        100104,
+        100105
+      ],
+      "seed": 5124,
+      "winner": "npc",
+      "endTick": 11080,
+      "durationSec": 184.67,
+      "remaining": {
+        "player": 0,
+        "npc": 4
+      },
+      "hp": {
+        "player": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "npc": [
+          0,
+          0,
+          32,
+          21,
+          115,
+          112
+        ]
+      },
+      "timedOut": false
+    },
+    {
+      "playerIds": [
+        100031,
+        100032,
+        100033,
+        100034,
+        100035,
+        100036
+      ],
+      "npcIds": [
+        100106,
+        100107,
+        100108,
+        100109,
+        100110,
+        100111
+      ],
+      "seed": 5130,
+      "winner": "player",
+      "endTick": 23952,
+      "durationSec": 399.2,
+      "remaining": {
+        "player": 3,
+        "npc": 0
+      },
+      "hp": {
+        "player": [
+          0,
+          0,
+          53,
+          134,
+          165,
+          0
+        ],
+        "npc": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "timedOut": false
+    },
+    {
+      "playerIds": [
+        100037,
+        100038,
+        100039,
+        100040,
+        100041,
+        100042
+      ],
+      "npcIds": [
+        100112,
+        100113,
+        100114,
+        100115,
+        100116,
+        100117
+      ],
+      "seed": 5136,
+      "winner": "player",
+      "endTick": 30140,
+      "durationSec": 502.33,
+      "remaining": {
+        "player": 1,
+        "npc": 0
+      },
+      "hp": {
+        "player": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          77
+        ],
+        "npc": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "timedOut": false
+    },
+    {
+      "playerIds": [
+        100043,
+        100044,
+        100045,
+        100046,
+        100047,
+        100048
+      ],
+      "npcIds": [
+        100118,
+        100119,
+        100120,
+        100121,
+        100122,
+        100123
+      ],
+      "seed": 5142,
+      "winner": "npc",
+      "endTick": 22792,
+      "durationSec": 379.87,
+      "remaining": {
+        "player": 0,
+        "npc": 6
+      },
+      "hp": {
+        "player": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "npc": [
+          48,
+          98,
+          132,
+          136,
+          177,
+          128
+        ]
+      },
+      "timedOut": false
+    },
+    {
+      "playerIds": [
+        100049,
+        100050,
+        100051,
+        100052,
+        100053,
+        100054
+      ],
+      "npcIds": [
+        100124,
+        100125,
+        100126,
+        100127,
+        100128,
+        100129
+      ],
+      "seed": 5148,
+      "winner": "npc",
+      "endTick": 15908,
+      "durationSec": 265.13,
+      "remaining": {
+        "player": 0,
+        "npc": 5
+      },
+      "hp": {
+        "player": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "npc": [
+          9,
+          25,
+          29,
+          163,
+          0,
+          144
+        ]
+      },
+      "timedOut": false
+    },
+    {
+      "playerIds": [
+        100055,
+        100056,
+        100057,
+        100058,
+        100059,
+        100060
+      ],
+      "npcIds": [
+        100130,
+        100131,
+        100132,
+        100133,
+        100134,
+        100135
+      ],
+      "seed": 5154,
+      "winner": "player",
+      "endTick": 12634,
+      "durationSec": 210.57,
+      "remaining": {
+        "player": 2,
+        "npc": 0
+      },
+      "hp": {
+        "player": [
+          0,
+          0,
+          51,
+          0,
+          99,
+          0
+        ],
+        "npc": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "timedOut": false
+    },
+    {
+      "playerIds": [
+        100061,
+        100062,
+        100063,
+        100064,
+        100065,
+        100066
+      ],
+      "npcIds": [
+        100136,
+        100137,
+        100138,
+        100139,
+        100140,
+        100141
+      ],
+      "seed": 5160,
+      "winner": "npc",
+      "endTick": 22782,
+      "durationSec": 379.7,
+      "remaining": {
+        "player": 0,
+        "npc": 6
+      },
+      "hp": {
+        "player": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "npc": [
+          26,
+          135,
+          111,
+          132,
+          160,
+          212
+        ]
+      },
+      "timedOut": false
+    },
+    {
+      "playerIds": [
+        100067,
+        100068,
+        100069,
+        100070,
+        100071,
+        100072
+      ],
+      "npcIds": [
+        100142,
+        100143,
+        100144,
+        100145,
+        100146,
+        100147
+      ],
+      "seed": 5166,
+      "winner": "npc",
+      "endTick": 8791,
+      "durationSec": 146.52,
+      "remaining": {
+        "player": 0,
+        "npc": 5
+      },
+      "hp": {
+        "player": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "npc": [
+          0,
+          192,
+          187,
+          171,
+          161,
+          82
+        ]
+      },
+      "timedOut": false
+    },
+    {
+      "playerIds": [
+        100073,
+        100074,
+        100075,
+        100076,
+        100077,
+        100078
+      ],
+      "npcIds": [
+        100148,
+        100149,
+        100150,
+        100001,
+        100002,
+        100003
+      ],
+      "seed": 5172,
+      "winner": "npc",
+      "endTick": 11915,
+      "durationSec": 198.58,
+      "remaining": {
+        "player": 0,
+        "npc": 6
+      },
+      "hp": {
+        "player": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "npc": [
+          98,
+          176,
+          145,
+          98,
+          127,
+          114
+        ]
+      },
+      "timedOut": false
+    },
+    {
+      "playerIds": [
+        100079,
+        100080,
+        100081,
+        100082,
+        100083,
+        100084
+      ],
+      "npcIds": [
+        100004,
+        100005,
+        100006,
+        100007,
+        100008,
+        100009
+      ],
+      "seed": 5178,
+      "winner": "npc",
+      "endTick": 13643,
+      "durationSec": 227.38,
+      "remaining": {
+        "player": 0,
+        "npc": 6
+      },
+      "hp": {
+        "player": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "npc": [
+          19,
+          127,
+          145,
+          19,
+          60,
+          157
+        ]
+      },
+      "timedOut": false
+    },
+    {
+      "playerIds": [
+        100085,
+        100086,
+        100087,
+        100088,
+        100089,
+        100090
+      ],
+      "npcIds": [
+        100010,
+        100011,
+        100012,
+        100013,
+        100014,
+        100015
+      ],
+      "seed": 5184,
+      "winner": "player",
+      "endTick": 7524,
+      "durationSec": 125.4,
+      "remaining": {
+        "player": 6,
+        "npc": 0
+      },
+      "hp": {
+        "player": [
+          54,
+          155,
+          119,
+          145,
+          107,
+          171
+        ],
+        "npc": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "timedOut": false
+    },
+    {
+      "playerIds": [
+        100091,
+        100092,
+        100093,
+        100094,
+        100095,
+        100096
+      ],
+      "npcIds": [
+        100016,
+        100017,
+        100018,
+        100019,
+        100020,
+        100021
+      ],
+      "seed": 5190,
+      "winner": "npc",
+      "endTick": 12888,
+      "durationSec": 214.8,
+      "remaining": {
+        "player": 0,
+        "npc": 2
+      },
+      "hp": {
+        "player": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "npc": [
+          0,
+          0,
+          0,
+          0,
+          24,
+          91
+        ]
+      },
+      "timedOut": false
+    },
+    {
+      "playerIds": [
+        100097,
+        100098,
+        100099,
+        100100,
+        100101,
+        100102
+      ],
+      "npcIds": [
+        100022,
+        100023,
+        100024,
+        100025,
+        100026,
+        100027
+      ],
+      "seed": 5196,
+      "winner": "player",
+      "endTick": 6768,
+      "durationSec": 112.8,
+      "remaining": {
+        "player": 5,
+        "npc": 0
+      },
+      "hp": {
+        "player": [
+          0,
+          31,
+          118,
+          182,
+          101,
+          178
+        ],
+        "npc": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "timedOut": false
+    },
+    {
+      "playerIds": [
+        100103,
+        100104,
+        100105,
+        100106,
+        100107,
+        100108
+      ],
+      "npcIds": [
+        100028,
+        100029,
+        100030,
+        100031,
+        100032,
+        100033
+      ],
+      "seed": 5202,
+      "winner": "npc",
+      "endTick": 10453,
+      "durationSec": 174.22,
+      "remaining": {
+        "player": 0,
+        "npc": 4
+      },
+      "hp": {
+        "player": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "npc": [
+          14,
+          22,
+          34,
+          0,
+          0,
+          103
+        ]
+      },
+      "timedOut": false
+    },
+    {
+      "playerIds": [
+        100109,
+        100110,
+        100111,
+        100112,
+        100113,
+        100114
+      ],
+      "npcIds": [
+        100034,
+        100035,
+        100036,
+        100037,
+        100038,
+        100039
+      ],
+      "seed": 5208,
+      "winner": "player",
+      "endTick": 17694,
+      "durationSec": 294.9,
+      "remaining": {
+        "player": 6,
+        "npc": 0
+      },
+      "hp": {
+        "player": [
+          117,
+          126,
+          132,
+          147,
+          114,
+          172
+        ],
+        "npc": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "timedOut": false
+    },
+    {
+      "playerIds": [
+        100115,
+        100116,
+        100117,
+        100118,
+        100119,
+        100120
+      ],
+      "npcIds": [
+        100040,
+        100041,
+        100042,
+        100043,
+        100044,
+        100045
+      ],
+      "seed": 5214,
+      "winner": "player",
+      "endTick": 20364,
+      "durationSec": 339.4,
+      "remaining": {
+        "player": 4,
+        "npc": 0
+      },
+      "hp": {
+        "player": [
+          0,
+          0,
+          127,
+          68,
+          98,
+          132
+        ],
+        "npc": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "timedOut": false
+    },
+    {
+      "playerIds": [
+        100121,
+        100122,
+        100123,
+        100124,
+        100125,
+        100126
+      ],
+      "npcIds": [
+        100046,
+        100047,
+        100048,
+        100049,
+        100050,
+        100051
+      ],
+      "seed": 5220,
+      "winner": "npc",
+      "endTick": 14580,
+      "durationSec": 243,
+      "remaining": {
+        "player": 0,
+        "npc": 3
+      },
+      "hp": {
+        "player": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "npc": [
+          0,
+          0,
+          57,
+          0,
+          115,
+          143
+        ]
+      },
+      "timedOut": false
+    },
+    {
+      "playerIds": [
+        100127,
+        100128,
+        100129,
+        100130,
+        100131,
+        100132
+      ],
+      "npcIds": [
+        100052,
+        100053,
+        100054,
+        100055,
+        100056,
+        100057
+      ],
+      "seed": 5226,
+      "winner": "player",
+      "endTick": 7290,
+      "durationSec": 121.5,
+      "remaining": {
+        "player": 6,
+        "npc": 0
+      },
+      "hp": {
+        "player": [
+          50,
+          192,
+          144,
+          173,
+          141,
+          121
+        ],
+        "npc": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "timedOut": false
+    },
+    {
+      "playerIds": [
+        100133,
+        100134,
+        100135,
+        100136,
+        100137,
+        100138
+      ],
+      "npcIds": [
+        100058,
+        100059,
+        100060,
+        100061,
+        100062,
+        100063
+      ],
+      "seed": 5232,
+      "winner": "player",
+      "endTick": 26344,
+      "durationSec": 439.07,
+      "remaining": {
+        "player": 3,
+        "npc": 0
+      },
+      "hp": {
+        "player": [
+          0,
+          0,
+          0,
+          84,
+          135,
+          111
+        ],
+        "npc": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "timedOut": false
+    },
+    {
+      "playerIds": [
+        100139,
+        100140,
+        100141,
+        100142,
+        100143,
+        100144
+      ],
+      "npcIds": [
+        100064,
+        100065,
+        100066,
+        100067,
+        100068,
+        100069
+      ],
+      "seed": 5238,
+      "winner": "player",
+      "endTick": 15383,
+      "durationSec": 256.38,
+      "remaining": {
+        "player": 4,
+        "npc": 0
+      },
+      "hp": {
+        "player": [
+          0,
+          102,
+          0,
+          154,
+          192,
+          187
+        ],
+        "npc": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "timedOut": false
+    },
+    {
+      "playerIds": [
+        100145,
+        100146,
+        100147,
+        100148,
+        100149,
+        100150
+      ],
+      "npcIds": [
+        100070,
+        100071,
+        100072,
+        100073,
+        100074,
+        100075
+      ],
+      "seed": 5244,
+      "winner": "player",
+      "endTick": 12134,
+      "durationSec": 202.23,
+      "remaining": {
+        "player": 5,
+        "npc": 0
+      },
+      "hp": {
+        "player": [
+          0,
+          161,
+          132,
+          185,
+          176,
+          145
+        ],
+        "npc": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "timedOut": false
+    }
+  ]
+}

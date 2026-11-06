@@ -1,0 +1,66 @@
+{
+  "sourceHead": "bccbff7",
+  "fixture": "legacy-battle-fixture.json",
+  "baseline": {
+    "seed": 9001,
+    "winner": "npc",
+    "endTick": 11863,
+    "durationSec": 197.72,
+    "remaining": {
+      "player": 0,
+      "npc": 2
+    },
+    "hp": {
+      "player": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "npc": [
+        0,
+        0,
+        0,
+        0,
+        120,
+        20
+      ]
+    },
+    "logHash": "cdccecff"
+  },
+  "replay": "eyJ2IjoyLCJzZWVkIjo5MDAxLCJ0IjoicGl0Y2giLCJhIjoidGFjdGljaWFuIiwicyI6MywicCI6WzEsNCw3LDI1LDEzMywxNDNdLCJuIjpbMTUyLDE1NSwxNTgsMTc5LDE2MywyNDFdLCJwbSI6W1s0MDIsMzgsMzYsNzVdLFs1MywxNjMsNDI0LDEwXSxbNTYsMTMwLDQwMSw0NF0sWzg3LDg1LDIxLDQzNV0sWzM4NywzNiw0NCwzM10sWzQxNiwzNCwyNDIsMTczXV0sIm5tIjpbWzc2LDM0LDM0NSw3NV0sWzI4NCwzOCw1Myw0MzZdLFs1NiwzNywyNzYsNDAxXSxbODcsNDA4LDQzNSwzMjRdLFszNiw0MDMsMTM4LDI1M10sWzM0LDQyOCwzNTgsMjNdXSwicGEiOlsib3Zlcmdyb3ciLCJibGF6ZSIsInRvcnJlbnQiLCJzdGF0aWMiLCJhZGFwdGFiaWxpdHkiLCJ0aGljay1mYXQiXSwibmEiOlsib3Zlcmdyb3ciLCJibGF6ZSIsInRvcnJlbnQiLCJzdGF0aWMiLCJrZWVuLWV5ZSIsInRoaWNrLWZhdCJdLCJhYiI6MSwiYXAiOjEsImkiOltdfQ",
+  "variants": [
+    {
+      "speed": 1,
+      "animations": true,
+      "matches": true
+    },
+    {
+      "speed": 1,
+      "animations": false,
+      "matches": true
+    },
+    {
+      "speed": 2,
+      "animations": true,
+      "matches": true
+    },
+    {
+      "speed": 2,
+      "animations": false,
+      "matches": true
+    },
+    {
+      "speed": 4,
+      "animations": true,
+      "matches": true
+    },
+    {
+      "speed": 4,
+      "animations": false,
+      "matches": true
+    }
+  ]
+}

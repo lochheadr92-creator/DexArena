@@ -1,0 +1,106 @@
+[
+  {
+    "slug": "weirwhisk",
+    "id": 100009,
+    "scale": 0.19476538552228248,
+    "sourceSize": [
+      1536,
+      1024
+    ],
+    "sourceSha256": "0f1c48534532c3c9bbb00d0cb7eb47d757948dc3556e19e8eff351fa78042885",
+    "assetVersion": "01089b4356d273d7",
+    "frames": 12,
+    "colors": 24
+  },
+  {
+    "slug": "dewlume",
+    "id": 100010,
+    "scale": 0.2222222222222222,
+    "sourceSize": [
+      1536,
+      1024
+    ],
+    "sourceSha256": "24f25809b71f5221bd9e33a96560a8a07bf8a055f0ce25860e5ee227a6a32d2d",
+    "assetVersion": "f66400dd7b0cb781",
+    "frames": 12,
+    "colors": 24
+  },
+  {
+    "slug": "veilace",
+    "id": 100011,
+    "scale": 0.2441860465116279,
+    "sourceSize": [
+      1536,
+      1024
+    ],
+    "sourceSha256": "d6084710e4893633d97fb7c1423c6afd11267821914c27aa8757e3cdd7f21575",
+    "assetVersion": "42ecd5bd1b53ac7b",
+    "frames": 12,
+    "colors": 24
+  },
+  {
+    "slug": "scorchant",
+    "id": 100005,
+    "scale": 0.24454664360153583,
+    "sourceSize": [
+      1536,
+      1024
+    ],
+    "sourceSha256": "e10e828f2fb00f13c1987b991b270370a73e9a67fdb6d63048ba2182b23c5340",
+    "assetVersion": "aaee81da5b3e0850",
+    "frames": 12,
+    "colors": 24
+  },
+  {
+    "slug": "spindriftel",
+    "id": 100008,
+    "scale": 0.21595886497809944,
+    "sourceSize": [
+      1536,
+      1024
+    ],
+    "sourceSha256": "0a79609c9e7f273c0005862d53083ebf8bb84277808ec3af29d95f989cd92e3b",
+    "assetVersion": "e7123717a93ab7b7",
+    "frames": 12,
+    "colors": 24
+  },
+  {
+    "slug": "wickit",
+    "id": 100013,
+    "scale": 0.23214285714285715,
+    "sourceSize": [
+      1536,
+      1024
+    ],
+    "sourceSha256": "24b0618e731dbd35b42cf3be9f895aa9c36aca81c096c7d68c162920166d763c",
+    "assetVersion": "608002dbfff0bafa",
+    "frames": 12,
+    "colors": 24
+  },
+  {
+    "slug": "clackindle",
+    "id": 100014,
+    "scale": 0.2537401039355199,
+    "sourceSize": [
+      1536,
+      1024
+    ],
+    "sourceSha256": "6488e06409df03baa60e2258e87e27ea99e9a1b07e7f4861d31b6ac2e7615ad4",
+    "assetVersion": "a598130d66cf5f1f",
+    "frames": 12,
+    "colors": 24
+  },
+  {
+    "slug": "pipshore",
+    "id": 100016,
+    "scale": 0.21940928270042195,
+    "sourceSize": [
+      1536,
+      1024
+    ],
+    "sourceSha256": "91cadcdd16e7589ca5d7d625914867c31988e74c6cc978b58e7c71831aa3225c",
+    "assetVersion": "65619a0cf9bbbb3f",
+    "frames": 12,
+    "colors": 24
+  }
+]

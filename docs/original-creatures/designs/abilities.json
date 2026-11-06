@@ -1,0 +1,127 @@
+{
+  "overgrow": {
+    "mechanicId": "overgrow",
+    "name": "Last Leaf",
+    "description": "Grass attacks grow stronger when health is low."
+  },
+  "blaze": {
+    "mechanicId": "blaze",
+    "name": "Banked Ember",
+    "description": "Fire attacks grow stronger when health is low."
+  },
+  "torrent": {
+    "mechanicId": "torrent",
+    "name": "Undertow Heart",
+    "description": "Water attacks grow stronger when health is low."
+  },
+  "swarm": {
+    "mechanicId": "swarm",
+    "name": "Colony Will",
+    "description": "Bug attacks grow stronger when health is low."
+  },
+  "static": {
+    "mechanicId": "static",
+    "name": "Crackle Coat",
+    "description": "Contact attackers may become paralysed."
+  },
+  "volt-absorb": {
+    "mechanicId": "volt-absorb",
+    "name": "Storm Reservoir",
+    "description": "Electric hits restore health instead of dealing damage."
+  },
+  "thick-fat": {
+    "mechanicId": "thick-fat",
+    "name": "Dense Mantle",
+    "description": "Insulating tissue reduces incoming Fire and Ice damage."
+  },
+  "guts": {
+    "mechanicId": "guts",
+    "name": "Defiant Blood",
+    "description": "Burn or paralysis strengthens physical attacks."
+  },
+  "shed-skin": {
+    "mechanicId": "shed-skin",
+    "name": "Fresh Hide",
+    "description": "Periodically has a chance to shed burn or paralysis."
+  },
+  "sturdy": {
+    "mechanicId": "sturdy",
+    "name": "Last Bastion",
+    "description": "Survives a single hit from full health with at least one health."
+  },
+  "levitate": {
+    "mechanicId": "levitate",
+    "name": "Driftborne",
+    "description": "Floats above Ground attacks and terrain effects."
+  },
+  "synchronize": {
+    "mechanicId": "synchronize",
+    "name": "Shared Echo",
+    "description": "Returns received burn or paralysis to the attacker."
+  },
+  "rough-skin": {
+    "mechanicId": "rough-skin",
+    "name": "Bristle Guard",
+    "description": "Contact attackers take damage from hard bristles."
+  },
+  "solid-rock": {
+    "mechanicId": "solid-rock",
+    "name": "Layered Shell",
+    "description": "Layered armour softens super-effective hits."
+  },
+  "clear-body": {
+    "mechanicId": "clear-body",
+    "name": "Steady Form",
+    "description": "Entry intimidation cannot lower its Attack."
+  },
+  "water-veil": {
+    "mechanicId": "water-veil",
+    "name": "Dew Mantle",
+    "description": "A wet protective film prevents burns."
+  },
+  "swift-swim": {
+    "mechanicId": "swift-swim",
+    "name": "Current Rider",
+    "description": "Moves faster in rain or on water."
+  },
+  "compound-eyes": {
+    "mechanicId": "compound-eyes",
+    "name": "Facet Focus",
+    "description": "Multiple lenses improve move accuracy."
+  },
+  "speed-boost": {
+    "mechanicId": "speed-boost",
+    "name": "Gathering Pace",
+    "description": "Builds speed the longer it remains active."
+  },
+  "natural-cure": {
+    "mechanicId": "natural-cure",
+    "name": "Quiet Renewal",
+    "description": "Switching out clears burn and paralysis."
+  },
+  "pressure": {
+    "mechanicId": "pressure",
+    "name": "Sovereign Weight",
+    "description": "Its presence lengthens the opponent's move cooldowns."
+  },
+  "intimidate": {
+    "mechanicId": "intimidate",
+    "name": "Dominant Bearing",
+    "description": "Entry lowers the opponent's Attack until it switches."
+  },
+  "magic-guard": {
+    "mechanicId": "magic-guard",
+    "name": "Unbroken Aura",
+    "description": "Only direct attacks can damage it."
+  },
+  "snow-cloak": {
+    "mechanicId": "snow-cloak",
+    "name": "Rime Shroud",
+    "description": "Improves dodging in hail or on snow and ice."
+  },
+  "chlorophyll": {
+    "mechanicId": "chlorophyll",
+    "name": "Sunstride",
+    "description": "Sunlight and grassy Pitch terrain increase speed."
+  }
+}
