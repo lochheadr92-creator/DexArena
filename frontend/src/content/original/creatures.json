@@ -64,7 +64,8 @@
     "animBack": null,
     "artwork": "/original/o001-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 1
   },
   {
     "id": 10002,
@@ -131,7 +132,8 @@
     "animBack": null,
     "artwork": "/original/o002-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 2
   },
   {
     "id": 10003,
@@ -198,7 +200,8 @@
     "animBack": null,
     "artwork": "/original/o003-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 3
   },
   {
     "id": 10004,
@@ -266,7 +269,8 @@
     "animBack": null,
     "artwork": "/original/o004-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 56
   },
   {
     "id": 10005,
@@ -334,7 +338,8 @@
     "animBack": null,
     "artwork": "/original/o005-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 57
   },
   {
     "id": 10006,
@@ -400,7 +405,8 @@
     "animBack": null,
     "artwork": "/original/o006-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 58
   },
   {
     "id": 10007,
@@ -467,7 +473,8 @@
     "animBack": null,
     "artwork": "/original/o007-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 122
   },
   {
     "id": 10008,
@@ -535,7 +542,8 @@
     "animBack": null,
     "artwork": "/original/o008-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 123
   },
   {
     "id": 10009,
@@ -602,7 +610,8 @@
     "animBack": null,
     "artwork": "/original/o009-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 124
   },
   {
     "id": 10010,
@@ -670,7 +679,8 @@
     "animBack": null,
     "artwork": "/original/o010-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 137
   },
   {
     "id": 10011,
@@ -739,7 +749,8 @@
     "animBack": null,
     "artwork": "/original/o011-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 138
   },
   {
     "id": 10012,
@@ -806,7 +817,8 @@
     "animBack": null,
     "artwork": "/original/o012-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 139
   },
   {
     "id": 10013,
@@ -873,7 +885,8 @@
     "animBack": null,
     "artwork": "/original/o013-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 101
   },
   {
     "id": 10014,
@@ -940,7 +953,8 @@
     "animBack": null,
     "artwork": "/original/o014-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 102
   },
   {
     "id": 10015,
@@ -1006,7 +1020,8 @@
     "animBack": null,
     "artwork": "/original/o015-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 103
   },
   {
     "id": 10016,
@@ -1074,7 +1089,8 @@
     "animBack": null,
     "artwork": "/original/o016-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 66
   },
   {
     "id": 10017,
@@ -1143,7 +1159,8 @@
     "animBack": null,
     "artwork": "/original/o017-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 67
   },
   {
     "id": 10018,
@@ -1210,7 +1227,8 @@
     "animBack": null,
     "artwork": "/original/o018-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 68
   },
   {
     "id": 10019,
@@ -1277,7 +1295,8 @@
     "animBack": null,
     "artwork": "/original/o019-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 10
   },
   {
     "id": 10020,
@@ -1345,7 +1364,8 @@
     "animBack": null,
     "artwork": "/original/o020-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 11
   },
   {
     "id": 10021,
@@ -1412,7 +1432,8 @@
     "animBack": null,
     "artwork": "/original/o021-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 12
   },
   {
     "id": 10022,
@@ -1480,7 +1501,8 @@
     "animBack": null,
     "artwork": "/original/o022-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 127
   },
   {
     "id": 10023,
@@ -1548,7 +1570,8 @@
     "animBack": null,
     "artwork": "/original/o023-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 128
   },
   {
     "id": 10024,
@@ -1614,7 +1637,8 @@
     "animBack": null,
     "artwork": "/original/o024-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 129
   },
   {
     "id": 10025,
@@ -1681,7 +1705,8 @@
     "animBack": null,
     "artwork": "/original/o025-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 97
   },
   {
     "id": 10026,
@@ -1749,7 +1774,8 @@
     "animBack": null,
     "artwork": "/original/o026-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 98
   },
   {
     "id": 10027,
@@ -1815,7 +1841,8 @@
     "animBack": null,
     "artwork": "/original/o027-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 99
   },
   {
     "id": 10028,
@@ -1883,7 +1910,8 @@
     "animBack": null,
     "artwork": "/original/o028-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 72
   },
   {
     "id": 10029,
@@ -1951,7 +1979,8 @@
     "animBack": null,
     "artwork": "/original/o029-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 73
   },
   {
     "id": 10030,
@@ -2018,7 +2047,8 @@
     "animBack": null,
     "artwork": "/original/o030-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 74
   },
   {
     "id": 10031,
@@ -2085,7 +2115,8 @@
     "animBack": null,
     "artwork": "/original/o031-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 59
   },
   {
     "id": 10032,
@@ -2152,7 +2183,8 @@
     "animBack": null,
     "artwork": "/original/o032-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 60
   },
   {
     "id": 10033,
@@ -2219,7 +2251,8 @@
     "animBack": null,
     "artwork": "/original/o033-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 61
   },
   {
     "id": 10034,
@@ -2287,7 +2320,8 @@
     "animBack": null,
     "artwork": "/original/o034-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 107
   },
   {
     "id": 10035,
@@ -2354,7 +2388,8 @@
     "animBack": null,
     "artwork": "/original/o035-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 108
   },
   {
     "id": 10036,
@@ -2421,7 +2456,8 @@
     "animBack": null,
     "artwork": "/original/o036-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 109
   },
   {
     "id": 10037,
@@ -2489,7 +2525,8 @@
     "animBack": null,
     "artwork": "/original/o037-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 30
   },
   {
     "id": 10038,
@@ -2557,7 +2594,8 @@
     "animBack": null,
     "artwork": "/original/o038-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 31
   },
   {
     "id": 10039,
@@ -2623,7 +2661,8 @@
     "animBack": null,
     "artwork": "/original/o039-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 32
   },
   {
     "id": 10040,
@@ -2690,7 +2729,8 @@
     "animBack": null,
     "artwork": "/original/o040-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 69
   },
   {
     "id": 10041,
@@ -2757,7 +2797,8 @@
     "animBack": null,
     "artwork": "/original/o041-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 70
   },
   {
     "id": 10042,
@@ -2824,7 +2865,8 @@
     "animBack": null,
     "artwork": "/original/o042-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 71
   },
   {
     "id": 10043,
@@ -2891,7 +2933,8 @@
     "animBack": null,
     "artwork": "/original/o043-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 76
   },
   {
     "id": 10044,
@@ -2959,7 +3002,8 @@
     "animBack": null,
     "artwork": "/original/o044-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 77
   },
   {
     "id": 10045,
@@ -3026,7 +3070,8 @@
     "animBack": null,
     "artwork": "/original/o045-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 78
   },
   {
     "id": 10046,
@@ -3094,7 +3139,8 @@
     "animBack": null,
     "artwork": "/original/o046-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 132
   },
   {
     "id": 10047,
@@ -3161,7 +3207,8 @@
     "animBack": null,
     "artwork": "/original/o047-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 133
   },
   {
     "id": 10048,
@@ -3227,7 +3274,8 @@
     "animBack": null,
     "artwork": "/original/o048-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 134
   },
   {
     "id": 10049,
@@ -3294,7 +3342,8 @@
     "animBack": null,
     "artwork": "/original/o049-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 119
   },
   {
     "id": 10050,
@@ -3361,7 +3410,8 @@
     "animBack": null,
     "artwork": "/original/o050-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 120
   },
   {
     "id": 10051,
@@ -3427,7 +3477,8 @@
     "animBack": null,
     "artwork": "/original/o051-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 121
   },
   {
     "id": 10052,
@@ -3495,7 +3546,8 @@
     "animBack": null,
     "artwork": "/original/o052-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 104
   },
   {
     "id": 10053,
@@ -3562,7 +3614,8 @@
     "animBack": null,
     "artwork": "/original/o053-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 105
   },
   {
     "id": 10054,
@@ -3628,7 +3681,8 @@
     "animBack": null,
     "artwork": "/original/o054-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 106
   },
   {
     "id": 10055,
@@ -3695,7 +3749,8 @@
     "animBack": null,
     "artwork": "/original/o055-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 82
   },
   {
     "id": 10056,
@@ -3763,7 +3818,8 @@
     "animBack": null,
     "artwork": "/original/o056-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 83
   },
   {
     "id": 10057,
@@ -3829,7 +3885,8 @@
     "animBack": null,
     "artwork": "/original/o057-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 84
   },
   {
     "id": 10058,
@@ -3896,7 +3953,8 @@
     "animBack": null,
     "artwork": "/original/o058-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 62
   },
   {
     "id": 10059,
@@ -3961,7 +4019,8 @@
     "animBack": null,
     "artwork": "/original/o059-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 63
   },
   {
     "id": 10060,
@@ -4028,7 +4087,8 @@
     "animBack": null,
     "artwork": "/original/o060-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 85
   },
   {
     "id": 10061,
@@ -4095,7 +4155,8 @@
     "animBack": null,
     "artwork": "/original/o061-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 86
   },
   {
     "id": 10062,
@@ -4162,7 +4223,8 @@
     "animBack": null,
     "artwork": "/original/o062-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 93
   },
   {
     "id": 10063,
@@ -4229,7 +4291,8 @@
     "animBack": null,
     "artwork": "/original/o063-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 94
   },
   {
     "id": 10064,
@@ -4297,7 +4360,8 @@
     "animBack": null,
     "artwork": "/original/o064-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 48
   },
   {
     "id": 10065,
@@ -4364,7 +4428,8 @@
     "animBack": null,
     "artwork": "/original/o065-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 49
   },
   {
     "id": 10066,
@@ -4432,7 +4497,8 @@
     "animBack": null,
     "artwork": "/original/o066-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 17
   },
   {
     "id": 10067,
@@ -4499,7 +4565,8 @@
     "animBack": null,
     "artwork": "/original/o067-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 18
   },
   {
     "id": 10068,
@@ -4567,7 +4634,8 @@
     "animBack": null,
     "artwork": "/original/o068-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 4
   },
   {
     "id": 10069,
@@ -4634,7 +4702,8 @@
     "animBack": null,
     "artwork": "/original/o069-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 5
   },
   {
     "id": 10070,
@@ -4702,7 +4771,8 @@
     "animBack": null,
     "artwork": "/original/o070-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 135
   },
   {
     "id": 10071,
@@ -4768,7 +4838,8 @@
     "animBack": null,
     "artwork": "/original/o071-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 136
   },
   {
     "id": 10072,
@@ -4836,7 +4907,8 @@
     "animBack": null,
     "artwork": "/original/o072-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 46
   },
   {
     "id": 10073,
@@ -4901,7 +4973,8 @@
     "animBack": null,
     "artwork": "/original/o073-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 47
   },
   {
     "id": 10074,
@@ -4969,7 +5042,8 @@
     "animBack": null,
     "artwork": "/original/o074-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 87
   },
   {
     "id": 10075,
@@ -5035,7 +5109,8 @@
     "animBack": null,
     "artwork": "/original/o075-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 88
   },
   {
     "id": 10076,
@@ -5103,7 +5178,8 @@
     "animBack": null,
     "artwork": "/original/o076-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 15
   },
   {
     "id": 10077,
@@ -5169,7 +5245,8 @@
     "animBack": null,
     "artwork": "/original/o077-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 16
   },
   {
     "id": 10078,
@@ -5236,7 +5313,8 @@
     "animBack": null,
     "artwork": "/original/o078-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 112
   },
   {
     "id": 10079,
@@ -5303,7 +5381,8 @@
     "animBack": null,
     "artwork": "/original/o079-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 113
   },
   {
     "id": 10080,
@@ -5370,7 +5449,8 @@
     "animBack": null,
     "artwork": "/original/o080-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 50
   },
   {
     "id": 10081,
@@ -5437,7 +5517,8 @@
     "animBack": null,
     "artwork": "/original/o081-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 51
   },
   {
     "id": 10082,
@@ -5504,7 +5585,8 @@
     "animBack": null,
     "artwork": "/original/o082-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 26
   },
   {
     "id": 10083,
@@ -5571,7 +5653,8 @@
     "animBack": null,
     "artwork": "/original/o083-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 27
   },
   {
     "id": 10084,
@@ -5639,7 +5722,8 @@
     "animBack": null,
     "artwork": "/original/o084-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 130
   },
   {
     "id": 10085,
@@ -5705,7 +5789,8 @@
     "animBack": null,
     "artwork": "/original/o085-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 131
   },
   {
     "id": 10086,
@@ -5773,7 +5858,8 @@
     "animBack": null,
     "artwork": "/original/o086-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 110
   },
   {
     "id": 10087,
@@ -5839,7 +5925,8 @@
     "animBack": null,
     "artwork": "/original/o087-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 111
   },
   {
     "id": 10088,
@@ -5907,7 +5994,8 @@
     "animBack": null,
     "artwork": "/original/o088-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 52
   },
   {
     "id": 10089,
@@ -5973,7 +6061,8 @@
     "animBack": null,
     "artwork": "/original/o089-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 53
   },
   {
     "id": 10090,
@@ -6041,7 +6130,8 @@
     "animBack": null,
     "artwork": "/original/o090-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 6
   },
   {
     "id": 10091,
@@ -6107,7 +6197,8 @@
     "animBack": null,
     "artwork": "/original/o091-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 7
   },
   {
     "id": 10092,
@@ -6174,7 +6265,8 @@
     "animBack": null,
     "artwork": "/original/o092-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 42
   },
   {
     "id": 10093,
@@ -6241,7 +6333,8 @@
     "animBack": null,
     "artwork": "/original/o093-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 43
   },
   {
     "id": 10094,
@@ -6309,7 +6402,8 @@
     "animBack": null,
     "artwork": "/original/o094-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 91
   },
   {
     "id": 10095,
@@ -6376,7 +6470,8 @@
     "animBack": null,
     "artwork": "/original/o095-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 92
   },
   {
     "id": 10096,
@@ -6444,7 +6539,8 @@
     "animBack": null,
     "artwork": "/original/o096-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 125
   },
   {
     "id": 10097,
@@ -6510,7 +6606,8 @@
     "animBack": null,
     "artwork": "/original/o097-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 126
   },
   {
     "id": 10098,
@@ -6577,7 +6674,8 @@
     "animBack": null,
     "artwork": "/original/o098-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 35
   },
   {
     "id": 10099,
@@ -6643,7 +6741,8 @@
     "animBack": null,
     "artwork": "/original/o099-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 36
   },
   {
     "id": 10100,
@@ -6710,7 +6809,8 @@
     "animBack": null,
     "artwork": "/original/o100-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 117
   },
   {
     "id": 10101,
@@ -6776,7 +6876,8 @@
     "animBack": null,
     "artwork": "/original/o101-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 118
   },
   {
     "id": 10102,
@@ -6844,7 +6945,8 @@
     "animBack": null,
     "artwork": "/original/o102-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 13
   },
   {
     "id": 10103,
@@ -6910,7 +7012,8 @@
     "animBack": null,
     "artwork": "/original/o103-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 14
   },
   {
     "id": 10104,
@@ -6977,7 +7080,8 @@
     "animBack": null,
     "artwork": "/original/o104-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 44
   },
   {
     "id": 10105,
@@ -7044,7 +7148,8 @@
     "animBack": null,
     "artwork": "/original/o105-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 45
   },
   {
     "id": 10106,
@@ -7112,7 +7217,8 @@
     "animBack": null,
     "artwork": "/original/o106-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 64
   },
   {
     "id": 10107,
@@ -7179,7 +7285,8 @@
     "animBack": null,
     "artwork": "/original/o107-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 65
   },
   {
     "id": 10108,
@@ -7247,7 +7354,8 @@
     "animBack": null,
     "artwork": "/original/o108-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 89
   },
   {
     "id": 10109,
@@ -7312,7 +7420,8 @@
     "animBack": null,
     "artwork": "/original/o109-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 90
   },
   {
     "id": 10110,
@@ -7379,7 +7488,8 @@
     "animBack": null,
     "artwork": "/original/o110-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 8
   },
   {
     "id": 10111,
@@ -7445,7 +7555,8 @@
     "animBack": null,
     "artwork": "/original/o111-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 9
   },
   {
     "id": 10112,
@@ -7513,7 +7624,8 @@
     "animBack": null,
     "artwork": "/original/o112-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 54
   },
   {
     "id": 10113,
@@ -7580,7 +7692,8 @@
     "animBack": null,
     "artwork": "/original/o113-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 55
   },
   {
     "id": 10114,
@@ -7647,7 +7760,8 @@
     "animBack": null,
     "artwork": "/original/o114-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 95
   },
   {
     "id": 10115,
@@ -7714,7 +7828,8 @@
     "animBack": null,
     "artwork": "/original/o115-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 96
   },
   {
     "id": 10116,
@@ -7782,7 +7897,8 @@
     "animBack": null,
     "artwork": "/original/o116-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 37
   },
   {
     "id": 10117,
@@ -7847,7 +7963,8 @@
     "animBack": null,
     "artwork": "/original/o117-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 38
   },
   {
     "id": 10118,
@@ -7915,7 +8032,8 @@
     "animBack": null,
     "artwork": "/original/o118-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 23
   },
   {
     "id": 10119,
@@ -7982,7 +8100,8 @@
     "animBack": null,
     "artwork": "/original/o119-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 24
   },
   {
     "id": 10120,
@@ -8050,7 +8169,8 @@
     "animBack": null,
     "artwork": "/original/o120-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 21
   },
   {
     "id": 10121,
@@ -8117,7 +8237,8 @@
     "animBack": null,
     "artwork": "/original/o121-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 22
   },
   {
     "id": 10122,
@@ -8184,7 +8305,8 @@
     "animBack": null,
     "artwork": "/original/o122-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 115
   },
   {
     "id": 10123,
@@ -8251,7 +8373,8 @@
     "animBack": null,
     "artwork": "/original/o123-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 116
   },
   {
     "id": 10124,
@@ -8319,7 +8442,8 @@
     "animBack": null,
     "artwork": "/original/o124-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 19
   },
   {
     "id": 10125,
@@ -8386,7 +8510,8 @@
     "animBack": null,
     "artwork": "/original/o125-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 20
   },
   {
     "id": 10126,
@@ -8453,7 +8578,8 @@
     "animBack": null,
     "artwork": "/original/o126-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 33
   },
   {
     "id": 10127,
@@ -8520,7 +8646,8 @@
     "animBack": null,
     "artwork": "/original/o127-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 34
   },
   {
     "id": 10128,
@@ -8587,7 +8714,8 @@
     "animBack": null,
     "artwork": "/original/o128-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 39
   },
   {
     "id": 10129,
@@ -8653,7 +8781,8 @@
     "animBack": null,
     "artwork": "/original/o129-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 40
   },
   {
     "id": 10130,
@@ -8720,7 +8849,8 @@
     "animBack": null,
     "artwork": "/original/o130-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 28
   },
   {
     "id": 10131,
@@ -8786,7 +8916,8 @@
     "animBack": null,
     "artwork": "/original/o131-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 29
   },
   {
     "id": 10132,
@@ -8852,7 +8983,8 @@
     "animBack": null,
     "artwork": "/original/o132-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 25
   },
   {
     "id": 10133,
@@ -8918,7 +9050,8 @@
     "animBack": null,
     "artwork": "/original/o133-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 75
   },
   {
     "id": 10134,
@@ -8985,7 +9118,8 @@
     "animBack": null,
     "artwork": "/original/o134-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 81
   },
   {
     "id": 10135,
@@ -9051,7 +9185,8 @@
     "animBack": null,
     "artwork": "/original/o135-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 80
   },
   {
     "id": 10136,
@@ -9118,7 +9253,8 @@
     "animBack": null,
     "artwork": "/original/o136-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 41
   },
   {
     "id": 10137,
@@ -9185,7 +9321,8 @@
     "animBack": null,
     "artwork": "/original/o137-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 114
   },
   {
     "id": 10138,
@@ -9251,7 +9388,8 @@
     "animBack": null,
     "artwork": "/original/o138-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 79
   },
   {
     "id": 10139,
@@ -9318,7 +9456,8 @@
     "animBack": null,
     "artwork": "/original/o139-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 100
   },
   {
     "id": 10140,
@@ -9385,7 +9524,8 @@
     "animBack": null,
     "artwork": "/original/o140-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 140
   },
   {
     "id": 10141,
@@ -9452,7 +9592,8 @@
     "animBack": null,
     "artwork": "/original/o141-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 141
   },
   {
     "id": 10142,
@@ -9518,7 +9659,8 @@
     "animBack": null,
     "artwork": "/original/o142-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 142
   },
   {
     "id": 10143,
@@ -9584,7 +9726,8 @@
     "animBack": null,
     "artwork": "/original/o143-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 143
   },
   {
     "id": 10144,
@@ -9650,7 +9793,8 @@
     "animBack": null,
     "artwork": "/original/o144-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 144
   },
   {
     "id": 10145,
@@ -9716,7 +9860,8 @@
     "animBack": null,
     "artwork": "/original/o145-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 145
   },
   {
     "id": 10146,
@@ -9783,7 +9928,8 @@
     "animBack": null,
     "artwork": "/original/o146-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 146
   },
   {
     "id": 10147,
@@ -9849,7 +9995,8 @@
     "animBack": null,
     "artwork": "/original/o147-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 147
   },
   {
     "id": 10148,
@@ -9916,7 +10063,8 @@
     "animBack": null,
     "artwork": "/original/o148-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 148
   },
   {
     "id": 10149,
@@ -9982,7 +10130,8 @@
     "animBack": null,
     "artwork": "/original/o149-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 149
   },
   {
     "id": 10150,
@@ -10048,6 +10197,7 @@
     "animBack": null,
     "artwork": "/original/o150-front.png",
     "roster": "original",
-    "contentVersion": 1
+    "contentVersion": 1,
+    "displayOrder": 150
   }
 ]

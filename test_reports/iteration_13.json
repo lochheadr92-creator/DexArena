@@ -1,0 +1,31 @@
+{
+  "summary": "Frontend-only verification of (1) Dex reorder, (2) animated idle sprites, and (3) combat integrity + matchups/shiny regression. All six requested scenarios pass. (A) scripts/validate_reorder.py reports ALL VALIDATION PASSED — 150 creatures, ids 10001..10150 unchanged, displayOrder a complete 1..150 permutation, evolvesFrom/To mutually consistent, every family contiguous & base-first in displayOrder, legendaries/mythicals at 140..150, type totals unchanged. (B) Live Original roster renders in new order: pos#1 #001 Mossplod(WATER) -> pos#2 #002 Mosshull(WATER) -> pos#3 #003 Bathyward(WATER/STEEL) family contiguous and base-first; first 30 cards cover 14 unique types (grass/dark/fighting/flying/bug/dragon/steel/water/fire/poison/rock/psychic/ground/normal) — NOT all one type. (C) Pokemon roster order UNCHANGED — #001 Bulbasaur, #002 Ivysaur, #003 Venusaur, #004 Charmander, #005 Charmeleon, #006 Charizard, #007 Squirtle, #008 Wartortle (National Dex). (D) Search by new dex number '3' matches Bathyward (displayOrder=3). (E) Creature detail sheet for #001 Mossplod opens (testid creature-detail-popover) and renders the full Type Matchups panel (matchup-weak2, matchup-resist2, matchup-neutral, matchup-stab, matchup-moves all present). (F) Started a 6v6 quick battle from the Original roster (team ids 10001,10068,10090,10110,10019,10102 picked via taps; start-battle-button enabled; navigated to /battle). Player Mossplod visibly idle-animates (aqua sway + particles) in the live canvas, opponent Tadmuck renders and attacks. HP progressed monotonically over ~36s sampling: 111 -> 106 -> 99 -> 91 -> 80 -> 71 -> 64 (15 unique HP snapshots across 20 reads) — continuous deterministic progression, no stall, no duplicate damage events, no visual crash, no pageerror / console errors. Battle was still progressing at the end of the observation window — not a bug, just a long match; damage is accruing correctly. Shiny roster counter (roster-shiny-count) code-path intact (RosterPage.jsx shinyCount useMemo unchanged, renders when >0).",
+  "platforms_tested": ["web"],
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "web": {
+      "ui_bugs": [],
+      "integration_issues": [],
+      "design_issues": []
+    }
+  },
+  "parity_issues": [],
+  "test_report_links": ["/app/scripts/validate_reorder.py"],
+  "action_items": [],
+  "critical_code_review_comments": [
+    "lib/format.js displayNo() correctly falls back to dexNo/id when displayOrder is absent — safe for the Pokemon roster where displayOrder is not set, so Pokemon cards still show their National Dex number (confirmed live).",
+    "RosterPage filter now matches both the new displayOrder and legacy dexNo for numeric search (`String(c.displayOrder ?? c.dexNo ?? '') === q.replace(/^#0*/, '')`) — correct behavior; searching '3' finds Bathyward.",
+    "renderer.js idleOffsets() is wall-clock (now / 1000) and view-only — it is called inside drawUnit but does NOT feed back into the fixed-tick engine. The engine advances via state.tick (see uses of state.tick, releaseTick, lastCastTick), and damage/events are drained from state.events (consumeEvents dedup'd by this.lastEventId). Confirmed live: HP decreased monotonically with no doubled damage numbers.",
+    "idle animation is correctly gated: only applied when `Math.hypot(u.vel.x, u.vel.y) < 0.1 && u.state === 'active' && !reducedMotion`, so it never fires during movement, casting, recovery, faint, or switch — no interference with the existing attack/hit/faint reactions.",
+    "motionProfile is memoized per creatureId via MOTION_CACHE — a Map that persists across renders. This is fine for the current single-battle session, but note it's module-level: profiles accumulate if many distinct creatures are seen across sessions (not a defect, just an observation; 150 Original + 493 Pokemon worst case is negligible).",
+    "CreatureCard renders dexNo(displayNo(creature)) for Original creatures (displayOrder ∈ 1..150) and for Pokemon (dexNo) — no divergence; visible #s match spec.",
+    "Minor: the review request mentions a `creature-details-{id}` testid; the actual detail-sheet testid is `creature-detail-popover`. Not a defect — already flagged in iteration_12."
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "N/A", "frontend": "100%"},
+  "seed_data_creation": "None.",
+  "retest_needed": false,
+  "should_main_agent_self_test": false,
+  "context_for_next_testing_agent": "Dex reorder is baked into creatures.json (field `displayOrder`) and validate_reorder.py can be re-run after any content edit (`python /app/scripts/validate_reorder.py`). The Original-roster team-selection tap works reliably via mouse.down()/up() with ~80ms down-duration (<450ms long-press threshold) + 250ms settle; verifying data-selected='true' on the card after each tap is the reliable gate. Battle page is /battle (not /battle/{id}). End-of-battle banner testid wasn't observed because the match ran longer than the sampling window — not a defect; the deterministic engine was clearly advancing (HP 111 -> 64 over ~36s, 15 unique snapshots). creature-detail-popover is the sheet testid; matchup-* testids are: matchup-weak2/weak4/resist2/resist4/immune/neutral/stab/moves.",
+  "rca of the issue": ""
+}

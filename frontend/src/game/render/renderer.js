@@ -11,6 +11,49 @@ import { ABILITY_DRAWERS, WeatherFx, drawTrapRing, drawHoverShadow, drawPassiveA
 import { passiveVisual, isTrapped, weatherActive, WEATHER } from "@/game/abilities";
 import { SHINY_FILTER } from "@/lib/shiny";
 
+// Personality-driven idle motion. NOTE: creatures ship as single flat PNGs (no frame
+// sheets / layers), so this is transform-only "in-engine motion" — it is NOT independent
+// body-part animation (no real breathing/limb/blink layers).
+const MOTION_CACHE = new Map();
+function motionProfile(u) {
+  const key = u.creatureId;
+  if (MOTION_CACHE.has(key)) return MOTION_CACHE.get(key);
+  const ts = u.baseTypes || u.types || [];
+  let p;
+  if (ts.includes("ghost")) p = "ghost";
+  else if (ts.includes("flying")) p = "fly";
+  else if (ts.includes("water")) p = "aqua";
+  else if (ts[0] === "steel") p = "mech";
+  else if (ts[0] === "rock" || ts[0] === "ground" || ts[0] === "dragon") p = "heavy";
+  else if (["electric", "bug", "normal", "fairy", "poison"].includes(ts[0])) p = "agile";
+  else p = "default";
+  MOTION_CACHE.set(key, p);
+  return p;
+}
+
+function idleOffsets(u, now, s) {
+  const t = now / 1000;
+  const ph = (((u.creatureId || 0) % 97) / 97) * Math.PI * 2;
+  const br = (hz, amp) => 1 + Math.sin(t * hz + ph) * amp;
+  switch (motionProfile(u)) {
+    case "fly": // gentle hover + wing-flap via horizontal breathing
+      return { dx: Math.sin(t * 1.6 + ph) * 1.2 * s, dy: (Math.sin(t * 2.3 + ph) - 0.25) * 3 * s, sx: br(4.6, 0.05), sy: br(2.3, 0.02) };
+    case "ghost": // slow lazy drift
+      return { dx: Math.sin(t * 0.7 + ph) * 3 * s, dy: Math.cos(t * 0.5 + ph) * 3 * s, sx: 1, sy: br(0.9, 0.025) };
+    case "aqua": // sway / undulate
+      return { dx: Math.sin(t * 1.5 + ph) * 2.6 * s, dy: Math.sin(t * 3.0 + ph) * 1.4 * s, sx: br(3.0, 0.03), sy: br(3.0, 0.038) };
+    case "mech": // deliberate, restrained, heavy timing
+      return { dx: Math.sin(t * 0.9 + ph) * 1.0 * s, dy: -Math.abs(Math.sin(t * 0.9 + ph)) * 1.0 * s, sx: 1, sy: br(0.9, 0.012) };
+    case "heavy": // slow weight shift side to side
+      return { dx: Math.sin(t * 0.8 + ph) * 2.2 * s, dy: Math.sin(t * 1.6 + ph) * 0.8 * s, sx: br(1.6, 0.016), sy: br(1.6, 0.022) };
+    case "agile": // quick little bounce + twitch
+      return { dx: Math.sin(t * 5.0 + ph) * 0.8 * s, dy: -Math.abs(Math.sin(t * 3.0 + ph)) * 3.2 * s, sx: br(6.0, 0.03), sy: br(6.0, 0.04) };
+    default: // gentle breathing bob
+      return { dx: 0, dy: Math.sin((now / (A.idleBob.periodSec * 1000)) * Math.PI * 2 + ph) * A.idleBob.px, sx: 1, sy: br(2.2, 0.025) };
+  }
+}
+
+
 const tcolor = (t) => typeColors[t]?.bg || "#94a3b8";
 const ease = (t) => Math.min(1, Math.max(0, t));
 const V = moveVisuals.archetypes;
@@ -235,7 +278,13 @@ export class BattleRenderer {
         dx += (Math.random() - 0.5) * A.paralysis.jitterPx * 2;
       }
       const speed = Math.hypot(u.vel.x, u.vel.y);
-      if (speed < 0.1 && u.state === "active") dy += Math.sin((now / (A.idleBob.periodSec * 1000)) * Math.PI * 2) * A.idleBob.px;
+      if (speed < 0.1 && u.state === "active" && !this.reducedMotion) {
+        const io = idleOffsets(u, now, this.scalePx());
+        dx += io.dx;
+        dy += io.dy;
+        sx *= io.sx;
+        sy *= io.sy;
+      }
       if (fx.tint && now < fx.tint.until) tint = { color: fx.tint.color, alpha: 0.6 * ((fx.tint.until - now) / fx.tint.dur) };
       this.statusParticles(u, now, fx);
       this.abilityPassive(state, u, x, y, now, fx);

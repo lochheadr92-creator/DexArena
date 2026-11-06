@@ -5,6 +5,7 @@ export const titleCase = (s = "") =>
     .join(" ");
 
 export const dexNo = (id) => `#${String(id).padStart(3, "0")}`;
+export const displayNo = (c) => c?.displayOrder ?? c?.dexNo ?? c?.id;
 
 export const GEN_LABELS = { 1: "I", 2: "II", 3: "III", 4: "IV" };
 

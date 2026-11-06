@@ -1,7 +1,7 @@
 import { memo, useRef } from "react";
 import { Info, Lock, Sparkles } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { dexNo } from "@/lib/format";
+import { dexNo, displayNo } from "@/lib/format";
 import { isSealed } from "@/lib/unlocks";
 import { DEX } from "@/constants/testIds/dex";
 import { TypeBadge } from "@/components/TypeBadge";
@@ -53,7 +53,7 @@ export const CreatureCard = memo(function CreatureCard({ creature, locked, slot,
       )}
     >
       <div className="flex w-full items-center justify-between">
-        <span className="font-accent text-[7px] text-slate-500">{dexNo(creature.dexNo ?? creature.id)}</span>
+        <span className="font-accent text-[7px] text-slate-500">{dexNo(displayNo(creature))}</span>
         <button
           type="button"
           data-testid={DEX.creatureInfo(creature.id)}

@@ -4,7 +4,7 @@ import { Lock, Minus, Plus, Sparkles, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useGame } from "@/context/GameContext";
 import { typeColor } from "@/lib/types";
-import { dexNo, GEN_LABELS, titleCase } from "@/lib/format";
+import { dexNo, displayNo, GEN_LABELS, titleCase } from "@/lib/format";
 import { isSealed } from "@/lib/unlocks";
 import { isShiny } from "@/lib/shiny";
 import { DEX } from "@/constants/testIds/dex";
@@ -111,7 +111,7 @@ export const CreatureDetailSheet = ({ creatureId, onClose, onPick, onToggleTeam 
                 </div>
                 <div className="min-w-0 flex-1 pt-1">
                   <div className="flex items-center gap-2">
-                    <span className="font-accent text-[9px] text-slate-500">{dexNo(creature.dexNo ?? creature.id)}</span>
+                    <span className="font-accent text-[9px] text-slate-500">{dexNo(displayNo(creature))}</span>
                     <span className="rounded border border-slate-800 px-1.5 py-0.5 font-mono text-[9px] uppercase tracking-wider text-slate-400">
                       Gen {GEN_LABELS[creature.generation]}
                     </span>

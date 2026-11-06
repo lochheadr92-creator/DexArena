@@ -38,7 +38,7 @@ export default function RosterPage() {
           (!filters.type || c.types.includes(filters.type)) &&
           (!filters.onlyUnlocked || unlockedIds.has(c.id)) &&
           (!filters.ability || (c.abilities || []).includes(filters.ability)) &&
-          (!q || c.displayName.toLowerCase().includes(q) || c.name.includes(q) || String(c.id) === q.replace(/^#0*/, "") || String(c.dexNo ?? "") === q.replace(/^#0*/, "")),
+          (!q || c.displayName.toLowerCase().includes(q) || c.name.includes(q) || String(c.id) === q.replace(/^#0*/, "") || String(c.displayOrder ?? c.dexNo ?? "") === q.replace(/^#0*/, "")),
       ),
     [list, filters.gen, filters.type, filters.onlyUnlocked, filters.ability, unlockedIds, q],
   );

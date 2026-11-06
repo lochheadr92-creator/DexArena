@@ -150,7 +150,7 @@ export function GameProvider({ children }) {
     setSave((prev) => persist(fn(prev)));
   }, [persist]);
 
-  const list = useMemo(() => Object.values(creatures).sort((a, b) => (a.dexNo ?? a.id) - (b.dexNo ?? b.id)), [creatures]);
+  const list = useMemo(() => Object.values(creatures).sort((a, b) => (a.displayOrder ?? a.dexNo ?? a.id) - (b.displayOrder ?? b.dexNo ?? b.id)), [creatures]);
   const starterIds = useMemo(() => computeStarterIds(creatures), [creatures]);
   const unlockedIds = useMemo(() => {
     const s = new Set(starterIds);

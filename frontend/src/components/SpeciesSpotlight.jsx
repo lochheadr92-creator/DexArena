@@ -3,7 +3,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Sparkles, Star } from "lucide-react";
 import { useGame } from "@/context/GameContext";
 import { typeColor } from "@/lib/types";
-import { dexNo, titleCase } from "@/lib/format";
+import { dexNo, displayNo, titleCase } from "@/lib/format";
 import { dailyKey } from "@/lib/daily";
 import { isShiny } from "@/lib/shiny";
 import { TypeBadge } from "@/components/TypeBadge";
@@ -104,7 +104,7 @@ export const SpeciesSpotlight = ({ onPick }) => {
             {shiny && <Sparkles className="absolute -right-1 -top-1 h-4 w-4 text-amber-300 drop-shadow" data-testid="spotlight-shiny" />}
           </div>
           <div className="min-w-0 flex-1 pr-24">
-            <span className="font-accent text-[8px] text-slate-500">{dexNo(c.dexNo ?? c.id)}</span>
+            <span className="font-accent text-[8px] text-slate-500">{dexNo(displayNo(c))}</span>
             <h3 className="truncate font-display text-lg font-bold leading-tight tracking-tight text-slate-50" data-testid="spotlight-name">{c.displayName}</h3>
             {isDaily ? (
               <p className="mt-0.5 line-clamp-2 text-[11px] leading-snug text-slate-300" data-testid="spotlight-blurb">{blurb(c)}</p>
