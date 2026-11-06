@@ -1,4 +1,4 @@
-import { memo, useRef } from "react";
+import { memo, useRef, useState, useEffect, useMemo } from "react";
 import { Info, Lock, Sparkles } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { dexNo, displayNo } from "@/lib/format";
@@ -8,20 +8,51 @@ import { TypeBadge } from "@/components/TypeBadge";
 import { SpriteImg } from "@/components/SpriteImg";
 
 const LONG_PRESS_MS = 450;
+const FRAME_MS = 520;
+const prefersReducedMotion = () => typeof window !== "undefined" && window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 export const CreatureCard = memo(function CreatureCard({ creature, locked, slot, onSelect, onDetails, shiny, numberMode }) {
   const timer = useRef(null);
   const longPressed = useRef(false);
   const selected = slot != null;
 
+  const frames = creature.framesFront;
+  const reducedMotion = useMemo(prefersReducedMotion, []);
+  const canAnim = !locked && Array.isArray(frames) && frames.length > 1 && !reducedMotion;
+  const [active, setActive] = useState(false);
+  const [frameIdx, setFrameIdx] = useState(0);
+
+  useEffect(() => {
+    if (!active || !canAnim) {
+      setFrameIdx(0);
+      return undefined;
+    }
+    const idxs = [...frames.keys()];
+    const seq = frames.length >= 3 ? [...idxs, ...idxs.slice(1, -1).reverse()] : idxs;
+    frames.slice(1).forEach((f) => {
+      const im = new Image();
+      im.src = f;
+    });
+    let i = 0;
+    const id = setInterval(() => {
+      i = (i + 1) % seq.length;
+      setFrameIdx(seq[i]);
+    }, FRAME_MS);
+    return () => clearInterval(id);
+  }, [active, canAnim, frames]);
+
   const startPress = () => {
+    setActive(true);
     longPressed.current = false;
     timer.current = setTimeout(() => {
       longPressed.current = true;
       onDetails(creature.id);
     }, LONG_PRESS_MS);
   };
-  const cancelPress = () => clearTimeout(timer.current);
+  const cancelPress = () => {
+    setActive(false);
+    clearTimeout(timer.current);
+  };
   const handleClick = () => {
     if (longPressed.current) {
       longPressed.current = false;
@@ -30,6 +61,8 @@ export const CreatureCard = memo(function CreatureCard({ creature, locked, slot,
     onSelect(creature.id);
   };
 
+  const spriteSrc = active && canAnim ? frames[frameIdx] : creature.sprite;
+
   return (
     <div
       data-testid={DEX.creatureCard(creature.id)}
@@ -37,6 +70,7 @@ export const CreatureCard = memo(function CreatureCard({ creature, locked, slot,
       data-selected={selected}
       role="button"
       tabIndex={0}
+      onPointerEnter={() => canAnim && setActive(true)}
       onPointerDown={startPress}
       onPointerUp={cancelPress}
       onPointerLeave={cancelPress}
@@ -44,6 +78,7 @@ export const CreatureCard = memo(function CreatureCard({ creature, locked, slot,
       onContextMenu={(e) => e.preventDefault()}
       onClick={handleClick}
       onKeyDown={(e) => e.key === "Enter" && handleClick()}
+      data-animating={active && canAnim}
       className={cn(
         "group relative flex min-h-[118px] select-none flex-col items-center justify-between rounded-xl border p-2 transition-[transform,border-color,background-color,box-shadow] duration-200 active:scale-95",
         locked
@@ -70,7 +105,7 @@ export const CreatureCard = memo(function CreatureCard({ creature, locked, slot,
       </div>
 
       <div className="relative flex h-14 w-14 items-center justify-center">
-        <SpriteImg src={creature.sprite} alt={creature.displayName} locked={locked} shiny={shiny} className="h-14 w-14" />
+        <SpriteImg src={spriteSrc} alt={creature.displayName} locked={locked} shiny={shiny} className="h-14 w-14" />
         {shiny && (
           <span className="absolute -right-1 -top-1 rounded-full bg-amber-400/90 p-0.5 text-slate-900 shadow" data-testid={`creature-shiny-${creature.id}`}>
             <Sparkles className="h-3 w-3" />
