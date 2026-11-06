@@ -79,6 +79,10 @@
     "inSec": 0.3,
     "goSplashSec": 1
   },
+  "entry": {
+    "sec": 0.55
+  },
+  "idleFrameMs": 520,
   "damageNumber": {
     "risePx": 30,
     "sec": 0.6,

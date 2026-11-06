@@ -150,7 +150,12 @@ export function GameProvider({ children }) {
     setSave((prev) => persist(fn(prev)));
   }, [persist]);
 
-  const list = useMemo(() => Object.values(creatures).sort((a, b) => (a.displayOrder ?? a.dexNo ?? a.id) - (b.displayOrder ?? b.dexNo ?? b.id)), [creatures]);
+  const list = useMemo(() => {
+    const arr = Object.values(creatures);
+    return save.dexSort === "numeric"
+      ? arr.sort((a, b) => (a.dexNo ?? a.id) - (b.dexNo ?? b.id))
+      : arr.sort((a, b) => (a.displayOrder ?? a.dexNo ?? a.id) - (b.displayOrder ?? b.dexNo ?? b.id));
+  }, [creatures, save.dexSort]);
   const starterIds = useMemo(() => computeStarterIds(creatures), [creatures]);
   const unlockedIds = useMemo(() => {
     const s = new Set(starterIds);
@@ -190,6 +195,7 @@ export function GameProvider({ children }) {
   const setTerrain = useCallback((terrain) => updateSave((prev) => ({ ...prev, terrain })), [updateSave]);
   const setRivalLevel = useCallback((rivalLevel) => updateSave((prev) => ({ ...prev, rivalLevel: clampLevel(rivalLevel) })), [updateSave]);
   const setShinyRate = useCallback((rate) => updateSave((prev) => ({ ...prev, shinyRate: Number.isInteger(rate) && rate >= 0 ? rate : prev.shinyRate })), [updateSave]);
+  const setDexSort = useCallback((mode) => updateSave((prev) => ({ ...prev, dexSort: mode === "numeric" ? "numeric" : "variety" })), [updateSave]);
   const setAbility = useCallback((creatureId, slot) => updateSave((prev) => ({ ...prev, abilities: { ...prev.abilities, [creatureId]: slot === 1 ? 1 : 0 } })), [updateSave]);
   const resetSave = useCallback(() => {
     clearSave(saveKeyRef.current);
@@ -355,6 +361,8 @@ export function GameProvider({ children }) {
       setTerrain,
       setRivalLevel,
       setShinyRate,
+      setDexSort,
+      dexSort: save.dexSort === "numeric" ? "numeric" : "variety",
       setAbility,
       resetSave,
       retryFailed,
@@ -375,7 +383,7 @@ export function GameProvider({ children }) {
       saveReplay,
       replays,
     }),
-    [creatures, list, roster, rosterId, setRoster, progress, save, starterIds, unlockedIds, toggleTeam, clearTeam, setTerrain, setRivalLevel, setShinyRate, setAbility, resetSave, retryFailed, resyncDex, movesetOverrides, setMovesetOverride, importSave, creditResult, catalog, applyEvolutionItem, spendSealKey, startGauntlet, finishGauntletStage, abandonGauntlet, daily, recordDailyResult, presets, saveReplay, replays],
+    [creatures, list, roster, rosterId, setRoster, progress, save, starterIds, unlockedIds, toggleTeam, clearTeam, setTerrain, setRivalLevel, setShinyRate, setDexSort, setAbility, resetSave, retryFailed, resyncDex, movesetOverrides, setMovesetOverride, importSave, creditResult, catalog, applyEvolutionItem, spendSealKey, startGauntlet, finishGauntletStage, abandonGauntlet, daily, recordDailyResult, presets, saveReplay, replays],
   );
 
   return <GameContext.Provider value={value}>{children}</GameContext.Provider>;

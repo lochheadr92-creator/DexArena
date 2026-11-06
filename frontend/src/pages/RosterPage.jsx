@@ -22,8 +22,34 @@ const Placeholder = ({ id }) => (
   </div>
 );
 
+const SortToggle = ({ value, onChange }) => {
+  const Btn = ({ mode, label, testId }) => (
+    <button
+      type="button"
+      data-testid={testId}
+      data-active={value === mode}
+      onClick={() => onChange(mode)}
+      className={
+        "rounded-full px-3 py-1 font-mono text-[10px] uppercase tracking-wider transition-colors " +
+        (value === mode ? "bg-cyan-500/20 text-cyan-200" : "text-slate-400 hover:text-slate-200")
+      }
+    >
+      {label}
+    </button>
+  );
+  return (
+    <div className="mt-3 flex items-center justify-end gap-2">
+      <span className="font-mono text-[10px] uppercase tracking-widest text-slate-500">Order</span>
+      <div data-testid="dex-sort-toggle" className="inline-flex rounded-full border border-slate-800 bg-slate-900/70 p-0.5">
+        <Btn mode="variety" label="Variety" testId="dex-sort-variety" />
+        <Btn mode="numeric" label="Numeric" testId="dex-sort-numeric" />
+      </div>
+    </div>
+  );
+};
+
 export default function RosterPage() {
-  const { creatures, list, loaded, total, roster, progress, unlockedIds, save, toggleTeam } = useGame();
+  const { creatures, list, loaded, total, roster, rosterId, dexSort, setDexSort, progress, unlockedIds, save, toggleTeam } = useGame();
   const [filters, setFilters] = useState(EMPTY_FILTERS);
   const [detailId, setDetailId] = useState(null);
 
@@ -66,6 +92,7 @@ export default function RosterPage() {
   return (
     <div className="pb-48">
       <RosterFilters filters={filters} setFilters={setFilters} hasFilters={hasFilters} list={list} showGen={roster.hasGenerations} />
+      {rosterId === "original" && <SortToggle value={dexSort} onChange={setDexSort} />}
       {!hasFilters && list.length > 0 && <div className="mt-3"><SpeciesSpotlight onPick={setDetailId} /></div>}
       {filters.ability && (
         <div className="mt-2.5">
@@ -102,13 +129,13 @@ export default function RosterPage() {
           {showPlaceholders
             ? ALL_IDS.map((id) =>
                 creatures[id] ? (
-                  <CreatureCard key={id} creature={creatures[id]} locked={!unlockedIds.has(id)} shiny={isShinyCard(creatures[id])} slot={slotOf.get(id)} onSelect={handleSelect} onDetails={setDetailId} />
+                  <CreatureCard key={id} creature={creatures[id]} locked={!unlockedIds.has(id)} shiny={isShinyCard(creatures[id])} slot={slotOf.get(id)} onSelect={handleSelect} onDetails={setDetailId} numberMode={dexSort} />
                 ) : (
                   <Placeholder key={id} id={id} />
                 ),
               )
             : filtered.map((c) => (
-                <CreatureCard key={c.id} creature={c} locked={!unlockedIds.has(c.id)} shiny={isShinyCard(c)} slot={slotOf.get(c.id)} onSelect={handleSelect} onDetails={setDetailId} />
+                <CreatureCard key={c.id} creature={c} locked={!unlockedIds.has(c.id)} shiny={isShinyCard(c)} slot={slotOf.get(c.id)} onSelect={handleSelect} onDetails={setDetailId} numberMode={dexSort} />
               ))}
         </div>
       )}

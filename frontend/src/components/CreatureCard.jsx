@@ -9,7 +9,7 @@ import { SpriteImg } from "@/components/SpriteImg";
 
 const LONG_PRESS_MS = 450;
 
-export const CreatureCard = memo(function CreatureCard({ creature, locked, slot, onSelect, onDetails, shiny }) {
+export const CreatureCard = memo(function CreatureCard({ creature, locked, slot, onSelect, onDetails, shiny, numberMode }) {
   const timer = useRef(null);
   const longPressed = useRef(false);
   const selected = slot != null;
@@ -53,7 +53,7 @@ export const CreatureCard = memo(function CreatureCard({ creature, locked, slot,
       )}
     >
       <div className="flex w-full items-center justify-between">
-        <span className="font-accent text-[7px] text-slate-500">{dexNo(displayNo(creature))}</span>
+        <span className="font-accent text-[7px] text-slate-500">{dexNo(displayNo(creature, numberMode))}</span>
         <button
           type="button"
           data-testid={DEX.creatureInfo(creature.id)}

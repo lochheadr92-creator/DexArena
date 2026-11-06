@@ -7,6 +7,7 @@ CONTROL = f"{PROXY}/api/v1/fal"
 QUEUE_ORIGIN = "https://queue.fal.run"
 
 NANO = "fal-ai/nano-banana-pro"
+NANO_EDIT = "fal-ai/nano-banana-pro/edit"
 BIREFNET = "fal-ai/birefnet/v2"
 
 
@@ -67,9 +68,7 @@ def _img_url(res):
     raise RuntimeError(f"no image in result keys={list(res.keys())}")
 
 
-def generate_sprite(prompt, out_path, size=512, bg_remove=True):
-    gen = run_media(NANO, {"prompt": prompt, "num_images": 1, "aspect_ratio": "1:1", "output_format": "png"})
-    url = _img_url(gen)
+def _finalize(url, out_path, size, bg_remove):
     if bg_remove:
         cut = run_media(BIREFNET, {"image_url": url, "output_format": "png", "model": "General Use (Heavy)"})
         url = _img_url(cut)
@@ -97,6 +96,26 @@ def generate_sprite(prompt, out_path, size=512, bg_remove=True):
     import numpy as np
     opaque = int((np.array(canvas)[..., 3] > 0).sum())
     return len(data), opaque
+
+
+def _data_url(path):
+    import base64
+    with open(path, "rb") as f:
+        b = f.read()
+    return "data:image/png;base64," + base64.b64encode(b).decode("ascii")
+
+
+def generate_frame(prompt, base_image_path, out_path, size=512, bg_remove=True):
+    """Image-to-image repose of an existing sprite into an idle keyframe (nano-banana-pro edit)."""
+    gen = run_media(NANO_EDIT, {"prompt": prompt, "image_urls": [_data_url(base_image_path)], "num_images": 1, "output_format": "png"})
+    url = _img_url(gen)
+    return _finalize(url, out_path, size, bg_remove)
+
+
+def generate_sprite(prompt, out_path, size=512, bg_remove=True):
+    gen = run_media(NANO, {"prompt": prompt, "num_images": 1, "aspect_ratio": "1:1", "output_format": "png"})
+    url = _img_url(gen)
+    return _finalize(url, out_path, size, bg_remove)
 
 
 if __name__ == "__main__":

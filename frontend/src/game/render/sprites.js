@@ -4,6 +4,7 @@ import { animations } from "@/game/config";
 
 const cache = new Map();
 export const spriteReport = { fallbacks: [], decoded: [] };
+const IDLE_FRAME_MS = animations.idleFrameMs || 520;
 
 export const spriteKey = (creatureId, facing) => `${creatureId}:${facing}`;
 export const getSprite = (key) => cache.get(key);
@@ -69,7 +70,20 @@ export async function ensureSprite(creature, facing) {
   const staticUrl = facing === "front" ? creature.sprite : creature.spriteBack;
   let entry = null;
   let source = "static";
-  if (animations.animatedSprites && animUrl) {
+  const frameUrls = facing === "front" ? creature.framesFront : creature.framesBack;
+  if (animations.animatedSprites && Array.isArray(frameUrls) && frameUrls.length > 1) {
+    try {
+      const imgs = await Promise.all(frameUrls.map(loadImage));
+      // ping-pong a 3+ frame set so the loop never jumps (A,B,C -> A,B,C,B)
+      const seq = imgs.length >= 3 ? [...imgs, ...imgs.slice(1, -1).reverse()] : imgs;
+      const delays = seq.map(() => IDLE_FRAME_MS);
+      entry = { kind: "anim", frames: seq, delays, total: delays.reduce((a, b) => a + b, 0), width: imgs[0].naturalWidth, height: imgs[0].naturalHeight };
+      source = "png-frames";
+    } catch (err) {
+      spriteReport.fallbacks.push({ id: creature.id, name: creature.name, facing, reason: `png-frames: ${err.message}` });
+    }
+  }
+  if (!entry && animations.animatedSprites && animUrl) {
     try {
       let stored = await idbGet(STORE_SPRITES, key).catch(() => null);
       if (stored) source = "idb";

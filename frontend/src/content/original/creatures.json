@@ -65,7 +65,15 @@
     "artwork": "/original/o001-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 1
+    "displayOrder": 1,
+    "framesFront": [
+      "/original/o001-front.png",
+      "/original/o001-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o001-back.png",
+      "/original/o001-back-2.png"
+    ]
   },
   {
     "id": 10002,
@@ -133,7 +141,15 @@
     "artwork": "/original/o002-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 2
+    "displayOrder": 2,
+    "framesFront": [
+      "/original/o002-front.png",
+      "/original/o002-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o002-back.png",
+      "/original/o002-back-2.png"
+    ]
   },
   {
     "id": 10003,
@@ -201,7 +217,15 @@
     "artwork": "/original/o003-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 3
+    "displayOrder": 3,
+    "framesFront": [
+      "/original/o003-front.png",
+      "/original/o003-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o003-back.png",
+      "/original/o003-back-2.png"
+    ]
   },
   {
     "id": 10004,
@@ -270,7 +294,15 @@
     "artwork": "/original/o004-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 56
+    "displayOrder": 56,
+    "framesFront": [
+      "/original/o004-front.png",
+      "/original/o004-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o004-back.png",
+      "/original/o004-back-2.png"
+    ]
   },
   {
     "id": 10005,
@@ -339,7 +371,15 @@
     "artwork": "/original/o005-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 57
+    "displayOrder": 57,
+    "framesFront": [
+      "/original/o005-front.png",
+      "/original/o005-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o005-back.png",
+      "/original/o005-back-2.png"
+    ]
   },
   {
     "id": 10006,
@@ -406,7 +446,15 @@
     "artwork": "/original/o006-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 58
+    "displayOrder": 58,
+    "framesFront": [
+      "/original/o006-front.png",
+      "/original/o006-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o006-back.png",
+      "/original/o006-back-2.png"
+    ]
   },
   {
     "id": 10007,
@@ -474,7 +522,15 @@
     "artwork": "/original/o007-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 122
+    "displayOrder": 122,
+    "framesFront": [
+      "/original/o007-front.png",
+      "/original/o007-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o007-back.png",
+      "/original/o007-back-2.png"
+    ]
   },
   {
     "id": 10008,
@@ -543,7 +599,15 @@
     "artwork": "/original/o008-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 123
+    "displayOrder": 123,
+    "framesFront": [
+      "/original/o008-front.png",
+      "/original/o008-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o008-back.png",
+      "/original/o008-back-2.png"
+    ]
   },
   {
     "id": 10009,
@@ -611,7 +675,15 @@
     "artwork": "/original/o009-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 124
+    "displayOrder": 124,
+    "framesFront": [
+      "/original/o009-front.png",
+      "/original/o009-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o009-back.png",
+      "/original/o009-back-2.png"
+    ]
   },
   {
     "id": 10010,
@@ -680,7 +752,15 @@
     "artwork": "/original/o010-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 137
+    "displayOrder": 137,
+    "framesFront": [
+      "/original/o010-front.png",
+      "/original/o010-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o010-back.png",
+      "/original/o010-back-2.png"
+    ]
   },
   {
     "id": 10011,
@@ -750,7 +830,15 @@
     "artwork": "/original/o011-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 138
+    "displayOrder": 138,
+    "framesFront": [
+      "/original/o011-front.png",
+      "/original/o011-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o011-back.png",
+      "/original/o011-back-2.png"
+    ]
   },
   {
     "id": 10012,
@@ -818,7 +906,15 @@
     "artwork": "/original/o012-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 139
+    "displayOrder": 139,
+    "framesFront": [
+      "/original/o012-front.png",
+      "/original/o012-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o012-back.png",
+      "/original/o012-back-2.png"
+    ]
   },
   {
     "id": 10013,
@@ -886,7 +982,15 @@
     "artwork": "/original/o013-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 101
+    "displayOrder": 101,
+    "framesFront": [
+      "/original/o013-front.png",
+      "/original/o013-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o013-back.png",
+      "/original/o013-back-2.png"
+    ]
   },
   {
     "id": 10014,
@@ -954,7 +1058,15 @@
     "artwork": "/original/o014-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 102
+    "displayOrder": 102,
+    "framesFront": [
+      "/original/o014-front.png",
+      "/original/o014-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o014-back.png",
+      "/original/o014-back-2.png"
+    ]
   },
   {
     "id": 10015,
@@ -1021,7 +1133,15 @@
     "artwork": "/original/o015-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 103
+    "displayOrder": 103,
+    "framesFront": [
+      "/original/o015-front.png",
+      "/original/o015-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o015-back.png",
+      "/original/o015-back-2.png"
+    ]
   },
   {
     "id": 10016,
@@ -1090,7 +1210,15 @@
     "artwork": "/original/o016-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 66
+    "displayOrder": 66,
+    "framesFront": [
+      "/original/o016-front.png",
+      "/original/o016-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o016-back.png",
+      "/original/o016-back-2.png"
+    ]
   },
   {
     "id": 10017,
@@ -1160,7 +1288,15 @@
     "artwork": "/original/o017-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 67
+    "displayOrder": 67,
+    "framesFront": [
+      "/original/o017-front.png",
+      "/original/o017-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o017-back.png",
+      "/original/o017-back-2.png"
+    ]
   },
   {
     "id": 10018,
@@ -1228,7 +1364,15 @@
     "artwork": "/original/o018-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 68
+    "displayOrder": 68,
+    "framesFront": [
+      "/original/o018-front.png",
+      "/original/o018-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o018-back.png",
+      "/original/o018-back-2.png"
+    ]
   },
   {
     "id": 10019,
@@ -1296,7 +1440,15 @@
     "artwork": "/original/o019-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 10
+    "displayOrder": 10,
+    "framesFront": [
+      "/original/o019-front.png",
+      "/original/o019-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o019-back.png",
+      "/original/o019-back-2.png"
+    ]
   },
   {
     "id": 10020,
@@ -1365,7 +1517,15 @@
     "artwork": "/original/o020-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 11
+    "displayOrder": 11,
+    "framesFront": [
+      "/original/o020-front.png",
+      "/original/o020-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o020-back.png",
+      "/original/o020-back-2.png"
+    ]
   },
   {
     "id": 10021,
@@ -1433,7 +1593,15 @@
     "artwork": "/original/o021-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 12
+    "displayOrder": 12,
+    "framesFront": [
+      "/original/o021-front.png",
+      "/original/o021-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o021-back.png",
+      "/original/o021-back-2.png"
+    ]
   },
   {
     "id": 10022,
@@ -1502,7 +1670,15 @@
     "artwork": "/original/o022-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 127
+    "displayOrder": 127,
+    "framesFront": [
+      "/original/o022-front.png",
+      "/original/o022-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o022-back.png",
+      "/original/o022-back-2.png"
+    ]
   },
   {
     "id": 10023,
@@ -1571,7 +1747,15 @@
     "artwork": "/original/o023-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 128
+    "displayOrder": 128,
+    "framesFront": [
+      "/original/o023-front.png",
+      "/original/o023-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o023-back.png",
+      "/original/o023-back-2.png"
+    ]
   },
   {
     "id": 10024,
@@ -1638,7 +1822,15 @@
     "artwork": "/original/o024-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 129
+    "displayOrder": 129,
+    "framesFront": [
+      "/original/o024-front.png",
+      "/original/o024-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o024-back.png",
+      "/original/o024-back-2.png"
+    ]
   },
   {
     "id": 10025,
@@ -1706,7 +1898,15 @@
     "artwork": "/original/o025-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 97
+    "displayOrder": 97,
+    "framesFront": [
+      "/original/o025-front.png",
+      "/original/o025-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o025-back.png",
+      "/original/o025-back-2.png"
+    ]
   },
   {
     "id": 10026,
@@ -1775,7 +1975,15 @@
     "artwork": "/original/o026-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 98
+    "displayOrder": 98,
+    "framesFront": [
+      "/original/o026-front.png",
+      "/original/o026-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o026-back.png",
+      "/original/o026-back-2.png"
+    ]
   },
   {
     "id": 10027,
@@ -1842,7 +2050,15 @@
     "artwork": "/original/o027-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 99
+    "displayOrder": 99,
+    "framesFront": [
+      "/original/o027-front.png",
+      "/original/o027-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o027-back.png",
+      "/original/o027-back-2.png"
+    ]
   },
   {
     "id": 10028,
@@ -1911,7 +2127,15 @@
     "artwork": "/original/o028-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 72
+    "displayOrder": 72,
+    "framesFront": [
+      "/original/o028-front.png",
+      "/original/o028-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o028-back.png",
+      "/original/o028-back-2.png"
+    ]
   },
   {
     "id": 10029,
@@ -1980,7 +2204,15 @@
     "artwork": "/original/o029-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 73
+    "displayOrder": 73,
+    "framesFront": [
+      "/original/o029-front.png",
+      "/original/o029-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o029-back.png",
+      "/original/o029-back-2.png"
+    ]
   },
   {
     "id": 10030,
@@ -2048,7 +2280,15 @@
     "artwork": "/original/o030-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 74
+    "displayOrder": 74,
+    "framesFront": [
+      "/original/o030-front.png",
+      "/original/o030-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o030-back.png",
+      "/original/o030-back-2.png"
+    ]
   },
   {
     "id": 10031,
@@ -2116,7 +2356,15 @@
     "artwork": "/original/o031-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 59
+    "displayOrder": 59,
+    "framesFront": [
+      "/original/o031-front.png",
+      "/original/o031-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o031-back.png",
+      "/original/o031-back-2.png"
+    ]
   },
   {
     "id": 10032,
@@ -2184,7 +2432,15 @@
     "artwork": "/original/o032-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 60
+    "displayOrder": 60,
+    "framesFront": [
+      "/original/o032-front.png",
+      "/original/o032-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o032-back.png",
+      "/original/o032-back-2.png"
+    ]
   },
   {
     "id": 10033,
@@ -2252,7 +2508,15 @@
     "artwork": "/original/o033-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 61
+    "displayOrder": 61,
+    "framesFront": [
+      "/original/o033-front.png",
+      "/original/o033-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o033-back.png",
+      "/original/o033-back-2.png"
+    ]
   },
   {
     "id": 10034,
@@ -2321,7 +2585,15 @@
     "artwork": "/original/o034-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 107
+    "displayOrder": 107,
+    "framesFront": [
+      "/original/o034-front.png",
+      "/original/o034-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o034-back.png",
+      "/original/o034-back-2.png"
+    ]
   },
   {
     "id": 10035,
@@ -2389,7 +2661,15 @@
     "artwork": "/original/o035-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 108
+    "displayOrder": 108,
+    "framesFront": [
+      "/original/o035-front.png",
+      "/original/o035-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o035-back.png",
+      "/original/o035-back-2.png"
+    ]
   },
   {
     "id": 10036,
@@ -2457,7 +2737,15 @@
     "artwork": "/original/o036-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 109
+    "displayOrder": 109,
+    "framesFront": [
+      "/original/o036-front.png",
+      "/original/o036-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o036-back.png",
+      "/original/o036-back-2.png"
+    ]
   },
   {
     "id": 10037,
@@ -2526,7 +2814,15 @@
     "artwork": "/original/o037-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 30
+    "displayOrder": 30,
+    "framesFront": [
+      "/original/o037-front.png",
+      "/original/o037-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o037-back.png",
+      "/original/o037-back-2.png"
+    ]
   },
   {
     "id": 10038,
@@ -2595,7 +2891,15 @@
     "artwork": "/original/o038-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 31
+    "displayOrder": 31,
+    "framesFront": [
+      "/original/o038-front.png",
+      "/original/o038-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o038-back.png",
+      "/original/o038-back-2.png"
+    ]
   },
   {
     "id": 10039,
@@ -2662,7 +2966,15 @@
     "artwork": "/original/o039-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 32
+    "displayOrder": 32,
+    "framesFront": [
+      "/original/o039-front.png",
+      "/original/o039-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o039-back.png",
+      "/original/o039-back-2.png"
+    ]
   },
   {
     "id": 10040,
@@ -2730,7 +3042,15 @@
     "artwork": "/original/o040-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 69
+    "displayOrder": 69,
+    "framesFront": [
+      "/original/o040-front.png",
+      "/original/o040-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o040-back.png",
+      "/original/o040-back-2.png"
+    ]
   },
   {
     "id": 10041,
@@ -2798,7 +3118,15 @@
     "artwork": "/original/o041-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 70
+    "displayOrder": 70,
+    "framesFront": [
+      "/original/o041-front.png",
+      "/original/o041-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o041-back.png",
+      "/original/o041-back-2.png"
+    ]
   },
   {
     "id": 10042,
@@ -2866,7 +3194,15 @@
     "artwork": "/original/o042-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 71
+    "displayOrder": 71,
+    "framesFront": [
+      "/original/o042-front.png",
+      "/original/o042-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o042-back.png",
+      "/original/o042-back-2.png"
+    ]
   },
   {
     "id": 10043,
@@ -2934,7 +3270,15 @@
     "artwork": "/original/o043-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 76
+    "displayOrder": 76,
+    "framesFront": [
+      "/original/o043-front.png",
+      "/original/o043-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o043-back.png",
+      "/original/o043-back-2.png"
+    ]
   },
   {
     "id": 10044,
@@ -3003,7 +3347,15 @@
     "artwork": "/original/o044-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 77
+    "displayOrder": 77,
+    "framesFront": [
+      "/original/o044-front.png",
+      "/original/o044-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o044-back.png",
+      "/original/o044-back-2.png"
+    ]
   },
   {
     "id": 10045,
@@ -3071,7 +3423,15 @@
     "artwork": "/original/o045-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 78
+    "displayOrder": 78,
+    "framesFront": [
+      "/original/o045-front.png",
+      "/original/o045-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o045-back.png",
+      "/original/o045-back-2.png"
+    ]
   },
   {
     "id": 10046,
@@ -3140,7 +3500,15 @@
     "artwork": "/original/o046-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 132
+    "displayOrder": 132,
+    "framesFront": [
+      "/original/o046-front.png",
+      "/original/o046-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o046-back.png",
+      "/original/o046-back-2.png"
+    ]
   },
   {
     "id": 10047,
@@ -3208,7 +3576,15 @@
     "artwork": "/original/o047-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 133
+    "displayOrder": 133,
+    "framesFront": [
+      "/original/o047-front.png",
+      "/original/o047-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o047-back.png",
+      "/original/o047-back-2.png"
+    ]
   },
   {
     "id": 10048,
@@ -3275,7 +3651,15 @@
     "artwork": "/original/o048-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 134
+    "displayOrder": 134,
+    "framesFront": [
+      "/original/o048-front.png",
+      "/original/o048-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o048-back.png",
+      "/original/o048-back-2.png"
+    ]
   },
   {
     "id": 10049,
@@ -3343,7 +3727,15 @@
     "artwork": "/original/o049-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 119
+    "displayOrder": 119,
+    "framesFront": [
+      "/original/o049-front.png",
+      "/original/o049-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o049-back.png",
+      "/original/o049-back-2.png"
+    ]
   },
   {
     "id": 10050,
@@ -3411,7 +3803,15 @@
     "artwork": "/original/o050-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 120
+    "displayOrder": 120,
+    "framesFront": [
+      "/original/o050-front.png",
+      "/original/o050-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o050-back.png",
+      "/original/o050-back-2.png"
+    ]
   },
   {
     "id": 10051,
@@ -3478,7 +3878,15 @@
     "artwork": "/original/o051-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 121
+    "displayOrder": 121,
+    "framesFront": [
+      "/original/o051-front.png",
+      "/original/o051-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o051-back.png",
+      "/original/o051-back-2.png"
+    ]
   },
   {
     "id": 10052,
@@ -3547,7 +3955,15 @@
     "artwork": "/original/o052-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 104
+    "displayOrder": 104,
+    "framesFront": [
+      "/original/o052-front.png",
+      "/original/o052-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o052-back.png",
+      "/original/o052-back-2.png"
+    ]
   },
   {
     "id": 10053,
@@ -3615,7 +4031,15 @@
     "artwork": "/original/o053-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 105
+    "displayOrder": 105,
+    "framesFront": [
+      "/original/o053-front.png",
+      "/original/o053-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o053-back.png",
+      "/original/o053-back-2.png"
+    ]
   },
   {
     "id": 10054,
@@ -3682,7 +4106,15 @@
     "artwork": "/original/o054-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 106
+    "displayOrder": 106,
+    "framesFront": [
+      "/original/o054-front.png",
+      "/original/o054-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o054-back.png",
+      "/original/o054-back-2.png"
+    ]
   },
   {
     "id": 10055,
@@ -3750,7 +4182,15 @@
     "artwork": "/original/o055-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 82
+    "displayOrder": 82,
+    "framesFront": [
+      "/original/o055-front.png",
+      "/original/o055-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o055-back.png",
+      "/original/o055-back-2.png"
+    ]
   },
   {
     "id": 10056,
@@ -3819,7 +4259,15 @@
     "artwork": "/original/o056-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 83
+    "displayOrder": 83,
+    "framesFront": [
+      "/original/o056-front.png",
+      "/original/o056-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o056-back.png",
+      "/original/o056-back-2.png"
+    ]
   },
   {
     "id": 10057,
@@ -3886,7 +4334,15 @@
     "artwork": "/original/o057-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 84
+    "displayOrder": 84,
+    "framesFront": [
+      "/original/o057-front.png",
+      "/original/o057-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o057-back.png",
+      "/original/o057-back-2.png"
+    ]
   },
   {
     "id": 10058,
@@ -3954,7 +4410,15 @@
     "artwork": "/original/o058-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 62
+    "displayOrder": 62,
+    "framesFront": [
+      "/original/o058-front.png",
+      "/original/o058-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o058-back.png",
+      "/original/o058-back-2.png"
+    ]
   },
   {
     "id": 10059,
@@ -4020,7 +4484,15 @@
     "artwork": "/original/o059-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 63
+    "displayOrder": 63,
+    "framesFront": [
+      "/original/o059-front.png",
+      "/original/o059-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o059-back.png",
+      "/original/o059-back-2.png"
+    ]
   },
   {
     "id": 10060,
@@ -4088,7 +4560,15 @@
     "artwork": "/original/o060-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 85
+    "displayOrder": 85,
+    "framesFront": [
+      "/original/o060-front.png",
+      "/original/o060-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o060-back.png",
+      "/original/o060-back-2.png"
+    ]
   },
   {
     "id": 10061,
@@ -4156,7 +4636,15 @@
     "artwork": "/original/o061-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 86
+    "displayOrder": 86,
+    "framesFront": [
+      "/original/o061-front.png",
+      "/original/o061-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o061-back.png",
+      "/original/o061-back-2.png"
+    ]
   },
   {
     "id": 10062,
@@ -4224,7 +4712,15 @@
     "artwork": "/original/o062-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 93
+    "displayOrder": 93,
+    "framesFront": [
+      "/original/o062-front.png",
+      "/original/o062-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o062-back.png",
+      "/original/o062-back-2.png"
+    ]
   },
   {
     "id": 10063,
@@ -4292,7 +4788,15 @@
     "artwork": "/original/o063-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 94
+    "displayOrder": 94,
+    "framesFront": [
+      "/original/o063-front.png",
+      "/original/o063-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o063-back.png",
+      "/original/o063-back-2.png"
+    ]
   },
   {
     "id": 10064,
@@ -4361,7 +4865,15 @@
     "artwork": "/original/o064-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 48
+    "displayOrder": 48,
+    "framesFront": [
+      "/original/o064-front.png",
+      "/original/o064-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o064-back.png",
+      "/original/o064-back-2.png"
+    ]
   },
   {
     "id": 10065,
@@ -4429,7 +4941,15 @@
     "artwork": "/original/o065-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 49
+    "displayOrder": 49,
+    "framesFront": [
+      "/original/o065-front.png",
+      "/original/o065-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o065-back.png",
+      "/original/o065-back-2.png"
+    ]
   },
   {
     "id": 10066,
@@ -4498,7 +5018,15 @@
     "artwork": "/original/o066-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 17
+    "displayOrder": 17,
+    "framesFront": [
+      "/original/o066-front.png",
+      "/original/o066-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o066-back.png",
+      "/original/o066-back-2.png"
+    ]
   },
   {
     "id": 10067,
@@ -4566,7 +5094,15 @@
     "artwork": "/original/o067-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 18
+    "displayOrder": 18,
+    "framesFront": [
+      "/original/o067-front.png",
+      "/original/o067-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o067-back.png",
+      "/original/o067-back-2.png"
+    ]
   },
   {
     "id": 10068,
@@ -4635,7 +5171,15 @@
     "artwork": "/original/o068-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 4
+    "displayOrder": 4,
+    "framesFront": [
+      "/original/o068-front.png",
+      "/original/o068-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o068-back.png",
+      "/original/o068-back-2.png"
+    ]
   },
   {
     "id": 10069,
@@ -4703,7 +5247,15 @@
     "artwork": "/original/o069-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 5
+    "displayOrder": 5,
+    "framesFront": [
+      "/original/o069-front.png",
+      "/original/o069-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o069-back.png",
+      "/original/o069-back-2.png"
+    ]
   },
   {
     "id": 10070,
@@ -4772,7 +5324,15 @@
     "artwork": "/original/o070-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 135
+    "displayOrder": 135,
+    "framesFront": [
+      "/original/o070-front.png",
+      "/original/o070-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o070-back.png",
+      "/original/o070-back-2.png"
+    ]
   },
   {
     "id": 10071,
@@ -4839,7 +5399,15 @@
     "artwork": "/original/o071-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 136
+    "displayOrder": 136,
+    "framesFront": [
+      "/original/o071-front.png",
+      "/original/o071-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o071-back.png",
+      "/original/o071-back-2.png"
+    ]
   },
   {
     "id": 10072,
@@ -4908,7 +5476,15 @@
     "artwork": "/original/o072-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 46
+    "displayOrder": 46,
+    "framesFront": [
+      "/original/o072-front.png",
+      "/original/o072-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o072-back.png",
+      "/original/o072-back-2.png"
+    ]
   },
   {
     "id": 10073,
@@ -4974,7 +5550,15 @@
     "artwork": "/original/o073-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 47
+    "displayOrder": 47,
+    "framesFront": [
+      "/original/o073-front.png",
+      "/original/o073-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o073-back.png",
+      "/original/o073-back-2.png"
+    ]
   },
   {
     "id": 10074,
@@ -5043,7 +5627,15 @@
     "artwork": "/original/o074-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 87
+    "displayOrder": 87,
+    "framesFront": [
+      "/original/o074-front.png",
+      "/original/o074-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o074-back.png",
+      "/original/o074-back-2.png"
+    ]
   },
   {
     "id": 10075,
@@ -5110,7 +5702,15 @@
     "artwork": "/original/o075-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 88
+    "displayOrder": 88,
+    "framesFront": [
+      "/original/o075-front.png",
+      "/original/o075-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o075-back.png",
+      "/original/o075-back-2.png"
+    ]
   },
   {
     "id": 10076,
@@ -5179,7 +5779,15 @@
     "artwork": "/original/o076-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 15
+    "displayOrder": 15,
+    "framesFront": [
+      "/original/o076-front.png",
+      "/original/o076-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o076-back.png",
+      "/original/o076-back-2.png"
+    ]
   },
   {
     "id": 10077,
@@ -5246,7 +5854,15 @@
     "artwork": "/original/o077-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 16
+    "displayOrder": 16,
+    "framesFront": [
+      "/original/o077-front.png",
+      "/original/o077-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o077-back.png",
+      "/original/o077-back-2.png"
+    ]
   },
   {
     "id": 10078,
@@ -5314,7 +5930,15 @@
     "artwork": "/original/o078-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 112
+    "displayOrder": 112,
+    "framesFront": [
+      "/original/o078-front.png",
+      "/original/o078-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o078-back.png",
+      "/original/o078-back-2.png"
+    ]
   },
   {
     "id": 10079,
@@ -5382,7 +6006,15 @@
     "artwork": "/original/o079-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 113
+    "displayOrder": 113,
+    "framesFront": [
+      "/original/o079-front.png",
+      "/original/o079-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o079-back.png",
+      "/original/o079-back-2.png"
+    ]
   },
   {
     "id": 10080,
@@ -5450,7 +6082,15 @@
     "artwork": "/original/o080-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 50
+    "displayOrder": 50,
+    "framesFront": [
+      "/original/o080-front.png",
+      "/original/o080-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o080-back.png",
+      "/original/o080-back-2.png"
+    ]
   },
   {
     "id": 10081,
@@ -5518,7 +6158,15 @@
     "artwork": "/original/o081-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 51
+    "displayOrder": 51,
+    "framesFront": [
+      "/original/o081-front.png",
+      "/original/o081-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o081-back.png",
+      "/original/o081-back-2.png"
+    ]
   },
   {
     "id": 10082,
@@ -5586,7 +6234,15 @@
     "artwork": "/original/o082-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 26
+    "displayOrder": 26,
+    "framesFront": [
+      "/original/o082-front.png",
+      "/original/o082-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o082-back.png",
+      "/original/o082-back-2.png"
+    ]
   },
   {
     "id": 10083,
@@ -5654,7 +6310,15 @@
     "artwork": "/original/o083-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 27
+    "displayOrder": 27,
+    "framesFront": [
+      "/original/o083-front.png",
+      "/original/o083-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o083-back.png",
+      "/original/o083-back-2.png"
+    ]
   },
   {
     "id": 10084,
@@ -5723,7 +6387,15 @@
     "artwork": "/original/o084-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 130
+    "displayOrder": 130,
+    "framesFront": [
+      "/original/o084-front.png",
+      "/original/o084-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o084-back.png",
+      "/original/o084-back-2.png"
+    ]
   },
   {
     "id": 10085,
@@ -5790,7 +6462,15 @@
     "artwork": "/original/o085-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 131
+    "displayOrder": 131,
+    "framesFront": [
+      "/original/o085-front.png",
+      "/original/o085-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o085-back.png",
+      "/original/o085-back-2.png"
+    ]
   },
   {
     "id": 10086,
@@ -5859,7 +6539,15 @@
     "artwork": "/original/o086-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 110
+    "displayOrder": 110,
+    "framesFront": [
+      "/original/o086-front.png",
+      "/original/o086-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o086-back.png",
+      "/original/o086-back-2.png"
+    ]
   },
   {
     "id": 10087,
@@ -5926,7 +6614,15 @@
     "artwork": "/original/o087-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 111
+    "displayOrder": 111,
+    "framesFront": [
+      "/original/o087-front.png",
+      "/original/o087-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o087-back.png",
+      "/original/o087-back-2.png"
+    ]
   },
   {
     "id": 10088,
@@ -5995,7 +6691,15 @@
     "artwork": "/original/o088-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 52
+    "displayOrder": 52,
+    "framesFront": [
+      "/original/o088-front.png",
+      "/original/o088-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o088-back.png",
+      "/original/o088-back-2.png"
+    ]
   },
   {
     "id": 10089,
@@ -6062,7 +6766,15 @@
     "artwork": "/original/o089-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 53
+    "displayOrder": 53,
+    "framesFront": [
+      "/original/o089-front.png",
+      "/original/o089-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o089-back.png",
+      "/original/o089-back-2.png"
+    ]
   },
   {
     "id": 10090,
@@ -6131,7 +6843,15 @@
     "artwork": "/original/o090-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 6
+    "displayOrder": 6,
+    "framesFront": [
+      "/original/o090-front.png",
+      "/original/o090-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o090-back.png",
+      "/original/o090-back-2.png"
+    ]
   },
   {
     "id": 10091,
@@ -6198,7 +6918,15 @@
     "artwork": "/original/o091-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 7
+    "displayOrder": 7,
+    "framesFront": [
+      "/original/o091-front.png",
+      "/original/o091-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o091-back.png",
+      "/original/o091-back-2.png"
+    ]
   },
   {
     "id": 10092,
@@ -6266,7 +6994,15 @@
     "artwork": "/original/o092-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 42
+    "displayOrder": 42,
+    "framesFront": [
+      "/original/o092-front.png",
+      "/original/o092-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o092-back.png",
+      "/original/o092-back-2.png"
+    ]
   },
   {
     "id": 10093,
@@ -6334,7 +7070,15 @@
     "artwork": "/original/o093-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 43
+    "displayOrder": 43,
+    "framesFront": [
+      "/original/o093-front.png",
+      "/original/o093-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o093-back.png",
+      "/original/o093-back-2.png"
+    ]
   },
   {
     "id": 10094,
@@ -6403,7 +7147,15 @@
     "artwork": "/original/o094-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 91
+    "displayOrder": 91,
+    "framesFront": [
+      "/original/o094-front.png",
+      "/original/o094-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o094-back.png",
+      "/original/o094-back-2.png"
+    ]
   },
   {
     "id": 10095,
@@ -6471,7 +7223,15 @@
     "artwork": "/original/o095-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 92
+    "displayOrder": 92,
+    "framesFront": [
+      "/original/o095-front.png",
+      "/original/o095-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o095-back.png",
+      "/original/o095-back-2.png"
+    ]
   },
   {
     "id": 10096,
@@ -6540,7 +7300,15 @@
     "artwork": "/original/o096-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 125
+    "displayOrder": 125,
+    "framesFront": [
+      "/original/o096-front.png",
+      "/original/o096-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o096-back.png",
+      "/original/o096-back-2.png"
+    ]
   },
   {
     "id": 10097,
@@ -6607,7 +7375,15 @@
     "artwork": "/original/o097-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 126
+    "displayOrder": 126,
+    "framesFront": [
+      "/original/o097-front.png",
+      "/original/o097-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o097-back.png",
+      "/original/o097-back-2.png"
+    ]
   },
   {
     "id": 10098,
@@ -6675,7 +7451,15 @@
     "artwork": "/original/o098-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 35
+    "displayOrder": 35,
+    "framesFront": [
+      "/original/o098-front.png",
+      "/original/o098-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o098-back.png",
+      "/original/o098-back-2.png"
+    ]
   },
   {
     "id": 10099,
@@ -6742,7 +7526,15 @@
     "artwork": "/original/o099-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 36
+    "displayOrder": 36,
+    "framesFront": [
+      "/original/o099-front.png",
+      "/original/o099-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o099-back.png",
+      "/original/o099-back-2.png"
+    ]
   },
   {
     "id": 10100,
@@ -6810,7 +7602,15 @@
     "artwork": "/original/o100-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 117
+    "displayOrder": 117,
+    "framesFront": [
+      "/original/o100-front.png",
+      "/original/o100-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o100-back.png",
+      "/original/o100-back-2.png"
+    ]
   },
   {
     "id": 10101,
@@ -6877,7 +7677,15 @@
     "artwork": "/original/o101-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 118
+    "displayOrder": 118,
+    "framesFront": [
+      "/original/o101-front.png",
+      "/original/o101-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o101-back.png",
+      "/original/o101-back-2.png"
+    ]
   },
   {
     "id": 10102,
@@ -6946,7 +7754,15 @@
     "artwork": "/original/o102-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 13
+    "displayOrder": 13,
+    "framesFront": [
+      "/original/o102-front.png",
+      "/original/o102-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o102-back.png",
+      "/original/o102-back-2.png"
+    ]
   },
   {
     "id": 10103,
@@ -7013,7 +7829,15 @@
     "artwork": "/original/o103-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 14
+    "displayOrder": 14,
+    "framesFront": [
+      "/original/o103-front.png",
+      "/original/o103-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o103-back.png",
+      "/original/o103-back-2.png"
+    ]
   },
   {
     "id": 10104,
@@ -7081,7 +7905,15 @@
     "artwork": "/original/o104-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 44
+    "displayOrder": 44,
+    "framesFront": [
+      "/original/o104-front.png",
+      "/original/o104-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o104-back.png",
+      "/original/o104-back-2.png"
+    ]
   },
   {
     "id": 10105,
@@ -7149,7 +7981,15 @@
     "artwork": "/original/o105-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 45
+    "displayOrder": 45,
+    "framesFront": [
+      "/original/o105-front.png",
+      "/original/o105-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o105-back.png",
+      "/original/o105-back-2.png"
+    ]
   },
   {
     "id": 10106,
@@ -7218,7 +8058,15 @@
     "artwork": "/original/o106-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 64
+    "displayOrder": 64,
+    "framesFront": [
+      "/original/o106-front.png",
+      "/original/o106-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o106-back.png",
+      "/original/o106-back-2.png"
+    ]
   },
   {
     "id": 10107,
@@ -7286,7 +8134,15 @@
     "artwork": "/original/o107-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 65
+    "displayOrder": 65,
+    "framesFront": [
+      "/original/o107-front.png",
+      "/original/o107-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o107-back.png",
+      "/original/o107-back-2.png"
+    ]
   },
   {
     "id": 10108,
@@ -7355,7 +8211,15 @@
     "artwork": "/original/o108-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 89
+    "displayOrder": 89,
+    "framesFront": [
+      "/original/o108-front.png",
+      "/original/o108-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o108-back.png",
+      "/original/o108-back-2.png"
+    ]
   },
   {
     "id": 10109,
@@ -7421,7 +8285,15 @@
     "artwork": "/original/o109-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 90
+    "displayOrder": 90,
+    "framesFront": [
+      "/original/o109-front.png",
+      "/original/o109-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o109-back.png",
+      "/original/o109-back-2.png"
+    ]
   },
   {
     "id": 10110,
@@ -7489,7 +8361,15 @@
     "artwork": "/original/o110-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 8
+    "displayOrder": 8,
+    "framesFront": [
+      "/original/o110-front.png",
+      "/original/o110-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o110-back.png",
+      "/original/o110-back-2.png"
+    ]
   },
   {
     "id": 10111,
@@ -7556,7 +8436,15 @@
     "artwork": "/original/o111-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 9
+    "displayOrder": 9,
+    "framesFront": [
+      "/original/o111-front.png",
+      "/original/o111-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o111-back.png",
+      "/original/o111-back-2.png"
+    ]
   },
   {
     "id": 10112,
@@ -7625,7 +8513,15 @@
     "artwork": "/original/o112-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 54
+    "displayOrder": 54,
+    "framesFront": [
+      "/original/o112-front.png",
+      "/original/o112-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o112-back.png",
+      "/original/o112-back-2.png"
+    ]
   },
   {
     "id": 10113,
@@ -7693,7 +8589,15 @@
     "artwork": "/original/o113-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 55
+    "displayOrder": 55,
+    "framesFront": [
+      "/original/o113-front.png",
+      "/original/o113-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o113-back.png",
+      "/original/o113-back-2.png"
+    ]
   },
   {
     "id": 10114,
@@ -7761,7 +8665,15 @@
     "artwork": "/original/o114-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 95
+    "displayOrder": 95,
+    "framesFront": [
+      "/original/o114-front.png",
+      "/original/o114-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o114-back.png",
+      "/original/o114-back-2.png"
+    ]
   },
   {
     "id": 10115,
@@ -7829,7 +8741,15 @@
     "artwork": "/original/o115-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 96
+    "displayOrder": 96,
+    "framesFront": [
+      "/original/o115-front.png",
+      "/original/o115-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o115-back.png",
+      "/original/o115-back-2.png"
+    ]
   },
   {
     "id": 10116,
@@ -7898,7 +8818,15 @@
     "artwork": "/original/o116-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 37
+    "displayOrder": 37,
+    "framesFront": [
+      "/original/o116-front.png",
+      "/original/o116-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o116-back.png",
+      "/original/o116-back-2.png"
+    ]
   },
   {
     "id": 10117,
@@ -7964,7 +8892,15 @@
     "artwork": "/original/o117-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 38
+    "displayOrder": 38,
+    "framesFront": [
+      "/original/o117-front.png",
+      "/original/o117-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o117-back.png",
+      "/original/o117-back-2.png"
+    ]
   },
   {
     "id": 10118,
@@ -8033,7 +8969,15 @@
     "artwork": "/original/o118-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 23
+    "displayOrder": 23,
+    "framesFront": [
+      "/original/o118-front.png",
+      "/original/o118-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o118-back.png",
+      "/original/o118-back-2.png"
+    ]
   },
   {
     "id": 10119,
@@ -8101,7 +9045,15 @@
     "artwork": "/original/o119-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 24
+    "displayOrder": 24,
+    "framesFront": [
+      "/original/o119-front.png",
+      "/original/o119-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o119-back.png",
+      "/original/o119-back-2.png"
+    ]
   },
   {
     "id": 10120,
@@ -8170,7 +9122,15 @@
     "artwork": "/original/o120-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 21
+    "displayOrder": 21,
+    "framesFront": [
+      "/original/o120-front.png",
+      "/original/o120-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o120-back.png",
+      "/original/o120-back-2.png"
+    ]
   },
   {
     "id": 10121,
@@ -8238,7 +9198,15 @@
     "artwork": "/original/o121-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 22
+    "displayOrder": 22,
+    "framesFront": [
+      "/original/o121-front.png",
+      "/original/o121-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o121-back.png",
+      "/original/o121-back-2.png"
+    ]
   },
   {
     "id": 10122,
@@ -8306,7 +9274,15 @@
     "artwork": "/original/o122-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 115
+    "displayOrder": 115,
+    "framesFront": [
+      "/original/o122-front.png",
+      "/original/o122-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o122-back.png",
+      "/original/o122-back-2.png"
+    ]
   },
   {
     "id": 10123,
@@ -8374,7 +9350,15 @@
     "artwork": "/original/o123-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 116
+    "displayOrder": 116,
+    "framesFront": [
+      "/original/o123-front.png",
+      "/original/o123-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o123-back.png",
+      "/original/o123-back-2.png"
+    ]
   },
   {
     "id": 10124,
@@ -8443,7 +9427,15 @@
     "artwork": "/original/o124-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 19
+    "displayOrder": 19,
+    "framesFront": [
+      "/original/o124-front.png",
+      "/original/o124-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o124-back.png",
+      "/original/o124-back-2.png"
+    ]
   },
   {
     "id": 10125,
@@ -8511,7 +9503,15 @@
     "artwork": "/original/o125-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 20
+    "displayOrder": 20,
+    "framesFront": [
+      "/original/o125-front.png",
+      "/original/o125-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o125-back.png",
+      "/original/o125-back-2.png"
+    ]
   },
   {
     "id": 10126,
@@ -8579,7 +9579,15 @@
     "artwork": "/original/o126-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 33
+    "displayOrder": 33,
+    "framesFront": [
+      "/original/o126-front.png",
+      "/original/o126-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o126-back.png",
+      "/original/o126-back-2.png"
+    ]
   },
   {
     "id": 10127,
@@ -8647,7 +9655,15 @@
     "artwork": "/original/o127-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 34
+    "displayOrder": 34,
+    "framesFront": [
+      "/original/o127-front.png",
+      "/original/o127-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o127-back.png",
+      "/original/o127-back-2.png"
+    ]
   },
   {
     "id": 10128,
@@ -8715,7 +9731,15 @@
     "artwork": "/original/o128-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 39
+    "displayOrder": 39,
+    "framesFront": [
+      "/original/o128-front.png",
+      "/original/o128-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o128-back.png",
+      "/original/o128-back-2.png"
+    ]
   },
   {
     "id": 10129,
@@ -8782,7 +9806,15 @@
     "artwork": "/original/o129-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 40
+    "displayOrder": 40,
+    "framesFront": [
+      "/original/o129-front.png",
+      "/original/o129-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o129-back.png",
+      "/original/o129-back-2.png"
+    ]
   },
   {
     "id": 10130,
@@ -8850,7 +9882,15 @@
     "artwork": "/original/o130-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 28
+    "displayOrder": 28,
+    "framesFront": [
+      "/original/o130-front.png",
+      "/original/o130-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o130-back.png",
+      "/original/o130-back-2.png"
+    ]
   },
   {
     "id": 10131,
@@ -8917,7 +9957,15 @@
     "artwork": "/original/o131-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 29
+    "displayOrder": 29,
+    "framesFront": [
+      "/original/o131-front.png",
+      "/original/o131-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o131-back.png",
+      "/original/o131-back-2.png"
+    ]
   },
   {
     "id": 10132,
@@ -8984,7 +10032,15 @@
     "artwork": "/original/o132-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 25
+    "displayOrder": 25,
+    "framesFront": [
+      "/original/o132-front.png",
+      "/original/o132-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o132-back.png",
+      "/original/o132-back-2.png"
+    ]
   },
   {
     "id": 10133,
@@ -9051,7 +10107,15 @@
     "artwork": "/original/o133-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 75
+    "displayOrder": 75,
+    "framesFront": [
+      "/original/o133-front.png",
+      "/original/o133-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o133-back.png",
+      "/original/o133-back-2.png"
+    ]
   },
   {
     "id": 10134,
@@ -9119,7 +10183,15 @@
     "artwork": "/original/o134-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 81
+    "displayOrder": 81,
+    "framesFront": [
+      "/original/o134-front.png",
+      "/original/o134-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o134-back.png",
+      "/original/o134-back-2.png"
+    ]
   },
   {
     "id": 10135,
@@ -9186,7 +10258,15 @@
     "artwork": "/original/o135-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 80
+    "displayOrder": 80,
+    "framesFront": [
+      "/original/o135-front.png",
+      "/original/o135-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o135-back.png",
+      "/original/o135-back-2.png"
+    ]
   },
   {
     "id": 10136,
@@ -9254,7 +10334,15 @@
     "artwork": "/original/o136-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 41
+    "displayOrder": 41,
+    "framesFront": [
+      "/original/o136-front.png",
+      "/original/o136-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o136-back.png",
+      "/original/o136-back-2.png"
+    ]
   },
   {
     "id": 10137,
@@ -9322,7 +10410,15 @@
     "artwork": "/original/o137-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 114
+    "displayOrder": 114,
+    "framesFront": [
+      "/original/o137-front.png",
+      "/original/o137-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o137-back.png",
+      "/original/o137-back-2.png"
+    ]
   },
   {
     "id": 10138,
@@ -9389,7 +10485,15 @@
     "artwork": "/original/o138-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 79
+    "displayOrder": 79,
+    "framesFront": [
+      "/original/o138-front.png",
+      "/original/o138-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o138-back.png",
+      "/original/o138-back-2.png"
+    ]
   },
   {
     "id": 10139,
@@ -9457,7 +10561,15 @@
     "artwork": "/original/o139-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 100
+    "displayOrder": 100,
+    "framesFront": [
+      "/original/o139-front.png",
+      "/original/o139-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o139-back.png",
+      "/original/o139-back-2.png"
+    ]
   },
   {
     "id": 10140,
@@ -9525,7 +10637,15 @@
     "artwork": "/original/o140-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 140
+    "displayOrder": 140,
+    "framesFront": [
+      "/original/o140-front.png",
+      "/original/o140-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o140-back.png",
+      "/original/o140-back-2.png"
+    ]
   },
   {
     "id": 10141,
@@ -9593,7 +10713,15 @@
     "artwork": "/original/o141-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 141
+    "displayOrder": 141,
+    "framesFront": [
+      "/original/o141-front.png",
+      "/original/o141-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o141-back.png",
+      "/original/o141-back-2.png"
+    ]
   },
   {
     "id": 10142,
@@ -9660,7 +10788,15 @@
     "artwork": "/original/o142-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 142
+    "displayOrder": 142,
+    "framesFront": [
+      "/original/o142-front.png",
+      "/original/o142-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o142-back.png",
+      "/original/o142-back-2.png"
+    ]
   },
   {
     "id": 10143,
@@ -9727,7 +10863,15 @@
     "artwork": "/original/o143-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 143
+    "displayOrder": 143,
+    "framesFront": [
+      "/original/o143-front.png",
+      "/original/o143-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o143-back.png",
+      "/original/o143-back-2.png"
+    ]
   },
   {
     "id": 10144,
@@ -9794,7 +10938,15 @@
     "artwork": "/original/o144-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 144
+    "displayOrder": 144,
+    "framesFront": [
+      "/original/o144-front.png",
+      "/original/o144-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o144-back.png",
+      "/original/o144-back-2.png"
+    ]
   },
   {
     "id": 10145,
@@ -9861,7 +11013,15 @@
     "artwork": "/original/o145-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 145
+    "displayOrder": 145,
+    "framesFront": [
+      "/original/o145-front.png",
+      "/original/o145-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o145-back.png",
+      "/original/o145-back-2.png"
+    ]
   },
   {
     "id": 10146,
@@ -9929,7 +11089,15 @@
     "artwork": "/original/o146-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 146
+    "displayOrder": 146,
+    "framesFront": [
+      "/original/o146-front.png",
+      "/original/o146-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o146-back.png",
+      "/original/o146-back-2.png"
+    ]
   },
   {
     "id": 10147,
@@ -9996,7 +11164,15 @@
     "artwork": "/original/o147-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 147
+    "displayOrder": 147,
+    "framesFront": [
+      "/original/o147-front.png",
+      "/original/o147-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o147-back.png",
+      "/original/o147-back-2.png"
+    ]
   },
   {
     "id": 10148,
@@ -10064,7 +11240,15 @@
     "artwork": "/original/o148-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 148
+    "displayOrder": 148,
+    "framesFront": [
+      "/original/o148-front.png",
+      "/original/o148-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o148-back.png",
+      "/original/o148-back-2.png"
+    ]
   },
   {
     "id": 10149,
@@ -10131,7 +11315,15 @@
     "artwork": "/original/o149-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 149
+    "displayOrder": 149,
+    "framesFront": [
+      "/original/o149-front.png",
+      "/original/o149-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o149-back.png",
+      "/original/o149-back-2.png"
+    ]
   },
   {
     "id": 10150,
@@ -10198,6 +11390,14 @@
     "artwork": "/original/o150-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 150
+    "displayOrder": 150,
+    "framesFront": [
+      "/original/o150-front.png",
+      "/original/o150-front-2.png"
+    ],
+    "framesBack": [
+      "/original/o150-back.png",
+      "/original/o150-back-2.png"
+    ]
   }
 ]

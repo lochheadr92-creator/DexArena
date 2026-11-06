@@ -42,7 +42,7 @@ const SpeciesRecord = ({ save, id }) => {
 const STAT_ORDER = ["hp", "atk", "def", "spa", "spd", "spe"];
 
 export const CreatureDetailSheet = ({ creatureId, onClose, onPick, onToggleTeam }) => {
-  const { creatures, unlockedIds, save } = useGame();
+  const { creatures, unlockedIds, save, dexSort } = useGame();
   const creature = creatureId ? creatures[creatureId] : null;
 
   useEffect(() => {
@@ -111,7 +111,7 @@ export const CreatureDetailSheet = ({ creatureId, onClose, onPick, onToggleTeam 
                 </div>
                 <div className="min-w-0 flex-1 pt-1">
                   <div className="flex items-center gap-2">
-                    <span className="font-accent text-[9px] text-slate-500">{dexNo(displayNo(creature))}</span>
+                    <span className="font-accent text-[9px] text-slate-500">{dexNo(displayNo(creature, dexSort))}</span>
                     <span className="rounded border border-slate-800 px-1.5 py-0.5 font-mono text-[9px] uppercase tracking-wider text-slate-400">
                       Gen {GEN_LABELS[creature.generation]}
                     </span>

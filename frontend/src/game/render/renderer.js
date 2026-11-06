@@ -53,6 +53,31 @@ function idleOffsets(u, now, s) {
   }
 }
 
+// Personality-matched send-out flourish. pf is 0→1 entrance progress; offsets are additive
+// (dx/dy in px), sx/sy are scale multipliers. Purely visual, layered over the entry zoom.
+function entryOffsets(u, pf, s) {
+  const dir = u.side === "player" ? -1 : 1;
+  const out = 1 - pf;
+  switch (motionProfile(u)) {
+    case "heavy": // slams down from above with a landing squash
+    case "mech": {
+      const fall = -out * out * 30 * s;
+      const land = pf > 0.78 ? Math.sin(((pf - 0.78) / 0.22) * Math.PI) : 0;
+      return { dx: 0, dy: fall, sx: 1 + land * 0.22, sy: 1 - land * 0.2 };
+    }
+    case "fly": // swoops in from behind with a descending arc
+      return { dx: out * 26 * s * dir, dy: (-out * 22 + Math.sin(pf * Math.PI) * -4) * s, sx: 1 + Math.sin(pf * Math.PI) * 0.05, sy: 1 };
+    case "agile": // springs in with a couple of decaying hops
+      return { dx: 0, dy: -Math.abs(Math.sin(pf * Math.PI * 2)) * out * 22 * s, sx: 1, sy: 1 };
+    case "aqua": // glides up from below, swaying
+      return { dx: Math.sin(pf * Math.PI * 1.5) * out * 7 * s, dy: out * 18 * s, sx: 1, sy: 1 };
+    case "ghost": // drifts down into place with a slight wobble
+      return { dx: Math.sin(pf * 7) * out * 5 * s, dy: out * -12 * s, sx: 1, sy: 1 };
+    default: // gentle settle
+      return { dx: 0, dy: out * -9 * s, sx: 1, sy: 1 };
+  }
+}
+
 
 const tcolor = (t) => typeColors[t]?.bg || "#94a3b8";
 const ease = (t) => Math.min(1, Math.max(0, t));
@@ -307,6 +332,15 @@ export class BattleRenderer {
       sx *= p;
       sy *= p;
       if (p < 1) this.drawLightPoint(x, y, 1 - p, u.side === "player" ? "#67e8f9" : "#fca5a5");
+      if (anim && !this.reducedMotion) {
+        const pf = ease(elapsed / secToTicks(A.entry.sec));
+        const io = entryOffsets(u, pf, this.scalePx());
+        dx += io.dx;
+        dy += io.dy;
+        sx *= io.sx;
+        sy *= io.sy;
+        this.entryFlourishFx(u, pf, now, fx);
+      }
     }
 
     if (u.shield) this.drawShield(x, y, u, now);
@@ -334,6 +368,23 @@ export class BattleRenderer {
     }
     if (u.buff && anim) this.drawBuffArrow(x, y - this.spriteHeight(entry) - 6, u.buff);
     ctx.globalAlpha = 1;
+  }
+
+  entryFlourishFx(u, pf, now, fx) {
+    if (fx.enterKey !== u.entryUntil) {
+      fx.enterKey = u.entryUntil;
+      fx.enterBoom = false;
+      fx.enterWhoosh = false;
+    }
+    const prof = motionProfile(u);
+    if ((prof === "heavy" || prof === "mech") && !fx.enterBoom && pf > 0.8) {
+      fx.enterBoom = true;
+      if (this.gfx.typeParticles) this.particles.burst(u.pos.x, u.pos.y, 10, { color: "#d6d3d1", color2: "#a8a29e", shape: "smoke", speed: 2.4, maxLife: 0.5, size: 3.5, gravity: -1.5, spread: Math.PI, angle: -Math.PI });
+      this.shake(2.5, 0.18, now);
+    } else if (prof === "fly" && !fx.enterWhoosh && pf < 0.5) {
+      fx.enterWhoosh = true;
+      if (this.gfx.typeParticles) this.particles.burst(u.pos.x, u.pos.y - 0.4, 6, { color: "#e2e8f0", shape: "smoke", speed: 2, maxLife: 0.35, size: 2.5, spread: Math.PI / 2 });
+    }
   }
 
   abilityPassive(state, u, x, y, now, fx) {
