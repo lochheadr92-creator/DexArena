@@ -118,6 +118,11 @@ Constraints
 - **Creature of the Day**: `SpeciesSpotlight.jsx` now pins slide 0 to a date+roster deterministic pick (FNV hash of `dailyKey():rosterId`) with a ★ label + generated stat-flavor blurb, then rotates the shuffled rest. Added a roster-match guard to avoid a cross-roster flash during the toggle.
 - **Production Web URL**: removed hardcoded `EXPO_PUBLIC_WEB_URL` from `mobile/.env` (see mobile note above).
 
+### Type matchups panel + effectiveness audit — DONE (2026-06) — testing_agent verified (21/21 Jest audit pass; live panel matches engine on both rosters; no errors)
+- **One authoritative matrix**: `game/config/typeChart.json` (17 types) is used by BOTH combat (`game/damage.js` `effectiveness`) and the new UI helper `lib/matchups.js` (`multiplierAgainst`/`defenseMatchups`/`superEffectiveTargets`). No duplicate chart. Chart and creature types were NOT modified (no rebalance — e.g. Psychic→Ghost stays neutral per standard).
+- **Panel**: `components/TypeMatchups.jsx` in CreatureDetailSheet for every creature. Auto-computes from the creature's type combo: Weak ×4/×2, Resists ×¼/×½, Immune ×0, Neutral ×1 (dual-types multiply both). Shows **STAB coverage** (from own types) and **actual-moveset coverage** (async-loads the battle loadout via `ensureMoves`+`buildMoveset`/override, filters `isDamaging`) as SEPARATE rows. Testids: `type-matchups`, `matchup-weak4/weak2/resist4/resist2/immune/neutral/stab/moves`.
+- **Audit + tests**: `lib/__tests__/matchups.test.js` (21 tests) verifies UI===engine for all 17×17 single and 17×17×17 dual combos, all 7 immunities, STAB ×1.5 only on type match, type immunity → 0 dmg, dual-type product in `computeDamage`, and the regression **Water→pure Dragon ×0.5 / Ice→pure Dragon ×2**.
+
 ### Next (not started)
 - After Publish, confirm the mobile WebView loads the deployed web origin (via managed `EXPO_PUBLIC_BACKEND_URL`); set `EXPO_PUBLIC_WEB_URL` only if the web app lives on a different host than the backend.
 ### Phase 2/3 follow-ups (only if user asks)

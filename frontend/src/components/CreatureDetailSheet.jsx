@@ -12,6 +12,7 @@ import { TypeBadge } from "@/components/TypeBadge";
 import { SpriteImg } from "@/components/SpriteImg";
 import { StatBar } from "@/components/StatBar";
 import { EvolutionLine } from "@/components/EvolutionLine";
+import { TypeMatchups } from "@/components/TypeMatchups";
 import { MovesetEditor } from "@/components/MovesetEditor";
 import { UnlockPanel } from "@/components/UnlockPanel";
 import { AbilityPicker } from "@/components/AbilityPicker";
@@ -151,6 +152,11 @@ export const CreatureDetailSheet = ({ creatureId, onClose, onPick, onToggleTeam 
                     <StatBar key={k} statKey={k} value={creature.stats[k]} />
                   ))}
                 </div>
+              </section>
+
+              <section className="mt-5">
+                <h3 className="mb-2 font-mono text-[10px] uppercase tracking-widest text-slate-500">Type matchups · auto-computed</h3>
+                <TypeMatchups creature={creature} />
               </section>
 
               <section className="mt-5">

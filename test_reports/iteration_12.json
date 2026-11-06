@@ -1,0 +1,29 @@
+{
+  "summary": "Frontend-only verification of the auto-computed type-matchups panel. All requested scenarios pass. (1) matchups.test.js jest audit passes 21/21 (UI multiplierAgainst equals engine effectiveness for every single-type pair; dual-type product rule holds for all combos; immunities zero the combo; computeDamage respects STAB/immunity/dual multipliers). (2) In the live UI, opening #10001 Mossplod (pure Water) shows matchup-weak2=Electric/Grass, matchup-resist2=Fire/Water/Ice/Steel, no weak4/resist4/immune rows — matches the engine exactly. (3) #10003 Bathyward (Water/Steel, still locked) opens without crashing and shows matchup-weak2=Electric/Fighting/Ground, matchup-resist4=Ice/Steel, matchup-immune=Poison, matchup-neutral containing Fire/Grass (plus a second resist2 row Normal/Water/Flying/Psychic/Bug/Rock/Ghost/Dragon/Dark) — exact spec match. (4) matchup-stab and matchup-moves render as SEPARATE rows: for Bathyward both equal Fire/Ground/Ice/Rock (STAB coverage of Water+Steel). (5) Panel also renders on the Pokemon roster: Charizard (#6 Fire/Flying) shows weak4=Rock, weak2=Water/Electric, resist4=Grass/Bug, resist2=Fire/Fighting/Steel, immune=Ground, with STAB coverage Bug/Fighting/Grass/Ice/Steel — all type-chart-correct. No page errors, no console errors.",
+  "platforms_tested": ["web"],
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "web": {
+      "ui_bugs": [],
+      "integration_issues": [],
+      "design_issues": []
+    }
+  },
+  "parity_issues": [],
+  "test_report_links": ["/app/frontend/src/lib/__tests__/matchups.test.js"],
+  "action_items": [],
+  "critical_code_review_comments": [
+    "matchups.js correctly delegates to the same typeChart used by game/damage.js — a single authoritative matrix as required.",
+    "TypeMatchups keeps STAB (offenseStrengths) and current-moveset (superEffectiveTargets of damaging moves) rows separate with distinct testids (matchup-stab / matchup-moves), with explicit -none fallbacks when empty.",
+    "CreatureDetailSheet renders TypeMatchups for both locked and unlocked creatures, so Bathyward's panel is visible even while the Unlock gate is showing — no conditional hides it.",
+    "effectiveness() applies Scrappy before the reduce, so the Normal/Fighting-vs-Ghost ability override does not affect the UI panel — correct (the UI shows innate typing matchups).",
+    "Minor note (not a defect): the review request references testid 'creature-details-{id}', but the actual attribute in code is 'creature-info-{id}' (DEX.creatureInfo). Nothing broken — just worth aligning the spec/testid name in future."
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "N/A", "frontend": "100%"},
+  "seed_data_creation": "None.",
+  "retest_needed": false,
+  "should_main_agent_self_test": false,
+  "context_for_next_testing_agent": "Use data-testid 'creature-info-{id}' to open the detail sheet (not 'creature-details-{id}'). The roster-search-input matches by name, not dex number (searching '003' returned 0 matches; 'bathyward' worked). Jest audit: `cd /app/frontend && CI=true npx craco test --watchAll=false --testPathPattern=matchups` → 21/21 pass in ~0.7s. Bathyward is locked but its detail sheet still shows the matchup panel.",
+  "rca of the issue": ""
+}
