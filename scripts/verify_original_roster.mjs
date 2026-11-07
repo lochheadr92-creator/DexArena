@@ -160,8 +160,10 @@ if (typeOut > 0) warn(`${typeOut} type(s) deviate by more than 2 from scaled tar
 let present = 0;
 const missing = [];
 for (const c of creatures) {
-  const ok = ["front", "back"].every((f) => {
-    const p = path.join(PUBLIC, `o${String(c.dexNo).padStart(3, "0")}-${f}.png`);
+  // Sprite files keep their original file numbers (o001...), which no longer match dexNo
+  // once families are moved, so resolve them from the creature's own sprite paths.
+  const ok = [c.sprite, c.spriteBack].every((url) => {
+    const p = path.join(PUBLIC, path.basename(String(url).split("?")[0]));
     try { return fs.statSync(p).size > 0; } catch { return false; }
   });
   if (ok) present++; else missing.push(c.dexNo);

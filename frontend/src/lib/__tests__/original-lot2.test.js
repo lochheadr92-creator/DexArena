@@ -22,8 +22,11 @@ describe("Original roster Lot 2", () => {
     expect(ORIGINAL_LOTS).toEqual([1, 2]);
     expect(ORIGINAL_TOTAL).toBe(170);
     expect(ROSTERS.original.total).toBe(170);
-    expect(lot1.map((c) => c.dexNo)).toEqual(Array.from({ length: 150 }, (_, i) => i + 1));
-    expect(lot2.map((c) => c.dexNo)).toEqual(Array.from({ length: 20 }, (_, i) => i + 151));
+    // The Reedlet grass line holds dex #1-#3; Lot 1's first family (Mossplod) moved to #151-#153.
+    const dexOf = (list) => list.map((c) => c.dexNo).sort((a, b) => a - b);
+    expect(dexOf(lot2)).toEqual([1, 2, 3, ...Array.from({ length: 17 }, (_, i) => i + 154)]);
+    expect(dexOf(lot1)).toEqual(Array.from({ length: 150 }, (_, i) => i + 4));
+    expect(dexOf(ORIGINAL_CREATURES)).toEqual(Array.from({ length: 170 }, (_, i) => i + 1));
     const ids = ORIGINAL_CREATURES.map((c) => c.id);
     expect(new Set(ids).size).toBe(ids.length);
     const orders = ORIGINAL_CREATURES.map((c) => c.displayOrder);

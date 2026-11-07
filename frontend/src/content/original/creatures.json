@@ -1,7 +1,7 @@
 [
   {
     "id": 10001,
-    "dexNo": 1,
+    "dexNo": 151,
     "name": "mossplod",
     "displayName": "Mossplod",
     "genus": "water bear",
@@ -24,23 +24,23 @@
     ],
     "moves": [
       {
+        "id": 20009,
+        "name": "Tidal Cannon",
+        "level": 8
+      },
+      {
         "id": 20010,
         "name": "Tidal Flood",
-        "level": 8
+        "level": 14
       },
       {
         "id": 20012,
         "name": "Tidal Rush",
-        "level": 14
-      },
-      {
-        "id": 20011,
-        "name": "Tidal Jab",
         "level": 20
       },
       {
-        "id": 20009,
-        "name": "Tidal Cannon",
+        "id": 20069,
+        "name": "Aegis Ward",
         "level": 26
       }
     ],
@@ -65,7 +65,7 @@
     "artwork": "/original/o001-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 1,
+    "displayOrder": 151,
     "framesFront": [
       "/original/o001-front.png",
       "/original/o001-front-2.png"
@@ -77,7 +77,7 @@
   },
   {
     "id": 10002,
-    "dexNo": 2,
+    "dexNo": 152,
     "name": "mosshull",
     "displayName": "Mosshull",
     "genus": "armored water bear",
@@ -100,23 +100,23 @@
     ],
     "moves": [
       {
+        "id": 20009,
+        "name": "Tidal Cannon",
+        "level": 8
+      },
+      {
         "id": 20010,
         "name": "Tidal Flood",
-        "level": 8
+        "level": 14
       },
       {
         "id": 20012,
         "name": "Tidal Rush",
-        "level": 14
-      },
-      {
-        "id": 20011,
-        "name": "Tidal Jab",
         "level": 20
       },
       {
-        "id": 20009,
-        "name": "Tidal Cannon",
+        "id": 20071,
+        "name": "Stonewall",
         "level": 26
       }
     ],
@@ -141,7 +141,7 @@
     "artwork": "/original/o002-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 2,
+    "displayOrder": 152,
     "framesFront": [
       "/original/o002-front.png",
       "/original/o002-front-2.png"
@@ -153,7 +153,7 @@
   },
   {
     "id": 10003,
-    "dexNo": 3,
+    "dexNo": 153,
     "name": "bathyward",
     "displayName": "Bathyward",
     "genus": "diving bell",
@@ -178,23 +178,23 @@
     ],
     "moves": [
       {
-        "id": 20010,
-        "name": "Tidal Flood",
+        "id": 20009,
+        "name": "Tidal Cannon",
         "level": 8
       },
       {
-        "id": 20067,
-        "name": "Iron Chop",
+        "id": 20066,
+        "name": "Iron Field",
         "level": 14
       },
       {
-        "id": 20009,
-        "name": "Tidal Cannon",
+        "id": 20012,
+        "name": "Tidal Rush",
         "level": 20
       },
       {
-        "id": 20065,
-        "name": "Iron Cannon",
+        "id": 20069,
+        "name": "Aegis Ward",
         "level": 26
       }
     ],
@@ -217,7 +217,7 @@
     "artwork": "/original/o003-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 3,
+    "displayOrder": 153,
     "framesFront": [
       "/original/o003-front.png",
       "/original/o003-front-2.png"
@@ -263,13 +263,13 @@
         "level": 14
       },
       {
-        "id": 20035,
-        "name": "Terra Swipe",
+        "id": 20006,
+        "name": "Flame Nova",
         "level": 20
       },
       {
-        "id": 20052,
-        "name": "Boulder Slam",
+        "id": 20072,
+        "name": "Adrenal Surge",
         "level": 26
       }
     ],
@@ -294,7 +294,7 @@
     "artwork": "/original/o004-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 56,
+    "displayOrder": 4,
     "framesFront": [
       "/original/o004-front.png",
       "/original/o004-front-2.png"
@@ -340,13 +340,13 @@
         "level": 14
       },
       {
-        "id": 20035,
-        "name": "Terra Swipe",
+        "id": 20006,
+        "name": "Flame Nova",
         "level": 20
       },
       {
-        "id": 20052,
-        "name": "Boulder Slam",
+        "id": 20070,
+        "name": "Battle Rouse",
         "level": 26
       }
     ],
@@ -371,7 +371,7 @@
     "artwork": "/original/o005-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 57,
+    "displayOrder": 5,
     "framesFront": [
       "/original/o005-front.png",
       "/original/o005-front-2.png"
@@ -412,18 +412,18 @@
         "level": 8
       },
       {
-        "id": 20008,
-        "name": "Flame Charge",
+        "id": 20028,
+        "name": "Combat Rush",
         "level": 14
       },
       {
-        "id": 20027,
-        "name": "Combat Strike",
+        "id": 20006,
+        "name": "Flame Nova",
         "level": 20
       },
       {
-        "id": 20035,
-        "name": "Terra Swipe",
+        "id": 20072,
+        "name": "Adrenal Surge",
         "level": 26
       }
     ],
@@ -446,7 +446,7 @@
     "artwork": "/original/o006-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 58,
+    "displayOrder": 6,
     "framesFront": [
       "/original/o006-front.png",
       "/original/o006-front-2.png"
@@ -486,18 +486,18 @@
         "level": 8
       },
       {
-        "id": 20012,
-        "name": "Tidal Rush",
+        "id": 20009,
+        "name": "Tidal Cannon",
         "level": 14
       },
       {
-        "id": 20023,
-        "name": "Frost Shard",
+        "id": 20012,
+        "name": "Tidal Rush",
         "level": 20
       },
       {
-        "id": 20036,
-        "name": "Terra Slam",
+        "id": 20010,
+        "name": "Tidal Flood",
         "level": 26
       }
     ],
@@ -522,7 +522,7 @@
     "artwork": "/original/o007-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 122,
+    "displayOrder": 7,
     "framesFront": [
       "/original/o007-front.png",
       "/original/o007-front-2.png"
@@ -563,18 +563,18 @@
         "level": 8
       },
       {
-        "id": 20012,
-        "name": "Tidal Rush",
+        "id": 20009,
+        "name": "Tidal Cannon",
         "level": 14
       },
       {
-        "id": 20023,
-        "name": "Frost Shard",
+        "id": 20012,
+        "name": "Tidal Rush",
         "level": 20
       },
       {
-        "id": 20036,
-        "name": "Terra Slam",
+        "id": 20010,
+        "name": "Tidal Flood",
         "level": 26
       }
     ],
@@ -599,7 +599,7 @@
     "artwork": "/original/o008-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 123,
+    "displayOrder": 8,
     "framesFront": [
       "/original/o008-front.png",
       "/original/o008-front-2.png"
@@ -641,18 +641,18 @@
         "level": 8
       },
       {
-        "id": 20012,
-        "name": "Tidal Rush",
+        "id": 20009,
+        "name": "Tidal Cannon",
         "level": 14
       },
       {
-        "id": 20035,
-        "name": "Terra Swipe",
+        "id": 20036,
+        "name": "Terra Slam",
         "level": 20
       },
       {
-        "id": 20023,
-        "name": "Frost Shard",
+        "id": 20034,
+        "name": "Terra Quake",
         "level": 26
       }
     ],
@@ -675,7 +675,7 @@
     "artwork": "/original/o009-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 124,
+    "displayOrder": 9,
     "framesFront": [
       "/original/o009-front.png",
       "/original/o009-front-2.png"
@@ -716,13 +716,13 @@
         "level": 8
       },
       {
-        "id": 20012,
-        "name": "Tidal Rush",
+        "id": 20010,
+        "name": "Tidal Flood",
         "level": 14
       },
       {
-        "id": 20023,
-        "name": "Frost Shard",
+        "id": 20012,
+        "name": "Tidal Rush",
         "level": 20
       },
       {
@@ -794,8 +794,8 @@
         "level": 8
       },
       {
-        "id": 20012,
-        "name": "Tidal Rush",
+        "id": 20010,
+        "name": "Tidal Flood",
         "level": 14
       },
       {
@@ -804,8 +804,8 @@
         "level": 20
       },
       {
-        "id": 20071,
-        "name": "Stonewall",
+        "id": 20069,
+        "name": "Aegis Ward",
         "level": 26
       }
     ],
@@ -872,8 +872,8 @@
         "level": 8
       },
       {
-        "id": 20012,
-        "name": "Tidal Rush",
+        "id": 20010,
+        "name": "Tidal Flood",
         "level": 14
       },
       {
@@ -882,8 +882,8 @@
         "level": 20
       },
       {
-        "id": 20069,
-        "name": "Aegis Ward",
+        "id": 20071,
+        "name": "Stonewall",
         "level": 26
       }
     ],
@@ -941,8 +941,8 @@
     ],
     "moves": [
       {
-        "id": 20015,
-        "name": "Volt Jab",
+        "id": 20013,
+        "name": "Volt Bolt",
         "level": 8
       },
       {
@@ -951,13 +951,13 @@
         "level": 14
       },
       {
-        "id": 20067,
-        "name": "Iron Chop",
+        "id": 20015,
+        "name": "Volt Jab",
         "level": 20
       },
       {
-        "id": 20072,
-        "name": "Adrenal Surge",
+        "id": 20014,
+        "name": "Volt Storm",
         "level": 26
       }
     ],
@@ -982,7 +982,7 @@
     "artwork": "/original/o013-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 101,
+    "displayOrder": 104,
     "framesFront": [
       "/original/o013-front.png",
       "/original/o013-front-2.png"
@@ -1017,8 +1017,8 @@
     ],
     "moves": [
       {
-        "id": 20015,
-        "name": "Volt Jab",
+        "id": 20013,
+        "name": "Volt Bolt",
         "level": 8
       },
       {
@@ -1027,13 +1027,13 @@
         "level": 14
       },
       {
-        "id": 20067,
-        "name": "Iron Chop",
+        "id": 20015,
+        "name": "Volt Jab",
         "level": 20
       },
       {
-        "id": 20072,
-        "name": "Adrenal Surge",
+        "id": 20014,
+        "name": "Volt Storm",
         "level": 26
       }
     ],
@@ -1058,7 +1058,7 @@
     "artwork": "/original/o014-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 102,
+    "displayOrder": 105,
     "framesFront": [
       "/original/o014-front.png",
       "/original/o014-front-2.png"
@@ -1094,8 +1094,8 @@
     ],
     "moves": [
       {
-        "id": 20015,
-        "name": "Volt Jab",
+        "id": 20013,
+        "name": "Volt Bolt",
         "level": 8
       },
       {
@@ -1104,13 +1104,13 @@
         "level": 14
       },
       {
-        "id": 20067,
-        "name": "Iron Chop",
+        "id": 20015,
+        "name": "Volt Jab",
         "level": 20
       },
       {
-        "id": 20072,
-        "name": "Adrenal Surge",
+        "id": 20014,
+        "name": "Volt Storm",
         "level": 26
       }
     ],
@@ -1133,7 +1133,7 @@
     "artwork": "/original/o015-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 103,
+    "displayOrder": 106,
     "framesFront": [
       "/original/o015-front.png",
       "/original/o015-front-2.png"
@@ -1174,13 +1174,13 @@
         "level": 8
       },
       {
-        "id": 20052,
-        "name": "Boulder Slam",
+        "id": 20050,
+        "name": "Boulder Fracture",
         "level": 14
       },
       {
-        "id": 20047,
-        "name": "Swarm Pincer",
+        "id": 20048,
+        "name": "Swarm Tackle",
         "level": 20
       },
       {
@@ -1210,7 +1210,7 @@
     "artwork": "/original/o016-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 66,
+    "displayOrder": 69,
     "framesFront": [
       "/original/o016-front.png",
       "/original/o016-front-2.png"
@@ -1252,18 +1252,18 @@
         "level": 8
       },
       {
-        "id": 20052,
-        "name": "Boulder Slam",
+        "id": 20050,
+        "name": "Boulder Fracture",
         "level": 14
       },
       {
-        "id": 20047,
-        "name": "Swarm Pincer",
+        "id": 20048,
+        "name": "Swarm Tackle",
         "level": 20
       },
       {
-        "id": 20071,
-        "name": "Stonewall",
+        "id": 20069,
+        "name": "Aegis Ward",
         "level": 26
       }
     ],
@@ -1288,7 +1288,7 @@
     "artwork": "/original/o017-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 67,
+    "displayOrder": 70,
     "framesFront": [
       "/original/o017-front.png",
       "/original/o017-front-2.png"
@@ -1330,18 +1330,18 @@
         "level": 8
       },
       {
-        "id": 20052,
-        "name": "Boulder Slam",
+        "id": 20050,
+        "name": "Boulder Fracture",
         "level": 14
       },
       {
-        "id": 20035,
-        "name": "Terra Swipe",
+        "id": 20036,
+        "name": "Terra Slam",
         "level": 20
       },
       {
-        "id": 20069,
-        "name": "Aegis Ward",
+        "id": 20071,
+        "name": "Stonewall",
         "level": 26
       }
     ],
@@ -1364,7 +1364,7 @@
     "artwork": "/original/o018-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 68,
+    "displayOrder": 71,
     "framesFront": [
       "/original/o018-front.png",
       "/original/o018-front-2.png"
@@ -1409,13 +1409,13 @@
         "level": 14
       },
       {
-        "id": 20017,
-        "name": "Thorn Ray",
+        "id": 20048,
+        "name": "Swarm Tackle",
         "level": 20
       },
       {
-        "id": 20062,
-        "name": "Shadow Void",
+        "id": 20069,
+        "name": "Aegis Ward",
         "level": 26
       }
     ],
@@ -1440,7 +1440,7 @@
     "artwork": "/original/o019-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 10,
+    "displayOrder": 16,
     "framesFront": [
       "/original/o019-front.png",
       "/original/o019-front-2.png"
@@ -1481,18 +1481,18 @@
         "level": 8
       },
       {
-        "id": 20046,
-        "name": "Swarm Hive",
+        "id": 20038,
+        "name": "Gale Gust",
         "level": 14
       },
       {
-        "id": 20037,
-        "name": "Gale Shot",
+        "id": 20048,
+        "name": "Swarm Tackle",
         "level": 20
       },
       {
-        "id": 20017,
-        "name": "Thorn Ray",
+        "id": 20071,
+        "name": "Stonewall",
         "level": 26
       }
     ],
@@ -1517,7 +1517,7 @@
     "artwork": "/original/o020-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 11,
+    "displayOrder": 17,
     "framesFront": [
       "/original/o020-front.png",
       "/original/o020-front-2.png"
@@ -1559,18 +1559,18 @@
         "level": 8
       },
       {
-        "id": 20046,
-        "name": "Swarm Hive",
+        "id": 20038,
+        "name": "Gale Gust",
         "level": 14
       },
       {
-        "id": 20037,
-        "name": "Gale Shot",
+        "id": 20048,
+        "name": "Swarm Tackle",
         "level": 20
       },
       {
-        "id": 20017,
-        "name": "Thorn Ray",
+        "id": 20069,
+        "name": "Aegis Ward",
         "level": 26
       }
     ],
@@ -1593,7 +1593,7 @@
     "artwork": "/original/o021-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 12,
+    "displayOrder": 18,
     "framesFront": [
       "/original/o021-front.png",
       "/original/o021-front-2.png"
@@ -1639,13 +1639,13 @@
         "level": 14
       },
       {
-        "id": 20025,
-        "name": "Combat Shot",
+        "id": 20044,
+        "name": "Mind Charge",
         "level": 20
       },
       {
-        "id": 20054,
-        "name": "Phantom Veil",
+        "id": 20071,
+        "name": "Stonewall",
         "level": 26
       }
     ],
@@ -1716,13 +1716,13 @@
         "level": 14
       },
       {
-        "id": 20025,
-        "name": "Combat Shot",
+        "id": 20044,
+        "name": "Mind Charge",
         "level": 20
       },
       {
-        "id": 20054,
-        "name": "Phantom Veil",
+        "id": 20069,
+        "name": "Aegis Ward",
         "level": 26
       }
     ],
@@ -1788,18 +1788,18 @@
         "level": 8
       },
       {
-        "id": 20042,
-        "name": "Mind Rift",
+        "id": 20054,
+        "name": "Phantom Veil",
         "level": 14
       },
       {
-        "id": 20053,
-        "name": "Phantom Ray",
+        "id": 20044,
+        "name": "Mind Charge",
         "level": 20
       },
       {
-        "id": 20025,
-        "name": "Combat Shot",
+        "id": 20071,
+        "name": "Stonewall",
         "level": 26
       }
     ],
@@ -1867,13 +1867,13 @@
         "level": 14
       },
       {
-        "id": 20007,
-        "name": "Flame Claw",
+        "id": 20058,
+        "name": "Draco Tempest",
         "level": 20
       },
       {
-        "id": 20040,
-        "name": "Gale Rush",
+        "id": 20070,
+        "name": "Battle Rouse",
         "level": 26
       }
     ],
@@ -1898,7 +1898,7 @@
     "artwork": "/original/o025-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 97,
+    "displayOrder": 100,
     "framesFront": [
       "/original/o025-front.png",
       "/original/o025-front-2.png"
@@ -1944,13 +1944,13 @@
         "level": 14
       },
       {
-        "id": 20007,
-        "name": "Flame Claw",
+        "id": 20058,
+        "name": "Draco Tempest",
         "level": 20
       },
       {
-        "id": 20040,
-        "name": "Gale Rush",
+        "id": 20072,
+        "name": "Adrenal Surge",
         "level": 26
       }
     ],
@@ -1975,7 +1975,7 @@
     "artwork": "/original/o026-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 98,
+    "displayOrder": 101,
     "framesFront": [
       "/original/o026-front.png",
       "/original/o026-front-2.png"
@@ -2021,13 +2021,13 @@
         "level": 14
       },
       {
-        "id": 20007,
-        "name": "Flame Claw",
+        "id": 20058,
+        "name": "Draco Tempest",
         "level": 20
       },
       {
-        "id": 20040,
-        "name": "Gale Rush",
+        "id": 20070,
+        "name": "Battle Rouse",
         "level": 26
       }
     ],
@@ -2050,7 +2050,7 @@
     "artwork": "/original/o027-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 99,
+    "displayOrder": 102,
     "framesFront": [
       "/original/o027-front.png",
       "/original/o027-front-2.png"
@@ -2096,13 +2096,13 @@
         "level": 14
       },
       {
-        "id": 20041,
-        "name": "Mind Beam",
+        "id": 20056,
+        "name": "Phantom Charge",
         "level": 20
       },
       {
-        "id": 20062,
-        "name": "Shadow Void",
+        "id": 20071,
+        "name": "Stonewall",
         "level": 26
       }
     ],
@@ -2127,7 +2127,7 @@
     "artwork": "/original/o028-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 72,
+    "displayOrder": 75,
     "framesFront": [
       "/original/o028-front.png",
       "/original/o028-front-2.png"
@@ -2168,18 +2168,18 @@
         "level": 8
       },
       {
-        "id": 20054,
-        "name": "Phantom Veil",
+        "id": 20006,
+        "name": "Flame Nova",
         "level": 14
       },
       {
-        "id": 20005,
-        "name": "Flame Bolt",
+        "id": 20056,
+        "name": "Phantom Charge",
         "level": 20
       },
       {
-        "id": 20041,
-        "name": "Mind Beam",
+        "id": 20069,
+        "name": "Aegis Ward",
         "level": 26
       }
     ],
@@ -2204,7 +2204,7 @@
     "artwork": "/original/o029-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 73,
+    "displayOrder": 76,
     "framesFront": [
       "/original/o029-front.png",
       "/original/o029-front-2.png"
@@ -2246,18 +2246,18 @@
         "level": 8
       },
       {
-        "id": 20054,
-        "name": "Phantom Veil",
+        "id": 20006,
+        "name": "Flame Nova",
         "level": 14
       },
       {
-        "id": 20005,
-        "name": "Flame Bolt",
+        "id": 20056,
+        "name": "Phantom Charge",
         "level": 20
       },
       {
-        "id": 20041,
-        "name": "Mind Beam",
+        "id": 20071,
+        "name": "Stonewall",
         "level": 26
       }
     ],
@@ -2280,7 +2280,7 @@
     "artwork": "/original/o030-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 74,
+    "displayOrder": 77,
     "framesFront": [
       "/original/o030-front.png",
       "/original/o030-front-2.png"
@@ -2325,13 +2325,13 @@
         "level": 14
       },
       {
-        "id": 20051,
-        "name": "Boulder Crush",
+        "id": 20026,
+        "name": "Combat Barrage",
         "level": 20
       },
       {
-        "id": 20064,
-        "name": "Shadow Charge",
+        "id": 20070,
+        "name": "Battle Rouse",
         "level": 26
       }
     ],
@@ -2356,7 +2356,7 @@
     "artwork": "/original/o031-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 59,
+    "displayOrder": 62,
     "framesFront": [
       "/original/o031-front.png",
       "/original/o031-front-2.png"
@@ -2401,13 +2401,13 @@
         "level": 14
       },
       {
-        "id": 20051,
-        "name": "Boulder Crush",
+        "id": 20026,
+        "name": "Combat Barrage",
         "level": 20
       },
       {
-        "id": 20064,
-        "name": "Shadow Charge",
+        "id": 20072,
+        "name": "Adrenal Surge",
         "level": 26
       }
     ],
@@ -2432,7 +2432,7 @@
     "artwork": "/original/o032-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 60,
+    "displayOrder": 63,
     "framesFront": [
       "/original/o032-front.png",
       "/original/o032-front-2.png"
@@ -2474,18 +2474,18 @@
         "level": 8
       },
       {
-        "id": 20028,
-        "name": "Combat Rush",
+        "id": 20068,
+        "name": "Iron Slam",
         "level": 14
       },
       {
-        "id": 20067,
-        "name": "Iron Chop",
+        "id": 20026,
+        "name": "Combat Barrage",
         "level": 20
       },
       {
-        "id": 20051,
-        "name": "Boulder Crush",
+        "id": 20070,
+        "name": "Battle Rouse",
         "level": 26
       }
     ],
@@ -2508,7 +2508,7 @@
     "artwork": "/original/o033-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 61,
+    "displayOrder": 64,
     "framesFront": [
       "/original/o033-front.png",
       "/original/o033-front-2.png"
@@ -2549,18 +2549,18 @@
         "level": 8
       },
       {
-        "id": 20024,
-        "name": "Frost Charge",
+        "id": 20022,
+        "name": "Frost Blizzard",
         "level": 14
       },
       {
-        "id": 20039,
-        "name": "Gale Peck",
+        "id": 20024,
+        "name": "Frost Charge",
         "level": 20
       },
       {
-        "id": 20069,
-        "name": "Aegis Ward",
+        "id": 20071,
+        "name": "Stonewall",
         "level": 26
       }
     ],
@@ -2585,7 +2585,7 @@
     "artwork": "/original/o034-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 107,
+    "displayOrder": 110,
     "framesFront": [
       "/original/o034-front.png",
       "/original/o034-front-2.png"
@@ -2625,18 +2625,18 @@
         "level": 8
       },
       {
-        "id": 20024,
-        "name": "Frost Charge",
+        "id": 20022,
+        "name": "Frost Blizzard",
         "level": 14
       },
       {
-        "id": 20039,
-        "name": "Gale Peck",
+        "id": 20024,
+        "name": "Frost Charge",
         "level": 20
       },
       {
-        "id": 20071,
-        "name": "Stonewall",
+        "id": 20069,
+        "name": "Aegis Ward",
         "level": 26
       }
     ],
@@ -2661,7 +2661,7 @@
     "artwork": "/original/o035-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 108,
+    "displayOrder": 111,
     "framesFront": [
       "/original/o035-front.png",
       "/original/o035-front-2.png"
@@ -2703,13 +2703,13 @@
         "level": 8
       },
       {
-        "id": 20024,
-        "name": "Frost Charge",
+        "id": 20022,
+        "name": "Frost Blizzard",
         "level": 14
       },
       {
-        "id": 20011,
-        "name": "Tidal Jab",
+        "id": 20012,
+        "name": "Tidal Rush",
         "level": 20
       },
       {
@@ -2737,7 +2737,7 @@
     "artwork": "/original/o036-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 109,
+    "displayOrder": 112,
     "framesFront": [
       "/original/o036-front.png",
       "/original/o036-front-2.png"
@@ -2773,8 +2773,8 @@
     ],
     "moves": [
       {
-        "id": 20063,
-        "name": "Shadow Bite",
+        "id": 20061,
+        "name": "Shadow Pulse",
         "level": 8
       },
       {
@@ -2783,13 +2783,13 @@
         "level": 14
       },
       {
-        "id": 20055,
-        "name": "Phantom Claw",
+        "id": 20063,
+        "name": "Shadow Bite",
         "level": 20
       },
       {
-        "id": 20072,
-        "name": "Adrenal Surge",
+        "id": 20062,
+        "name": "Shadow Void",
         "level": 26
       }
     ],
@@ -2814,7 +2814,7 @@
     "artwork": "/original/o037-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 30,
+    "displayOrder": 36,
     "framesFront": [
       "/original/o037-front.png",
       "/original/o037-front-2.png"
@@ -2855,18 +2855,18 @@
         "level": 8
       },
       {
-        "id": 20062,
-        "name": "Shadow Void",
+        "id": 20064,
+        "name": "Shadow Charge",
         "level": 14
       },
       {
-        "id": 20053,
-        "name": "Phantom Ray",
+        "id": 20063,
+        "name": "Shadow Bite",
         "level": 20
       },
       {
-        "id": 20070,
-        "name": "Battle Rouse",
+        "id": 20062,
+        "name": "Shadow Void",
         "level": 26
       }
     ],
@@ -2891,7 +2891,7 @@
     "artwork": "/original/o038-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 31,
+    "displayOrder": 37,
     "framesFront": [
       "/original/o038-front.png",
       "/original/o038-front-2.png"
@@ -2932,18 +2932,18 @@
         "level": 8
       },
       {
-        "id": 20062,
-        "name": "Shadow Void",
+        "id": 20064,
+        "name": "Shadow Charge",
         "level": 14
       },
       {
-        "id": 20053,
-        "name": "Phantom Ray",
+        "id": 20055,
+        "name": "Phantom Claw",
         "level": 20
       },
       {
-        "id": 20070,
-        "name": "Battle Rouse",
+        "id": 20054,
+        "name": "Phantom Veil",
         "level": 26
       }
     ],
@@ -2966,7 +2966,7 @@
     "artwork": "/original/o039-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 32,
+    "displayOrder": 38,
     "framesFront": [
       "/original/o039-front.png",
       "/original/o039-front-2.png"
@@ -3006,13 +3006,13 @@
         "level": 8
       },
       {
-        "id": 20036,
-        "name": "Terra Slam",
+        "id": 20034,
+        "name": "Terra Quake",
         "level": 14
       },
       {
-        "id": 20051,
-        "name": "Boulder Crush",
+        "id": 20036,
+        "name": "Terra Slam",
         "level": 20
       },
       {
@@ -3042,7 +3042,7 @@
     "artwork": "/original/o040-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 69,
+    "displayOrder": 72,
     "framesFront": [
       "/original/o040-front.png",
       "/original/o040-front-2.png"
@@ -3082,13 +3082,13 @@
         "level": 8
       },
       {
-        "id": 20036,
-        "name": "Terra Slam",
+        "id": 20034,
+        "name": "Terra Quake",
         "level": 14
       },
       {
-        "id": 20051,
-        "name": "Boulder Crush",
+        "id": 20036,
+        "name": "Terra Slam",
         "level": 20
       },
       {
@@ -3118,7 +3118,7 @@
     "artwork": "/original/o041-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 70,
+    "displayOrder": 73,
     "framesFront": [
       "/original/o041-front.png",
       "/original/o041-front-2.png"
@@ -3160,13 +3160,13 @@
         "level": 8
       },
       {
-        "id": 20036,
-        "name": "Terra Slam",
+        "id": 20034,
+        "name": "Terra Quake",
         "level": 14
       },
       {
-        "id": 20067,
-        "name": "Iron Chop",
+        "id": 20068,
+        "name": "Iron Slam",
         "level": 20
       },
       {
@@ -3194,7 +3194,7 @@
     "artwork": "/original/o042-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 71,
+    "displayOrder": 74,
     "framesFront": [
       "/original/o042-front.png",
       "/original/o042-front-2.png"
@@ -3234,18 +3234,18 @@
         "level": 8
       },
       {
-        "id": 20068,
-        "name": "Iron Slam",
+        "id": 20066,
+        "name": "Iron Field",
         "level": 14
       },
       {
-        "id": 20051,
-        "name": "Boulder Crush",
+        "id": 20068,
+        "name": "Iron Slam",
         "level": 20
       },
       {
-        "id": 20071,
-        "name": "Stonewall",
+        "id": 20069,
+        "name": "Aegis Ward",
         "level": 26
       }
     ],
@@ -3270,7 +3270,7 @@
     "artwork": "/original/o043-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 76,
+    "displayOrder": 79,
     "framesFront": [
       "/original/o043-front.png",
       "/original/o043-front-2.png"
@@ -3311,13 +3311,13 @@
         "level": 8
       },
       {
-        "id": 20068,
-        "name": "Iron Slam",
+        "id": 20066,
+        "name": "Iron Field",
         "level": 14
       },
       {
-        "id": 20051,
-        "name": "Boulder Crush",
+        "id": 20068,
+        "name": "Iron Slam",
         "level": 20
       },
       {
@@ -3347,7 +3347,7 @@
     "artwork": "/original/o044-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 77,
+    "displayOrder": 80,
     "framesFront": [
       "/original/o044-front.png",
       "/original/o044-front-2.png"
@@ -3389,13 +3389,13 @@
         "level": 8
       },
       {
-        "id": 20068,
-        "name": "Iron Slam",
+        "id": 20066,
+        "name": "Iron Field",
         "level": 14
       },
       {
-        "id": 20015,
-        "name": "Volt Jab",
+        "id": 20016,
+        "name": "Volt Dash",
         "level": 20
       },
       {
@@ -3423,7 +3423,7 @@
     "artwork": "/original/o045-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 78,
+    "displayOrder": 81,
     "framesFront": [
       "/original/o045-front.png",
       "/original/o045-front-2.png"
@@ -3464,18 +3464,18 @@
         "level": 8
       },
       {
-        "id": 20032,
-        "name": "Venom Slam",
+        "id": 20029,
+        "name": "Venom Shot",
         "level": 14
       },
       {
-        "id": 20035,
-        "name": "Terra Swipe",
+        "id": 20032,
+        "name": "Venom Slam",
         "level": 20
       },
       {
-        "id": 20044,
-        "name": "Mind Charge",
+        "id": 20030,
+        "name": "Venom Cloud",
         "level": 26
       }
     ],
@@ -3540,18 +3540,18 @@
         "level": 8
       },
       {
-        "id": 20032,
-        "name": "Venom Slam",
+        "id": 20029,
+        "name": "Venom Shot",
         "level": 14
       },
       {
-        "id": 20035,
-        "name": "Terra Swipe",
+        "id": 20032,
+        "name": "Venom Slam",
         "level": 20
       },
       {
-        "id": 20044,
-        "name": "Mind Charge",
+        "id": 20030,
+        "name": "Venom Cloud",
         "level": 26
       }
     ],
@@ -3617,18 +3617,18 @@
         "level": 8
       },
       {
-        "id": 20032,
-        "name": "Venom Slam",
+        "id": 20029,
+        "name": "Venom Shot",
         "level": 14
       },
       {
-        "id": 20063,
-        "name": "Shadow Bite",
+        "id": 20064,
+        "name": "Shadow Charge",
         "level": 20
       },
       {
-        "id": 20035,
-        "name": "Terra Swipe",
+        "id": 20062,
+        "name": "Shadow Void",
         "level": 26
       }
     ],
@@ -3691,18 +3691,18 @@
         "level": 8
       },
       {
-        "id": 20004,
-        "name": "Echo Tackle",
+        "id": 20001,
+        "name": "Echo Shot",
         "level": 14
       },
       {
-        "id": 20027,
-        "name": "Combat Strike",
+        "id": 20004,
+        "name": "Echo Tackle",
         "level": 20
       },
       {
-        "id": 20052,
-        "name": "Boulder Slam",
+        "id": 20002,
+        "name": "Echo Burst",
         "level": 26
       }
     ],
@@ -3727,7 +3727,7 @@
     "artwork": "/original/o049-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 119,
+    "displayOrder": 122,
     "framesFront": [
       "/original/o049-front.png",
       "/original/o049-front-2.png"
@@ -3767,18 +3767,18 @@
         "level": 8
       },
       {
-        "id": 20004,
-        "name": "Echo Tackle",
+        "id": 20001,
+        "name": "Echo Shot",
         "level": 14
       },
       {
-        "id": 20027,
-        "name": "Combat Strike",
+        "id": 20004,
+        "name": "Echo Tackle",
         "level": 20
       },
       {
-        "id": 20052,
-        "name": "Boulder Slam",
+        "id": 20002,
+        "name": "Echo Burst",
         "level": 26
       }
     ],
@@ -3803,7 +3803,7 @@
     "artwork": "/original/o050-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 120,
+    "displayOrder": 123,
     "framesFront": [
       "/original/o050-front.png",
       "/original/o050-front-2.png"
@@ -3844,18 +3844,18 @@
         "level": 8
       },
       {
-        "id": 20004,
-        "name": "Echo Tackle",
+        "id": 20001,
+        "name": "Echo Shot",
         "level": 14
       },
       {
-        "id": 20043,
-        "name": "Mind Smash",
+        "id": 20044,
+        "name": "Mind Charge",
         "level": 20
       },
       {
-        "id": 20027,
-        "name": "Combat Strike",
+        "id": 20042,
+        "name": "Mind Rift",
         "level": 26
       }
     ],
@@ -3878,7 +3878,7 @@
     "artwork": "/original/o051-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 121,
+    "displayOrder": 124,
     "framesFront": [
       "/original/o051-front.png",
       "/original/o051-front-2.png"
@@ -3924,13 +3924,13 @@
         "level": 14
       },
       {
-        "id": 20027,
-        "name": "Combat Strike",
+        "id": 20038,
+        "name": "Gale Gust",
         "level": 20
       },
       {
-        "id": 20020,
-        "name": "Thorn Slam",
+        "id": 20072,
+        "name": "Adrenal Surge",
         "level": 26
       }
     ],
@@ -3955,7 +3955,7 @@
     "artwork": "/original/o052-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 104,
+    "displayOrder": 107,
     "framesFront": [
       "/original/o052-front.png",
       "/original/o052-front-2.png"
@@ -4000,13 +4000,13 @@
         "level": 14
       },
       {
-        "id": 20027,
-        "name": "Combat Strike",
+        "id": 20038,
+        "name": "Gale Gust",
         "level": 20
       },
       {
-        "id": 20020,
-        "name": "Thorn Slam",
+        "id": 20070,
+        "name": "Battle Rouse",
         "level": 26
       }
     ],
@@ -4031,7 +4031,7 @@
     "artwork": "/original/o053-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 105,
+    "displayOrder": 108,
     "framesFront": [
       "/original/o053-front.png",
       "/original/o053-front-2.png"
@@ -4072,18 +4072,18 @@
         "level": 8
       },
       {
-        "id": 20040,
-        "name": "Gale Rush",
+        "id": 20028,
+        "name": "Combat Rush",
         "level": 14
       },
       {
-        "id": 20027,
-        "name": "Combat Strike",
+        "id": 20038,
+        "name": "Gale Gust",
         "level": 20
       },
       {
-        "id": 20020,
-        "name": "Thorn Slam",
+        "id": 20072,
+        "name": "Adrenal Surge",
         "level": 26
       }
     ],
@@ -4106,7 +4106,7 @@
     "artwork": "/original/o054-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 106,
+    "displayOrder": 109,
     "framesFront": [
       "/original/o054-front.png",
       "/original/o054-front-2.png"
@@ -4151,13 +4151,13 @@
         "level": 14
       },
       {
-        "id": 20021,
-        "name": "Frost Beam",
+        "id": 20012,
+        "name": "Tidal Rush",
         "level": 20
       },
       {
-        "id": 20034,
-        "name": "Terra Quake",
+        "id": 20069,
+        "name": "Aegis Ward",
         "level": 26
       }
     ],
@@ -4182,7 +4182,7 @@
     "artwork": "/original/o055-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 82,
+    "displayOrder": 85,
     "framesFront": [
       "/original/o055-front.png",
       "/original/o055-front-2.png"
@@ -4223,18 +4223,18 @@
         "level": 8
       },
       {
-        "id": 20010,
-        "name": "Tidal Flood",
+        "id": 20022,
+        "name": "Frost Blizzard",
         "level": 14
       },
       {
-        "id": 20021,
-        "name": "Frost Beam",
+        "id": 20012,
+        "name": "Tidal Rush",
         "level": 20
       },
       {
-        "id": 20034,
-        "name": "Terra Quake",
+        "id": 20071,
+        "name": "Stonewall",
         "level": 26
       }
     ],
@@ -4259,7 +4259,7 @@
     "artwork": "/original/o056-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 83,
+    "displayOrder": 86,
     "framesFront": [
       "/original/o056-front.png",
       "/original/o056-front-2.png"
@@ -4305,13 +4305,13 @@
         "level": 14
       },
       {
-        "id": 20021,
-        "name": "Frost Beam",
+        "id": 20012,
+        "name": "Tidal Rush",
         "level": 20
       },
       {
-        "id": 20034,
-        "name": "Terra Quake",
+        "id": 20069,
+        "name": "Aegis Ward",
         "level": 26
       }
     ],
@@ -4334,7 +4334,7 @@
     "artwork": "/original/o057-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 84,
+    "displayOrder": 87,
     "framesFront": [
       "/original/o057-front.png",
       "/original/o057-front-2.png"
@@ -4374,18 +4374,18 @@
         "level": 8
       },
       {
-        "id": 20004,
-        "name": "Echo Tackle",
+        "id": 20001,
+        "name": "Echo Shot",
         "level": 14
       },
       {
-        "id": 20027,
-        "name": "Combat Strike",
+        "id": 20004,
+        "name": "Echo Tackle",
         "level": 20
       },
       {
-        "id": 20052,
-        "name": "Boulder Slam",
+        "id": 20002,
+        "name": "Echo Burst",
         "level": 26
       }
     ],
@@ -4410,7 +4410,7 @@
     "artwork": "/original/o058-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 62,
+    "displayOrder": 65,
     "framesFront": [
       "/original/o058-front.png",
       "/original/o058-front-2.png"
@@ -4450,18 +4450,18 @@
         "level": 8
       },
       {
-        "id": 20004,
-        "name": "Echo Tackle",
+        "id": 20001,
+        "name": "Echo Shot",
         "level": 14
       },
       {
-        "id": 20027,
-        "name": "Combat Strike",
+        "id": 20004,
+        "name": "Echo Tackle",
         "level": 20
       },
       {
-        "id": 20052,
-        "name": "Boulder Slam",
+        "id": 20002,
+        "name": "Echo Burst",
         "level": 26
       }
     ],
@@ -4484,7 +4484,7 @@
     "artwork": "/original/o059-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 63,
+    "displayOrder": 66,
     "framesFront": [
       "/original/o059-front.png",
       "/original/o059-front-2.png"
@@ -4519,8 +4519,8 @@
     ],
     "moves": [
       {
-        "id": 20003,
-        "name": "Echo Pound",
+        "id": 20001,
+        "name": "Echo Shot",
         "level": 8
       },
       {
@@ -4529,13 +4529,13 @@
         "level": 14
       },
       {
-        "id": 20027,
-        "name": "Combat Strike",
+        "id": 20003,
+        "name": "Echo Pound",
         "level": 20
       },
       {
-        "id": 20072,
-        "name": "Adrenal Surge",
+        "id": 20002,
+        "name": "Echo Burst",
         "level": 26
       }
     ],
@@ -4560,7 +4560,7 @@
     "artwork": "/original/o060-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 85,
+    "displayOrder": 88,
     "framesFront": [
       "/original/o060-front.png",
       "/original/o060-front-2.png"
@@ -4602,18 +4602,18 @@
         "level": 8
       },
       {
-        "id": 20002,
-        "name": "Echo Burst",
+        "id": 20004,
+        "name": "Echo Tackle",
         "level": 14
       },
       {
-        "id": 20037,
-        "name": "Gale Shot",
+        "id": 20039,
+        "name": "Gale Peck",
         "level": 20
       },
       {
-        "id": 20070,
-        "name": "Battle Rouse",
+        "id": 20038,
+        "name": "Gale Gust",
         "level": 26
       }
     ],
@@ -4636,7 +4636,7 @@
     "artwork": "/original/o061-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 86,
+    "displayOrder": 89,
     "framesFront": [
       "/original/o061-front.png",
       "/original/o061-front-2.png"
@@ -4681,13 +4681,13 @@
         "level": 14
       },
       {
-        "id": 20027,
-        "name": "Combat Strike",
+        "id": 20002,
+        "name": "Echo Burst",
         "level": 20
       },
       {
-        "id": 20052,
-        "name": "Boulder Slam",
+        "id": 20072,
+        "name": "Adrenal Surge",
         "level": 26
       }
     ],
@@ -4712,7 +4712,7 @@
     "artwork": "/original/o062-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 93,
+    "displayOrder": 96,
     "framesFront": [
       "/original/o062-front.png",
       "/original/o062-front-2.png"
@@ -4754,18 +4754,18 @@
         "level": 8
       },
       {
-        "id": 20004,
-        "name": "Echo Tackle",
+        "id": 20036,
+        "name": "Terra Slam",
         "level": 14
       },
       {
-        "id": 20035,
-        "name": "Terra Swipe",
+        "id": 20002,
+        "name": "Echo Burst",
         "level": 20
       },
       {
-        "id": 20027,
-        "name": "Combat Strike",
+        "id": 20070,
+        "name": "Battle Rouse",
         "level": 26
       }
     ],
@@ -4788,7 +4788,7 @@
     "artwork": "/original/o063-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 94,
+    "displayOrder": 97,
     "framesFront": [
       "/original/o063-front.png",
       "/original/o063-front-2.png"
@@ -4824,23 +4824,23 @@
     ],
     "moves": [
       {
-        "id": 20001,
-        "name": "Echo Shot",
+        "id": 20002,
+        "name": "Echo Burst",
         "level": 8
       },
       {
-        "id": 20002,
-        "name": "Echo Burst",
+        "id": 20001,
+        "name": "Echo Shot",
         "level": 14
       },
       {
-        "id": 20069,
-        "name": "Aegis Ward",
+        "id": 20004,
+        "name": "Echo Tackle",
         "level": 20
       },
       {
-        "id": 20070,
-        "name": "Battle Rouse",
+        "id": 20071,
+        "name": "Stonewall",
         "level": 26
       }
     ],
@@ -4865,7 +4865,7 @@
     "artwork": "/original/o064-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 48,
+    "displayOrder": 54,
     "framesFront": [
       "/original/o064-front.png",
       "/original/o064-front-2.png"
@@ -4902,23 +4902,23 @@
     ],
     "moves": [
       {
-        "id": 20001,
-        "name": "Echo Shot",
+        "id": 20002,
+        "name": "Echo Burst",
         "level": 8
       },
       {
-        "id": 20002,
-        "name": "Echo Burst",
+        "id": 20001,
+        "name": "Echo Shot",
         "level": 14
+      },
+      {
+        "id": 20044,
+        "name": "Mind Charge",
+        "level": 20
       },
       {
         "id": 20069,
         "name": "Aegis Ward",
-        "level": 20
-      },
-      {
-        "id": 20070,
-        "name": "Battle Rouse",
         "level": 26
       }
     ],
@@ -4941,7 +4941,7 @@
     "artwork": "/original/o065-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 49,
+    "displayOrder": 55,
     "framesFront": [
       "/original/o065-front.png",
       "/original/o065-front-2.png"
@@ -4977,8 +4977,8 @@
     ],
     "moves": [
       {
-        "id": 20003,
-        "name": "Echo Pound",
+        "id": 20001,
+        "name": "Echo Shot",
         "level": 8
       },
       {
@@ -4992,8 +4992,8 @@
         "level": 20
       },
       {
-        "id": 20072,
-        "name": "Adrenal Surge",
+        "id": 20038,
+        "name": "Gale Gust",
         "level": 26
       }
     ],
@@ -5018,7 +5018,7 @@
     "artwork": "/original/o066-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 17,
+    "displayOrder": 23,
     "framesFront": [
       "/original/o066-front.png",
       "/original/o066-front-2.png"
@@ -5055,8 +5055,8 @@
     ],
     "moves": [
       {
-        "id": 20003,
-        "name": "Echo Pound",
+        "id": 20001,
+        "name": "Echo Shot",
         "level": 8
       },
       {
@@ -5070,8 +5070,8 @@
         "level": 20
       },
       {
-        "id": 20072,
-        "name": "Adrenal Surge",
+        "id": 20038,
+        "name": "Gale Gust",
         "level": 26
       }
     ],
@@ -5094,7 +5094,7 @@
     "artwork": "/original/o067-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 18,
+    "displayOrder": 24,
     "framesFront": [
       "/original/o067-front.png",
       "/original/o067-front-2.png"
@@ -5140,13 +5140,13 @@
         "level": 14
       },
       {
-        "id": 20027,
-        "name": "Combat Strike",
+        "id": 20002,
+        "name": "Echo Burst",
         "level": 20
       },
       {
-        "id": 20052,
-        "name": "Boulder Slam",
+        "id": 20072,
+        "name": "Adrenal Surge",
         "level": 26
       }
     ],
@@ -5171,7 +5171,7 @@
     "artwork": "/original/o068-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 4,
+    "displayOrder": 10,
     "framesFront": [
       "/original/o068-front.png",
       "/original/o068-front-2.png"
@@ -5213,18 +5213,18 @@
         "level": 8
       },
       {
-        "id": 20004,
-        "name": "Echo Tackle",
+        "id": 20028,
+        "name": "Combat Rush",
         "level": 14
       },
       {
-        "id": 20027,
-        "name": "Combat Strike",
+        "id": 20002,
+        "name": "Echo Burst",
         "level": 20
       },
       {
-        "id": 20052,
-        "name": "Boulder Slam",
+        "id": 20070,
+        "name": "Battle Rouse",
         "level": 26
       }
     ],
@@ -5247,7 +5247,7 @@
     "artwork": "/original/o069-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 5,
+    "displayOrder": 11,
     "framesFront": [
       "/original/o069-front.png",
       "/original/o069-front-2.png"
@@ -5288,13 +5288,13 @@
         "level": 8
       },
       {
-        "id": 20004,
-        "name": "Echo Tackle",
+        "id": 20002,
+        "name": "Echo Burst",
         "level": 14
       },
       {
-        "id": 20027,
-        "name": "Combat Strike",
+        "id": 20004,
+        "name": "Echo Tackle",
         "level": 20
       },
       {
@@ -5365,13 +5365,13 @@
         "level": 8
       },
       {
-        "id": 20004,
-        "name": "Echo Tackle",
+        "id": 20002,
+        "name": "Echo Burst",
         "level": 14
       },
       {
-        "id": 20019,
-        "name": "Thorn Lash",
+        "id": 20020,
+        "name": "Thorn Slam",
         "level": 20
       },
       {
@@ -5445,13 +5445,13 @@
         "level": 14
       },
       {
-        "id": 20023,
-        "name": "Frost Shard",
+        "id": 20010,
+        "name": "Tidal Flood",
         "level": 20
       },
       {
-        "id": 20036,
-        "name": "Terra Slam",
+        "id": 20072,
+        "name": "Adrenal Surge",
         "level": 26
       }
     ],
@@ -5476,7 +5476,7 @@
     "artwork": "/original/o072-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 46,
+    "displayOrder": 52,
     "framesFront": [
       "/original/o072-front.png",
       "/original/o072-front-2.png"
@@ -5521,13 +5521,13 @@
         "level": 14
       },
       {
-        "id": 20023,
-        "name": "Frost Shard",
+        "id": 20010,
+        "name": "Tidal Flood",
         "level": 20
       },
       {
-        "id": 20036,
-        "name": "Terra Slam",
+        "id": 20070,
+        "name": "Battle Rouse",
         "level": 26
       }
     ],
@@ -5550,7 +5550,7 @@
     "artwork": "/original/o073-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 47,
+    "displayOrder": 53,
     "framesFront": [
       "/original/o073-front.png",
       "/original/o073-front-2.png"
@@ -5586,23 +5586,23 @@
     ],
     "moves": [
       {
-        "id": 20009,
-        "name": "Tidal Cannon",
+        "id": 20010,
+        "name": "Tidal Flood",
         "level": 8
       },
       {
-        "id": 20010,
-        "name": "Tidal Flood",
+        "id": 20009,
+        "name": "Tidal Cannon",
         "level": 14
       },
       {
-        "id": 20069,
-        "name": "Aegis Ward",
+        "id": 20012,
+        "name": "Tidal Rush",
         "level": 20
       },
       {
-        "id": 20070,
-        "name": "Battle Rouse",
+        "id": 20071,
+        "name": "Stonewall",
         "level": 26
       }
     ],
@@ -5627,7 +5627,7 @@
     "artwork": "/original/o074-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 87,
+    "displayOrder": 90,
     "framesFront": [
       "/original/o074-front.png",
       "/original/o074-front-2.png"
@@ -5663,23 +5663,23 @@
     ],
     "moves": [
       {
-        "id": 20009,
-        "name": "Tidal Cannon",
+        "id": 20010,
+        "name": "Tidal Flood",
         "level": 8
       },
       {
-        "id": 20010,
-        "name": "Tidal Flood",
+        "id": 20009,
+        "name": "Tidal Cannon",
         "level": 14
+      },
+      {
+        "id": 20032,
+        "name": "Venom Slam",
+        "level": 20
       },
       {
         "id": 20069,
         "name": "Aegis Ward",
-        "level": 20
-      },
-      {
-        "id": 20070,
-        "name": "Battle Rouse",
         "level": 26
       }
     ],
@@ -5702,7 +5702,7 @@
     "artwork": "/original/o075-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 88,
+    "displayOrder": 91,
     "framesFront": [
       "/original/o075-front.png",
       "/original/o075-front-2.png"
@@ -5738,8 +5738,8 @@
     ],
     "moves": [
       {
-        "id": 20011,
-        "name": "Tidal Jab",
+        "id": 20009,
+        "name": "Tidal Cannon",
         "level": 8
       },
       {
@@ -5748,13 +5748,13 @@
         "level": 14
       },
       {
-        "id": 20023,
-        "name": "Frost Shard",
+        "id": 20011,
+        "name": "Tidal Jab",
         "level": 20
       },
       {
-        "id": 20072,
-        "name": "Adrenal Surge",
+        "id": 20010,
+        "name": "Tidal Flood",
         "level": 26
       }
     ],
@@ -5779,7 +5779,7 @@
     "artwork": "/original/o076-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 15,
+    "displayOrder": 21,
     "framesFront": [
       "/original/o076-front.png",
       "/original/o076-front-2.png"
@@ -5820,18 +5820,18 @@
         "level": 8
       },
       {
-        "id": 20010,
-        "name": "Tidal Flood",
+        "id": 20012,
+        "name": "Tidal Rush",
         "level": 14
       },
       {
-        "id": 20037,
-        "name": "Gale Shot",
+        "id": 20039,
+        "name": "Gale Peck",
         "level": 20
       },
       {
-        "id": 20070,
-        "name": "Battle Rouse",
+        "id": 20038,
+        "name": "Gale Gust",
         "level": 26
       }
     ],
@@ -5854,7 +5854,7 @@
     "artwork": "/original/o077-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 16,
+    "displayOrder": 22,
     "framesFront": [
       "/original/o077-front.png",
       "/original/o077-front-2.png"
@@ -5894,13 +5894,13 @@
         "level": 8
       },
       {
-        "id": 20012,
-        "name": "Tidal Rush",
+        "id": 20010,
+        "name": "Tidal Flood",
         "level": 14
       },
       {
-        "id": 20023,
-        "name": "Frost Shard",
+        "id": 20012,
+        "name": "Tidal Rush",
         "level": 20
       },
       {
@@ -5930,7 +5930,7 @@
     "artwork": "/original/o078-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 112,
+    "displayOrder": 115,
     "framesFront": [
       "/original/o078-front.png",
       "/original/o078-front-2.png"
@@ -5972,18 +5972,18 @@
         "level": 8
       },
       {
-        "id": 20012,
-        "name": "Tidal Rush",
+        "id": 20010,
+        "name": "Tidal Flood",
         "level": 14
       },
       {
-        "id": 20035,
-        "name": "Terra Swipe",
+        "id": 20036,
+        "name": "Terra Slam",
         "level": 20
       },
       {
-        "id": 20071,
-        "name": "Stonewall",
+        "id": 20069,
+        "name": "Aegis Ward",
         "level": 26
       }
     ],
@@ -6006,7 +6006,7 @@
     "artwork": "/original/o079-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 113,
+    "displayOrder": 116,
     "framesFront": [
       "/original/o079-front.png",
       "/original/o079-front-2.png"
@@ -6051,13 +6051,13 @@
         "level": 14
       },
       {
-        "id": 20023,
-        "name": "Frost Shard",
+        "id": 20010,
+        "name": "Tidal Flood",
         "level": 20
       },
       {
-        "id": 20036,
-        "name": "Terra Slam",
+        "id": 20072,
+        "name": "Adrenal Surge",
         "level": 26
       }
     ],
@@ -6082,7 +6082,7 @@
     "artwork": "/original/o080-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 50,
+    "displayOrder": 56,
     "framesFront": [
       "/original/o080-front.png",
       "/original/o080-front-2.png"
@@ -6124,18 +6124,18 @@
         "level": 8
       },
       {
-        "id": 20012,
-        "name": "Tidal Rush",
+        "id": 20048,
+        "name": "Swarm Tackle",
         "level": 14
       },
       {
-        "id": 20047,
-        "name": "Swarm Pincer",
+        "id": 20010,
+        "name": "Tidal Flood",
         "level": 20
       },
       {
-        "id": 20023,
-        "name": "Frost Shard",
+        "id": 20070,
+        "name": "Battle Rouse",
         "level": 26
       }
     ],
@@ -6158,7 +6158,7 @@
     "artwork": "/original/o081-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 51,
+    "displayOrder": 57,
     "framesFront": [
       "/original/o081-front.png",
       "/original/o081-front-2.png"
@@ -6203,13 +6203,13 @@
         "level": 14
       },
       {
-        "id": 20035,
-        "name": "Terra Swipe",
+        "id": 20018,
+        "name": "Thorn Bloom",
         "level": 20
       },
       {
-        "id": 20052,
-        "name": "Boulder Slam",
+        "id": 20072,
+        "name": "Adrenal Surge",
         "level": 26
       }
     ],
@@ -6234,7 +6234,7 @@
     "artwork": "/original/o082-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 26,
+    "displayOrder": 32,
     "framesFront": [
       "/original/o082-front.png",
       "/original/o082-front-2.png"
@@ -6276,18 +6276,18 @@
         "level": 8
       },
       {
-        "id": 20020,
-        "name": "Thorn Slam",
+        "id": 20028,
+        "name": "Combat Rush",
         "level": 14
       },
       {
-        "id": 20027,
-        "name": "Combat Strike",
+        "id": 20018,
+        "name": "Thorn Bloom",
         "level": 20
       },
       {
-        "id": 20035,
-        "name": "Terra Swipe",
+        "id": 20070,
+        "name": "Battle Rouse",
         "level": 26
       }
     ],
@@ -6310,7 +6310,7 @@
     "artwork": "/original/o083-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 27,
+    "displayOrder": 33,
     "framesFront": [
       "/original/o083-front.png",
       "/original/o083-front-2.png"
@@ -6351,18 +6351,18 @@
         "level": 8
       },
       {
-        "id": 20020,
-        "name": "Thorn Slam",
+        "id": 20017,
+        "name": "Thorn Ray",
         "level": 14
       },
       {
-        "id": 20035,
-        "name": "Terra Swipe",
+        "id": 20020,
+        "name": "Thorn Slam",
         "level": 20
       },
       {
-        "id": 20052,
-        "name": "Boulder Slam",
+        "id": 20018,
+        "name": "Thorn Bloom",
         "level": 26
       }
     ],
@@ -6428,18 +6428,18 @@
         "level": 8
       },
       {
-        "id": 20020,
-        "name": "Thorn Slam",
+        "id": 20017,
+        "name": "Thorn Ray",
         "level": 14
       },
       {
-        "id": 20031,
-        "name": "Venom Jab",
+        "id": 20032,
+        "name": "Venom Slam",
         "level": 20
       },
       {
-        "id": 20035,
-        "name": "Terra Swipe",
+        "id": 20030,
+        "name": "Venom Cloud",
         "level": 26
       }
     ],
@@ -6503,18 +6503,18 @@
         "level": 8
       },
       {
-        "id": 20018,
-        "name": "Thorn Bloom",
+        "id": 20020,
+        "name": "Thorn Slam",
         "level": 14
       },
       {
-        "id": 20033,
-        "name": "Terra Cannon",
+        "id": 20019,
+        "name": "Thorn Lash",
         "level": 20
       },
       {
-        "id": 20070,
-        "name": "Battle Rouse",
+        "id": 20018,
+        "name": "Thorn Bloom",
         "level": 26
       }
     ],
@@ -6539,7 +6539,7 @@
     "artwork": "/original/o086-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 110,
+    "displayOrder": 113,
     "framesFront": [
       "/original/o086-front.png",
       "/original/o086-front-2.png"
@@ -6580,18 +6580,18 @@
         "level": 8
       },
       {
-        "id": 20018,
-        "name": "Thorn Bloom",
+        "id": 20020,
+        "name": "Thorn Slam",
         "level": 14
       },
       {
-        "id": 20037,
-        "name": "Gale Shot",
+        "id": 20039,
+        "name": "Gale Peck",
         "level": 20
       },
       {
-        "id": 20070,
-        "name": "Battle Rouse",
+        "id": 20038,
+        "name": "Gale Gust",
         "level": 26
       }
     ],
@@ -6614,7 +6614,7 @@
     "artwork": "/original/o087-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 111,
+    "displayOrder": 114,
     "framesFront": [
       "/original/o087-front.png",
       "/original/o087-front-2.png"
@@ -6655,18 +6655,18 @@
         "level": 8
       },
       {
-        "id": 20020,
-        "name": "Thorn Slam",
+        "id": 20018,
+        "name": "Thorn Bloom",
         "level": 14
       },
       {
-        "id": 20035,
-        "name": "Terra Swipe",
+        "id": 20020,
+        "name": "Thorn Slam",
         "level": 20
       },
       {
-        "id": 20069,
-        "name": "Aegis Ward",
+        "id": 20071,
+        "name": "Stonewall",
         "level": 26
       }
     ],
@@ -6691,7 +6691,7 @@
     "artwork": "/original/o088-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 52,
+    "displayOrder": 58,
     "framesFront": [
       "/original/o088-front.png",
       "/original/o088-front-2.png"
@@ -6732,13 +6732,13 @@
         "level": 8
       },
       {
-        "id": 20020,
-        "name": "Thorn Slam",
+        "id": 20018,
+        "name": "Thorn Bloom",
         "level": 14
       },
       {
-        "id": 20035,
-        "name": "Terra Swipe",
+        "id": 20036,
+        "name": "Terra Slam",
         "level": 20
       },
       {
@@ -6766,7 +6766,7 @@
     "artwork": "/original/o089-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 53,
+    "displayOrder": 59,
     "framesFront": [
       "/original/o089-front.png",
       "/original/o089-front-2.png"
@@ -6802,23 +6802,23 @@
     ],
     "moves": [
       {
-        "id": 20017,
-        "name": "Thorn Ray",
+        "id": 20018,
+        "name": "Thorn Bloom",
         "level": 8
       },
       {
-        "id": 20018,
-        "name": "Thorn Bloom",
+        "id": 20017,
+        "name": "Thorn Ray",
         "level": 14
       },
       {
-        "id": 20069,
-        "name": "Aegis Ward",
+        "id": 20020,
+        "name": "Thorn Slam",
         "level": 20
       },
       {
-        "id": 20070,
-        "name": "Battle Rouse",
+        "id": 20071,
+        "name": "Stonewall",
         "level": 26
       }
     ],
@@ -6843,7 +6843,7 @@
     "artwork": "/original/o090-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 6,
+    "displayOrder": 12,
     "framesFront": [
       "/original/o090-front.png",
       "/original/o090-front-2.png"
@@ -6879,23 +6879,23 @@
     ],
     "moves": [
       {
-        "id": 20017,
-        "name": "Thorn Ray",
+        "id": 20018,
+        "name": "Thorn Bloom",
         "level": 8
       },
       {
-        "id": 20018,
-        "name": "Thorn Bloom",
+        "id": 20017,
+        "name": "Thorn Ray",
         "level": 14
+      },
+      {
+        "id": 20020,
+        "name": "Thorn Slam",
+        "level": 20
       },
       {
         "id": 20069,
         "name": "Aegis Ward",
-        "level": 20
-      },
-      {
-        "id": 20070,
-        "name": "Battle Rouse",
         "level": 26
       }
     ],
@@ -6918,7 +6918,7 @@
     "artwork": "/original/o091-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 7,
+    "displayOrder": 13,
     "framesFront": [
       "/original/o091-front.png",
       "/original/o091-front-2.png"
@@ -6953,8 +6953,8 @@
     ],
     "moves": [
       {
-        "id": 20047,
-        "name": "Swarm Pincer",
+        "id": 20045,
+        "name": "Swarm Shot",
         "level": 8
       },
       {
@@ -6963,13 +6963,13 @@
         "level": 14
       },
       {
-        "id": 20019,
-        "name": "Thorn Lash",
+        "id": 20047,
+        "name": "Swarm Pincer",
         "level": 20
       },
       {
-        "id": 20072,
-        "name": "Adrenal Surge",
+        "id": 20046,
+        "name": "Swarm Hive",
         "level": 26
       }
     ],
@@ -6994,7 +6994,7 @@
     "artwork": "/original/o092-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 42,
+    "displayOrder": 48,
     "framesFront": [
       "/original/o092-front.png",
       "/original/o092-front-2.png"
@@ -7031,8 +7031,8 @@
     ],
     "moves": [
       {
-        "id": 20047,
-        "name": "Swarm Pincer",
+        "id": 20045,
+        "name": "Swarm Shot",
         "level": 8
       },
       {
@@ -7046,8 +7046,8 @@
         "level": 20
       },
       {
-        "id": 20072,
-        "name": "Adrenal Surge",
+        "id": 20038,
+        "name": "Gale Gust",
         "level": 26
       }
     ],
@@ -7070,7 +7070,7 @@
     "artwork": "/original/o093-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 43,
+    "displayOrder": 49,
     "framesFront": [
       "/original/o093-front.png",
       "/original/o093-front-2.png"
@@ -7111,18 +7111,18 @@
         "level": 8
       },
       {
-        "id": 20048,
-        "name": "Swarm Tackle",
+        "id": 20045,
+        "name": "Swarm Shot",
         "level": 14
       },
       {
-        "id": 20019,
-        "name": "Thorn Lash",
+        "id": 20048,
+        "name": "Swarm Tackle",
         "level": 20
       },
       {
-        "id": 20064,
-        "name": "Shadow Charge",
+        "id": 20046,
+        "name": "Swarm Hive",
         "level": 26
       }
     ],
@@ -7147,7 +7147,7 @@
     "artwork": "/original/o094-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 91,
+    "displayOrder": 94,
     "framesFront": [
       "/original/o094-front.png",
       "/original/o094-front-2.png"
@@ -7189,18 +7189,18 @@
         "level": 8
       },
       {
-        "id": 20048,
-        "name": "Swarm Tackle",
+        "id": 20045,
+        "name": "Swarm Shot",
         "level": 14
       },
       {
-        "id": 20031,
-        "name": "Venom Jab",
+        "id": 20032,
+        "name": "Venom Slam",
         "level": 20
       },
       {
-        "id": 20019,
-        "name": "Thorn Lash",
+        "id": 20030,
+        "name": "Venom Cloud",
         "level": 26
       }
     ],
@@ -7223,7 +7223,7 @@
     "artwork": "/original/o095-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 92,
+    "displayOrder": 95,
     "framesFront": [
       "/original/o095-front.png",
       "/original/o095-front-2.png"
@@ -7269,13 +7269,13 @@
         "level": 14
       },
       {
-        "id": 20019,
-        "name": "Thorn Lash",
+        "id": 20046,
+        "name": "Swarm Hive",
         "level": 20
       },
       {
-        "id": 20064,
-        "name": "Shadow Charge",
+        "id": 20072,
+        "name": "Adrenal Surge",
         "level": 26
       }
     ],
@@ -7346,13 +7346,13 @@
         "level": 14
       },
       {
-        "id": 20019,
-        "name": "Thorn Lash",
+        "id": 20046,
+        "name": "Swarm Hive",
         "level": 20
       },
       {
-        "id": 20064,
-        "name": "Shadow Charge",
+        "id": 20070,
+        "name": "Battle Rouse",
         "level": 26
       }
     ],
@@ -7415,18 +7415,18 @@
         "level": 8
       },
       {
-        "id": 20038,
-        "name": "Gale Gust",
+        "id": 20040,
+        "name": "Gale Rush",
         "level": 14
       },
       {
-        "id": 20025,
-        "name": "Combat Shot",
+        "id": 20039,
+        "name": "Gale Peck",
         "level": 20
       },
       {
-        "id": 20070,
-        "name": "Battle Rouse",
+        "id": 20038,
+        "name": "Gale Gust",
         "level": 26
       }
     ],
@@ -7451,7 +7451,7 @@
     "artwork": "/original/o098-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 35,
+    "displayOrder": 41,
     "framesFront": [
       "/original/o098-front.png",
       "/original/o098-front-2.png"
@@ -7487,8 +7487,8 @@
     ],
     "moves": [
       {
-        "id": 20039,
-        "name": "Gale Peck",
+        "id": 20037,
+        "name": "Gale Shot",
         "level": 8
       },
       {
@@ -7497,13 +7497,13 @@
         "level": 14
       },
       {
-        "id": 20027,
-        "name": "Combat Strike",
+        "id": 20039,
+        "name": "Gale Peck",
         "level": 20
       },
       {
-        "id": 20072,
-        "name": "Adrenal Surge",
+        "id": 20038,
+        "name": "Gale Gust",
         "level": 26
       }
     ],
@@ -7526,7 +7526,7 @@
     "artwork": "/original/o099-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 36,
+    "displayOrder": 42,
     "framesFront": [
       "/original/o099-front.png",
       "/original/o099-front-2.png"
@@ -7566,18 +7566,18 @@
         "level": 8
       },
       {
-        "id": 20052,
-        "name": "Boulder Slam",
+        "id": 20050,
+        "name": "Boulder Fracture",
         "level": 14
       },
       {
-        "id": 20035,
-        "name": "Terra Swipe",
+        "id": 20052,
+        "name": "Boulder Slam",
         "level": 20
       },
       {
-        "id": 20069,
-        "name": "Aegis Ward",
+        "id": 20071,
+        "name": "Stonewall",
         "level": 26
       }
     ],
@@ -7602,7 +7602,7 @@
     "artwork": "/original/o100-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 117,
+    "displayOrder": 120,
     "framesFront": [
       "/original/o100-front.png",
       "/original/o100-front-2.png"
@@ -7643,13 +7643,13 @@
         "level": 8
       },
       {
-        "id": 20052,
-        "name": "Boulder Slam",
+        "id": 20050,
+        "name": "Boulder Fracture",
         "level": 14
       },
       {
-        "id": 20035,
-        "name": "Terra Swipe",
+        "id": 20036,
+        "name": "Terra Slam",
         "level": 20
       },
       {
@@ -7677,7 +7677,7 @@
     "artwork": "/original/o101-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 118,
+    "displayOrder": 121,
     "framesFront": [
       "/original/o101-front.png",
       "/original/o101-front-2.png"
@@ -7723,13 +7723,13 @@
         "level": 14
       },
       {
-        "id": 20025,
-        "name": "Combat Shot",
+        "id": 20044,
+        "name": "Mind Charge",
         "level": 20
       },
       {
-        "id": 20054,
-        "name": "Phantom Veil",
+        "id": 20071,
+        "name": "Stonewall",
         "level": 26
       }
     ],
@@ -7754,7 +7754,7 @@
     "artwork": "/original/o102-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 13,
+    "displayOrder": 19,
     "framesFront": [
       "/original/o102-front.png",
       "/original/o102-front-2.png"
@@ -7800,13 +7800,13 @@
         "level": 14
       },
       {
-        "id": 20025,
-        "name": "Combat Shot",
+        "id": 20044,
+        "name": "Mind Charge",
         "level": 20
       },
       {
-        "id": 20054,
-        "name": "Phantom Veil",
+        "id": 20069,
+        "name": "Aegis Ward",
         "level": 26
       }
     ],
@@ -7829,7 +7829,7 @@
     "artwork": "/original/o103-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 14,
+    "displayOrder": 20,
     "framesFront": [
       "/original/o103-front.png",
       "/original/o103-front-2.png"
@@ -7874,13 +7874,13 @@
         "level": 14
       },
       {
-        "id": 20025,
-        "name": "Combat Shot",
+        "id": 20044,
+        "name": "Mind Charge",
         "level": 20
       },
       {
-        "id": 20054,
-        "name": "Phantom Veil",
+        "id": 20071,
+        "name": "Stonewall",
         "level": 26
       }
     ],
@@ -7905,7 +7905,7 @@
     "artwork": "/original/o104-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 44,
+    "displayOrder": 50,
     "framesFront": [
       "/original/o104-front.png",
       "/original/o104-front-2.png"
@@ -7947,18 +7947,18 @@
         "level": 8
       },
       {
-        "id": 20042,
-        "name": "Mind Rift",
+        "id": 20002,
+        "name": "Echo Burst",
         "level": 14
       },
       {
-        "id": 20001,
-        "name": "Echo Shot",
+        "id": 20044,
+        "name": "Mind Charge",
         "level": 20
       },
       {
-        "id": 20025,
-        "name": "Combat Shot",
+        "id": 20069,
+        "name": "Aegis Ward",
         "level": 26
       }
     ],
@@ -7981,7 +7981,7 @@
     "artwork": "/original/o105-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 45,
+    "displayOrder": 51,
     "framesFront": [
       "/original/o105-front.png",
       "/original/o105-front-2.png"
@@ -8027,13 +8027,13 @@
         "level": 14
       },
       {
-        "id": 20027,
-        "name": "Combat Strike",
+        "id": 20042,
+        "name": "Mind Rift",
         "level": 20
       },
       {
-        "id": 20056,
-        "name": "Phantom Charge",
+        "id": 20072,
+        "name": "Adrenal Surge",
         "level": 26
       }
     ],
@@ -8058,7 +8058,7 @@
     "artwork": "/original/o106-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 64,
+    "displayOrder": 67,
     "framesFront": [
       "/original/o106-front.png",
       "/original/o106-front-2.png"
@@ -8100,18 +8100,18 @@
         "level": 8
       },
       {
-        "id": 20044,
-        "name": "Mind Charge",
+        "id": 20028,
+        "name": "Combat Rush",
         "level": 14
       },
       {
-        "id": 20027,
-        "name": "Combat Strike",
+        "id": 20042,
+        "name": "Mind Rift",
         "level": 20
       },
       {
-        "id": 20056,
-        "name": "Phantom Charge",
+        "id": 20070,
+        "name": "Battle Rouse",
         "level": 26
       }
     ],
@@ -8134,7 +8134,7 @@
     "artwork": "/original/o107-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 65,
+    "displayOrder": 68,
     "framesFront": [
       "/original/o107-front.png",
       "/original/o107-front-2.png"
@@ -8180,13 +8180,13 @@
         "level": 14
       },
       {
-        "id": 20025,
-        "name": "Combat Shot",
+        "id": 20044,
+        "name": "Mind Charge",
         "level": 20
       },
       {
-        "id": 20054,
-        "name": "Phantom Veil",
+        "id": 20071,
+        "name": "Stonewall",
         "level": 26
       }
     ],
@@ -8211,7 +8211,7 @@
     "artwork": "/original/o108-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 89,
+    "displayOrder": 92,
     "framesFront": [
       "/original/o108-front.png",
       "/original/o108-front-2.png"
@@ -8256,13 +8256,13 @@
         "level": 14
       },
       {
-        "id": 20025,
-        "name": "Combat Shot",
+        "id": 20044,
+        "name": "Mind Charge",
         "level": 20
       },
       {
-        "id": 20054,
-        "name": "Phantom Veil",
+        "id": 20069,
+        "name": "Aegis Ward",
         "level": 26
       }
     ],
@@ -8285,7 +8285,7 @@
     "artwork": "/original/o109-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 90,
+    "displayOrder": 93,
     "framesFront": [
       "/original/o109-front.png",
       "/original/o109-front-2.png"
@@ -8325,18 +8325,18 @@
         "level": 8
       },
       {
-        "id": 20032,
-        "name": "Venom Slam",
+        "id": 20030,
+        "name": "Venom Cloud",
         "level": 14
       },
       {
-        "id": 20035,
-        "name": "Terra Swipe",
+        "id": 20032,
+        "name": "Venom Slam",
         "level": 20
       },
       {
-        "id": 20069,
-        "name": "Aegis Ward",
+        "id": 20071,
+        "name": "Stonewall",
         "level": 26
       }
     ],
@@ -8361,7 +8361,7 @@
     "artwork": "/original/o110-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 8,
+    "displayOrder": 14,
     "framesFront": [
       "/original/o110-front.png",
       "/original/o110-front-2.png"
@@ -8402,13 +8402,13 @@
         "level": 8
       },
       {
-        "id": 20032,
-        "name": "Venom Slam",
+        "id": 20030,
+        "name": "Venom Cloud",
         "level": 14
       },
       {
-        "id": 20035,
-        "name": "Terra Swipe",
+        "id": 20032,
+        "name": "Venom Slam",
         "level": 20
       },
       {
@@ -8436,7 +8436,7 @@
     "artwork": "/original/o111-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 9,
+    "displayOrder": 15,
     "framesFront": [
       "/original/o111-front.png",
       "/original/o111-front-2.png"
@@ -8477,18 +8477,18 @@
         "level": 8
       },
       {
-        "id": 20032,
-        "name": "Venom Slam",
+        "id": 20029,
+        "name": "Venom Shot",
         "level": 14
       },
       {
-        "id": 20035,
-        "name": "Terra Swipe",
+        "id": 20032,
+        "name": "Venom Slam",
         "level": 20
       },
       {
-        "id": 20044,
-        "name": "Mind Charge",
+        "id": 20030,
+        "name": "Venom Cloud",
         "level": 26
       }
     ],
@@ -8513,7 +8513,7 @@
     "artwork": "/original/o112-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 54,
+    "displayOrder": 60,
     "framesFront": [
       "/original/o112-front.png",
       "/original/o112-front-2.png"
@@ -8555,18 +8555,18 @@
         "level": 8
       },
       {
-        "id": 20032,
-        "name": "Venom Slam",
+        "id": 20029,
+        "name": "Venom Shot",
         "level": 14
       },
       {
-        "id": 20011,
-        "name": "Tidal Jab",
+        "id": 20012,
+        "name": "Tidal Rush",
         "level": 20
       },
       {
-        "id": 20035,
-        "name": "Terra Swipe",
+        "id": 20010,
+        "name": "Tidal Flood",
         "level": 26
       }
     ],
@@ -8589,7 +8589,7 @@
     "artwork": "/original/o113-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 55,
+    "displayOrder": 61,
     "framesFront": [
       "/original/o113-front.png",
       "/original/o113-front-2.png"
@@ -8629,18 +8629,18 @@
         "level": 8
       },
       {
-        "id": 20030,
-        "name": "Venom Cloud",
+        "id": 20032,
+        "name": "Venom Slam",
         "level": 14
       },
       {
-        "id": 20033,
-        "name": "Terra Cannon",
+        "id": 20031,
+        "name": "Venom Jab",
         "level": 20
       },
       {
-        "id": 20070,
-        "name": "Battle Rouse",
+        "id": 20030,
+        "name": "Venom Cloud",
         "level": 26
       }
     ],
@@ -8665,7 +8665,7 @@
     "artwork": "/original/o114-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 95,
+    "displayOrder": 98,
     "framesFront": [
       "/original/o114-front.png",
       "/original/o114-front-2.png"
@@ -8702,8 +8702,8 @@
     ],
     "moves": [
       {
-        "id": 20031,
-        "name": "Venom Jab",
+        "id": 20029,
+        "name": "Venom Shot",
         "level": 8
       },
       {
@@ -8717,8 +8717,8 @@
         "level": 20
       },
       {
-        "id": 20072,
-        "name": "Adrenal Surge",
+        "id": 20010,
+        "name": "Tidal Flood",
         "level": 26
       }
     ],
@@ -8741,7 +8741,7 @@
     "artwork": "/original/o115-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 96,
+    "displayOrder": 99,
     "framesFront": [
       "/original/o115-front.png",
       "/original/o115-front-2.png"
@@ -8787,13 +8787,13 @@
         "level": 14
       },
       {
-        "id": 20035,
-        "name": "Terra Swipe",
+        "id": 20030,
+        "name": "Venom Cloud",
         "level": 20
       },
       {
-        "id": 20044,
-        "name": "Mind Charge",
+        "id": 20072,
+        "name": "Adrenal Surge",
         "level": 26
       }
     ],
@@ -8818,7 +8818,7 @@
     "artwork": "/original/o116-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 37,
+    "displayOrder": 43,
     "framesFront": [
       "/original/o116-front.png",
       "/original/o116-front-2.png"
@@ -8863,13 +8863,13 @@
         "level": 14
       },
       {
-        "id": 20035,
-        "name": "Terra Swipe",
+        "id": 20030,
+        "name": "Venom Cloud",
         "level": 20
       },
       {
-        "id": 20044,
-        "name": "Mind Charge",
+        "id": 20070,
+        "name": "Battle Rouse",
         "level": 26
       }
     ],
@@ -8892,7 +8892,7 @@
     "artwork": "/original/o117-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 38,
+    "displayOrder": 44,
     "framesFront": [
       "/original/o117-front.png",
       "/original/o117-front-2.png"
@@ -8938,13 +8938,13 @@
         "level": 14
       },
       {
-        "id": 20051,
-        "name": "Boulder Crush",
+        "id": 20034,
+        "name": "Terra Quake",
         "level": 20
       },
       {
-        "id": 20008,
-        "name": "Flame Charge",
+        "id": 20072,
+        "name": "Adrenal Surge",
         "level": 26
       }
     ],
@@ -8969,7 +8969,7 @@
     "artwork": "/original/o118-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 23,
+    "displayOrder": 29,
     "framesFront": [
       "/original/o118-front.png",
       "/original/o118-front-2.png"
@@ -9011,18 +9011,18 @@
         "level": 8
       },
       {
-        "id": 20036,
-        "name": "Terra Slam",
+        "id": 20004,
+        "name": "Echo Tackle",
         "level": 14
       },
       {
-        "id": 20003,
-        "name": "Echo Pound",
+        "id": 20034,
+        "name": "Terra Quake",
         "level": 20
       },
       {
-        "id": 20051,
-        "name": "Boulder Crush",
+        "id": 20070,
+        "name": "Battle Rouse",
         "level": 26
       }
     ],
@@ -9045,7 +9045,7 @@
     "artwork": "/original/o119-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 24,
+    "displayOrder": 30,
     "framesFront": [
       "/original/o119-front.png",
       "/original/o119-front-2.png"
@@ -9086,18 +9086,18 @@
         "level": 8
       },
       {
-        "id": 20052,
-        "name": "Boulder Slam",
+        "id": 20050,
+        "name": "Boulder Fracture",
         "level": 14
       },
       {
-        "id": 20035,
-        "name": "Terra Swipe",
+        "id": 20052,
+        "name": "Boulder Slam",
         "level": 20
       },
       {
-        "id": 20069,
-        "name": "Aegis Ward",
+        "id": 20071,
+        "name": "Stonewall",
         "level": 26
       }
     ],
@@ -9122,7 +9122,7 @@
     "artwork": "/original/o120-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 21,
+    "displayOrder": 27,
     "framesFront": [
       "/original/o120-front.png",
       "/original/o120-front-2.png"
@@ -9164,18 +9164,18 @@
         "level": 8
       },
       {
-        "id": 20052,
-        "name": "Boulder Slam",
+        "id": 20050,
+        "name": "Boulder Fracture",
         "level": 14
       },
       {
-        "id": 20067,
-        "name": "Iron Chop",
+        "id": 20068,
+        "name": "Iron Slam",
         "level": 20
       },
       {
-        "id": 20071,
-        "name": "Stonewall",
+        "id": 20069,
+        "name": "Aegis Ward",
         "level": 26
       }
     ],
@@ -9198,7 +9198,7 @@
     "artwork": "/original/o121-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 22,
+    "displayOrder": 28,
     "framesFront": [
       "/original/o121-front.png",
       "/original/o121-front-2.png"
@@ -9243,13 +9243,13 @@
         "level": 14
       },
       {
-        "id": 20035,
-        "name": "Terra Swipe",
+        "id": 20006,
+        "name": "Flame Nova",
         "level": 20
       },
       {
-        "id": 20052,
-        "name": "Boulder Slam",
+        "id": 20072,
+        "name": "Adrenal Surge",
         "level": 26
       }
     ],
@@ -9274,7 +9274,7 @@
     "artwork": "/original/o122-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 115,
+    "displayOrder": 118,
     "framesFront": [
       "/original/o122-front.png",
       "/original/o122-front-2.png"
@@ -9316,18 +9316,18 @@
         "level": 8
       },
       {
-        "id": 20008,
-        "name": "Flame Charge",
+        "id": 20064,
+        "name": "Shadow Charge",
         "level": 14
       },
       {
-        "id": 20063,
-        "name": "Shadow Bite",
+        "id": 20006,
+        "name": "Flame Nova",
         "level": 20
       },
       {
-        "id": 20035,
-        "name": "Terra Swipe",
+        "id": 20070,
+        "name": "Battle Rouse",
         "level": 26
       }
     ],
@@ -9350,7 +9350,7 @@
     "artwork": "/original/o123-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 116,
+    "displayOrder": 119,
     "framesFront": [
       "/original/o123-front.png",
       "/original/o123-front-2.png"
@@ -9396,13 +9396,13 @@
         "level": 14
       },
       {
-        "id": 20033,
-        "name": "Terra Cannon",
+        "id": 20008,
+        "name": "Flame Charge",
         "level": 20
       },
       {
-        "id": 20050,
-        "name": "Boulder Fracture",
+        "id": 20071,
+        "name": "Stonewall",
         "level": 26
       }
     ],
@@ -9427,7 +9427,7 @@
     "artwork": "/original/o124-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 19,
+    "displayOrder": 25,
     "framesFront": [
       "/original/o124-front.png",
       "/original/o124-front-2.png"
@@ -9469,18 +9469,18 @@
         "level": 8
       },
       {
-        "id": 20006,
-        "name": "Flame Nova",
+        "id": 20038,
+        "name": "Gale Gust",
         "level": 14
       },
       {
-        "id": 20037,
-        "name": "Gale Shot",
+        "id": 20008,
+        "name": "Flame Charge",
         "level": 20
       },
       {
-        "id": 20033,
-        "name": "Terra Cannon",
+        "id": 20069,
+        "name": "Aegis Ward",
         "level": 26
       }
     ],
@@ -9503,7 +9503,7 @@
     "artwork": "/original/o125-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 20,
+    "displayOrder": 26,
     "framesFront": [
       "/original/o125-front.png",
       "/original/o125-front-2.png"
@@ -9538,8 +9538,8 @@
     ],
     "moves": [
       {
-        "id": 20015,
-        "name": "Volt Jab",
+        "id": 20013,
+        "name": "Volt Bolt",
         "level": 8
       },
       {
@@ -9548,13 +9548,13 @@
         "level": 14
       },
       {
-        "id": 20067,
-        "name": "Iron Chop",
+        "id": 20015,
+        "name": "Volt Jab",
         "level": 20
       },
       {
-        "id": 20072,
-        "name": "Adrenal Surge",
+        "id": 20014,
+        "name": "Volt Storm",
         "level": 26
       }
     ],
@@ -9579,7 +9579,7 @@
     "artwork": "/original/o126-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 33,
+    "displayOrder": 39,
     "framesFront": [
       "/original/o126-front.png",
       "/original/o126-front-2.png"
@@ -9621,18 +9621,18 @@
         "level": 8
       },
       {
-        "id": 20014,
-        "name": "Volt Storm",
+        "id": 20016,
+        "name": "Volt Dash",
         "level": 14
       },
       {
-        "id": 20037,
-        "name": "Gale Shot",
+        "id": 20039,
+        "name": "Gale Peck",
         "level": 20
       },
       {
-        "id": 20070,
-        "name": "Battle Rouse",
+        "id": 20038,
+        "name": "Gale Gust",
         "level": 26
       }
     ],
@@ -9655,7 +9655,7 @@
     "artwork": "/original/o127-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 34,
+    "displayOrder": 40,
     "framesFront": [
       "/original/o127-front.png",
       "/original/o127-front-2.png"
@@ -9695,13 +9695,13 @@
         "level": 8
       },
       {
-        "id": 20024,
-        "name": "Frost Charge",
+        "id": 20022,
+        "name": "Frost Blizzard",
         "level": 14
       },
       {
-        "id": 20039,
-        "name": "Gale Peck",
+        "id": 20024,
+        "name": "Frost Charge",
         "level": 20
       },
       {
@@ -9731,7 +9731,7 @@
     "artwork": "/original/o128-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 39,
+    "displayOrder": 45,
     "framesFront": [
       "/original/o128-front.png",
       "/original/o128-front-2.png"
@@ -9772,13 +9772,13 @@
         "level": 8
       },
       {
-        "id": 20024,
-        "name": "Frost Charge",
+        "id": 20022,
+        "name": "Frost Blizzard",
         "level": 14
       },
       {
-        "id": 20039,
-        "name": "Gale Peck",
+        "id": 20024,
+        "name": "Frost Charge",
         "level": 20
       },
       {
@@ -9806,7 +9806,7 @@
     "artwork": "/original/o129-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 40,
+    "displayOrder": 46,
     "framesFront": [
       "/original/o129-front.png",
       "/original/o129-front-2.png"
@@ -9851,13 +9851,13 @@
         "level": 14
       },
       {
-        "id": 20007,
-        "name": "Flame Claw",
+        "id": 20058,
+        "name": "Draco Tempest",
         "level": 20
       },
       {
-        "id": 20040,
-        "name": "Gale Rush",
+        "id": 20072,
+        "name": "Adrenal Surge",
         "level": 26
       }
     ],
@@ -9882,7 +9882,7 @@
     "artwork": "/original/o130-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 28,
+    "displayOrder": 34,
     "framesFront": [
       "/original/o130-front.png",
       "/original/o130-front-2.png"
@@ -9928,13 +9928,13 @@
         "level": 14
       },
       {
-        "id": 20007,
-        "name": "Flame Claw",
+        "id": 20058,
+        "name": "Draco Tempest",
         "level": 20
       },
       {
-        "id": 20040,
-        "name": "Gale Rush",
+        "id": 20070,
+        "name": "Battle Rouse",
         "level": 26
       }
     ],
@@ -9957,7 +9957,7 @@
     "artwork": "/original/o131-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 29,
+    "displayOrder": 35,
     "framesFront": [
       "/original/o131-front.png",
       "/original/o131-front-2.png"
@@ -9998,18 +9998,18 @@
         "level": 8
       },
       {
-        "id": 20012,
-        "name": "Tidal Rush",
+        "id": 20009,
+        "name": "Tidal Cannon",
         "level": 14
       },
       {
-        "id": 20003,
-        "name": "Echo Pound",
+        "id": 20004,
+        "name": "Echo Tackle",
         "level": 20
       },
       {
-        "id": 20023,
-        "name": "Frost Shard",
+        "id": 20002,
+        "name": "Echo Burst",
         "level": 26
       }
     ],
@@ -10032,7 +10032,7 @@
     "artwork": "/original/o132-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 25,
+    "displayOrder": 31,
     "framesFront": [
       "/original/o132-front.png",
       "/original/o132-front-2.png"
@@ -10078,13 +10078,13 @@
         "level": 14
       },
       {
-        "id": 20021,
-        "name": "Frost Beam",
+        "id": 20012,
+        "name": "Tidal Rush",
         "level": 20
       },
       {
-        "id": 20034,
-        "name": "Terra Quake",
+        "id": 20069,
+        "name": "Aegis Ward",
         "level": 26
       }
     ],
@@ -10107,7 +10107,7 @@
     "artwork": "/original/o133-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 75,
+    "displayOrder": 78,
     "framesFront": [
       "/original/o133-front.png",
       "/original/o133-front-2.png"
@@ -10149,13 +10149,13 @@
         "level": 8
       },
       {
-        "id": 20032,
-        "name": "Venom Slam",
+        "id": 20030,
+        "name": "Venom Cloud",
         "level": 14
       },
       {
-        "id": 20011,
-        "name": "Tidal Jab",
+        "id": 20012,
+        "name": "Tidal Rush",
         "level": 20
       },
       {
@@ -10183,7 +10183,7 @@
     "artwork": "/original/o134-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 81,
+    "displayOrder": 84,
     "framesFront": [
       "/original/o134-front.png",
       "/original/o134-front-2.png"
@@ -10224,18 +10224,18 @@
         "level": 8
       },
       {
-        "id": 20020,
-        "name": "Thorn Slam",
+        "id": 20017,
+        "name": "Thorn Ray",
         "level": 14
       },
       {
-        "id": 20003,
-        "name": "Echo Pound",
+        "id": 20004,
+        "name": "Echo Tackle",
         "level": 20
       },
       {
-        "id": 20035,
-        "name": "Terra Swipe",
+        "id": 20002,
+        "name": "Echo Burst",
         "level": 26
       }
     ],
@@ -10258,7 +10258,7 @@
     "artwork": "/original/o135-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 80,
+    "displayOrder": 83,
     "framesFront": [
       "/original/o135-front.png",
       "/original/o135-front-2.png"
@@ -10300,18 +10300,18 @@
         "level": 8
       },
       {
-        "id": 20002,
-        "name": "Echo Burst",
+        "id": 20004,
+        "name": "Echo Tackle",
         "level": 14
       },
       {
-        "id": 20021,
-        "name": "Frost Beam",
+        "id": 20023,
+        "name": "Frost Shard",
         "level": 20
       },
       {
-        "id": 20070,
-        "name": "Battle Rouse",
+        "id": 20022,
+        "name": "Frost Blizzard",
         "level": 26
       }
     ],
@@ -10334,7 +10334,7 @@
     "artwork": "/original/o136-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 41,
+    "displayOrder": 47,
     "framesFront": [
       "/original/o136-front.png",
       "/original/o136-front-2.png"
@@ -10376,8 +10376,8 @@
         "level": 8
       },
       {
-        "id": 20036,
-        "name": "Terra Slam",
+        "id": 20034,
+        "name": "Terra Quake",
         "level": 14
       },
       {
@@ -10410,7 +10410,7 @@
     "artwork": "/original/o137-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 114,
+    "displayOrder": 117,
     "framesFront": [
       "/original/o137-front.png",
       "/original/o137-front-2.png"
@@ -10451,18 +10451,18 @@
         "level": 8
       },
       {
-        "id": 20046,
-        "name": "Swarm Hive",
+        "id": 20014,
+        "name": "Volt Storm",
         "level": 14
       },
       {
-        "id": 20013,
-        "name": "Volt Bolt",
+        "id": 20048,
+        "name": "Swarm Tackle",
         "level": 20
       },
       {
-        "id": 20017,
-        "name": "Thorn Ray",
+        "id": 20071,
+        "name": "Stonewall",
         "level": 26
       }
     ],
@@ -10485,7 +10485,7 @@
     "artwork": "/original/o138-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 79,
+    "displayOrder": 82,
     "framesFront": [
       "/original/o138-front.png",
       "/original/o138-front-2.png"
@@ -10522,8 +10522,8 @@
     ],
     "moves": [
       {
-        "id": 20063,
-        "name": "Shadow Bite",
+        "id": 20061,
+        "name": "Shadow Pulse",
         "level": 8
       },
       {
@@ -10537,8 +10537,8 @@
         "level": 20
       },
       {
-        "id": 20072,
-        "name": "Adrenal Surge",
+        "id": 20038,
+        "name": "Gale Gust",
         "level": 26
       }
     ],
@@ -10561,7 +10561,7 @@
     "artwork": "/original/o139-front.png",
     "roster": "original",
     "contentVersion": 1,
-    "displayOrder": 100,
+    "displayOrder": 103,
     "framesFront": [
       "/original/o139-front.png",
       "/original/o139-front-2.png"
@@ -10603,13 +10603,13 @@
         "level": 8
       },
       {
-        "id": 20068,
-        "name": "Iron Slam",
+        "id": 20066,
+        "name": "Iron Field",
         "level": 14
       },
       {
-        "id": 20043,
-        "name": "Mind Smash",
+        "id": 20044,
+        "name": "Mind Charge",
         "level": 20
       },
       {
@@ -10679,18 +10679,18 @@
         "level": 8
       },
       {
-        "id": 20008,
-        "name": "Flame Charge",
+        "id": 20051,
+        "name": "Boulder Crush",
         "level": 14
       },
       {
-        "id": 20051,
-        "name": "Boulder Crush",
+        "id": 20006,
+        "name": "Flame Nova",
         "level": 20
       },
       {
-        "id": 20035,
-        "name": "Terra Swipe",
+        "id": 20070,
+        "name": "Battle Rouse",
         "level": 26
       }
     ],
@@ -10754,18 +10754,18 @@
         "level": 8
       },
       {
-        "id": 20010,
-        "name": "Tidal Flood",
+        "id": 20058,
+        "name": "Draco Tempest",
         "level": 14
       },
       {
-        "id": 20057,
-        "name": "Draco Pulse",
+        "id": 20012,
+        "name": "Tidal Rush",
         "level": 20
       },
       {
-        "id": 20021,
-        "name": "Frost Beam",
+        "id": 20071,
+        "name": "Stonewall",
         "level": 26
       }
     ],
@@ -10824,8 +10824,8 @@
     ],
     "moves": [
       {
-        "id": 20015,
-        "name": "Volt Jab",
+        "id": 20013,
+        "name": "Volt Bolt",
         "level": 8
       },
       {
@@ -10839,8 +10839,8 @@
         "level": 20
       },
       {
-        "id": 20072,
-        "name": "Adrenal Surge",
+        "id": 20038,
+        "name": "Gale Gust",
         "level": 26
       }
     ],
@@ -10904,8 +10904,8 @@
         "level": 8
       },
       {
-        "id": 20036,
-        "name": "Terra Slam",
+        "id": 20034,
+        "name": "Terra Quake",
         "level": 14
       },
       {
@@ -10979,18 +10979,18 @@
         "level": 8
       },
       {
-        "id": 20010,
-        "name": "Tidal Flood",
+        "id": 20022,
+        "name": "Frost Blizzard",
         "level": 14
       },
       {
-        "id": 20021,
-        "name": "Frost Beam",
+        "id": 20012,
+        "name": "Tidal Rush",
         "level": 20
       },
       {
-        "id": 20034,
-        "name": "Terra Quake",
+        "id": 20069,
+        "name": "Aegis Ward",
         "level": 26
       }
     ],
@@ -11055,18 +11055,18 @@
         "level": 8
       },
       {
-        "id": 20064,
-        "name": "Shadow Charge",
+        "id": 20060,
+        "name": "Draco Rush",
         "level": 14
       },
       {
-        "id": 20059,
-        "name": "Draco Rend",
+        "id": 20062,
+        "name": "Shadow Void",
         "level": 20
       },
       {
-        "id": 20055,
-        "name": "Phantom Claw",
+        "id": 20072,
+        "name": "Adrenal Surge",
         "level": 26
       }
     ],
@@ -11130,18 +11130,18 @@
         "level": 8
       },
       {
-        "id": 20042,
-        "name": "Mind Rift",
+        "id": 20058,
+        "name": "Draco Tempest",
         "level": 14
       },
       {
-        "id": 20057,
-        "name": "Draco Pulse",
+        "id": 20044,
+        "name": "Mind Charge",
         "level": 20
       },
       {
-        "id": 20025,
-        "name": "Combat Shot",
+        "id": 20069,
+        "name": "Aegis Ward",
         "level": 26
       }
     ],
@@ -11201,23 +11201,23 @@
     ],
     "moves": [
       {
-        "id": 20017,
-        "name": "Thorn Ray",
+        "id": 20018,
+        "name": "Thorn Bloom",
         "level": 8
       },
       {
-        "id": 20018,
-        "name": "Thorn Bloom",
+        "id": 20017,
+        "name": "Thorn Ray",
         "level": 14
       },
       {
-        "id": 20069,
-        "name": "Aegis Ward",
+        "id": 20044,
+        "name": "Mind Charge",
         "level": 20
       },
       {
-        "id": 20070,
-        "name": "Battle Rouse",
+        "id": 20071,
+        "name": "Stonewall",
         "level": 26
       }
     ],
@@ -11281,18 +11281,18 @@
         "level": 8
       },
       {
-        "id": 20048,
-        "name": "Swarm Tackle",
+        "id": 20046,
+        "name": "Swarm Hive",
         "level": 14
       },
       {
-        "id": 20067,
-        "name": "Iron Chop",
+        "id": 20068,
+        "name": "Iron Slam",
         "level": 20
       },
       {
-        "id": 20071,
-        "name": "Stonewall",
+        "id": 20069,
+        "name": "Aegis Ward",
         "level": 26
       }
     ],
@@ -11356,18 +11356,18 @@
         "level": 8
       },
       {
-        "id": 20004,
-        "name": "Echo Tackle",
+        "id": 20001,
+        "name": "Echo Shot",
         "level": 14
       },
       {
-        "id": 20043,
-        "name": "Mind Smash",
+        "id": 20044,
+        "name": "Mind Charge",
         "level": 20
       },
       {
-        "id": 20027,
-        "name": "Combat Strike",
+        "id": 20042,
+        "name": "Mind Rift",
         "level": 26
       }
     ],

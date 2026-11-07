@@ -46,8 +46,12 @@ const assetById = new Map(assets.map((a) => [a.id, a]));
 const members = new Set(LOT2);
 const lot1Ids = new Set(lot1.map((c) => c.id));
 const lot1MoveIds = new Set(lot1Moves.map((m) => m.id));
-const lot1MaxDex = Math.max(...lot1.map((c) => c.dexNo));
-const lot1MaxOrder = Math.max(...lot1.map((c) => c.displayOrder ?? c.dexNo));
+// Dex layout: the first LOT2_LEADING Lot 2 creatures (the Reedlet grass line) take dex
+// #1-#3 so the opening nine are grass / fire / water three-stage lines; Lot 1's own
+// first family (Mossplod, still water) was moved to #151-#153. Every other Lot 2
+// creature follows Lot 1 from #154. Lot 1's data file is not touched by this script.
+const LOT2_LEADING = 3;
+const LOT1_COUNT = lot1.length;
 const fail = (msg) => {
   throw new Error(`build-original-lot2: ${msg}`);
 };
@@ -64,7 +68,7 @@ const creatures = LOT2.map((id, i) => {
   const evolvesTo = (d.evolvesTo || []).filter((t) => members.has(t));
   return {
     id: d.id,
-    dexNo: lot1MaxDex + 1 + i,
+    dexNo: i < LOT2_LEADING ? i + 1 : LOT1_COUNT + 1 + i,
     name: d.name,
     displayName: d.displayName,
     genus: d.animal,
@@ -93,7 +97,7 @@ const creatures = LOT2.map((id, i) => {
     artwork: a.front + v,
     roster: "original",
     contentVersion: 1,
-    displayOrder: lot1MaxOrder + 1 + i,
+    displayOrder: i < LOT2_LEADING ? i + 1 : LOT1_COUNT + 1 + i,
     framesFront: null,
     framesBack: null,
     lot: 2,
@@ -129,4 +133,4 @@ if (moves.length !== moveIds.size) fail("a learnset references a missing design 
 fs.mkdirSync(outDir, { recursive: true });
 fs.writeFileSync(path.join(outDir, "creatures.json"), JSON.stringify(creatures, null, 2) + "\n");
 fs.writeFileSync(path.join(outDir, "moves.json"), JSON.stringify(moves, null, 2) + "\n");
-console.log(`Lot 2: ${creatures.length} creatures (#${creatures[0].dexNo}-#${creatures.at(-1).dexNo}), ${moves.length} moves.`);
+console.log(`Lot 2: ${creatures.length} creatures (#${creatures.slice(0, LOT2_LEADING).map((c) => c.dexNo).join(",#")} and #${creatures[LOT2_LEADING].dexNo}-#${creatures.at(-1).dexNo}), ${moves.length} moves.`);

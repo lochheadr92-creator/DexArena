@@ -5,7 +5,7 @@
     "name": "Echo Shot",
     "type": "normal",
     "power": 85,
-    "accuracy": 100,
+    "accuracy": 80,
     "damageClass": "special",
     "effectChance": null,
     "effectText": "Fires a focused normal projectile."
@@ -16,7 +16,7 @@
     "name": "Echo Burst",
     "type": "normal",
     "power": 70,
-    "accuracy": 95,
+    "accuracy": 75,
     "damageClass": "special",
     "effectChance": null,
     "effectText": "Erupts a wide normal blast around the target zone."
@@ -38,7 +38,7 @@
     "name": "Echo Tackle",
     "type": "normal",
     "power": 72,
-    "accuracy": 95,
+    "accuracy": 100,
     "damageClass": "physical",
     "effectChance": null,
     "effectText": "Charges the foe with a normal-powered rush."
@@ -49,10 +49,10 @@
     "name": "Flame Bolt",
     "type": "fire",
     "power": 85,
-    "accuracy": 100,
+    "accuracy": 80,
     "damageClass": "special",
     "effectChance": 20,
-    "effectText": "Fires a focused fire projectile and may leave the target with a burn."
+    "effectText": "Fires a focused fire projectile. May leave the target with a burn."
   },
   {
     "id": 20006,
@@ -60,10 +60,10 @@
     "name": "Flame Nova",
     "type": "fire",
     "power": 70,
-    "accuracy": 95,
+    "accuracy": 75,
     "damageClass": "special",
-    "effectChance": null,
-    "effectText": "Erupts a wide fire blast around the target zone."
+    "effectChance": 20,
+    "effectText": "Erupts a wide fire blast around the target zone. May leave the target with a burn."
   },
   {
     "id": 20007,
@@ -73,8 +73,8 @@
     "power": 80,
     "accuracy": 100,
     "damageClass": "physical",
-    "effectChance": null,
-    "effectText": "A close-range fire blow."
+    "effectChance": 20,
+    "effectText": "A close-range fire blow. May leave the target with a burn."
   },
   {
     "id": 20008,
@@ -82,10 +82,10 @@
     "name": "Flame Charge",
     "type": "fire",
     "power": 72,
-    "accuracy": 95,
+    "accuracy": 100,
     "damageClass": "physical",
-    "effectChance": null,
-    "effectText": "Charges the foe with a fire-powered rush."
+    "effectChance": 20,
+    "effectText": "Charges the foe with a fire-powered rush. May leave the target with a burn."
   },
   {
     "id": 20009,
@@ -93,7 +93,7 @@
     "name": "Tidal Cannon",
     "type": "water",
     "power": 85,
-    "accuracy": 100,
+    "accuracy": 80,
     "damageClass": "special",
     "effectChance": null,
     "effectText": "Fires a focused water projectile."
@@ -104,7 +104,7 @@
     "name": "Tidal Flood",
     "type": "water",
     "power": 70,
-    "accuracy": 95,
+    "accuracy": 75,
     "damageClass": "special",
     "effectChance": null,
     "effectText": "Erupts a wide water blast around the target zone."
@@ -126,7 +126,7 @@
     "name": "Tidal Rush",
     "type": "water",
     "power": 72,
-    "accuracy": 95,
+    "accuracy": 100,
     "damageClass": "physical",
     "effectChance": null,
     "effectText": "Charges the foe with a water-powered rush."
@@ -137,10 +137,10 @@
     "name": "Volt Bolt",
     "type": "electric",
     "power": 85,
-    "accuracy": 100,
+    "accuracy": 80,
     "damageClass": "special",
     "effectChance": 20,
-    "effectText": "Fires a focused electric projectile and may paralyze the target."
+    "effectText": "Fires a focused electric projectile. May paralyze the target, slowing it."
   },
   {
     "id": 20014,
@@ -148,10 +148,10 @@
     "name": "Volt Storm",
     "type": "electric",
     "power": 70,
-    "accuracy": 95,
+    "accuracy": 75,
     "damageClass": "special",
-    "effectChance": null,
-    "effectText": "Erupts a wide electric blast around the target zone."
+    "effectChance": 20,
+    "effectText": "Erupts a wide electric blast around the target zone. May paralyze the target, slowing it."
   },
   {
     "id": 20015,
@@ -161,8 +161,8 @@
     "power": 80,
     "accuracy": 100,
     "damageClass": "physical",
-    "effectChance": null,
-    "effectText": "A close-range electric blow."
+    "effectChance": 20,
+    "effectText": "A close-range electric blow. May paralyze the target, slowing it."
   },
   {
     "id": 20016,
@@ -170,10 +170,10 @@
     "name": "Volt Dash",
     "type": "electric",
     "power": 72,
-    "accuracy": 95,
+    "accuracy": 100,
     "damageClass": "physical",
-    "effectChance": null,
-    "effectText": "Charges the foe with a electric-powered rush."
+    "effectChance": 20,
+    "effectText": "Charges the foe with an electric-powered rush. May paralyze the target, slowing it."
   },
   {
     "id": 20017,
@@ -181,7 +181,7 @@
     "name": "Thorn Ray",
     "type": "grass",
     "power": 85,
-    "accuracy": 100,
+    "accuracy": 80,
     "damageClass": "special",
     "effectChance": null,
     "effectText": "Fires a focused grass projectile."
@@ -192,7 +192,7 @@
     "name": "Thorn Bloom",
     "type": "grass",
     "power": 70,
-    "accuracy": 95,
+    "accuracy": 75,
     "damageClass": "special",
     "effectChance": null,
     "effectText": "Erupts a wide grass blast around the target zone."
@@ -214,7 +214,7 @@
     "name": "Thorn Slam",
     "type": "grass",
     "power": 72,
-    "accuracy": 95,
+    "accuracy": 100,
     "damageClass": "physical",
     "effectChance": null,
     "effectText": "Charges the foe with a grass-powered rush."
@@ -225,10 +225,10 @@
     "name": "Frost Beam",
     "type": "ice",
     "power": 85,
-    "accuracy": 100,
+    "accuracy": 80,
     "damageClass": "special",
-    "effectChance": null,
-    "effectText": "Fires a focused ice projectile."
+    "effectChance": 15,
+    "effectText": "Fires a focused ice projectile. A numbing chill that may paralyze the target."
   },
   {
     "id": 20022,
@@ -236,10 +236,10 @@
     "name": "Frost Blizzard",
     "type": "ice",
     "power": 70,
-    "accuracy": 95,
+    "accuracy": 75,
     "damageClass": "special",
-    "effectChance": null,
-    "effectText": "Erupts a wide ice blast around the target zone."
+    "effectChance": 15,
+    "effectText": "Erupts a wide ice blast around the target zone. A numbing chill that may paralyze the target."
   },
   {
     "id": 20023,
@@ -249,8 +249,8 @@
     "power": 80,
     "accuracy": 100,
     "damageClass": "physical",
-    "effectChance": null,
-    "effectText": "A close-range ice blow."
+    "effectChance": 15,
+    "effectText": "A close-range ice blow. A numbing chill that may paralyze the target."
   },
   {
     "id": 20024,
@@ -258,10 +258,10 @@
     "name": "Frost Charge",
     "type": "ice",
     "power": 72,
-    "accuracy": 95,
+    "accuracy": 100,
     "damageClass": "physical",
-    "effectChance": null,
-    "effectText": "Charges the foe with a ice-powered rush."
+    "effectChance": 15,
+    "effectText": "Charges the foe with an ice-powered rush. A numbing chill that may paralyze the target."
   },
   {
     "id": 20025,
@@ -269,7 +269,7 @@
     "name": "Combat Shot",
     "type": "fighting",
     "power": 85,
-    "accuracy": 100,
+    "accuracy": 80,
     "damageClass": "special",
     "effectChance": null,
     "effectText": "Fires a focused fighting projectile."
@@ -280,7 +280,7 @@
     "name": "Combat Barrage",
     "type": "fighting",
     "power": 70,
-    "accuracy": 95,
+    "accuracy": 75,
     "damageClass": "special",
     "effectChance": null,
     "effectText": "Erupts a wide fighting blast around the target zone."
@@ -302,7 +302,7 @@
     "name": "Combat Rush",
     "type": "fighting",
     "power": 72,
-    "accuracy": 95,
+    "accuracy": 100,
     "damageClass": "physical",
     "effectChance": null,
     "effectText": "Charges the foe with a fighting-powered rush."
@@ -313,10 +313,10 @@
     "name": "Venom Shot",
     "type": "poison",
     "power": 85,
-    "accuracy": 100,
+    "accuracy": 80,
     "damageClass": "special",
-    "effectChance": null,
-    "effectText": "Fires a focused poison projectile."
+    "effectChance": 15,
+    "effectText": "Fires a focused poison projectile. Numbing venom that may paralyze the target."
   },
   {
     "id": 20030,
@@ -324,10 +324,10 @@
     "name": "Venom Cloud",
     "type": "poison",
     "power": 70,
-    "accuracy": 95,
+    "accuracy": 75,
     "damageClass": "special",
-    "effectChance": null,
-    "effectText": "Erupts a wide poison blast around the target zone."
+    "effectChance": 15,
+    "effectText": "Erupts a wide poison blast around the target zone. Numbing venom that may paralyze the target."
   },
   {
     "id": 20031,
@@ -337,8 +337,8 @@
     "power": 80,
     "accuracy": 100,
     "damageClass": "physical",
-    "effectChance": null,
-    "effectText": "A close-range poison blow."
+    "effectChance": 15,
+    "effectText": "A close-range poison blow. Numbing venom that may paralyze the target."
   },
   {
     "id": 20032,
@@ -346,10 +346,10 @@
     "name": "Venom Slam",
     "type": "poison",
     "power": 72,
-    "accuracy": 95,
+    "accuracy": 100,
     "damageClass": "physical",
-    "effectChance": null,
-    "effectText": "Charges the foe with a poison-powered rush."
+    "effectChance": 15,
+    "effectText": "Charges the foe with a poison-powered rush. Numbing venom that may paralyze the target."
   },
   {
     "id": 20033,
@@ -357,7 +357,7 @@
     "name": "Terra Cannon",
     "type": "ground",
     "power": 85,
-    "accuracy": 100,
+    "accuracy": 80,
     "damageClass": "special",
     "effectChance": null,
     "effectText": "Fires a focused ground projectile."
@@ -368,7 +368,7 @@
     "name": "Terra Quake",
     "type": "ground",
     "power": 70,
-    "accuracy": 95,
+    "accuracy": 75,
     "damageClass": "special",
     "effectChance": null,
     "effectText": "Erupts a wide ground blast around the target zone."
@@ -390,7 +390,7 @@
     "name": "Terra Slam",
     "type": "ground",
     "power": 72,
-    "accuracy": 95,
+    "accuracy": 100,
     "damageClass": "physical",
     "effectChance": null,
     "effectText": "Charges the foe with a ground-powered rush."
@@ -401,7 +401,7 @@
     "name": "Gale Shot",
     "type": "flying",
     "power": 85,
-    "accuracy": 100,
+    "accuracy": 80,
     "damageClass": "special",
     "effectChance": null,
     "effectText": "Fires a focused flying projectile."
@@ -412,7 +412,7 @@
     "name": "Gale Gust",
     "type": "flying",
     "power": 70,
-    "accuracy": 95,
+    "accuracy": 75,
     "damageClass": "special",
     "effectChance": null,
     "effectText": "Erupts a wide flying blast around the target zone."
@@ -434,7 +434,7 @@
     "name": "Gale Rush",
     "type": "flying",
     "power": 72,
-    "accuracy": 95,
+    "accuracy": 100,
     "damageClass": "physical",
     "effectChance": null,
     "effectText": "Charges the foe with a flying-powered rush."
@@ -445,7 +445,7 @@
     "name": "Mind Beam",
     "type": "psychic",
     "power": 85,
-    "accuracy": 100,
+    "accuracy": 80,
     "damageClass": "special",
     "effectChance": null,
     "effectText": "Fires a focused psychic projectile."
@@ -456,7 +456,7 @@
     "name": "Mind Rift",
     "type": "psychic",
     "power": 70,
-    "accuracy": 95,
+    "accuracy": 75,
     "damageClass": "special",
     "effectChance": null,
     "effectText": "Erupts a wide psychic blast around the target zone."
@@ -478,7 +478,7 @@
     "name": "Mind Charge",
     "type": "psychic",
     "power": 72,
-    "accuracy": 95,
+    "accuracy": 100,
     "damageClass": "physical",
     "effectChance": null,
     "effectText": "Charges the foe with a psychic-powered rush."
@@ -489,7 +489,7 @@
     "name": "Swarm Shot",
     "type": "bug",
     "power": 85,
-    "accuracy": 100,
+    "accuracy": 80,
     "damageClass": "special",
     "effectChance": null,
     "effectText": "Fires a focused bug projectile."
@@ -500,7 +500,7 @@
     "name": "Swarm Hive",
     "type": "bug",
     "power": 70,
-    "accuracy": 95,
+    "accuracy": 75,
     "damageClass": "special",
     "effectChance": null,
     "effectText": "Erupts a wide bug blast around the target zone."
@@ -522,7 +522,7 @@
     "name": "Swarm Tackle",
     "type": "bug",
     "power": 72,
-    "accuracy": 95,
+    "accuracy": 100,
     "damageClass": "physical",
     "effectChance": null,
     "effectText": "Charges the foe with a bug-powered rush."
@@ -533,7 +533,7 @@
     "name": "Boulder Cannon",
     "type": "rock",
     "power": 85,
-    "accuracy": 100,
+    "accuracy": 80,
     "damageClass": "special",
     "effectChance": null,
     "effectText": "Fires a focused rock projectile."
@@ -544,7 +544,7 @@
     "name": "Boulder Fracture",
     "type": "rock",
     "power": 70,
-    "accuracy": 95,
+    "accuracy": 75,
     "damageClass": "special",
     "effectChance": null,
     "effectText": "Erupts a wide rock blast around the target zone."
@@ -566,7 +566,7 @@
     "name": "Boulder Slam",
     "type": "rock",
     "power": 72,
-    "accuracy": 95,
+    "accuracy": 100,
     "damageClass": "physical",
     "effectChance": null,
     "effectText": "Charges the foe with a rock-powered rush."
@@ -577,10 +577,10 @@
     "name": "Phantom Ray",
     "type": "ghost",
     "power": 85,
-    "accuracy": 100,
+    "accuracy": 80,
     "damageClass": "special",
-    "effectChance": null,
-    "effectText": "Fires a focused ghost projectile."
+    "effectChance": 15,
+    "effectText": "Fires a focused ghost projectile. A dread that may paralyze the target."
   },
   {
     "id": 20054,
@@ -588,10 +588,10 @@
     "name": "Phantom Veil",
     "type": "ghost",
     "power": 70,
-    "accuracy": 95,
+    "accuracy": 75,
     "damageClass": "special",
-    "effectChance": null,
-    "effectText": "Erupts a wide ghost blast around the target zone."
+    "effectChance": 15,
+    "effectText": "Erupts a wide ghost blast around the target zone. A dread that may paralyze the target."
   },
   {
     "id": 20055,
@@ -601,8 +601,8 @@
     "power": 80,
     "accuracy": 100,
     "damageClass": "physical",
-    "effectChance": null,
-    "effectText": "A close-range ghost blow."
+    "effectChance": 15,
+    "effectText": "A close-range ghost blow. A dread that may paralyze the target."
   },
   {
     "id": 20056,
@@ -610,10 +610,10 @@
     "name": "Phantom Charge",
     "type": "ghost",
     "power": 72,
-    "accuracy": 95,
+    "accuracy": 100,
     "damageClass": "physical",
-    "effectChance": null,
-    "effectText": "Charges the foe with a ghost-powered rush."
+    "effectChance": 15,
+    "effectText": "Charges the foe with a ghost-powered rush. A dread that may paralyze the target."
   },
   {
     "id": 20057,
@@ -621,7 +621,7 @@
     "name": "Draco Pulse",
     "type": "dragon",
     "power": 85,
-    "accuracy": 100,
+    "accuracy": 80,
     "damageClass": "special",
     "effectChance": null,
     "effectText": "Fires a focused dragon projectile."
@@ -632,7 +632,7 @@
     "name": "Draco Tempest",
     "type": "dragon",
     "power": 70,
-    "accuracy": 95,
+    "accuracy": 75,
     "damageClass": "special",
     "effectChance": null,
     "effectText": "Erupts a wide dragon blast around the target zone."
@@ -654,7 +654,7 @@
     "name": "Draco Rush",
     "type": "dragon",
     "power": 72,
-    "accuracy": 95,
+    "accuracy": 100,
     "damageClass": "physical",
     "effectChance": null,
     "effectText": "Charges the foe with a dragon-powered rush."
@@ -665,7 +665,7 @@
     "name": "Shadow Pulse",
     "type": "dark",
     "power": 85,
-    "accuracy": 100,
+    "accuracy": 80,
     "damageClass": "special",
     "effectChance": null,
     "effectText": "Fires a focused dark projectile."
@@ -676,7 +676,7 @@
     "name": "Shadow Void",
     "type": "dark",
     "power": 70,
-    "accuracy": 95,
+    "accuracy": 75,
     "damageClass": "special",
     "effectChance": null,
     "effectText": "Erupts a wide dark blast around the target zone."
@@ -698,7 +698,7 @@
     "name": "Shadow Charge",
     "type": "dark",
     "power": 72,
-    "accuracy": 95,
+    "accuracy": 100,
     "damageClass": "physical",
     "effectChance": null,
     "effectText": "Charges the foe with a dark-powered rush."
@@ -709,7 +709,7 @@
     "name": "Iron Cannon",
     "type": "steel",
     "power": 85,
-    "accuracy": 100,
+    "accuracy": 80,
     "damageClass": "special",
     "effectChance": null,
     "effectText": "Fires a focused steel projectile."
@@ -720,7 +720,7 @@
     "name": "Iron Field",
     "type": "steel",
     "power": 70,
-    "accuracy": 95,
+    "accuracy": 75,
     "damageClass": "special",
     "effectChance": null,
     "effectText": "Erupts a wide steel blast around the target zone."
@@ -742,7 +742,7 @@
     "name": "Iron Slam",
     "type": "steel",
     "power": 72,
-    "accuracy": 95,
+    "accuracy": 100,
     "damageClass": "physical",
     "effectChance": null,
     "effectText": "Charges the foe with a steel-powered rush."
